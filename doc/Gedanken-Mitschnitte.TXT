@@ -1,0 +1,48 @@
+Inhalt fürs Storyboard
+======================
+Benennung der verschiedenen Folder & Solutions
+	ContentFinder.Contracts
+	Folder möglichst kurz: sonst hakt es schnell
+		Windows: 260 Zeichen für Gesamtpfad
+		VS: meckert ab mehr als 42
+	Solutions möglichst aussagekräftig mit Projektnamen: damit die Recent-Liste von VS/Win7 verwendbar ist
+
+Anlegen einer Blank-Solution im Explorer
+
+Shortcut für neues Projekt in SLN (SHIFT + CTRL + N)
+	Achtung: will standardmäßig neue Solution anlegen
+
+
+Schritte beim Anlegen der Projekte
+==================================
+source.contracts
+	mit jeweiligen Packages (Projekten/Assemblies)
+
+für jedes Projekt
+	.NET FW 3.5 Client-Profil
+	Platform: x86
+	
+	eigentlich für jede Konfiguration, im Moment nur für Debug
+		
+	setzen der vollen Assembly und Namespace-Infos (EsriDE.Samples.ContentFinder.*)
+
+für Contract-Projekte
+	Ausgabe nach ..\..\bin.contracts\
+
+für Implementierungs-Projekte
+	Ausgabe nach ..\..\..\bin\
+
+für Test-Projekte
+	bin\Debug lassen
+
+Diskussionen
+============
+Solution-Platform spezifizieren?
+	per default ist nur Any CPU da
+	Frage: eigentlich m+sste man eine Solution-Platform spezifizieren (neben der Any CPU)
+
+Content-Adapter
+	müsste eigentlich in Mxd- und AGS-Content-Adapter geteilt werden
+
+Solution-Folder zum Gruppieren lassen sich nicht mit einem Namen anlegen, wenn es schon ein gleichnamiges Projekt gibt
+	aber umbenennen geht
