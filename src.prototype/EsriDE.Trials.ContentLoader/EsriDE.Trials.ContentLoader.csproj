@@ -78,6 +78,16 @@
     </Compile>
     <Compile Include="ContentFinder\UriAnalyzer.cs" />
     <Compile Include="ContentLocatorCreatorLocator.cs" />
+    <Compile Include="CoR\AgsFactory.cs" />
+    <Compile Include="CoR\AgsResolver.cs" />
+    <Compile Include="CoR\Fixture.cs" />
+    <Compile Include="CoR\IFactory.cs" />
+    <Compile Include="CoR\IResolver.cs" />
+    <Compile Include="CoR\MxdFactory.cs" />
+    <Compile Include="CoR\MxdResolver.cs" />
+    <Compile Include="CoR\Resolver.cs" />
+    <Compile Include="CoR\UnknownFactory.cs" />
+    <Compile Include="CoR\UnknownResolver.cs" />
     <Compile Include="DomainModel\Content.cs" />
     <Compile Include="DomainModel\SourceBundle.cs" />
     <Compile Include="ContentFinder\AgsContentFinder.cs" />
