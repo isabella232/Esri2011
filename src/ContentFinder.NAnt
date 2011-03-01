@@ -10,9 +10,49 @@
 	<target name="clean" description="remove all generated files">
 		<delete dir="../bin" />
 		
-		<delete>
+		<!-- loescht nur die Files, aber keine Folder
+		<delete> 
+            <fileset> 
+                <include name="${workingpath}/**/bin/**/*" /> 
+                <include name="${workingpath}/**/obj/**/*" /> 
+            </fileset> 
+        </delete>
 		
-		</delete>
+		<delete> 
+            <fileset> 
+                <include name="${solution.dir}/*/obj/Debug/**/*" /> 
+                <include name="${solution.dir}/*/obj/Release/**/*" /> 
+            </fileset> 
+        </delete>
+		-->
+		
+		<foreach item="Folder" property="foldername">
+            <in>
+                <items basedir=".">
+                    <include name="**\bin" />
+                    <include name="**\obj" />
+                    <!--<include name="**\_ReSharper.*" />-->
+                </items>
+            </in>
+            <do>
+				<!--<echo message="${foldername}" />-->
+                <delete dir="${foldername}" />
+            </do>
+        </foreach>
+		
+		<!--
+        <foreach item="File" property="filename">
+            <in>
+                <items basedir=".">
+                    <include name="**\*.user" />
+                    <include name="**\*.suo" />
+                </items>
+            </in>
+            <do>
+                <delete file="${filename}" />
+            </do>
+        </foreach>
+		-->
 	</target>
 	
 	<target name="build" description="compile projects">
