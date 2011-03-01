@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<project name="ContentFinder.Contracts" default="rebuild">
+	<property name="basename" value="EsriDE.Samples.ContentFinder"/>
+	<property name="configuration" value="debug" />
+	<property name="msbuild" value="${framework::get-framework-directory(framework::get-target-framework())}\MSBuild.exe" />
+	
+	
+	<target name="rebuild" depends="clean, build" />
+
+	<target name="clean" description="remove all generated files">
+		<delete dir="../bin" />
+		
+		<delete>
+		
+		</delete>
+	</target>
+	
+	<target name="build" description="compile projects">
+        <call target="build_DomainModel" />
+		<call target="build_ContentAdapter.Contract" />
+		<call target="build_ConfigurationAdapter.Contract" />
+		<call target="build_BL.Contract" />
+		<call target="build_UI.Contract" />
+    </target>
+	
+	<target name="build_DomainModel">
+        <exec program="${msbuild}" commandline='"./DomainModel/DomainModel.csproj" /v:n /nologo /t:Build /p:Configuration=${configuration}"' />
+    </target>
+	
+	<target name="build_ContentAdapter.Contract">
+        <exec program="${msbuild}" commandline='"./ContentAdapter.Contract/ContentAdapter.Contract.csproj" /v:n /nologo /t:Build /p:Configuration=${configuration}"' />
+    </target>
+	
+	<target name="build_ConfigurationAdapter.Contract">
+        <exec program="${msbuild}" commandline='"./ConfigurationAdapter.Contract/ConfigurationAdapter.Contract.csproj" /v:n /nologo /t:Build /p:Configuration=${configuration}"' />
+    </target>
+	
+	<target name="build_BL.Contract">
+        <exec program="${msbuild}" commandline='"./BL.Contract/BL.Contract.csproj" /v:n /nologo /t:Build /p:Configuration=${configuration}"' />
+    </target>
+	
+	<target name="build_UI.Contract">
+        <exec program="${msbuild}" commandline='"./UI.Contract/UI.Contract.csproj" /v:n /nologo /t:Build /p:Configuration=${configuration}"' />
+    </target>
+</project>
+
+	<!--
+	<delete file="bin/Something.ext" if="${file::exists('bin/Something.ext')}" />
+	-->
+		
+	<!--
+    <property name="bin-directory" value="${directory::get-current-directory()}/bin/" />
+    <property name="msbuild" value="${framework::get-framework-directory(framework::get-target-framework())}\MSBuild.exe" />
+	<property name="directory.bin.contracts" value="${directory::get-current-directory()}/../bin.contracts/" />
+    -->
+	
+	<!--
+    <target name="build.tests">
+        <- Do not build verbosely (/v:q), user wants to see test results, not build output ->
+        <exec program="${msbuild}" commandline='"src/Test/Test.csproj" /v:q /nologo /t:Build /p:Configuration=Debug;OutDir="${directory::get-current-directory()}/bin/"' />
+    </target>
+	-->
