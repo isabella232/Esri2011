@@ -33,16 +33,90 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Accessibility">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.System, Version=10.0.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=x86">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\lib\Esri.ArcGIS\ESRI.ArcGIS.System.dll</HintPath>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Version, Version=10.0.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=x86">
+      <HintPath>..\..\..\lib\Esri.ArcGIS\ESRI.ArcGIS.Version.dll</HintPath>
+    </Reference>
+    <Reference Include="EsriDE.Samples.ContentFinder.ConfigurationAdapter.Contract">
+      <HintPath>..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.ConfigurationAdapter.Contract.dll</HintPath>
+    </Reference>
+    <Reference Include="EsriDE.Samples.ContentFinder.ContentAdapter.Contract">
+      <HintPath>..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.ContentAdapter.Contract.dll</HintPath>
+    </Reference>
+    <Reference Include="EsriDE.Samples.ContentFinder.DomainModel">
+      <HintPath>..\..\..\bin\EsriDE.Samples.ContentFinder.DomainModel.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\..\..\lib\NUnit\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FixtureBase.cs" />
+    <Compile Include="MxdContentLocatorFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TestData\RecursiveA\MapDocumentA1.mdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\RecursiveA\RecursiveAA\MapDocumentAA1.mdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\RecursiveA\RecursiveAA\MapDocumentAA2.mdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\RecursiveA\RecursiveAB\MapDocumentAB1.mdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\RecursiveA\RecursiveAB\MapDocumentAB2.mdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\RecursiveB\MapDocumentB1.mdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\MapDocument1.mdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\MapDocument1.mxd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\RecursiveA\MapDocumentA1.mxd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\RecursiveA\RecursiveAA\MapDocumentAA1.mxd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\RecursiveA\RecursiveAA\MapDocumentAA2.mxd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\RecursiveA\RecursiveAB\MapDocumentAB1.mxd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\RecursiveA\RecursiveAB\MapDocumentAB2.mxd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\RecursiveB\MapDocumentB1.mxd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ContentAdapter\ContentAdapter.csproj">
+      <Project>{9DF6ABE9-5538-4F59-9C3F-8625142C32AE}</Project>
+      <Name>ContentAdapter %28ContentAdapter\ContentAdapter%29</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

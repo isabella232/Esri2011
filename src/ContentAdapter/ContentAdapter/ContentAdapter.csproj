@@ -33,8 +33,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ESRI.ArcGIS.Carto, Version=10.0.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=x86">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\lib\Esri.ArcGIS\ESRI.ArcGIS.Carto.dll</HintPath>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.System, Version=10.0.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=x86">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\lib\Esri.ArcGIS\ESRI.ArcGIS.System.dll</HintPath>
+    </Reference>
+    <Reference Include="EsriDE.Samples.ContentFinder.ContentAdapter.Contract, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86" />
     <Reference Include="EsriDE.Samples.ContentFinder.DomainModel">
       <HintPath>..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.DomainModel.dll</HintPath>
+    </Reference>
+    <Reference Include="stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\lib\Microsoft\stdole.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -45,9 +58,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AgsContent.cs" />
-    <Compile Include="MxdContent.cs" />
+    <Compile Include="Ags\AgsContent.cs" />
+    <Compile Include="Ags\AgsContentLocator.cs" />
+    <Compile Include="FileUriAnalyzer.cs" />
+    <Compile Include="Mxd\BitmapUtil.cs" />
+    <Compile Include="ContentLocator.cs" />
+    <Compile Include="FileContentLocator.cs" />
+    <Compile Include="FileUtils.cs" />
+    <Compile Include="Mxd\MxdContent.cs" />
+    <Compile Include="Mxd\MxdContentLocator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Mxd\Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="UriAnalyzer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mxd\Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Mxd\MapDocumentDefaultImage.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

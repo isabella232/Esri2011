@@ -33,16 +33,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EsriDE.Samples.ContentFinder.ConfigurationAdapter.Contract">
+      <HintPath>..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.ConfigurationAdapter.Contract.dll</HintPath>
+    </Reference>
+    <Reference Include="EsriDE.Samples.ContentFinder.DomainModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XmlConfigurationReader.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -8,10 +8,11 @@
     <ProjectGuid>{791AB62C-3EF3-446A-B055-3EA3A11596AA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BL.Tests</RootNamespace>
-    <AssemblyName>BL.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <RootNamespace>EsriDE.Samples.ContentFinder.BL.Tests</RootNamespace>
+    <AssemblyName>EsriDE.Samples.ContentFinder.BL.Tests</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,16 +32,38 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EsriDE.Samples.ContentFinder.BL.Contract">
+      <HintPath>..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.BL.Contract.dll</HintPath>
+    </Reference>
+    <Reference Include="EsriDE.Samples.ContentFinder.ConfigurationAdapter.Contract">
+      <HintPath>..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.ConfigurationAdapter.Contract.dll</HintPath>
+    </Reference>
+    <Reference Include="EsriDE.Samples.ContentFinder.ContentAdapter.Contract">
+      <HintPath>..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.ContentAdapter.Contract.dll</HintPath>
+    </Reference>
+    <Reference Include="EsriDE.Samples.ContentFinder.DomainModel">
+      <HintPath>..\..\..\bin\EsriDE.Samples.ContentFinder.DomainModel.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\..\..\lib\NUnit\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContentLocatorResolverFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SampleConfigurationReader.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BL\BL.csproj">
+      <Project>{F1C8BBAB-FE8C-4A2B-B03C-07B9BDEF893C}</Project>
+      <Name>BL %28BL\BL%29</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

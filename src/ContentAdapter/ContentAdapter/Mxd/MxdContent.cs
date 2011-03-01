@@ -2,7 +2,7 @@
 using System.Drawing;
 using EsriDE.Samples.ContentFinder.DomainModel;
 
-namespace EsriDE.Samples.ContentFinder.ContentAdapter
+namespace EsriDE.Samples.ContentFinder.ContentAdapter.Mxd
 {
 	public class MxdContent : Content
 	{
