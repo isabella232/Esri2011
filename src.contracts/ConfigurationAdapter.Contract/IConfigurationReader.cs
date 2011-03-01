@@ -1,10 +1,11 @@
+using System;
 using System.Collections.Generic;
 using EsriDE.Samples.ContentFinder.DomainModel;
 
 namespace EsriDE.Samples.ContentFinder.ConfigurationAdapter.Contract
 {
-	public interface IConfigurationAdapter
+	public interface IConfigurationReader
 	{
-		IEnumerable<SourceBundle> Read();
+		IEnumerable<SourceBundle> ReadConfiguration(Uri uri);
 	}
 }

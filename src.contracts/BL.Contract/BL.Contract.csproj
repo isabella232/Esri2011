@@ -37,12 +37,26 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IContentLocatorCreator.cs" />
+    <Compile Include="IContentLocatorCreatorFilter.cs" />
+    <Compile Include="IContentLocatorFilter.cs" />
+    <Compile Include="IContentLocatorResolver.cs" />
+    <Compile Include="IController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ContentAdapter.Contract\ContentAdapter.Contract.csproj">
+      <Project>{B9A6B085-8837-4695-BF3F-1754230D1989}</Project>
+      <Name>ContentAdapter.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DomainModel\DomainModel.csproj">
+      <Project>{2259F50E-CA56-4E30-AAF3-5DF853B57EF1}</Project>
+      <Name>DomainModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
