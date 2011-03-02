@@ -1,7 +1,6 @@
-using EsriDE.Samples.ContentFinder.ContentAdapter.Contract;
 using EsriDE.Samples.ContentFinder.DomainModel;
 
-namespace EsriDE.Samples.ContentFinder.BL.Contract
+namespace EsriDE.Samples.ContentFinder.ContentAdapter.Contract
 {
 	public interface IContentLocatorFilter
 	{

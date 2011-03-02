@@ -42,6 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IContentLocator.cs" />
+    <Compile Include="IContentLocatorCreator.cs" />
+    <Compile Include="IContentLocatorCreatorFilter.cs" />
+    <Compile Include="IContentLocatorFilter.cs" />
+    <Compile Include="IContentLocatorResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

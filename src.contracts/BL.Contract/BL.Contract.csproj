@@ -41,10 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IContentLocatorCreator.cs" />
-    <Compile Include="IContentLocatorCreatorFilter.cs" />
-    <Compile Include="IContentLocatorFilter.cs" />
-    <Compile Include="IContentLocatorResolver.cs" />
     <Compile Include="IController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
