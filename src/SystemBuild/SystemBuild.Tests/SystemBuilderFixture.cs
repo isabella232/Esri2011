@@ -1,4 +1,5 @@
 using EsriDE.Samples.ContentFinder.BL.Contract;
+using EsriDE.Samples.ContentFinder.ContentAdapter.Contract;
 using NUnit.Framework;
 
 namespace EsriDE.Samples.ContentFinder.SystemBuild.Tests
