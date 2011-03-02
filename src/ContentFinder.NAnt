@@ -4,27 +4,11 @@
 	<property name="configuration" value="debug" />
 	<property name="msbuild" value="${framework::get-framework-directory(framework::get-target-framework())}\MSBuild.exe" />
 	
-	
-	<target name="rebuild" depends="clean, build" />
+	<target name="rebuild_all" depends="rebuild, build_Tests" />
+	<target name="rebuild" depends="clean, build_Implementations" />
 
 	<target name="clean" description="remove all generated files">
 		<delete dir="../bin" />
-		
-		<!-- loescht nur die Files, aber keine Folder
-		<delete> 
-            <fileset> 
-                <include name="${workingpath}/**/bin/**/*" /> 
-                <include name="${workingpath}/**/obj/**/*" /> 
-            </fileset> 
-        </delete>
-		
-		<delete> 
-            <fileset> 
-                <include name="${solution.dir}/*/obj/Debug/**/*" /> 
-                <include name="${solution.dir}/*/obj/Release/**/*" /> 
-            </fileset> 
-        </delete>
-		-->
 		
 		<foreach item="Folder" property="foldername">
             <in>
@@ -39,49 +23,35 @@
                 <delete dir="${foldername}" />
             </do>
         </foreach>
-		
-		<!--
-        <foreach item="File" property="filename">
-            <in>
-                <items basedir=".">
-                    <include name="**\*.user" />
-                    <include name="**\*.suo" />
-                </items>
-            </in>
-            <do>
-                <delete file="${filename}" />
-            </do>
-        </foreach>
-		-->
 	</target>
 	
-	<target name="build" description="compile projects">
-        <call target="build_DomainModel" />
-		<call target="build_ContentAdapter.Contract" />
-		<call target="build_ConfigurationAdapter.Contract" />
-		<call target="build_BL.Contract" />
-		<call target="build_UI.Contract" />
+	<!--
+	<target name="build" description="compile all projects">
+        <call target="build_BL" />
+		<call target="build_BL.Tests" />
+		
+		<call target="build_ConfigurationAdapter" />
+		<call target="build_ConfigurationAdapter.Tests" />
+		
+		<call target="build_ContentAdapter" />
+		<call target="build_ContentAdapter.Tests" />
+    </target>
+	-->
+	
+	<target name="build_Implementations" description="compile implementation projects">
+        <exec program="${msbuild}" commandline='"./BL/BL/BL.csproj" /v:n /nologo /t:Build /p:Configuration=${configuration}"' />
+		<!--
+		<exec program="${msbuild}" commandline='"./ConfigurationAdapter/XmlConfigurationAdapter/XmlConfigurationAdapter.csproj" /v:n /nologo /t:Build /p:Configuration=${configuration}"' />
+		<exec program="${msbuild}" commandline='"./ContentAdapter/ContentAdapter/ContentAdapter.csproj" /v:n /nologo /t:Build /p:Configuration=${configuration}"' />
+		-->
+    </target>
+
+	<target name="build_Tests" description="compile test projects">
+        <exec program="${msbuild}" commandline='"./BL/BL.Tests/BL.Tests.csproj" /v:n /nologo /t:Build /p:Configuration=${configuration}"' />
+		<exec program="${msbuild}" commandline='"./ConfigurationAdapter/XmlConfigurationAdapter.Tests/XmlConfigurationAdapter.Tests.csproj" /v:n /nologo /t:Build /p:Configuration=${configuration}"' />
+		<exec program="${msbuild}" commandline='"./ContentAdapter/ContentAdapter.Tests/ContentAdapter.Tests.csproj" /v:n /nologo /t:Build /p:Configuration=${configuration}"' />
     </target>
 	
-	<target name="build_DomainModel">
-        <exec program="${msbuild}" commandline='"./DomainModel/DomainModel.csproj" /v:n /nologo /t:Build /p:Configuration=${configuration}"' />
-    </target>
-	
-	<target name="build_ContentAdapter.Contract">
-        <exec program="${msbuild}" commandline='"./ContentAdapter.Contract/ContentAdapter.Contract.csproj" /v:n /nologo /t:Build /p:Configuration=${configuration}"' />
-    </target>
-	
-	<target name="build_ConfigurationAdapter.Contract">
-        <exec program="${msbuild}" commandline='"./ConfigurationAdapter.Contract/ConfigurationAdapter.Contract.csproj" /v:n /nologo /t:Build /p:Configuration=${configuration}"' />
-    </target>
-	
-	<target name="build_BL.Contract">
-        <exec program="${msbuild}" commandline='"./BL.Contract/BL.Contract.csproj" /v:n /nologo /t:Build /p:Configuration=${configuration}"' />
-    </target>
-	
-	<target name="build_UI.Contract">
-        <exec program="${msbuild}" commandline='"./UI.Contract/UI.Contract.csproj" /v:n /nologo /t:Build /p:Configuration=${configuration}"' />
-    </target>
 </project>
 
 	<!--
