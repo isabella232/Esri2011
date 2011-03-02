@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Threading;
 using EsriDE.Samples.ContentFinder.ContentAdapter.Mxd;
 using EsriDE.Samples.ContentFinder.DomainModel;
 using NUnit.Framework;
@@ -26,33 +27,7 @@ namespace EsriDE.Samples.ContentFinder.ContentAdapter.Tests
 		private Content _content;
 		private IList<MxdContent> _mxdContents;
 
-		private static SourceBundle GetMapDocumentConfigItemsForSingleFolderRecursiv()
-		{
-			var location = Assembly.GetExecutingAssembly().Location;
-			var path = Path.GetDirectoryName(location);
-			var filename = Path.Combine(path, @"TestData");
-
-			var uri = new Uri(filename);
-
-			var source = new Source(uri, RecursivityPolicy.Recursiv);
-			var sourceBundle = new SourceBundle("mxd", new List<Source> {source});
-
-			return sourceBundle;
-		}
-
-		private static SourceBundle GetMapDocumentConfigItemsForSingleFolderNonRecursiv()
-		{
-			string location = Assembly.GetExecutingAssembly().Location;
-			string path = Path.GetDirectoryName(location);
-			string filename = Path.Combine(path, @"TestData");
-
-			var uri = new Uri(filename);
-
-			var source = new Source(uri, RecursivityPolicy.NotRecursiv);
-			var sourceBundle = new SourceBundle("mxd", new List<Source> {source});
-
-			return sourceBundle;
-		}
+		
 
 		private void FinishedSearch()
 		{
@@ -61,6 +36,7 @@ namespace EsriDE.Samples.ContentFinder.ContentAdapter.Tests
 
 		private void FoundContent(Content content)
 		{
+			Console.WriteLine(Thread.CurrentThread.ManagedThreadId);
 			_counter++;
 			_content = content;
 			if (content is MxdContent)
@@ -73,7 +49,7 @@ namespace EsriDE.Samples.ContentFinder.ContentAdapter.Tests
 		[STAThread]
 		public void ReadingTestMxd_SingleFolderNonRecursiv_Runs()
 		{
-			var s = GetMapDocumentConfigItemsForSingleFolderNonRecursiv();
+			var s = TestDataUtils.GetMapDocumentConfigItemsForSingleFolderNonRecursiv();
 			var sut = new MxdContentLocator(s);
 			sut.FoundContent += FoundContent;
 			sut.FinishedSearch += FinishedSearch;
@@ -99,7 +75,7 @@ namespace EsriDE.Samples.ContentFinder.ContentAdapter.Tests
 		[STAThread]
 		public void ReadingTestMxd_SingleFolderRecursiv_Runs()
 		{
-			var s = GetMapDocumentConfigItemsForSingleFolderRecursiv();
+			var s = TestDataUtils.GetMapDocumentConfigItemsForSingleFolderRecursiv();
 			var sut = new MxdContentLocator(s);
 			sut.FoundContent += FoundContent;
 			sut.FinishedSearch += FinishedSearch;

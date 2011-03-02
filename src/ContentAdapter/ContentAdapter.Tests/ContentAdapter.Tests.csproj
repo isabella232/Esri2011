@@ -49,8 +49,8 @@
     <Reference Include="EsriDE.Samples.ContentFinder.ContentAdapter.Contract">
       <HintPath>..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.ContentAdapter.Contract.dll</HintPath>
     </Reference>
-    <Reference Include="EsriDE.Samples.ContentFinder.DomainModel">
-      <HintPath>..\..\..\bin\EsriDE.Samples.ContentFinder.DomainModel.dll</HintPath>
+    <Reference Include="EsriDE.Samples.ContentFinder.DomainModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <HintPath>..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.DomainModel.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\..\..\lib\NUnit\nunit.framework.dll</HintPath>
@@ -64,9 +64,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContentLocatorFixture.cs" />
+    <Compile Include="ContentLocatorResolverFixture.cs" />
     <Compile Include="FixtureBase.cs" />
     <Compile Include="MxdContentLocatorFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SampleConfigurationReader.cs" />
+    <Compile Include="TestDataUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="TestData\RecursiveA\MapDocumentA1.mdb">

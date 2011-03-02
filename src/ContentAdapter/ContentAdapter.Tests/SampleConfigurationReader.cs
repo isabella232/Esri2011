@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using EsriDE.Samples.ContentFinder.ConfigurationAdapter.Contract;
 using EsriDE.Samples.ContentFinder.DomainModel;
 
-namespace EsriDE.Samples.ContentFinder.BL.Tests
+namespace EsriDE.Samples.ContentFinder.ContentAdapter.Tests
 {
 	public class SampleConfigurationReader : IConfigurationReader
 	{

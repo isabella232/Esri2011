@@ -1,13 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using EsriDE.Samples.ContentFinder.BL.Contract;
 using EsriDE.Samples.ContentFinder.ConfigurationAdapter.Contract;
 using EsriDE.Samples.ContentFinder.ContentAdapter.Contract;
 using EsriDE.Samples.ContentFinder.DomainModel;
 using NUnit.Framework;
 
-namespace EsriDE.Samples.ContentFinder.BL.Tests
+namespace EsriDE.Samples.ContentFinder.ContentAdapter.Tests
 {
 	[TestFixture]
 	public class ContentLocatorResolverFixture

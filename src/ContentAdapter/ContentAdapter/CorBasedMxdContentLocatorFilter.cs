@@ -1,7 +1,7 @@
 ﻿using EsriDE.Samples.ContentFinder.ContentAdapter.Contract;
 using EsriDE.Samples.ContentFinder.DomainModel;
 
-namespace EsriDE.Samples.ContentFinder.BL
+namespace EsriDE.Samples.ContentFinder.ContentAdapter
 {
 	public class CorBasedMxdContentLocatorFilter : CorBasedContentLocatorFilter
 	{

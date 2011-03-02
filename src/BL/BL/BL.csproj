@@ -35,11 +35,15 @@
     <Reference Include="EsriDE.Samples.ContentFinder.BL.Contract">
       <HintPath>..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.BL.Contract.dll</HintPath>
     </Reference>
-    <Reference Include="EsriDE.Samples.ContentFinder.ConfigurationAdapter.Contract, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86" />
+    <Reference Include="EsriDE.Samples.ContentFinder.ConfigurationAdapter.Contract">
+      <HintPath>..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.ConfigurationAdapter.Contract.dll</HintPath>
+    </Reference>
     <Reference Include="EsriDE.Samples.ContentFinder.ContentAdapter.Contract">
       <HintPath>..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.ContentAdapter.Contract.dll</HintPath>
     </Reference>
-    <Reference Include="EsriDE.Samples.ContentFinder.DomainModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86" />
+    <Reference Include="EsriDE.Samples.ContentFinder.DomainModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <HintPath>..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.DomainModel.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -48,23 +52,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AgsContentLocatorCreator.cs" />
-    <Compile Include="CorBasedAgsContentLocatorFilter.cs" />
-    <Compile Include="ContentLocatorCreatorFilter.cs" />
-    <Compile Include="CorBasedContentLocatorFilter.cs" />
-    <Compile Include="ContentLocatorResolver.cs" />
-    <Compile Include="ContentLocatorResolverOld.cs" />
     <Compile Include="Controller.cs" />
-    <Compile Include="CorBasedMxdContentLocatorFilter.cs" />
-    <Compile Include="MxdContentLocatorCreator.cs" />
-    <Compile Include="NullContentLocator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\ContentAdapter\ContentAdapter\ContentAdapter.csproj">
-      <Project>{9DF6ABE9-5538-4F59-9C3F-8625142C32AE}</Project>
-      <Name>ContentAdapter %28ContentAdapter\ContentAdapter%29</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
