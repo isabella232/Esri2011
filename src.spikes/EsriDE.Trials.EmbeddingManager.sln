@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsriDE.Trials.EmbeddingManager", "EsriDE.Trials.EmbeddingManager\EsriDE.Trials.EmbeddingManager.csproj", "{7D8347C8-FCD2-463B-9F8F-3351EAD4C88F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7D8347C8-FCD2-463B-9F8F-3351EAD4C88F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D8347C8-FCD2-463B-9F8F-3351EAD4C88F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D8347C8-FCD2-463B-9F8F-3351EAD4C88F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D8347C8-FCD2-463B-9F8F-3351EAD4C88F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
