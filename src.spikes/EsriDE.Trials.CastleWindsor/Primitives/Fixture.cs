@@ -1,9 +1,8 @@
-using Castle.Facilities.FactorySupport;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 using NUnit.Framework;
 
-namespace EsriDE.Trials.CastleWindsor
+namespace EsriDE.Trials.CastleWindsor.Primitives
 {
 	[TestFixture]
 	public class Fixture
