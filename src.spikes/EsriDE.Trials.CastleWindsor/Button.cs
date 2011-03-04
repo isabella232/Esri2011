@@ -4,14 +4,9 @@ namespace EsriDE.Trials.CastleWindsor
 {
 	public class Button : AddInButton, IButtonView
 	{
-		private Builder _builder;
-
 		public Button()
 		{
-			_builder = new Builder(this);
-
-			IButtonPresenter presenter = _builder.GetButtonPresenter();
-			presenter.SetView(this);
+			new Builder(this);
 		}
 
 		public override void OnClick()

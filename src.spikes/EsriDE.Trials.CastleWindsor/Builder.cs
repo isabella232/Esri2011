@@ -1,52 +1,98 @@
+using System;
+using Castle.MicroKernel;
+using Castle.MicroKernel.Context;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 
 namespace EsriDE.Trials.CastleWindsor
 {
-	public class Builder
+	public interface IBuilder
+	{}
+
+	public class Builder : IBuilder
 	{
-		private readonly IButtonView _view;
 		private IWindsorContainer _container;
-		private IButtonPresenter _buttonPresenter;
+		private IFormPresenter _formPresenter;
+
+		~Builder()
+		{
+			Console.WriteLine("Builder.~");
+		}
 
 		public Builder(IButtonView view)
 		{
-			_container = new WindsorContainer();
-			_view = view;
-			_view.Clicked += ConstructSystem;
-			Configure();
+			ConfigureIocContainer();
+
+			ConnectButtonPresenterTo(view);
+			ConnectMeAsModelObserver();
+		}
+
+		private void ConnectMeAsModelObserver()
+		{
+			var model = _container.Resolve<IToggleFormVisibilityModel>();
+			model.VisibilityChanged += ModelToggeled;
+		}
+
+		private void ModelToggeled(Visibility visibility)
+		{
+			switch (visibility)
+			{
+				case Visibility.Visible:
+					ConstructSystem();
+					break;
+				case Visibility.Invisible:
+					DestroySystem();
+					break;
+				default:
+					throw new ArgumentOutOfRangeException("visibility");
+			}
 		}
 
 		private void ConstructSystem()
 		{
-			var v = _container.Resolve<IFormPresenter>();
-			var m = _container.Resolve<IToggleFormVisibilityModel>();
-			v.SetModel(m);
-			_view.Clicked -= ConstructSystem;
+			Console.WriteLine("Construct system");
+			_formPresenter = _container.Resolve<IFormPresenter>();
+			var formVisibilityModel = _container.Resolve<IToggleFormVisibilityModel>();
+			_formPresenter.SetModel(formVisibilityModel);
 		}
 
-		public void Configure()
+		private void DestroySystem()
 		{
+			Console.WriteLine("Destroy system");
+			_formPresenter.UnsetModel();
+			_container.Release(_formPresenter);
+			_formPresenter = null;
+		}
+
+		private void ConfigureIocContainer()
+		{
+			_container = new WindsorContainer();
 			_container.Register(Component.For<IButtonPresenter>().ImplementedBy<ButtonPresenter>());
 			_container.Register(Component.For<IToggleFormVisibilityModel>().ImplementedBy<ToggleFormVisibilityModel>());
-			_container.Register(Component.For<IAgdAdapter>().ImplementedBy<AgdAdapter>());
-			_container.Register(Component.For<IFormPresenter>().ImplementedBy<FormPresenter>());
-			_container.Register(Component.For<IFormView>().ImplementedBy<FormView>());
-			_container.Register(Component.For<IContentModel>().ImplementedBy<ContentModel>());
-			//_container.Register(Component.For<IXyz>().ImplementedBy<Xyz>());
-			//_container.Register(Component.For<IA>().ImplementedBy<A>());
-			//_container.Register(Component.For<IB>().ImplementedBy<B>());
-			//_container.Register(Component.For<IC>().ImplementedBy<C>());
+			_container.Register(Component.For<IAgdAdapter>().ImplementedBy<AgdAdapter>().LifeStyle.Transient);
+			_container.Register(Component.For<IFormPresenter>().ImplementedBy<FormPresenter>().LifeStyle.Transient);
+			_container.Register(Component.For<IFormView>().ImplementedBy<FormView>().LifeStyle.Transient);
+			_container.Register(Component.For<IContentModel>().ImplementedBy<ContentModel>().LifeStyle.Transient);
 		}
 
-		public IButtonPresenter GetButtonPresenter()
+		private void ConnectButtonPresenterTo(IButtonView view)
 		{
-			if (null == _buttonPresenter)
-			{
-				_buttonPresenter = _container.Resolve<IButtonPresenter>();
-			}
-
-			return _buttonPresenter;
+			var buttonPresenter = _container.Resolve<IButtonPresenter>();
+			buttonPresenter.SetView(view);
 		}
 	}
+
+	//public class Activator : IComponentActivator
+	//{
+	//    public object Create(CreationContext context)
+	//    {
+	//        context.
+	//        throw new NotImplementedException();
+	//    }
+
+	//    public void Destroy(object instance)
+	//    {
+	//        throw new NotImplementedException();
+	//    }
+	//}
 }

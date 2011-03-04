@@ -20,7 +20,7 @@ namespace EsriDE.Trials.CastleWindsor
 
 		private void SetButtonCheckedState(Visibility visibility)
 		{
-			CheckedState checkedState = GetCheckedState(visibility);
+			var checkedState = GetCheckedState(visibility);
 			_buttonView.SetCheckedState(checkedState);
 		}
 
@@ -30,7 +30,7 @@ namespace EsriDE.Trials.CastleWindsor
 			{
 				case Visibility.Visible:
 					return CheckedState.Checked;
-				case Visibility.Unvisible:
+				case Visibility.Invisible:
 					return CheckedState.Unchecked;
 				default:
 					throw new ArgumentOutOfRangeException("visibility");
