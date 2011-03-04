@@ -11,5 +11,12 @@ namespace EsriDE.Trials.CastleWindsor
 			var sut = new Button();
 			sut.OnClick();
 		}
+
+		[Test]
+		public void Open()
+		{
+			var form = new TestFormForButtonHosting();
+			form.ShowDialog();
+		}
 	}
 }
