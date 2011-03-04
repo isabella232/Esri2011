@@ -1,0 +1,22 @@
+No need to wrap or subclass functions to register them in Windsor. They work just like any other component. If you need to tell one Func<int> from another, use named components and service overrides, just as with any other component. Example:
+
+[Test]
+public void Example() {
+    var container = new DefaultKernel();
+    container.Register(Component.For<Func<int>>().Instance(() => 42).Named("42"));
+    container.Register(Component.For<Func<int>>().Instance(() => 44).Named("44"));
+    container.Register(Component.For<Something>().DependsOn(ServiceOverride.ForKey("f").Eq("44")));
+    var s = container.Resolve<Something>();
+    Assert.AreEqual(44, s.I);
+}
+
+class Something {
+    private readonly int i;
+    public Something(Func<int> f) {
+        i = f();
+    }
+
+    public int I {
+        get { return i; }
+    }
+}
