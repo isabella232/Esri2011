@@ -78,7 +78,7 @@ namespace EsriDE.Trials.CastleWindsor
 		private void ConnectButtonPresenterTo(IButtonView view)
 		{
 			var buttonPresenter = _container.Resolve<IButtonPresenter>();
-			buttonPresenter.SetView(view);
+			buttonPresenter.ConnectView(view);
 		}
 	}
 

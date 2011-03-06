@@ -2,6 +2,6 @@
 {
 	public interface IButtonPresenter
 	{
-		void SetView(IButtonView buttonView);
+		void ConnectView(IButtonView buttonView);
 	}
 }
