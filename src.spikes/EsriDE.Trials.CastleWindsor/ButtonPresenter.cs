@@ -1,91 +1,7 @@
 using System;
-using NUnit.Framework;
-using Rhino.Mocks;
 
 namespace EsriDE.Trials.CastleWindsor
 {
-	public class ButtonPresenterForTest : ButtonPresenter
-	{
-		public ButtonPresenterForTest(IToggleFormVisibilityModel toggleFormVisibility) : base(toggleFormVisibility)
-		{
-		}
-
-		public void EmulateEventing(Visibility visibility)
-		{
-			SetButtonCheckedState(visibility);
-		}
-	}
-
-	[TestFixture]
-	public class ButtonPresenterFixture
-	{
-		[Test]
-		public void DoUsing()
-		{
-			var mockRepository = new MockRepository();
-			var view = mockRepository.StrictMock<IButtonView>();
-			var model = mockRepository.Stub<IToggleFormVisibilityModel>();
-
-			var presenter = new ButtonPresenterForTest(model);
-
-			using (mockRepository.Record())
-			{
-				Expect.Call(() => view.Clicked += null).IgnoreArguments();
-				Expect.Call(() => view.SetCheckedState(CheckedState.Checked)).IgnoreArguments();
-			}
-
-			using (mockRepository.Playback())
-			{
-				presenter.ConnectView(view);
-				presenter.EmulateEventing(Visibility.Visible);
-			}
-		}
-
-		[Test]
-		public void DoFluent()
-		{
-			var mockRepository = new MockRepository();
-			var view = mockRepository.StrictMock<IButtonView>();
-			var model = mockRepository.Stub<IToggleFormVisibilityModel>();
-
-			var presenter = new ButtonPresenterForTest(model);
-
-			With.Mocks(mockRepository)
-				.Expecting(delegate
-				           	{
-								Expect.Call(() => view.Clicked += null).IgnoreArguments();
-								Expect.Call(() => view.SetCheckedState(CheckedState.Checked)).IgnoreArguments();
-				           	})
-				.Verify(delegate
-				        	{
-								presenter.ConnectView(view);
-								presenter.EmulateEventing(Visibility.Visible);
-				        	});
-		}
-
-		[Test]
-		public void Do()
-		{
-			var mockRepository = new MockRepository();
-			var view = mockRepository.StrictMock<IButtonView>();
-			var model = mockRepository.Stub<IToggleFormVisibilityModel>();
-
-			var presenter = new ButtonPresenterForTest(model);
-			presenter.ConnectView(view);
-
-			mockRepository.Playback();
-
-			Expect.Call(() => view.SetCheckedState(CheckedState.Checked)).IgnoreArguments();
-
-			mockRepository.ReplayAll();
-			
-			presenter.EmulateEventing(Visibility.Visible);
-
-			mockRepository.VerifyAll();
-
-		}
-	}
-
 	public class ButtonPresenter : IButtonPresenter
 	{
 		private readonly IToggleFormVisibilityModel _toggleFormVisibilityModel;
@@ -96,6 +12,7 @@ namespace EsriDE.Trials.CastleWindsor
 			_toggleFormVisibilityModel = toggleFormVisibility;
 			_toggleFormVisibilityModel.VisibilityChanged += SetButtonCheckedState;
 		}
+
 		public void ConnectView(IButtonView buttonView)
 		{
 			_buttonView = buttonView;

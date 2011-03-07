@@ -57,12 +57,23 @@
     <Compile Include="AddInButton.cs" />
     <Compile Include="Builder.cs" />
     <Compile Include="Button.cs" />
+    <Compile Include="ButtonPresenterFixture.cs" />
+    <Compile Include="ButtonPresenterFixture.Working.cs">
+      <DependentUpon>ButtonPresenterFixture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ButtonPresenterForTest.cs" />
     <Compile Include="Fixture.cs" />
     <Compile Include="IAgdAdapter.cs" />
     <Compile Include="IButtonPresenter.cs" />
     <Compile Include="IContentModel.cs" />
+    <Compile Include="IEventSubscriber.cs">
+      <DependentUpon>ButtonPresenterFixture.cs</DependentUpon>
+    </Compile>
     <Compile Include="IFormPresenter.cs" />
     <Compile Include="IFormView.cs" />
+    <Compile Include="IWithEvents.cs">
+      <DependentUpon>ButtonPresenterFixture.cs</DependentUpon>
+    </Compile>
     <Compile Include="Primitives\A.cs" />
     <Compile Include="Primitives\Abc.cs" />
     <Compile Include="Primitives\B.cs" />
@@ -81,6 +92,9 @@
     </Compile>
     <Compile Include="Visibility.cs" />
     <Compile Include="Primitives\Xyz.cs" />
+    <Compile Include="WithEvents.cs">
+      <DependentUpon>ButtonPresenterFixture.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="TestFormForButtonHosting.resx">
