@@ -6,7 +6,7 @@ namespace EsriDE.Samples.ContentFinder.AgdAdapter
 	{
 		protected override IButtonPresenter CreatePresenter()
 		{
-			return new ContentFinderButtonPresenter(this)
+		    return new ContentFinderButtonPresenter(this);
 		}
 	}
 }
