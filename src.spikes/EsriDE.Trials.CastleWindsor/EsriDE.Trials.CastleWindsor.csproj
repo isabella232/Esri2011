@@ -38,6 +38,9 @@
     <Reference Include="Castle.Windsor">
       <HintPath>..\..\lib\Castle.Windsor\Castle.Windsor.dll</HintPath>
     </Reference>
+    <Reference Include="Moq">
+      <HintPath>..\..\lib\Moq\Moq.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\..\lib\NUnit\nunit.framework.dll</HintPath>
     </Reference>
@@ -58,6 +61,9 @@
     <Compile Include="Builder.cs" />
     <Compile Include="Button.cs" />
     <Compile Include="ButtonPresenterFixture.cs" />
+    <Compile Include="ButtonPresenterFixture.FluentSyntax.cs">
+      <DependentUpon>ButtonPresenterFixture.cs</DependentUpon>
+    </Compile>
     <Compile Include="ButtonPresenterFixture.Working.cs">
       <DependentUpon>ButtonPresenterFixture.cs</DependentUpon>
     </Compile>

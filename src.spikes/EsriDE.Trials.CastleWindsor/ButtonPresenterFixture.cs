@@ -1,14 +1,51 @@
-﻿using NUnit.Framework;
+﻿using Moq;
+using NUnit.Framework;
 using Rhino.Mocks;
 using Rhino.Mocks.Impl;
 using Rhino.Mocks.Interfaces;
+using MockRepository = Rhino.Mocks.MockRepository;
 
 namespace EsriDE.Trials.CastleWindsor
 {
 	[TestFixture]
 	public partial class ButtonPresenterFixture
 	{
-		
+
+		[Test]
+		public void Do3Fluent_A()
+		{
+			var mockRepository = new MockRepository();
+			var view = mockRepository.StrictMock<IButtonView>();
+			var model = mockRepository.DynamicMock<IToggleFormVisibilityModel>();
+
+			view.Clicked += null;
+			IEventRaiser clicked = LastCall.GetEventRaiser();
+
+			var presenter = new ButtonPresenter(model);
+			presenter.ConnectView(view);
+
+			clicked = Expect.Call(() => view.Clicked += null).IgnoreArguments().GetEventRaiser();
+
+			view.BackToRecord();
+			model.BackToRecord();
+
+			With.Mocks(mockRepository)
+				.Expecting(delegate
+				{
+					Expect.Call(model.ToggleVisibility);
+					//Expect.Call(() => model.VisibilityChanged += null).IgnoreArguments();
+					//Expect.Call(() => view.SetCheckedState(CheckedState.Checked));
+				})
+				.Verify(delegate
+				{
+					model.ToggleVisibility();
+					model.ToggleVisibility();
+					//events.RaiseEvent(Visibility.Visible);
+					clicked.Raise();
+				});
+		}
+
+
 		[Test]
 		public void Do3Fluent()
 		{
@@ -31,8 +68,9 @@ namespace EsriDE.Trials.CastleWindsor
 
 
 			With.Mocks(mockRepository)
-				.ExpectingInSameOrder(delegate
+				.Expecting(delegate
 				{
+
 					Expect.Call(model.ToggleVisibility);
 					Expect.Call(() => model.VisibilityChanged += null).IgnoreArguments();
 					Expect.Call(() => view.SetCheckedState(CheckedState.Checked));
@@ -88,52 +126,43 @@ namespace EsriDE.Trials.CastleWindsor
 			view.Clicked += null;
 			IEventRaiser clicked = LastCall.GetEventRaiser();
 
+			//IEventRaiser raiser = new EventRaiser((IMockedObject)view, "Clicked");
+			//onCreateFeatureEventRaiser.Raise(_objectMock);
+
 			var presenter = new ButtonPresenter(model);
 			presenter.ConnectView(view);
-			mockRepository.BackToRecordAll();
+			//mockRepository.BackToRecordAll();
+
+			//productDetailView.Raise(view => view.EditClick += null).Raise(sender, EventArgs.Empty);
+
+			view.BackToRecord();
+			model.BackToRecord();
 
 			using (mockRepository.Record())
 			{
+				var v = Expect.Call(() => model.VisibilityChanged += null).IgnoreArguments();
+
 				Expect.Call(model.ToggleVisibility);
-				Expect.Call(() => model.VisibilityChanged += null).IgnoreArguments();
-				Expect.Call(() => view.SetCheckedState(CheckedState.Checked));
+				//Expect.Call(() => view.SetCheckedState(CheckedState.Checked));
 			}
 
 			using (mockRepository.Playback())
 			{
+				//raiser.Raise();
+				//view.Raise(v => v.Clicked += null);
+				//model.Raise(m => m.VisibilityChanged += null).Raise(Visibility.Visible);
 				clicked.Raise();
-				visibilityChanged.Raise(Visibility.Visible);
+				//visibilityChanged.Raise(Visibility.Visible);
 			}
 		}
 
-		[Test]
-		public void Do3()
+		public delegate void MyEventHandler();
+		public interface IFoo
 		{
-			var mockRepository = new MockRepository();
-			var view = mockRepository.StrictMock<IButtonView>();
-			var model = mockRepository.StrictMock<IToggleFormVisibilityModel>();
-
-			var presenter = new ButtonPresenter(model);
-			presenter.ConnectView(view);
-
-			model.VisibilityChanged += null;
-			IEventRaiser visibilityChanged = LastCall.GetEventRaiser();
-
-			view.Clicked += null;
-			IEventRaiser clicked = LastCall.GetEventRaiser();
-
-			With.Mocks(mockRepository)
-				.Expecting(delegate
-				{
-					Expect.Call(model.ToggleVisibility);
-					Expect.Call(() => view.SetCheckedState(CheckedState.Checked));
-				})
-				.Verify(delegate
-				{
-					clicked.Raise();
-					visibilityChanged.Raise(Visibility.Visible);
-				});
+			event MyEventHandler MyEvent;
 		}
+
+		
 		
 	}
 }

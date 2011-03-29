@@ -1,6 +1,7 @@
-﻿using NUnit.Framework;
+﻿using Moq;
+using NUnit.Framework;
 using Rhino.Mocks;
-using Rhino.Mocks.Interfaces;
+using MockRepository = Rhino.Mocks.MockRepository;
 
 namespace EsriDE.Trials.CastleWindsor
 {
@@ -8,98 +9,52 @@ namespace EsriDE.Trials.CastleWindsor
 	public partial class ButtonPresenterFixture
 	{
 		[Test]
-		public void ConstructorConnects()
+		public void RoundtripViewToModelToView_Showing()
 		{
-			var mockRepository = new MockRepository();
-			var model = mockRepository.StrictMock<IToggleFormVisibilityModel>();
+			var view = new Mock<IButtonView>(MockBehavior.Strict);
+			var model = new Mock<IToggleFormVisibilityModel>(MockBehavior.Strict);
 
-			With.Mocks(mockRepository)
-				.Expecting(delegate
-				{
-					Expect.Call(() => model.VisibilityChanged += null).IgnoreArguments();
+			var presenter = new ButtonPresenter(model.Object);
+			presenter.ConnectView(view.Object);
 
-				})
-				.Verify(delegate
-				{
-					var presenter = new ButtonPresenter(model);
-				});
+			// Erwartungen definieren
+			// User-Interaktion im View -> Änderung im Model muss erfolgen
+			model.Setup(m => m.ToggleVisibility());
+			// Model-Änderungs-Event -> View muss aktualisiert werden
+			view.Setup(v => v.SetCheckedState(CheckedState.Checked));
+
+			// Events auslösen
+			view.Raise(m => m.Clicked += null);
+			model.Raise(m => m.VisibilityChanged += null, Visibility.Visible);
+
+			// Erwartungen verifizieren
+			model.VerifyAll();
+			view.VerifyAll();
 		}
 
 		[Test]
-		public void ConstructingConnectingHandlingWorks_Fluent2()
+		public void RoundtripViewToModelToView_Hiding()
 		{
-			var mockRepository = new MockRepository();
-			var view = mockRepository.DynamicMock<IButtonView>();
-			var model = mockRepository.DynamicMock<IToggleFormVisibilityModel>();
+			var view = new Mock<IButtonView>(MockBehavior.Strict);
+			var model = new Mock<IToggleFormVisibilityModel>(MockBehavior.Strict);
 
-			IEventRaiser clicked = null;
-			With.Mocks(mockRepository)
-				.Expecting(delegate
-				{
-					Expect.Call(() => model.VisibilityChanged += null).IgnoreArguments();
+			var presenter = new ButtonPresenter(model.Object);
+			presenter.ConnectView(view.Object);
 
-					clicked = Expect.Call(() => view.Clicked += null).IgnoreArguments().GetEventRaiser();
-					Expect.Call(model.ToggleVisibility);
-				})
-				.Verify(delegate
-				{
-					var presenter = new ButtonPresenter(model);
-					presenter.ConnectView(view);
-					clicked.Raise();
-				});
+			// Erwartungen definieren
+			// User-Interaktion im View -> Änderung im Model muss erfolgen
+			model.Setup(m => m.ToggleVisibility());
+			// Model-Änderungs-Event -> View muss aktualisiert werden
+			view.Setup(v => v.SetCheckedState(CheckedState.Unchecked));
+
+			// Events auslösen
+			view.Raise(m => m.Clicked += null);
+			model.Raise(m => m.VisibilityChanged += null, Visibility.Invisible);
+
+			// Erwartungen verifizieren
+			model.VerifyAll();
+			view.VerifyAll();
 		}
-
-		[Test]
-		public void ConstructingConnectingHandlingWorks_Fluent()
-		{
-			var mockRepository = new MockRepository();
-			var view = mockRepository.StrictMock<IButtonView>();
-			var model = mockRepository.StrictMock<IToggleFormVisibilityModel>();
-
-			IEventRaiser clicked = null;
-			IEventRaiser visibilityChanged = null;
-
-			With.Mocks(mockRepository)
-				.Expecting(delegate
-				{
-					visibilityChanged = Expect.Call(() => model.VisibilityChanged += null).IgnoreArguments().GetEventRaiser();
-					clicked = Expect.Call(() => view.Clicked += null).IgnoreArguments().GetEventRaiser();
-
-					Expect.Call(model.ToggleVisibility);
-					Expect.Call(() => view.SetCheckedState(CheckedState.Checked));
-				});
-
-			With.Mocks(mockRepository)
-				.Verify(delegate
-				{
-					var presenter = new ButtonPresenter(model);
-					presenter.ConnectView(view);
-
-					clicked.Raise();
-					visibilityChanged.Raise(Visibility.Visible);
-				});
-		}
-
-		[Test]
-		public void ConnectingView()
-		{
-			var mockRepository = new MockRepository();
-			var view = mockRepository.StrictMock<IButtonView>();
-			var model = mockRepository.Stub<IToggleFormVisibilityModel>();
-
-			var presenter = new ButtonPresenter(model);
-
-			With.Mocks(mockRepository)
-				.Expecting(delegate
-				{
-					Expect.Call(() => view.Clicked += null).IgnoreArguments();
-				})
-				.Verify(delegate
-				{
-					presenter.ConnectView(view);
-				});
-		}
-
 		[Test]
 		public void DoFluent()
 		{
