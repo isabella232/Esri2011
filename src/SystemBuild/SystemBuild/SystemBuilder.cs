@@ -21,6 +21,7 @@ namespace EsriDE.Samples.ContentFinder.SystemBuild
 		private string GetConfigFilename()
 		{
 			return "CastleWindsor.config";
+
 		}
 	}
 }

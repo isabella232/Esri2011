@@ -7,6 +7,7 @@ namespace EsriDE.Samples.ContentFinder.AgdAdapter
 		event Action Clicked;
 		void SetCheckedState(CheckedState checkedState);
 		void SetEnabledState(EnabledState enabledState);
+
 	}
 
 	public enum EnabledState
