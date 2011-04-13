@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="EsriDE.Trials.CastleWindsor.Buttons.FakedAddInButton">
+    <Position X="7.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAICAAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ComplexUI\Buttons\FakedAddInButton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EsriDE.Trials.CastleWindsor.AA.Button">
+    <Position X="9.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAABAAAAAAAAAAAAACAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>ComplexUI\Buttons\Button.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="EsriDE.Trials.CastleWindsor.Buttons.ButtonPresenter" Collapsed="true">
+    <Position X="9.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAgAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwg=</HashCode>
+      <FileName>ComplexUI\Buttons\ButtonPresenter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="EsriDE.Trials.CastleWindsor.AA.FormPresenter">
+    <Position X="16.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAQgACAAAAAACAoAAgAAAAAAAAAAAACAAAAAAACA=</HashCode>
+      <FileName>Forms\IFormPresenter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="EsriDE.Trials.CastleWindsor.Forms.FormView">
+    <Position X="16.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAABAAEAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>ComplexUI\Forms\IFormView.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="EsriDE.Trials.CastleWindsor.AgdAdapter">
+    <Position X="21.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>ComplexUI\IAgdAdapter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="EsriDE.Trials.CastleWindsor.ContentModel">
+    <Position X="21.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>ComplexUI\IContentModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="EsriDE.Trials.CastleWindsor.Buttons.IButtonPresenter">
+    <Position X="11" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ComplexUI\Buttons\IButtonPresenter.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="EsriDE.Trials.CastleWindsor.Buttons.IButtonView">
+    <Position X="11" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAABAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>ComplexUI\Buttons\IButtonView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="EsriDE.Trials.CastleWindsor.AA.IToggleFormVisibilityModel">
+    <Position X="10.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAQAAAAAAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>ComplexUI\AA\IToggleFormVisibilityModel.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="EsriDE.Trials.CastleWindsor.Forms.IFormPresenter">
+    <Position X="15" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ComplexUI\Forms\IFormPresenter.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="EsriDE.Trials.CastleWindsor.Forms.IFormView">
+    <Position X="15" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAABAAEAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>ComplexUI\Forms\IFormView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="EsriDE.Trials.CastleWindsor.IAgdAdapter">
+    <Position X="19.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>ComplexUI\IAgdAdapter.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="EsriDE.Trials.CastleWindsor.IContentModel">
+    <Position X="19.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>ComplexUI\IContentModel.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

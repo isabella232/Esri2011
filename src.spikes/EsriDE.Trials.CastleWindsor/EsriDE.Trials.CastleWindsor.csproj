@@ -57,85 +57,101 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddInButton.cs" />
-    <Compile Include="Builder.cs" />
-    <Compile Include="Button.cs" />
-    <Compile Include="ButtonFixture.cs" />
-    <Compile Include="ButtonPresenterFixture.cs" />
-    <Compile Include="ButtonPresenterFixture.FluentSyntax.cs">
+    <Compile Include="ComplexUI\AA\IBuilderHolder.cs" />
+    <Compile Include="ComplexUI\AA\IModel.cs" />
+    <Compile Include="ComplexUI\AA\ToggleFormVisibilityModel.cs" />
+    <Compile Include="ComplexUI\AgdAdapter.cs" />
+    <Compile Include="ComplexUI\Buttons\FakedAddInButton.cs" />
+    <Compile Include="ComplexUI\Builder.cs" />
+    <Compile Include="ComplexUI\Buttons\Button.cs" />
+    <Compile Include="ComplexUI\ContentModel.cs" />
+    <Compile Include="ComplexUI\Fixtures\ButtonFixture.cs" />
+    <Compile Include="ComplexUI\Fixtures\ButtonPresenterFixture.cs" />
+    <Compile Include="ComplexUI\Fixtures\ButtonPresenterFixture.FluentSyntax.cs">
       <DependentUpon>ButtonPresenterFixture.cs</DependentUpon>
     </Compile>
-    <Compile Include="ButtonPresenterFixture.Working.cs">
+    <Compile Include="ComplexUI\Fixtures\ButtonPresenterFixture.Working.cs">
       <DependentUpon>ButtonPresenterFixture.cs</DependentUpon>
     </Compile>
-    <Compile Include="ButtonPresenterForTest.cs" />
-    <Compile Include="ClientContainer\A.cs" />
-    <Compile Include="ClientContainer\B.cs" />
-    <Compile Include="ClientContainer\DisposableFakeView.cs" />
-    <Compile Include="ClientContainer\FakeView.cs" />
-    <Compile Include="ClientContainer\Fixture.cs" />
-    <Compile Include="ClientContainer\IView.cs" />
-    <Compile Include="ClientContainer\SomeForm.cs">
+    <Compile Include="ComplexUI\Fixtures\WidgetFakes\ButtonPresenterForTest.cs" />
+    <Compile Include="ComplexUI\Buttons\EnabledState.cs" />
+    <Compile Include="ComplexUI\Forms\FormView.cs" />
+    <Compile Include="ComplexUI\IBuilder.cs" />
+    <Compile Include="LifestyleBehaviour\A.cs" />
+    <Compile Include="LifestyleBehaviour\B.cs" />
+    <Compile Include="LifestyleBehaviour\DisposableFakeView.cs" />
+    <Compile Include="LifestyleBehaviour\FakeView.cs" />
+    <Compile Include="LifestyleBehaviour\Fixture.cs" />
+    <Compile Include="LifestyleBehaviour\IA.cs" />
+    <Compile Include="LifestyleBehaviour\IB.cs" />
+    <Compile Include="LifestyleBehaviour\IView.cs" />
+    <Compile Include="LifestyleBehaviour\SomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ClientContainer\SomeForm.Designer.cs">
+    <Compile Include="LifestyleBehaviour\SomeForm.Designer.cs">
       <DependentUpon>SomeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ClientContainer\TrulyTransientLifestyleManager.cs" />
-    <Compile Include="ClientContainer\TrulyTransientReleasePolicy.cs" />
-    <Compile Include="Fixture.cs" />
-    <Compile Include="IAgdAdapter.cs" />
-    <Compile Include="IButtonPresenter.cs" />
-    <Compile Include="IContentModel.cs" />
-    <Compile Include="IEventSubscriber.cs">
+    <Compile Include="LifestyleBehaviour\TrulyTransientLifestyleManager.cs" />
+    <Compile Include="LifestyleBehaviour\TrulyTransientReleasePolicy.cs" />
+    <Compile Include="ComplexUI\Fixtures\Fixture.cs" />
+    <Compile Include="ComplexUI\Forms\SampleFormPresenter.cs" />
+    <Compile Include="ComplexUI\IAgdAdapter.cs" />
+    <Compile Include="ComplexUI\Buttons\IButtonPresenter.cs" />
+    <Compile Include="ComplexUI\IContentModel.cs" />
+    <Compile Include="ComplexUI\Fixtures\IEventSubscriber.cs">
       <DependentUpon>ButtonPresenterFixture.cs</DependentUpon>
     </Compile>
-    <Compile Include="IFormPresenter.cs" />
-    <Compile Include="IFormView.cs" />
-    <Compile Include="IWithEvents.cs">
+    <Compile Include="ComplexUI\Forms\IFormPresenter.cs" />
+    <Compile Include="ComplexUI\Forms\IFormView.cs" />
+    <Compile Include="ComplexUI\Fixtures\IWithEvents.cs">
       <DependentUpon>ButtonPresenterFixture.cs</DependentUpon>
     </Compile>
-    <Compile Include="Primitives\A.cs" />
-    <Compile Include="Primitives\Abc.cs" />
-    <Compile Include="Primitives\B.cs" />
-    <Compile Include="ButtonPresenter.cs" />
-    <Compile Include="Primitives\C.cs" />
-    <Compile Include="CheckedState.cs" />
-    <Compile Include="Primitives\Fixture.cs" />
-    <Compile Include="IButtonView.cs" />
-    <Compile Include="IToggleFormVisibilityModel.cs" />
+    <Compile Include="ResolvingPrimitives\A.cs" />
+    <Compile Include="ResolvingPrimitives\Abc.cs" />
+    <Compile Include="ResolvingPrimitives\B.cs" />
+    <Compile Include="ComplexUI\Buttons\ButtonPresenter.cs" />
+    <Compile Include="ResolvingPrimitives\C.cs" />
+    <Compile Include="ComplexUI\Buttons\CheckedState.cs" />
+    <Compile Include="ResolvingPrimitives\Fixture.cs" />
+    <Compile Include="ComplexUI\Buttons\IButtonView.cs" />
+    <Compile Include="ComplexUI\AA\IToggleFormVisibilityModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestFormForButtonHosting.cs">
+    <Compile Include="ComplexUI\Fixtures\WidgetFakes\TestFormForButtonHosting.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TestFormForButtonHosting.Designer.cs">
+    <Compile Include="ComplexUI\Fixtures\WidgetFakes\TestFormForButtonHosting.Designer.cs">
       <DependentUpon>TestFormForButtonHosting.cs</DependentUpon>
     </Compile>
-    <Compile Include="Visibility.cs" />
-    <Compile Include="Primitives\Xyz.cs" />
-    <Compile Include="WinFormsView.cs">
+    <Compile Include="ComplexUI\Forms\VisibilityState.cs" />
+    <Compile Include="ResolvingPrimitives\IA.cs" />
+    <Compile Include="ResolvingPrimitives\IAbc.cs" />
+    <Compile Include="ResolvingPrimitives\IB.cs" />
+    <Compile Include="ResolvingPrimitives\IC.cs" />
+    <Compile Include="ResolvingPrimitives\IXyz.cs" />
+    <Compile Include="ResolvingPrimitives\Xyz.cs" />
+    <Compile Include="ComplexUI\Fixtures\WidgetFakes\WinFormsView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WinFormsView.Designer.cs">
+    <Compile Include="ComplexUI\Fixtures\WidgetFakes\WinFormsView.Designer.cs">
       <DependentUpon>WinFormsView.cs</DependentUpon>
     </Compile>
-    <Compile Include="WithEvents.cs">
+    <Compile Include="ComplexUI\Fixtures\WithEvents.cs">
       <DependentUpon>ButtonPresenterFixture.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ClientContainer\SomeForm.resx">
+    <EmbeddedResource Include="LifestyleBehaviour\SomeForm.resx">
       <DependentUpon>SomeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TestFormForButtonHosting.resx">
+    <EmbeddedResource Include="ComplexUI\Fixtures\WidgetFakes\TestFormForButtonHosting.resx">
       <DependentUpon>TestFormForButtonHosting.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WinFormsView.resx">
+    <EmbeddedResource Include="ComplexUI\Fixtures\WidgetFakes\WinFormsView.resx">
       <DependentUpon>WinFormsView.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Overview.cd" />
+    <None Include="ComplexUI\Overview.cd" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
