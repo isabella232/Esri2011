@@ -1,4 +1,4 @@
-﻿namespace EsriDE.Trials.CastleWindsor.ComplexUI.Buttons
+﻿namespace EsriDE.Trials.CastleWindsor.ComplexUI.Contracts.Buttons
 {
 	public interface IButtonPresenter
 	{

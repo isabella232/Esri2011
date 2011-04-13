@@ -1,7 +1,8 @@
 ﻿using EsriDE.Trials.CastleWindsor.ComplexUI.AA;
-using EsriDE.Trials.CastleWindsor.ComplexUI.Buttons;
+using EsriDE.Trials.CastleWindsor.ComplexUI.Contracts.Buttons;
+using EsriDE.Trials.CastleWindsor.ComplexUI.Contracts.DomainModel;
 using EsriDE.Trials.CastleWindsor.ComplexUI.Fixtures.WidgetFakes;
-using EsriDE.Trials.CastleWindsor.ComplexUI.Forms;
+using EsriDE.Trials.CastleWindsor.ComplexUI.Implementations.Buttons;
 using Moq;
 using NUnit.Framework;
 using Rhino.Mocks;

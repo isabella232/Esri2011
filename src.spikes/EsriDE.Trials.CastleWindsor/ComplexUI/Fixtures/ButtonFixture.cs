@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
-using EsriDE.Trials.CastleWindsor.ComplexUI.Buttons;
+using EsriDE.Trials.CastleWindsor.ComplexUI.Implementations.Buttons;
 using NUnit.Framework;
 
 namespace EsriDE.Trials.CastleWindsor.ComplexUI.Fixtures
@@ -9,6 +9,7 @@ namespace EsriDE.Trials.CastleWindsor.ComplexUI.Fixtures
 	public class ButtonFixture
 	{
 		[Test]
+		[Explicit]
 		public void ClickingButton()
 		{
 			var sut = new Button();

@@ -1,6 +1,6 @@
 ﻿namespace EsriDE.Trials.CastleWindsor.LifestyleBehaviour.Implementations
 {
-	partial class SomeForm
+	partial class FormView
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -15,11 +15,11 @@
 		{
 			if (disposing)
 			{
-				System.Console.WriteLine("SomeForm.Dispose(true)");
+				System.Console.WriteLine("FormView.Dispose(true)");
 			}
 			else
 			{
-				System.Console.WriteLine("SomeForm.Dispose(false)");
+				System.Console.WriteLine("FormView.Dispose(false)");
 			}
 
 			if (disposing && (components != null))
@@ -39,13 +39,13 @@
 		{
 			this.SuspendLayout();
 			// 
-			// SomeForm
+			// FormView
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(284, 262);
-			this.Name = "SomeForm";
-			this.Text = "SomeForm";
+			this.Name = "FormView";
+			this.Text = "FormView";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SomeForm_FormClosing);
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SomeForm_FormClosed);
 			this.ResumeLayout(false);

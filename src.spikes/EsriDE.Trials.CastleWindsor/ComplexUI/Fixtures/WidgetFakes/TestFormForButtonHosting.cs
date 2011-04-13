@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using Button = EsriDE.Trials.CastleWindsor.ComplexUI.Buttons.Button;
+using Button = EsriDE.Trials.CastleWindsor.ComplexUI.Implementations.Buttons.Button;
 
 namespace EsriDE.Trials.CastleWindsor.ComplexUI.Fixtures.WidgetFakes
 {

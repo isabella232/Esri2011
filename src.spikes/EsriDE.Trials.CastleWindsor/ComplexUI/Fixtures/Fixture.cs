@@ -1,5 +1,5 @@
-using EsriDE.Trials.CastleWindsor.ComplexUI.Buttons;
 using EsriDE.Trials.CastleWindsor.ComplexUI.Fixtures.WidgetFakes;
+using EsriDE.Trials.CastleWindsor.ComplexUI.Implementations.Buttons;
 using NUnit.Framework;
 
 namespace EsriDE.Trials.CastleWindsor.ComplexUI.Fixtures

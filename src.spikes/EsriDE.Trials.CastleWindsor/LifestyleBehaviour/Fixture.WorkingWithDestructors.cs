@@ -4,6 +4,7 @@ using NUnit.Framework;
 
 namespace EsriDE.Trials.CastleWindsor.LifestyleBehaviour
 {
+	// ReSharper disable InconsistentNaming
 	[TestFixture]
 	public partial class Fixture
 	{
@@ -49,4 +50,5 @@ namespace EsriDE.Trials.CastleWindsor.LifestyleBehaviour
 			b.SetAction(_ => _fertig1 = _);
 		}
 	}
+	// ReSharper restore InconsistentNaming
 }

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using Castle.MicroKernel.Registration;
-using Castle.Windsor;
-using EsriDE.Trials.CastleWindsor.LifestyleBehaviour.Contracts;
-using EsriDE.Trials.CastleWindsor.LifestyleBehaviour.Implementations;
+﻿using Castle.Windsor;
 using NUnit.Framework;
 
 namespace EsriDE.Trials.CastleWindsor.LifestyleBehaviour
@@ -22,12 +17,12 @@ namespace EsriDE.Trials.CastleWindsor.LifestyleBehaviour
 		{
 			_fertig1 = false;
 			_fertig2 = false;
+			_container = new WindsorContainer();
 		}
 
 		[TestFixtureSetUp]
 		public void TestFixtureSetUp()
 		{
-			_container = new WindsorContainer();
 		}
 		#endregion
 	}

@@ -1,6 +1,7 @@
 ﻿using System;
+using EsriDE.Trials.CastleWindsor.ComplexUI.Contracts.Forms;
 
-namespace EsriDE.Trials.CastleWindsor.ComplexUI.Forms
+namespace EsriDE.Trials.CastleWindsor.ComplexUI.Implementations.Forms
 {
 	internal class FormView : IFormView
 	{

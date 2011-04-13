@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace EsriDE.Trials.CastleWindsor.ComplexUI.Forms
+namespace EsriDE.Trials.CastleWindsor.ComplexUI.Contracts.Forms
 {
 	internal interface IFormView
 	{

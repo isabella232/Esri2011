@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Windows.Forms;
 using EsriDE.Trials.CastleWindsor.ComplexUI.AA;
+using EsriDE.Trials.CastleWindsor.ComplexUI.Contracts.DomainModel;
+using EsriDE.Trials.CastleWindsor.ComplexUI.Contracts.Forms;
 
-namespace EsriDE.Trials.CastleWindsor.ComplexUI.Forms
+namespace EsriDE.Trials.CastleWindsor.ComplexUI.Implementations.Forms
 {
 	internal class SampleFormPresenter : IFormPresenter
 	{

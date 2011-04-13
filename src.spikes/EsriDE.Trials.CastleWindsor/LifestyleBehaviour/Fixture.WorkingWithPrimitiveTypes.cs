@@ -10,7 +10,9 @@ namespace EsriDE.Trials.CastleWindsor.LifestyleBehaviour
 	[TestFixture]
 	public partial class Fixture
 	{
+		// ReSharper disable InconsistentNaming
 		[Test]
+		[Explicit]
 		public void ResolvingWithTrulyTransientChildContainerInUsingScope()
 		{
 			_container.Register(Component.For<IA>().ImplementedBy<A>());
@@ -66,6 +68,7 @@ namespace EsriDE.Trials.CastleWindsor.LifestyleBehaviour
 		//Assert.Throws<ComponentNotFoundException>(() => _container.Resolve<IB>(), "");
 
 		[Test]
+		[Explicit]
 		public void ResolvingInlineDoesNotReleaseComponent()
 		{
 			_container.Register(Component.For<IA>().ImplementedBy<A>());
@@ -82,6 +85,7 @@ namespace EsriDE.Trials.CastleWindsor.LifestyleBehaviour
 		}
 
 		[Test]
+		[Explicit]
 		public void ResolvingPartionalInline()
 		{
 			_container.Register(Component.For<IA>().ImplementedBy<A>());
@@ -128,4 +132,5 @@ namespace EsriDE.Trials.CastleWindsor.LifestyleBehaviour
 			b.SetAction(_ => _fertig1 = _);
 		}
 	}
+	// ReSharper restore InconsistentNaming
 }

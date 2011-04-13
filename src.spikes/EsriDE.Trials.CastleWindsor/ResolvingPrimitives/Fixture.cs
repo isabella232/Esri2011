@@ -1,4 +1,5 @@
 using Castle.Facilities.FactorySupport;
+using Castle.MicroKernel;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 using EsriDE.Trials.CastleWindsor.ResolvingPrimitives.Contracts;
@@ -60,6 +61,36 @@ namespace EsriDE.Trials.CastleWindsor.ResolvingPrimitives
 		{
 			return;
 			_container.AddFacility<FactorySupportFacility>();
+		}
+
+		[Test]
+		public void ResolvingSingletonOver2DistinctInterfaces()
+		{
+			_container = new WindsorContainer();
+			_container.Register(Component.For<IA, IB>().ImplementedBy<AundB>());
+
+			var a = _container.Resolve<IA>();
+			var b = _container.Resolve<IB>();
+
+			Assert.That(a, Is.EqualTo(b), "Different singletons.");
+			Assert.That(a, Is.SameAs(b), "Different singletons.");
+			Assert.AreSame(a, b);
+		}
+
+		[Test]
+		public void ResolvingSingletonOver2DistinctInterfacesByRegisteringInstancesDoesNotWork()
+		{
+			var o = new AundB();
+
+			_container = new WindsorContainer();
+
+			_container.Register(Component.For(typeof(IA)).Instance(o));
+			Assert.Throws<ComponentRegistrationException>(() => _container.Register(Component.For(typeof(IB)).Instance(o)));
+
+			var a = _container.Resolve<IA>();
+			Assert.That(a, !Is.Null);
+
+			Assert.Throws<ComponentNotFoundException>(() => _container.Resolve<IB>());
 		}
 	}
 	// ReSharper restore InconsistentNaming

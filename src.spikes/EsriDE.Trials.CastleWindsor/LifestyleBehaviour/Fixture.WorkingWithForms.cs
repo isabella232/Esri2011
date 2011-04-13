@@ -7,31 +7,34 @@ using NUnit.Framework;
 
 namespace EsriDE.Trials.CastleWindsor.LifestyleBehaviour
 {
+	// ReSharper disable InconsistentNaming
 	[TestFixture]
 	public partial class Fixture
 	{
 		[Test]
 		public void ShowTestFormInUsingScope()
 		{
-			using (var f = new SomeForm())
+			using (var f = new FormView())
 			{
 				f.Show();
 			}
 		}
 
 		[Test]
+		[Explicit]
 		public void Test_WorkingWithForms_WithoutTrulyTransient()
 		{
-			_container.Register(Component.For<IView>().ImplementedBy<SomeForm>().LifeStyle.Transient);
+			_container.Register(Component.For<IView>().ImplementedBy<FormView>().LifeStyle.Transient);
 
 			OpenAndCloseMultipleTimes();
 		}
 
 		[Test]
+		[Explicit]
 		public void Test_WorkingWithForms_WithTrulyTransient()
 		{
 			_container.Kernel.ReleasePolicy = new TrulyTransientReleasePolicy();
-			_container.Register(Component.For<IView>().ImplementedBy<SomeForm>().LifeStyle.Custom(typeof(TrulyTransientLifestyleManager)));
+			_container.Register(Component.For<IView>().ImplementedBy<FormView>().LifeStyle.Custom(typeof(TrulyTransientLifestyleManager)));
 
 			OpenAndCloseMultipleTimes();
 		}
@@ -109,4 +112,5 @@ namespace EsriDE.Trials.CastleWindsor.LifestyleBehaviour
 			}
 		}
 	}
+	// ReSharper restore InconsistentNaming
 }

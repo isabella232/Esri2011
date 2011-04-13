@@ -60,11 +60,11 @@
     <Compile Include="ComplexUI\AA\IBuilderHolder.cs" />
     <Compile Include="ComplexUI\AA\IModel.cs" />
     <Compile Include="ComplexUI\AA\ToggleFormVisibilityModel.cs" />
-    <Compile Include="ComplexUI\AgdAdapter.cs" />
-    <Compile Include="ComplexUI\Buttons\FakedAddInButton.cs" />
-    <Compile Include="ComplexUI\Builder.cs" />
-    <Compile Include="ComplexUI\Buttons\Button.cs" />
-    <Compile Include="ComplexUI\ContentModel.cs" />
+    <Compile Include="ComplexUI\AA\AgdAdapter.cs" />
+    <Compile Include="ComplexUI\Contracts\Buttons\FakedAddInButton.cs" />
+    <Compile Include="ComplexUI\AA\Builder.cs" />
+    <Compile Include="ComplexUI\Implementations\Buttons\Button.cs" />
+    <Compile Include="ComplexUI\AA\ContentModel.cs" />
     <Compile Include="ComplexUI\Fixtures\ButtonFixture.cs" />
     <Compile Include="ComplexUI\Fixtures\ButtonPresenterFixture.cs" />
     <Compile Include="ComplexUI\Fixtures\ButtonPresenterFixture.FluentSyntax.cs">
@@ -74,9 +74,9 @@
       <DependentUpon>ButtonPresenterFixture.cs</DependentUpon>
     </Compile>
     <Compile Include="ComplexUI\Fixtures\WidgetFakes\ButtonPresenterForTest.cs" />
-    <Compile Include="ComplexUI\Buttons\EnabledState.cs" />
-    <Compile Include="ComplexUI\Forms\FormView.cs" />
-    <Compile Include="ComplexUI\IBuilder.cs" />
+    <Compile Include="ComplexUI\Contracts\DomainModel\EnabledState.cs" />
+    <Compile Include="ComplexUI\Implementations\Forms\FormView.cs" />
+    <Compile Include="ComplexUI\AA\IBuilder.cs" />
     <Compile Include="LifestyleBehaviour\Fixture.WorkingWithForms.cs">
       <DependentUpon>Fixture.cs</DependentUpon>
     </Compile>
@@ -88,24 +88,24 @@
     <Compile Include="LifestyleBehaviour\Contracts\IA.cs" />
     <Compile Include="LifestyleBehaviour\Contracts\IB.cs" />
     <Compile Include="LifestyleBehaviour\Contracts\IView.cs" />
-    <Compile Include="LifestyleBehaviour\Implementations\SomeForm.cs">
+    <Compile Include="LifestyleBehaviour\Implementations\FormView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LifestyleBehaviour\Implementations\SomeForm.Designer.cs">
-      <DependentUpon>SomeForm.cs</DependentUpon>
+    <Compile Include="LifestyleBehaviour\Implementations\FormView.Designer.cs">
+      <DependentUpon>FormView.cs</DependentUpon>
     </Compile>
     <Compile Include="LifestyleBehaviour\TrulyTransientLifestyleManager.cs" />
     <Compile Include="LifestyleBehaviour\TrulyTransientReleasePolicy.cs" />
     <Compile Include="ComplexUI\Fixtures\Fixture.cs" />
-    <Compile Include="ComplexUI\Forms\SampleFormPresenter.cs" />
-    <Compile Include="ComplexUI\IAgdAdapter.cs" />
-    <Compile Include="ComplexUI\Buttons\IButtonPresenter.cs" />
-    <Compile Include="ComplexUI\IContentModel.cs" />
+    <Compile Include="ComplexUI\Implementations\Forms\SampleFormPresenter.cs" />
+    <Compile Include="ComplexUI\AA\IAgdAdapter.cs" />
+    <Compile Include="ComplexUI\Contracts\Buttons\IButtonPresenter.cs" />
+    <Compile Include="ComplexUI\AA\IContentModel.cs" />
     <Compile Include="ComplexUI\Fixtures\IEventSubscriber.cs">
       <DependentUpon>ButtonPresenterFixture.cs</DependentUpon>
     </Compile>
-    <Compile Include="ComplexUI\Forms\IFormPresenter.cs" />
-    <Compile Include="ComplexUI\Forms\IFormView.cs" />
+    <Compile Include="ComplexUI\Contracts\Forms\IFormPresenter.cs" />
+    <Compile Include="ComplexUI\Contracts\Forms\IFormView.cs" />
     <Compile Include="ComplexUI\Fixtures\IWithEvents.cs">
       <DependentUpon>ButtonPresenterFixture.cs</DependentUpon>
     </Compile>
@@ -117,12 +117,13 @@
     </Compile>
     <Compile Include="ResolvingPrimitives\Implementations\A.cs" />
     <Compile Include="ResolvingPrimitives\Implementations\Abc.cs" />
+    <Compile Include="ResolvingPrimitives\Implementations\AundB.cs" />
     <Compile Include="ResolvingPrimitives\Implementations\B.cs" />
-    <Compile Include="ComplexUI\Buttons\ButtonPresenter.cs" />
+    <Compile Include="ComplexUI\Implementations\Buttons\ButtonPresenter.cs" />
     <Compile Include="ResolvingPrimitives\Implementations\C.cs" />
-    <Compile Include="ComplexUI\Buttons\CheckedState.cs" />
+    <Compile Include="ComplexUI\Contracts\DomainModel\CheckedState.cs" />
     <Compile Include="ResolvingPrimitives\Fixture.cs" />
-    <Compile Include="ComplexUI\Buttons\IButtonView.cs" />
+    <Compile Include="ComplexUI\Contracts\Buttons\IButtonView.cs" />
     <Compile Include="ComplexUI\AA\IToggleFormVisibilityModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ComplexUI\Fixtures\WidgetFakes\TestFormForButtonHosting.cs">
@@ -131,7 +132,7 @@
     <Compile Include="ComplexUI\Fixtures\WidgetFakes\TestFormForButtonHosting.Designer.cs">
       <DependentUpon>TestFormForButtonHosting.cs</DependentUpon>
     </Compile>
-    <Compile Include="ComplexUI\Forms\VisibilityState.cs" />
+    <Compile Include="ComplexUI\Contracts\DomainModel\VisibilityState.cs" />
     <Compile Include="ResolvingPrimitives\Contracts\IA.cs" />
     <Compile Include="ResolvingPrimitives\Contracts\IAbc.cs" />
     <Compile Include="ResolvingPrimitives\Contracts\IB.cs" />
@@ -149,8 +150,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="LifestyleBehaviour\Implementations\SomeForm.resx">
-      <DependentUpon>SomeForm.cs</DependentUpon>
+    <EmbeddedResource Include="LifestyleBehaviour\Implementations\FormView.resx">
+      <DependentUpon>FormView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ComplexUI\Fixtures\WidgetFakes\TestFormForButtonHosting.resx">
       <DependentUpon>TestFormForButtonHosting.cs</DependentUpon>

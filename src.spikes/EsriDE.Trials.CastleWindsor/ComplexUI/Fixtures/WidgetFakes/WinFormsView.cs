@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using EsriDE.Trials.CastleWindsor.ComplexUI.Forms;
+using EsriDE.Trials.CastleWindsor.ComplexUI.Contracts.Forms;
 
 namespace EsriDE.Trials.CastleWindsor.ComplexUI.Fixtures.WidgetFakes
 {

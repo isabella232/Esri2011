@@ -1,13 +1,15 @@
 using System;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
-using EsriDE.Trials.CastleWindsor.ComplexUI.AA;
-using EsriDE.Trials.CastleWindsor.ComplexUI.Buttons;
+using EsriDE.Trials.CastleWindsor.ComplexUI.Contracts.Buttons;
+using EsriDE.Trials.CastleWindsor.ComplexUI.Contracts.DomainModel;
+using EsriDE.Trials.CastleWindsor.ComplexUI.Contracts.Forms;
 using EsriDE.Trials.CastleWindsor.ComplexUI.Fixtures.WidgetFakes;
-using EsriDE.Trials.CastleWindsor.ComplexUI.Forms;
+using EsriDE.Trials.CastleWindsor.ComplexUI.Implementations.Buttons;
+using EsriDE.Trials.CastleWindsor.ComplexUI.Implementations.Forms;
 using EsriDE.Trials.CastleWindsor.LifestyleBehaviour;
 
-namespace EsriDE.Trials.CastleWindsor.ComplexUI
+namespace EsriDE.Trials.CastleWindsor.ComplexUI.AA
 {
 	public class Builder : IBuilder
 	{

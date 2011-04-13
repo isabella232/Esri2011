@@ -5,11 +5,11 @@ using EsriDE.Trials.CastleWindsor.LifestyleBehaviour.Contracts;
 
 namespace EsriDE.Trials.CastleWindsor.LifestyleBehaviour.Implementations
 {
-	public partial class SomeForm : Form, IView
+	public partial class FormView : Form, IView
 	{
 		private Action<bool> _action;
 
-		public SomeForm()
+		public FormView()
 		{
 			InitializeComponent();
 		}
@@ -17,28 +17,28 @@ namespace EsriDE.Trials.CastleWindsor.LifestyleBehaviour.Implementations
 		#region IView Members
 		public void ShowView(Action<bool> action)
 		{
-			Console.WriteLine("SomeForm.ShowView()");
+			Console.WriteLine("FormView.ShowView()");
 			_action = action;
 			Show();
 		}
 
 		public void CloseView()
 		{
-			Console.WriteLine("SomeForm.CloseView()");
+			Console.WriteLine("FormView.CloseView()");
 
 			//calls only SomeForm_FormClosing and SomeForm_FormClosed
 			//http://www.alwaysgetbetter.com/blog/2008/04/04/c-formclose-vs-formdispose/
 			Close();
 
-			//Console.WriteLine("SomeForm.CloseView() - and now Dispose()");
+			//Console.WriteLine("FormView.CloseView() - and now Dispose()");
 			//Dispose();
 		}
 		#endregion
 
-		~SomeForm()
+		~FormView()
 		{
-			Console.WriteLine("~SomeForm()");
-			Trace.WriteLine("~SomeForm()");
+			Console.WriteLine("~FormView()");
+			Trace.WriteLine("~FormView()");
 			_action(true);
 		}
 
@@ -50,7 +50,7 @@ namespace EsriDE.Trials.CastleWindsor.LifestyleBehaviour.Implementations
 		private void SomeForm_FormClosed(object sender, FormClosedEventArgs e)
 		{
 			Console.WriteLine("SomeForm_FormClosed");
-			Console.WriteLine("SomeForm.SomeForm_FormClosed - and now Dispose()");
+			Console.WriteLine("FormView.SomeForm_FormClosed - and now Dispose()");
 			Dispose();
 		}
 	}
