@@ -1,6 +1,8 @@
 using Castle.Facilities.FactorySupport;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
+using EsriDE.Trials.CastleWindsor.ResolvingPrimitives.Contracts;
+using EsriDE.Trials.CastleWindsor.ResolvingPrimitives.Implementations;
 using NUnit.Framework;
 
 namespace EsriDE.Trials.CastleWindsor.ResolvingPrimitives
@@ -42,8 +44,15 @@ namespace EsriDE.Trials.CastleWindsor.ResolvingPrimitives
 		private void InitializeContainerWithRegisterAllTypesFromThisAssembly()
 		{
 			_container = new WindsorContainer();
-			//_container.AddFacility<FactorySupportFacility>();
-			_container.Register(AllTypes.FromThisAssembly());
+			//_container.Register(AllTypes.FromThisAssembly().Pick());
+			_container.Register(
+				AllTypes
+					.FromThisAssembly()
+					//.Where(type => type.Namespace.StartsWith(
+					//    "EsriDE.Trials.CastleWindsor.ResolvingPrimitives"))
+					.Where(_ => true)
+					.WithService
+					.FirstInterface());
 		}
 
 		[Test]

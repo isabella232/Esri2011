@@ -1,4 +1,4 @@
-﻿namespace EsriDE.Trials.CastleWindsor.LifestyleBehaviour
+﻿namespace EsriDE.Trials.CastleWindsor.LifestyleBehaviour.Implementations
 {
 	partial class SomeForm
 	{

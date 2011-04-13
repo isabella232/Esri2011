@@ -1,6 +1,6 @@
 using System;
 
-namespace EsriDE.Trials.CastleWindsor.LifestyleBehaviour
+namespace EsriDE.Trials.CastleWindsor.LifestyleBehaviour.Contracts
 {
 	public interface IView
 	{

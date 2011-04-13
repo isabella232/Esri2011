@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Windows.Forms;
+using EsriDE.Trials.CastleWindsor.LifestyleBehaviour.Contracts;
 
-namespace EsriDE.Trials.CastleWindsor.LifestyleBehaviour
+namespace EsriDE.Trials.CastleWindsor.LifestyleBehaviour.Implementations
 {
 	public partial class SomeForm : Form, IView
 	{

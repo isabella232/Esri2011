@@ -1,7 +1,8 @@
 using System;
 using System.Timers;
+using EsriDE.Trials.CastleWindsor.LifestyleBehaviour.Contracts;
 
-namespace EsriDE.Trials.CastleWindsor.LifestyleBehaviour
+namespace EsriDE.Trials.CastleWindsor.LifestyleBehaviour.Implementations
 {
 	public class B : IB
 	{
@@ -10,11 +11,17 @@ namespace EsriDE.Trials.CastleWindsor.LifestyleBehaviour
 		public B()
 		{
 			Console.WriteLine("B.ctor()");
+		}
 
-			//var timer = new Timer();
-			//timer.Interval = 2500;
-			//timer.Elapsed += DoSomething;
-			//timer.Enabled = true;
+		public B(bool startWithTimer)
+		{
+			if (startWithTimer)
+			{
+				var timer = new Timer();
+				timer.Interval = 100;
+				timer.Elapsed += DoSomething;
+				timer.Enabled = true;
+			}
 		}
 
 		#region IB Members

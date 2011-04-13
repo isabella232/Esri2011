@@ -77,18 +77,21 @@
     <Compile Include="ComplexUI\Buttons\EnabledState.cs" />
     <Compile Include="ComplexUI\Forms\FormView.cs" />
     <Compile Include="ComplexUI\IBuilder.cs" />
-    <Compile Include="LifestyleBehaviour\A.cs" />
-    <Compile Include="LifestyleBehaviour\B.cs" />
-    <Compile Include="LifestyleBehaviour\DisposableFakeView.cs" />
-    <Compile Include="LifestyleBehaviour\FakeView.cs" />
+    <Compile Include="LifestyleBehaviour\Fixture.WorkingWithForms.cs">
+      <DependentUpon>Fixture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LifestyleBehaviour\Implementations\A.cs" />
+    <Compile Include="LifestyleBehaviour\Implementations\B.cs" />
+    <Compile Include="LifestyleBehaviour\Implementations\DisposableFakeView.cs" />
+    <Compile Include="LifestyleBehaviour\Implementations\FakeView.cs" />
     <Compile Include="LifestyleBehaviour\Fixture.cs" />
-    <Compile Include="LifestyleBehaviour\IA.cs" />
-    <Compile Include="LifestyleBehaviour\IB.cs" />
-    <Compile Include="LifestyleBehaviour\IView.cs" />
-    <Compile Include="LifestyleBehaviour\SomeForm.cs">
+    <Compile Include="LifestyleBehaviour\Contracts\IA.cs" />
+    <Compile Include="LifestyleBehaviour\Contracts\IB.cs" />
+    <Compile Include="LifestyleBehaviour\Contracts\IView.cs" />
+    <Compile Include="LifestyleBehaviour\Implementations\SomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LifestyleBehaviour\SomeForm.Designer.cs">
+    <Compile Include="LifestyleBehaviour\Implementations\SomeForm.Designer.cs">
       <DependentUpon>SomeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="LifestyleBehaviour\TrulyTransientLifestyleManager.cs" />
@@ -106,11 +109,17 @@
     <Compile Include="ComplexUI\Fixtures\IWithEvents.cs">
       <DependentUpon>ButtonPresenterFixture.cs</DependentUpon>
     </Compile>
-    <Compile Include="ResolvingPrimitives\A.cs" />
-    <Compile Include="ResolvingPrimitives\Abc.cs" />
-    <Compile Include="ResolvingPrimitives\B.cs" />
+    <Compile Include="LifestyleBehaviour\Fixture.WorkingWithPrimitiveTypes.cs">
+      <DependentUpon>Fixture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LifestyleBehaviour\Fixture.WorkingWithDestructors.cs">
+      <DependentUpon>Fixture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ResolvingPrimitives\Implementations\A.cs" />
+    <Compile Include="ResolvingPrimitives\Implementations\Abc.cs" />
+    <Compile Include="ResolvingPrimitives\Implementations\B.cs" />
     <Compile Include="ComplexUI\Buttons\ButtonPresenter.cs" />
-    <Compile Include="ResolvingPrimitives\C.cs" />
+    <Compile Include="ResolvingPrimitives\Implementations\C.cs" />
     <Compile Include="ComplexUI\Buttons\CheckedState.cs" />
     <Compile Include="ResolvingPrimitives\Fixture.cs" />
     <Compile Include="ComplexUI\Buttons\IButtonView.cs" />
@@ -123,12 +132,12 @@
       <DependentUpon>TestFormForButtonHosting.cs</DependentUpon>
     </Compile>
     <Compile Include="ComplexUI\Forms\VisibilityState.cs" />
-    <Compile Include="ResolvingPrimitives\IA.cs" />
-    <Compile Include="ResolvingPrimitives\IAbc.cs" />
-    <Compile Include="ResolvingPrimitives\IB.cs" />
-    <Compile Include="ResolvingPrimitives\IC.cs" />
-    <Compile Include="ResolvingPrimitives\IXyz.cs" />
-    <Compile Include="ResolvingPrimitives\Xyz.cs" />
+    <Compile Include="ResolvingPrimitives\Contracts\IA.cs" />
+    <Compile Include="ResolvingPrimitives\Contracts\IAbc.cs" />
+    <Compile Include="ResolvingPrimitives\Contracts\IB.cs" />
+    <Compile Include="ResolvingPrimitives\Contracts\IC.cs" />
+    <Compile Include="ResolvingPrimitives\Contracts\IXyz.cs" />
+    <Compile Include="ResolvingPrimitives\Implementations\Xyz.cs" />
     <Compile Include="ComplexUI\Fixtures\WidgetFakes\WinFormsView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,7 +149,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="LifestyleBehaviour\SomeForm.resx">
+    <EmbeddedResource Include="LifestyleBehaviour\Implementations\SomeForm.resx">
       <DependentUpon>SomeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ComplexUI\Fixtures\WidgetFakes\TestFormForButtonHosting.resx">
