@@ -55,6 +55,7 @@ namespace EsriDE.Trials.CastleWindsor
 			model.VerifyAll();
 			view.VerifyAll();
 		}
+
 		[Test]
 		public void DoFluent()
 		{

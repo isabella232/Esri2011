@@ -3,6 +3,7 @@ using Castle.MicroKernel;
 using Castle.MicroKernel.Context;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
+using EsriDE.Trials.CastleWindsor.ClientContainer;
 
 namespace EsriDE.Trials.CastleWindsor
 {
@@ -60,7 +61,7 @@ namespace EsriDE.Trials.CastleWindsor
 		{
 			Console.WriteLine("Destroy system");
 			_formPresenter.UnsetModel();
-			_container.Release(_formPresenter);
+			//_container.Release(_formPresenter);
 			_formPresenter = null;
 		}
 
@@ -69,10 +70,16 @@ namespace EsriDE.Trials.CastleWindsor
 			_container = new WindsorContainer();
 			_container.Register(Component.For<IButtonPresenter>().ImplementedBy<ButtonPresenter>());
 			_container.Register(Component.For<IToggleFormVisibilityModel>().ImplementedBy<ToggleFormVisibilityModel>());
-			_container.Register(Component.For<IAgdAdapter>().ImplementedBy<AgdAdapter>().LifeStyle.Transient);
-			_container.Register(Component.For<IFormPresenter>().ImplementedBy<FormPresenter>().LifeStyle.Transient);
-			_container.Register(Component.For<IFormView>().ImplementedBy<FormView>().LifeStyle.Transient);
-			_container.Register(Component.For<IContentModel>().ImplementedBy<ContentModel>().LifeStyle.Transient);
+
+			//_container.Register(Component.For<IFormPresenter>().ImplementedBy<FormPresenter>().LifeStyle.Transient);
+			//_container.Register(Component.For<IFormView>().ImplementedBy<FormView>().LifeStyle.Transient);
+			//_container.Register(Component.For<IContentModel>().ImplementedBy<ContentModel>().LifeStyle.Transient);
+
+			_container.Kernel.ReleasePolicy = new TrulyTransientReleasePolicy();
+			_container.Register(Component.For<IFormPresenter>().ImplementedBy<FormPresenter>().LifeStyle.Custom(typeof(TrulyTransientLifestyleManager)));
+			_container.Register(Component.For<IFormView>().ImplementedBy<WinFormsView>().LifeStyle.Custom(typeof(TrulyTransientLifestyleManager)));
+			_container.Register(Component.For<IContentModel>().ImplementedBy<ContentModel>().LifeStyle.Custom(typeof(TrulyTransientLifestyleManager)));
+			_container.Register(Component.For<IAgdAdapter>().ImplementedBy<AgdAdapter>().LifeStyle.Custom(typeof(TrulyTransientLifestyleManager)));
 		}
 
 		private void ConnectButtonPresenterTo(IButtonView view)

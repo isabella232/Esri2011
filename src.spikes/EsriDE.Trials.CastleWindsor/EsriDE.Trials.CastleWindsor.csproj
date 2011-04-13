@@ -60,6 +60,7 @@
     <Compile Include="AddInButton.cs" />
     <Compile Include="Builder.cs" />
     <Compile Include="Button.cs" />
+    <Compile Include="ButtonFixture.cs" />
     <Compile Include="ButtonPresenterFixture.cs" />
     <Compile Include="ButtonPresenterFixture.FluentSyntax.cs">
       <DependentUpon>ButtonPresenterFixture.cs</DependentUpon>
@@ -68,6 +69,20 @@
       <DependentUpon>ButtonPresenterFixture.cs</DependentUpon>
     </Compile>
     <Compile Include="ButtonPresenterForTest.cs" />
+    <Compile Include="ClientContainer\A.cs" />
+    <Compile Include="ClientContainer\B.cs" />
+    <Compile Include="ClientContainer\DisposableFakeView.cs" />
+    <Compile Include="ClientContainer\FakeView.cs" />
+    <Compile Include="ClientContainer\Fixture.cs" />
+    <Compile Include="ClientContainer\IView.cs" />
+    <Compile Include="ClientContainer\SomeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientContainer\SomeForm.Designer.cs">
+      <DependentUpon>SomeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientContainer\TrulyTransientLifestyleManager.cs" />
+    <Compile Include="ClientContainer\TrulyTransientReleasePolicy.cs" />
     <Compile Include="Fixture.cs" />
     <Compile Include="IAgdAdapter.cs" />
     <Compile Include="IButtonPresenter.cs" />
@@ -98,15 +113,31 @@
     </Compile>
     <Compile Include="Visibility.cs" />
     <Compile Include="Primitives\Xyz.cs" />
+    <Compile Include="WinFormsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinFormsView.Designer.cs">
+      <DependentUpon>WinFormsView.cs</DependentUpon>
+    </Compile>
     <Compile Include="WithEvents.cs">
       <DependentUpon>ButtonPresenterFixture.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ClientContainer\SomeForm.resx">
+      <DependentUpon>SomeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TestFormForButtonHosting.resx">
       <DependentUpon>TestFormForButtonHosting.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="WinFormsView.resx">
+      <DependentUpon>WinFormsView.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Overview.cd" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -12,6 +12,7 @@ namespace EsriDE.Trials.CastleWindsor
 	class FormPresenter : IFormPresenter
 	{
 		private Guid _guid = Guid.NewGuid();
+		Timer timer = new Timer();
 
 		private readonly IFormView _view;
 		private readonly IAgdAdapter _agdAdapter;
@@ -21,12 +22,20 @@ namespace EsriDE.Trials.CastleWindsor
 		{
 			Console.WriteLine("FormPresenter.ctor()");
 			_view = view;
+			_view.Closing += HandleViewClosed;
 			_agdAdapter = agdAdapter;
+			_view.Show();
 
-			var timer = new Timer();
 			timer.Interval = 2500;
 			timer.Tick += Ticked;
 			timer.Enabled = true;
+		}
+
+		private void HandleViewClosed()
+		{
+			_model.ToggleVisibility();
+			//_view.Closing -= HandleViewClosed;
+
 		}
 
 		private void Ticked(object sender, EventArgs e)
@@ -41,19 +50,35 @@ namespace EsriDE.Trials.CastleWindsor
 
 		public void SetModel(IToggleFormVisibilityModel model)
 		{
+			Console.WriteLine("FormPresenter.SetModel()");
 			_model = model;
 			_model.VisibilityChanged += VisibilityChangedHandler;
 		}
 
 		private void VisibilityChangedHandler(Visibility obj)
 		{
-			
+			switch (obj)
+			{
+				case Visibility.Visible:
+					Console.WriteLine("FormPresenter.VisibilityChangedHandler(visible)");
+					break;
+				case Visibility.Invisible:
+					Console.WriteLine("FormPresenter.VisibilityChangedHandler(invisible)");
+					_view.Closing -= HandleViewClosed;
+					_view.Hide();
+					break;
+				default:
+					throw new ArgumentOutOfRangeException("obj");
+			}
 		}
 
 		public void UnsetModel()
 		{
+			Console.WriteLine("FormPresenter.UnsetModel()");
 			_model.VisibilityChanged -= VisibilityChangedHandler;
 			_model = null;
+			timer.Enabled = false;
+			//_view.Hide();
 		}
 	}
 }
