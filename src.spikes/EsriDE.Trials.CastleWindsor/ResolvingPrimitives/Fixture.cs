@@ -49,9 +49,9 @@ namespace EsriDE.Trials.CastleWindsor.ResolvingPrimitives
 			_container.Register(
 				AllTypes
 					.FromThisAssembly()
-					//.Where(type => type.Namespace.StartsWith(
-					//    "EsriDE.Trials.CastleWindsor.ResolvingPrimitives"))
-					.Where(_ => true)
+					.IncludeNonPublicTypes()//because we have internal classes!
+					.Where(type => type.Namespace.StartsWith(
+						"EsriDE.Trials.CastleWindsor.ResolvingPrimitives"))
 					.WithService
 					.FirstInterface());
 		}
