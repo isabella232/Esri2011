@@ -15,6 +15,7 @@ namespace EsriDE.Trials.CastleWindsor.ComplexUI.Fixtures
 		}
 
 		[Test]
+		[Explicit]
 		public void Open()
 		{
 			var form = new TestFormForButtonHosting();

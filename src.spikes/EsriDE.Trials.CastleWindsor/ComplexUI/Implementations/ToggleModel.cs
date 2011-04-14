@@ -1,18 +1,12 @@
 ﻿using System;
+using EsriDE.Trials.CastleWindsor.ComplexUI.AA;
 using EsriDE.Trials.CastleWindsor.ComplexUI.Contracts.DomainModel;
 
-namespace EsriDE.Trials.CastleWindsor.ComplexUI.AA
+namespace EsriDE.Trials.CastleWindsor.ComplexUI.Implementations
 {
-	public class ToggleFormVisibilityModel : IModel
+	public class ToggleModel : IToggleModel
 	{
 		private VisibilityState _visibilityState = VisibilityState.Invisible;
-
-		public ToggleFormVisibilityModel()
-		{
-			Console.WriteLine("ToggleFormVisibilityModel.ctor()");
-		}
-
-		#region IModel Members
 		public VisibilityState VisibilityState
 		{
 			get { return _visibilityState; }
@@ -21,7 +15,7 @@ namespace EsriDE.Trials.CastleWindsor.ComplexUI.AA
 				if (value != _visibilityState)
 				{
 					_visibilityState = value;
-					VisibilityChanged(_visibilityState);
+					VisibilityStateChanged(_visibilityState);
 				}
 			}
 		}
@@ -41,13 +35,6 @@ namespace EsriDE.Trials.CastleWindsor.ComplexUI.AA
 			}
 		}
 
-		public event Action<VisibilityState> VisibilityChanged;
-		public IBuilder Builder { get; set; }
-		#endregion
-
-		~ToggleFormVisibilityModel()
-		{
-			Console.WriteLine("ToggleFormVisibilityModel.~()");
-		}
+		public event Action<VisibilityState> VisibilityStateChanged = delegate { };
 	}
 }

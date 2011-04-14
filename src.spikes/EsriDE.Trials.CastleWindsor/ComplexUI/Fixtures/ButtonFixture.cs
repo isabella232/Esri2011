@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using EsriDE.Trials.CastleWindsor.ComplexUI.Fixtures.WidgetFakes;
 using EsriDE.Trials.CastleWindsor.ComplexUI.Implementations.Buttons;
 using NUnit.Framework;
 
@@ -17,7 +18,7 @@ namespace EsriDE.Trials.CastleWindsor.ComplexUI.Fixtures
 			for (int i = 0; i < 10; i++)
 			{
 				var veryFirst = GC.GetTotalMemory(true);
-				for (int j = 0; j < 1000; j++)
+				for (int j = 0; j < 500; j++)
 				{
 					sut.OnClick();
 				}

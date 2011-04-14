@@ -7,13 +7,13 @@ namespace EsriDE.Trials.CastleWindsor.ComplexUI.Implementations.Buttons
 {
 	public class ButtonPresenter : IButtonPresenter
 	{
-		private readonly IToggleFormVisibilityModel _toggleFormVisibilityModel;
+		private readonly IToggleModel _model;
 		private IButtonView _buttonView;
 
-		public ButtonPresenter(IToggleFormVisibilityModel toggleFormVisibility)
+		public ButtonPresenter(IToggleModel model)
 		{
-			_toggleFormVisibilityModel = toggleFormVisibility;
-			_toggleFormVisibilityModel.VisibilityChanged += SetButtonCheckedState;
+			_model = model;
+			_model.VisibilityStateChanged += SetButtonCheckedState;
 		}
 
 		#region IButtonPresenter Members
@@ -45,7 +45,7 @@ namespace EsriDE.Trials.CastleWindsor.ComplexUI.Implementations.Buttons
 
 		protected void ButtonClicked()
 		{
-			_toggleFormVisibilityModel.ToggleVisibility();
+			_model.ToggleVisibility();
 		}
 	}
 }

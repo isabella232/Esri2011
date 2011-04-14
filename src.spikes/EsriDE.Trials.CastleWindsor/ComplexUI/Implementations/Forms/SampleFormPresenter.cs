@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Windows.Forms;
 using EsriDE.Trials.CastleWindsor.ComplexUI.AA;
 using EsriDE.Trials.CastleWindsor.ComplexUI.Contracts.DomainModel;
 using EsriDE.Trials.CastleWindsor.ComplexUI.Contracts.Forms;
@@ -10,50 +9,42 @@ namespace EsriDE.Trials.CastleWindsor.ComplexUI.Implementations.Forms
 	{
 		private readonly IAgdAdapter _agdAdapter;
 		private readonly IFormView _view;
-		private Guid _guid = Guid.NewGuid();
-		private IToggleFormVisibilityModel _model;
-		private Timer timer = new Timer();
+		private IToggleModel _model;
 
-		public SampleFormPresenter(IFormView view, IAgdAdapter agdAdapter)
+		public SampleFormPresenter(IToggleModel model, IFormView view, IAgdAdapter agdAdapter)
 		{
 			Console.WriteLine("SampleFormPresenter.ctor()");
+
+			_model = model;
+			_model.VisibilityStateChanged += VisibilityChangedHandler;
+
 			_view = view;
 			_view.Closing += HandleViewClosed;
-			_agdAdapter = agdAdapter;
 			_view.Show();
 
-			timer.Interval = 2500;
-			timer.Tick += Ticked;
-			timer.Enabled = true;
+			_agdAdapter = agdAdapter;
 		}
 
 		#region IFormPresenter Members
-		public void SetModel(IToggleFormVisibilityModel model)
-		{
-			Console.WriteLine("SampleFormPresenter.SetModel()");
-			_model = model;
-			_model.VisibilityChanged += VisibilityChangedHandler;
-		}
+		//public void SetModel(IFormModel model)
+		//{
+		//    Console.WriteLine("SampleFormPresenter.SetModel()");
 
-		public void UnsetModel()
-		{
-			Console.WriteLine("SampleFormPresenter.UnsetModel()");
-			_model.VisibilityChanged -= VisibilityChangedHandler;
-			_model = null;
-			timer.Enabled = false;
-			//_view.Hide();
-		}
+		//    _model = model;
+		//    _model.VisibilityStateChanged += VisibilityChangedHandler;
+		//}
+
+		//public void UnsetModel()
+		//{
+		//    Console.WriteLine("SampleFormPresenter.UnsetModel()");
+
+		//    CleanUp();
+		//}
 		#endregion
 
 		private void HandleViewClosed()
 		{
 			_model.ToggleVisibility();
-			//_view.Closing -= HandleViewClosed;
-		}
-
-		private void Ticked(object sender, EventArgs e)
-		{
-			Console.WriteLine(_guid);
 		}
 
 		~SampleFormPresenter()
@@ -61,21 +52,31 @@ namespace EsriDE.Trials.CastleWindsor.ComplexUI.Implementations.Forms
 			Console.WriteLine("SampleFormPresenter.~()");
 		}
 
-		private void VisibilityChangedHandler(VisibilityState obj)
+		private void VisibilityChangedHandler(VisibilityState state)
 		{
-			switch (obj)
+			switch (state)
 			{
 				case VisibilityState.Visible:
 					Console.WriteLine("SampleFormPresenter.VisibilityChangedHandler(visible)");
 					break;
 				case VisibilityState.Invisible:
 					Console.WriteLine("SampleFormPresenter.VisibilityChangedHandler(invisible)");
-					_view.Closing -= HandleViewClosed;
-					_view.Hide();
+					
+					CleanUp();
 					break;
 				default:
-					throw new ArgumentOutOfRangeException("obj");
+					throw new ArgumentOutOfRangeException("state");
 			}
+		}
+
+		private void CleanUp()
+		{
+			Console.WriteLine("SampleFormPresenter.CleanUp()");
+
+			_view.Closing -= HandleViewClosed;
+			_view.Hide();
+
+			_model.VisibilityStateChanged -= VisibilityChangedHandler;
 		}
 	}
 }

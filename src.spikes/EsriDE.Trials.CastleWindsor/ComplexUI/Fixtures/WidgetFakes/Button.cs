@@ -3,7 +3,7 @@ using EsriDE.Trials.CastleWindsor.ComplexUI.AA;
 using EsriDE.Trials.CastleWindsor.ComplexUI.Contracts.Buttons;
 using EsriDE.Trials.CastleWindsor.ComplexUI.Contracts.DomainModel;
 
-namespace EsriDE.Trials.CastleWindsor.ComplexUI.Implementations.Buttons
+namespace EsriDE.Trials.CastleWindsor.ComplexUI.Fixtures.WidgetFakes
 {
 	public class Button : FakedAddInButton, IButtonView
 	{

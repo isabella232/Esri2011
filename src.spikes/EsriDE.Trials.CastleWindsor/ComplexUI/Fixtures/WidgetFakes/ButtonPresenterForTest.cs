@@ -6,7 +6,7 @@ namespace EsriDE.Trials.CastleWindsor.ComplexUI.Fixtures.WidgetFakes
 {
 	public class ButtonPresenterForTest : ButtonPresenter
 	{
-		public ButtonPresenterForTest(IToggleFormVisibilityModel toggleFormVisibility) : base(toggleFormVisibility)
+		public ButtonPresenterForTest(IToggleModel toggleFormVisibility) : base(toggleFormVisibility)
 		{
 		}
 

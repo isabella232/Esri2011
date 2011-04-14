@@ -23,9 +23,9 @@ namespace EsriDE.Trials.CastleWindsor.ComplexUI.Fixtures
 		{
 			var mockRepository = new MockRepository();
 			var view = mockRepository.StrictMock<IButtonView>();
-			var model = mockRepository.StrictMock<IToggleFormVisibilityModel>();
+			var model = mockRepository.StrictMock<IToggleModel>();
 
-			model.VisibilityChanged += null;
+			model.VisibilityStateChanged += null;
 			IEventRaiser visibilityChanged = LastCall.GetEventRaiser();
 
 			view.Clicked += null;
@@ -38,7 +38,7 @@ namespace EsriDE.Trials.CastleWindsor.ComplexUI.Fixtures
 			//mockRepository.Playback();
 
 			Expect.Call(model.ToggleVisibility);
-			Expect.Call(() => model.VisibilityChanged += null).IgnoreArguments();
+			Expect.Call(() => model.VisibilityStateChanged += null).IgnoreArguments();
 			Expect.Call(() => view.SetCheckedState(CheckedState.Checked));
 
 			mockRepository.ReplayAll();
@@ -54,7 +54,7 @@ namespace EsriDE.Trials.CastleWindsor.ComplexUI.Fixtures
 		{
 			var mockRepository = new MockRepository();
 			var view = mockRepository.StrictMock<IButtonView>();
-			var model = mockRepository.StrictMock<IToggleFormVisibilityModel>();
+			var model = mockRepository.StrictMock<IToggleModel>();
 
 			var presenter = new ButtonPresenter(model);
 			presenter.ConnectView(view);
@@ -74,7 +74,7 @@ namespace EsriDE.Trials.CastleWindsor.ComplexUI.Fixtures
 				.Expecting(delegate
 				           	{
 				           		Expect.Call(model.ToggleVisibility);
-				           		Expect.Call(() => model.VisibilityChanged += null).IgnoreArguments();
+				           		Expect.Call(() => model.VisibilityStateChanged += null).IgnoreArguments();
 				           		Expect.Call(() => view.SetCheckedState(CheckedState.Checked));
 				           	})
 				.Verify(delegate
@@ -89,7 +89,7 @@ namespace EsriDE.Trials.CastleWindsor.ComplexUI.Fixtures
 		{
 			var mockRepository = new MockRepository();
 			var view = mockRepository.StrictMock<IButtonView>();
-			var model = mockRepository.DynamicMock<IToggleFormVisibilityModel>();
+			var model = mockRepository.DynamicMock<IToggleModel>();
 
 			view.Clicked += null;
 			IEventRaiser clicked = LastCall.GetEventRaiser();
@@ -123,9 +123,9 @@ namespace EsriDE.Trials.CastleWindsor.ComplexUI.Fixtures
 		{
 			var mockRepository = new MockRepository();
 			var view = mockRepository.StrictMock<IButtonView>();
-			var model = mockRepository.StrictMock<IToggleFormVisibilityModel>();
+			var model = mockRepository.StrictMock<IToggleModel>();
 
-			model.VisibilityChanged += null;
+			model.VisibilityStateChanged += null;
 			IEventRaiser visibilityChanged = LastCall.GetEventRaiser();
 
 			view.Clicked += null;
@@ -145,7 +145,7 @@ namespace EsriDE.Trials.CastleWindsor.ComplexUI.Fixtures
 
 			using (mockRepository.Record())
 			{
-				var v = Expect.Call(() => model.VisibilityChanged += null).IgnoreArguments();
+				var v = Expect.Call(() => model.VisibilityStateChanged += null).IgnoreArguments();
 
 				Expect.Call(model.ToggleVisibility);
 				//Expect.Call(() => view.SetCheckedState(CheckedState.Checked));

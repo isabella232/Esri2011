@@ -5,6 +5,7 @@ using EsriDE.Trials.CastleWindsor.ComplexUI.Contracts.Buttons;
 using EsriDE.Trials.CastleWindsor.ComplexUI.Contracts.DomainModel;
 using EsriDE.Trials.CastleWindsor.ComplexUI.Contracts.Forms;
 using EsriDE.Trials.CastleWindsor.ComplexUI.Fixtures.WidgetFakes;
+using EsriDE.Trials.CastleWindsor.ComplexUI.Implementations;
 using EsriDE.Trials.CastleWindsor.ComplexUI.Implementations.Buttons;
 using EsriDE.Trials.CastleWindsor.ComplexUI.Implementations.Forms;
 using EsriDE.Trials.CastleWindsor.LifestyleBehaviour;
@@ -31,11 +32,11 @@ namespace EsriDE.Trials.CastleWindsor.ComplexUI.AA
 
 		private void ConnectMeAsModelObserver()
 		{
-			var model = _container.Resolve<IToggleFormVisibilityModel>();
-			model.VisibilityChanged += ModelToggeled;
+			var model = _container.Resolve<IToggleModel>();
+			model.VisibilityStateChanged += ManageFormSubsystem;
 		}
 
-		private void ModelToggeled(VisibilityState visibilityState)
+		private void ManageFormSubsystem(VisibilityState visibilityState)
 		{
 			switch (visibilityState)
 			{
@@ -54,14 +55,14 @@ namespace EsriDE.Trials.CastleWindsor.ComplexUI.AA
 		{
 			Console.WriteLine("Construct system");
 			_formPresenter = _container.Resolve<IFormPresenter>();
-			var formVisibilityModel = _container.Resolve<IToggleFormVisibilityModel>();
-			_formPresenter.SetModel(formVisibilityModel);
+			//var formVisibilityModel = _container.Resolve<IToggleModel>();
+			//_formPresenter.SetModel(formVisibilityModel);
 		}
 
 		private void DestroySystem()
 		{
 			Console.WriteLine("Destroy system");
-			_formPresenter.UnsetModel();
+			//_formPresenter.UnsetModel();
 			//_container.Release(_formPresenter);
 			_formPresenter = null;
 		}
@@ -70,7 +71,7 @@ namespace EsriDE.Trials.CastleWindsor.ComplexUI.AA
 		{
 			_container = new WindsorContainer();
 			_container.Register(Component.For<IButtonPresenter>().ImplementedBy<ButtonPresenter>());
-			_container.Register(Component.For<IToggleFormVisibilityModel>().ImplementedBy<ToggleFormVisibilityModel>());
+			_container.Register(Component.For<IToggleModel>().ImplementedBy<ToggleModel>());
 
 			//_container.Register(Component.For<IFormPresenter>().ImplementedBy<SampleFormPresenter>().LifeStyle.Transient);
 			//_container.Register(Component.For<IFormView>().ImplementedBy<FormView>().LifeStyle.Transient);

@@ -16,7 +16,7 @@ namespace EsriDE.Trials.CastleWindsor.ComplexUI.Fixtures
 		{
 			var mockRepository = new MockRepository();
 			var view = mockRepository.StrictMock<IButtonView>();
-			var model = mockRepository.Stub<IToggleFormVisibilityModel>();
+			var model = mockRepository.Stub<IToggleModel>();
 
 			var presenter = new ButtonPresenter(model);
 
@@ -30,14 +30,14 @@ namespace EsriDE.Trials.CastleWindsor.ComplexUI.Fixtures
 		{
 			var mockRepository = new MockRepository();
 			var view = mockRepository.DynamicMock<IButtonView>();
-			var model = mockRepository.DynamicMock<IToggleFormVisibilityModel>();
+			var model = mockRepository.DynamicMock<IToggleModel>();
 
 			IEventRaiser clicked = null;
 
 			With.Mocks(mockRepository)
 				.Expecting(delegate
 				           	{
-				           		Expect.Call(() => model.VisibilityChanged += null).IgnoreArguments();
+				           		Expect.Call(() => model.VisibilityStateChanged += null).IgnoreArguments();
 
 				           		clicked = Expect.Call(() => view.Clicked += null).IgnoreArguments().GetEventRaiser();
 				           		Expect.Call(model.ToggleVisibility);
@@ -55,7 +55,7 @@ namespace EsriDE.Trials.CastleWindsor.ComplexUI.Fixtures
 		{
 			var mockRepository = new MockRepository();
 			var view = mockRepository.StrictMock<IButtonView>();
-			var model = mockRepository.StrictMock<IToggleFormVisibilityModel>();
+			var model = mockRepository.StrictMock<IToggleModel>();
 
 			IEventRaiser clicked = null;
 			IEventRaiser visibilityChanged = null;
@@ -64,7 +64,7 @@ namespace EsriDE.Trials.CastleWindsor.ComplexUI.Fixtures
 				.Expecting(delegate
 				           	{
 				           		visibilityChanged =
-				           			Expect.Call(() => model.VisibilityChanged += null).IgnoreArguments().GetEventRaiser();
+				           			Expect.Call(() => model.VisibilityStateChanged += null).IgnoreArguments().GetEventRaiser();
 				           		clicked = Expect.Call(() => view.Clicked += null).IgnoreArguments().GetEventRaiser();
 
 				           		Expect.Call(model.ToggleVisibility);
@@ -86,10 +86,10 @@ namespace EsriDE.Trials.CastleWindsor.ComplexUI.Fixtures
 		public void ConstructorConnects_Fluent()
 		{
 			var mockRepository = new MockRepository();
-			var model = mockRepository.StrictMock<IToggleFormVisibilityModel>();
+			var model = mockRepository.StrictMock<IToggleModel>();
 
 			With.Mocks(mockRepository)
-				.Expecting(delegate { Expect.Call(() => model.VisibilityChanged += null).IgnoreArguments(); })
+				.Expecting(delegate { Expect.Call(() => model.VisibilityStateChanged += null).IgnoreArguments(); })
 				.Verify(delegate { new ButtonPresenter(model); });
 		}
 	}

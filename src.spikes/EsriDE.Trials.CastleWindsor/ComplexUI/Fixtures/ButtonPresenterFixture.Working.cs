@@ -13,76 +13,76 @@ namespace EsriDE.Trials.CastleWindsor.ComplexUI.Fixtures
 	[TestFixture]
 	public partial class ButtonPresenterFixture
 	{
-		[Test]
-		public void DoClassic()
-		{
-			var mockRepository = new MockRepository();
-			var view = mockRepository.StrictMock<IButtonView>();
-			var model = mockRepository.Stub<IToggleFormVisibilityModel>();
+		//[Test]
+		//public void DoClassic()
+		//{
+		//    var mockRepository = new MockRepository();
+		//    var view = mockRepository.StrictMock<IButtonView>();
+		//    var model = mockRepository.Stub<IToggleModel>();
 
-			var presenter = new ButtonPresenterForTest(model);
-			presenter.ConnectView(view);
+		//    var presenter = new ButtonPresenterForTest(model);
+		//    presenter.ConnectView(view);
 
-			mockRepository.Playback();
+		//    mockRepository.Playback();
 
-			Expect.Call(() => view.SetCheckedState(CheckedState.Checked)).IgnoreArguments();
+		//    Expect.Call(() => view.SetCheckedState(CheckedState.Checked)).IgnoreArguments();
 
-			mockRepository.ReplayAll();
+		//    mockRepository.ReplayAll();
 
-			presenter.EmulateEventing(VisibilityState.Visible);
+		//    presenter.EmulateEventing(VisibilityState.Visible);
 
-			mockRepository.VerifyAll();
-		}
+		//    mockRepository.VerifyAll();
+		//}
 
-		[Test]
-		public void DoFluent()
-		{
-			var mockRepository = new MockRepository();
-			var view = mockRepository.StrictMock<IButtonView>();
-			var model = mockRepository.Stub<IToggleFormVisibilityModel>();
+		//[Test]
+		//public void DoFluent()
+		//{
+		//    var mockRepository = new MockRepository();
+		//    var view = mockRepository.StrictMock<IButtonView>();
+		//    var model = mockRepository.Stub<IToggleModel>();
 
-			var presenter = new ButtonPresenterForTest(model);
+		//    var presenter = new ButtonPresenterForTest(model);
 
-			With.Mocks(mockRepository)
-				.Expecting(delegate
-				           	{
-				           		Expect.Call(() => view.Clicked += null).IgnoreArguments();
-				           		Expect.Call(() => view.SetCheckedState(CheckedState.Checked)).IgnoreArguments();
-				           	})
-				.Verify(delegate
-				        	{
-				        		presenter.ConnectView(view);
-				        		presenter.EmulateEventing(VisibilityState.Visible);
-				        	});
-		}
+		//    With.Mocks(mockRepository)
+		//        .Expecting(delegate
+		//                    {
+		//                        Expect.Call(() => view.Clicked += null).IgnoreArguments();
+		//                        Expect.Call(() => view.SetCheckedState(CheckedState.Checked)).IgnoreArguments();
+		//                    })
+		//        .Verify(delegate
+		//                    {
+		//                        presenter.ConnectView(view);
+		//                        presenter.EmulateEventing(VisibilityState.Visible);
+		//                    });
+		//}
 
-		[Test]
-		public void DoUsing()
-		{
-			var mockRepository = new MockRepository();
-			var view = mockRepository.StrictMock<IButtonView>();
-			var model = mockRepository.Stub<IToggleFormVisibilityModel>();
+		//[Test]
+		//public void DoUsing()
+		//{
+		//    var mockRepository = new MockRepository();
+		//    var view = mockRepository.StrictMock<IButtonView>();
+		//    var model = mockRepository.Stub<IToggleModel>();
 
-			var presenter = new ButtonPresenterForTest(model);
+		//    var presenter = new ButtonPresenterForTest(model);
 
-			using (mockRepository.Record())
-			{
-				Expect.Call(() => view.Clicked += null).IgnoreArguments();
-				Expect.Call(() => view.SetCheckedState(CheckedState.Checked)).IgnoreArguments();
-			}
+		//    using (mockRepository.Record())
+		//    {
+		//        Expect.Call(() => view.Clicked += null).IgnoreArguments();
+		//        Expect.Call(() => view.SetCheckedState(CheckedState.Checked)).IgnoreArguments();
+		//    }
 
-			using (mockRepository.Playback())
-			{
-				presenter.ConnectView(view);
-				presenter.EmulateEventing(VisibilityState.Visible);
-			}
-		}
+		//    using (mockRepository.Playback())
+		//    {
+		//        presenter.ConnectView(view);
+		//        presenter.EmulateEventing(VisibilityState.Visible);
+		//    }
+		//}
 
 		[Test]
 		public void RoundtripViewToModelToView_Hiding()
 		{
 			var view = new Mock<IButtonView>(MockBehavior.Strict);
-			var model = new Mock<IToggleFormVisibilityModel>(MockBehavior.Strict);
+			var model = new Mock<IToggleModel>(MockBehavior.Strict);
 
 			var presenter = new ButtonPresenter(model.Object);
 			presenter.ConnectView(view.Object);
@@ -95,7 +95,7 @@ namespace EsriDE.Trials.CastleWindsor.ComplexUI.Fixtures
 
 			// Events auslösen
 			view.Raise(m => m.Clicked += null);
-			model.Raise(m => m.VisibilityChanged += null, VisibilityState.Invisible);
+			model.Raise(m => m.VisibilityStateChanged += null, VisibilityState.Invisible);
 
 			// Erwartungen verifizieren
 			model.VerifyAll();
@@ -106,7 +106,7 @@ namespace EsriDE.Trials.CastleWindsor.ComplexUI.Fixtures
 		public void RoundtripViewToModelToView_Showing()
 		{
 			var view = new Mock<IButtonView>(MockBehavior.Strict);
-			var model = new Mock<IToggleFormVisibilityModel>(MockBehavior.Strict);
+			var model = new Mock<IToggleModel>(MockBehavior.Strict);
 
 			var presenter = new ButtonPresenter(model.Object);
 			presenter.ConnectView(view.Object);
@@ -119,7 +119,7 @@ namespace EsriDE.Trials.CastleWindsor.ComplexUI.Fixtures
 
 			// Events auslösen
 			view.Raise(m => m.Clicked += null);
-			model.Raise(m => m.VisibilityChanged += null, VisibilityState.Visible);
+			model.Raise(m => m.VisibilityStateChanged += null, VisibilityState.Visible);
 
 			// Erwartungen verifizieren
 			model.VerifyAll();
