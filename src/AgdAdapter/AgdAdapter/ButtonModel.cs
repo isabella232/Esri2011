@@ -17,7 +17,7 @@ namespace EsriDE.Samples.ContentFinder.AgdAdapter
 
 		private object ConstructSystem()
 		{
-			
+			return null;
 		}
 	}
 

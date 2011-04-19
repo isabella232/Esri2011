@@ -7,8 +7,19 @@ using NUnit.Framework;
 namespace EsriDE.Trials.EmbeddingManager
 {
 	[TestFixture]
-	public class Fixture
+	public class FixtureEmbeddingManager
 	{
+		[Test]
+		[RequiresSTA]
+		public void EmbedWin_InWinWithExtraClass_Works()
+		{
+			var winFormsUserControl = new WinFormsUserControl();
+			var manager = new WinInWinEmbeddingManager(winFormsUserControl, control => control);
+
+			var winFormsWindow = new WinFormsWindow(manager);
+			winFormsWindow.ShowWindow();
+		}
+
 		[Test]
 		[RequiresSTA]
 		public void EmbedWin_InWin_Works()

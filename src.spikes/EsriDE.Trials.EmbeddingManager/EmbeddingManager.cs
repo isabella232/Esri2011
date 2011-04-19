@@ -24,8 +24,11 @@ namespace EsriDE.Trials.EmbeddingManager
 
 		public virtual void EmbedControl(Action<THost> embedControl)
 		{
-			var c = _wrapControl(_embeddedControl);
-			embedControl(c);
+			//bettet das "fremde" UI-Control (z.B. WinForms-UserControl) in ein hostendes UI-Control der aktuelle UI-Platform ein (z.B. Wpf-WindowsFormsHost)
+			var inHostWrappedControl = _wrapControl(_embeddedControl);
+
+			//fügt das hostende UserControl in einen UI-Container ein (z.B. auf das Wpf-Formular)
+			embedControl(inHostWrappedControl);
 		}
 
 		#endregion

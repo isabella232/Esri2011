@@ -12,7 +12,8 @@
     <AssemblyName>EsriDE.Samples.ContentFinder.AgdAdapter</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -33,8 +34,43 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ESRI.ArcGIS.ArcMapUI, Version=10.0.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=x86">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\lib\Esri.ArcGIS\ESRI.ArcGIS.ArcMapUI.dll</HintPath>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Carto, Version=10.0.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=x86">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\lib\Esri.ArcGIS\ESRI.ArcGIS.Carto.dll</HintPath>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.DataSourcesRaster, Version=10.0.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=x86">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\lib\Esri.ArcGIS\ESRI.ArcGIS.DataSourcesRaster.dll</HintPath>
+    </Reference>
     <Reference Include="ESRI.ArcGIS.Desktop.AddIns">
       <HintPath>..\..\..\lib\Esri.ArcGIS\ESRI.ArcGIS.Desktop.AddIns.dll</HintPath>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Display, Version=10.0.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=x86">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\lib\Esri.ArcGIS\ESRI.ArcGIS.Display.dll</HintPath>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Framework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=x86">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\lib\Esri.ArcGIS\ESRI.ArcGIS.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Geodatabase, Version=10.0.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=x86">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\lib\Esri.ArcGIS\ESRI.ArcGIS.Geodatabase.dll</HintPath>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.GISClient, Version=10.0.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=x86">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\lib\Esri.ArcGIS\ESRI.ArcGIS.GISClient.dll</HintPath>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.System, Version=10.0.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=x86">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\lib\Esri.ArcGIS\ESRI.ArcGIS.System.dll</HintPath>
+    </Reference>
+    <Reference Include="EsriDE.Samples.ContentFinder.DomainModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <HintPath>..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.DomainModel.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -48,6 +84,7 @@
     <Compile Include="ButtonModel.cs" />
     <Compile Include="ButtonPresenter.cs" />
     <Compile Include="ContentFinderButton.cs" />
+    <Compile Include="IArcMapAdapter.cs" />
     <Compile Include="IButtonModel.cs" />
     <Compile Include="IButtonPresenter.cs" />
     <Compile Include="IButtonView.cs" />

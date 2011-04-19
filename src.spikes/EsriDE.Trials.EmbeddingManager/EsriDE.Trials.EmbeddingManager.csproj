@@ -31,6 +31,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\..\lib\Castle.Windsor\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\..\lib\Castle.Windsor\Castle.Windsor.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\..\lib\NUnit\nunit.framework.dll</HintPath>
     </Reference>
@@ -49,14 +55,34 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EmbeddingManager.cs" />
-    <Compile Include="Fixture.cs" />
+    <Compile Include="FixtureEmbeddingManager.cs" />
+    <Compile Include="FixtureCastle.cs" />
+    <Compile Include="FixtureCastle.FuncsAndInjection.cs">
+      <DependentUpon>FixtureCastle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FixtureCastle.Funcs.cs">
+      <DependentUpon>FixtureCastle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FixtureCastle.DynamicParameters.cs">
+      <DependentUpon>FixtureCastle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FixtureEmbeddingWithCastle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WinFormsFormView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinFormsFormView.Designer.cs">
+      <DependentUpon>WinFormsFormView.cs</DependentUpon>
+    </Compile>
     <Compile Include="WinFormsWindow.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="WinFormsWindow.Designer.cs">
       <DependentUpon>WinFormsWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="WinInWinEmbeddingManager.cs" />
     <Compile Include="WpfWindow.xaml.cs">
       <DependentUpon>WpfWindow.xaml</DependentUpon>
     </Compile>
@@ -81,6 +107,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="WinFormsFormView.resx">
+      <DependentUpon>WinFormsFormView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WinFormsUserControl.resx">
       <DependentUpon>WinFormsUserControl.cs</DependentUpon>
     </EmbeddedResource>

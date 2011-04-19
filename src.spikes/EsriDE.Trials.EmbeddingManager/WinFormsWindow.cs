@@ -23,7 +23,7 @@ namespace EsriDE.Trials.EmbeddingManager
 			ShowDialog(); //modal showing
 		}
 
-		public void EmbedControl(Control element)
+		private void EmbedControl(Control element)
 		{
 			panel1.Controls.Add(element);
 		}

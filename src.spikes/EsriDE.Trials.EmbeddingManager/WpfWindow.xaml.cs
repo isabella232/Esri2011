@@ -27,7 +27,7 @@ namespace EsriDE.Trials.EmbeddingManager
 			ShowDialog();
 		}
 
-		public void EmbedControl(UIElement element)
+		private void EmbedControl(UIElement element)
 		{
 			if (!Dispatcher.CheckAccess())
 			{
