@@ -34,6 +34,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Castle.Core, Version=2.5.1.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\Castle.Windsor\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=2.5.1.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL" />
     <Reference Include="ESRI.ArcGIS.ArcMapUI, Version=10.0.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=x86">
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <HintPath>..\..\..\lib\Esri.ArcGIS\ESRI.ArcGIS.ArcMapUI.dll</HintPath>
@@ -48,6 +52,7 @@
     </Reference>
     <Reference Include="ESRI.ArcGIS.Desktop.AddIns">
       <HintPath>..\..\..\lib\Esri.ArcGIS\ESRI.ArcGIS.Desktop.AddIns.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="ESRI.ArcGIS.Display, Version=10.0.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=x86">
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -72,6 +77,9 @@
     <Reference Include="EsriDE.Samples.ContentFinder.DomainModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
       <HintPath>..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.DomainModel.dll</HintPath>
     </Reference>
+    <Reference Include="EsriDE.Samples.ContentFinder.SystemBuild, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86" />
+    <Reference Include="EsriDE.Samples.ContentFinder.UI.Contract, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86" />
+    <Reference Include="EsriDE.Samples.ContentFinder.WpfUI, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -80,22 +88,125 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Button.cs" />
-    <Compile Include="ButtonModel.cs" />
-    <Compile Include="ButtonPresenter.cs" />
-    <Compile Include="ContentFinderButton.cs" />
-    <Compile Include="IArcMapAdapter.cs" />
-    <Compile Include="IButtonModel.cs" />
-    <Compile Include="IButtonPresenter.cs" />
-    <Compile Include="IButtonView.cs" />
+    <Compile Include="Builder.cs" />
+    <Compile Include="ContentFinderButton.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <!-- Esri Stuff -->
+    <Compile Include="Config.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Config.esriaddinx</DependentUpon>
+    </Compile>
+    <Compile Include="ShifterAddinButton.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ShifterPresenter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Sortieren\ArcMapAdapter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Sortieren\IArcMapAdapter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ToggleViewShifterModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
+  <!-- Esri Stuff -->
+  <ItemGroup>
+    <AddInContent Include="..\..\..\lib\Castle.Windsor\Castle.Core.dll">
+      <Link>Install\Castle.Core.dll</Link>
+    </AddInContent>
+    <AddInContent Include="..\..\..\lib\Castle.Windsor\Castle.Windsor.dll">
+      <Link>Install\Castle.Windsor.dll</Link>
+    </AddInContent>
+    <!--
+    <Content Include="Data\EigeneInhalte.esriaddin.config.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    -->
+    <AddInContent Include="Images\ContentLoader.png" />
+    <AddInContent Include="Config.esriaddinx">
+      <Generator>ArcGISAddInHostGenerator</Generator>
+      <LastGenOutput>Config.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </AddInContent>
+    <AddInContent Include="Images\ContentLoaderStartButton.png" />
+    <Resource Include="Images\ESRI_Deutschland.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <AddInContent Include="..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.BL.Contract.dll">
+      <Link>Install\EsriDE.Samples.ContentFinder.BL.Contract.dll</Link>
+    </AddInContent>
+    <AddInContent Include="..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.BL.Contract.pdb">
+      <Link>Install\EsriDE.Samples.ContentFinder.BL.Contract.pdb</Link>
+    </AddInContent>
+    <AddInContent Include="..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.ConfigurationAdapter.Contract.dll">
+      <Link>Install\EsriDE.Samples.ContentFinder.ConfigurationAdapter.Contract.dll</Link>
+    </AddInContent>
+    <AddInContent Include="..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.ConfigurationAdapter.Contract.pdb">
+      <Link>Install\EsriDE.Samples.ContentFinder.ConfigurationAdapter.Contract.pdb</Link>
+    </AddInContent>
+    <AddInContent Include="..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.ContentAdapter.Contract.dll">
+      <Link>Install\EsriDE.Samples.ContentFinder.ContentAdapter.Contract.dll</Link>
+    </AddInContent>
+    <AddInContent Include="..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.ContentAdapter.Contract.pdb">
+      <Link>Install\EsriDE.Samples.ContentFinder.ContentAdapter.Contract.pdb</Link>
+    </AddInContent>
+    <AddInContent Include="..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.DomainModel.dll">
+      <Link>Install\EsriDE.Samples.ContentFinder.DomainModel.dll</Link>
+    </AddInContent>
+    <AddInContent Include="..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.DomainModel.pdb">
+      <Link>Install\EsriDE.Samples.ContentFinder.DomainModel.pdb</Link>
+    </AddInContent>
+    <AddInContent Include="..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.UI.Contract.dll">
+      <Link>Install\EsriDE.Samples.ContentFinder.UI.Contract.dll</Link>
+    </AddInContent>
+    <AddInContent Include="..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.UI.Contract.pdb">
+      <Link>Install\EsriDE.Samples.ContentFinder.UI.Contract.pdb</Link>
+    </AddInContent>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\..\..\bin\EsriDE.Samples.ContentFinder.AgdAdapter.dll">
+      <Link>Install\EsriDE.Samples.ContentFinder.AgdAdapter.dll</Link>
+    </Content>
+    <Content Include="..\..\..\bin\EsriDE.Samples.ContentFinder.BL.dll">
+      <Link>Install\EsriDE.Samples.ContentFinder.BL.dll</Link>
+    </Content>
+    <Content Include="..\..\..\bin\EsriDE.Samples.ContentFinder.ContentAdapter.dll">
+      <Link>Install\EsriDE.Samples.ContentFinder.ContentAdapter.dll</Link>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Sortieren\Old\" />
+  </ItemGroup>
+  <!-- Esri Stuff -->
+  <PropertyGroup>
+    <ZipFileExtension>esriAddIn</ZipFileExtension>
+    <AddInTargetProduct>Desktop</AddInTargetProduct>
+    <AddInTargetVersion>10.0</AddInTargetVersion>
+  </PropertyGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- Esri Stuff -->
+  <Import Project="$(MSBuildExtensionsPath)\ESRI\ESRI.ArcGIS.AddIns.targets" Condition="Exists('$(MSBuildExtensionsPath)\ESRI\ESRI.ArcGIS.AddIns.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
-  <Target Name="AfterBuild">
-  </Target>
   -->
+  <Target Name="AfterBuild">
+    <!-- Esri Stuff -->
+    <!-- Gives build warning when add-in targets file is not found. -->
+    <Warning Text="Unable to create .esriAddin; missing ESRI ArcGIS Add-in SDK component(s)." Condition="!Exists('$(MSBuildExtensionsPath)\ESRI\ESRI.ArcGIS.AddIns.targets')" />
+  </Target>
+  <!-- Esri Stuff -->
+  <ProjectExtensions>
+    <!-- Default ESRI add-in properties -->
+    <ESRIAddInProperties>
+      <Host>ArcMap</Host>
+    </ESRIAddInProperties>
+  </ProjectExtensions>
 </Project>

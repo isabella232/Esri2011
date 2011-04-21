@@ -20,40 +20,6 @@ namespace EsriDE.Samples.ContentFinder.AgdAdapter
 		void Prozess(Content content);
 	}
 
-	public abstract class ArcMapAdapter : IArcMapAdapter
-	{
-		private readonly IApplication _application;
-		private readonly Type _contentType;
-
-		protected ArcMapAdapter(Type contentType, IApplication application)
-		{
-			_application = application;
-			_contentType = contentType;
-		}
-
-		protected IApplication Application
-		{
-			get { return _application; }
-		}
-
-		public void Prozess(Content content)
-		{
-			if (IsResponsibleFor(content))
-			{
-				ProzessCore(content);
-			}
-		}
-
-		protected virtual bool IsResponsibleFor(Content content)
-		{
-			var type = content.GetType();
-			var result = type == _contentType;
-			return result;
-		}
-
-		protected abstract void ProzessCore(Content content);
-	}
-
 	public class MxdArcMapAdapter : ArcMapAdapter
 	{
 		public MxdArcMapAdapter(IApplication application) : base(typeof(MxdArcMapAdapter), application)

@@ -1,12 +1,9 @@
-using System;
-
-namespace EsriDE.Samples.ContentFinder.AgdAdapter
+﻿namespace EsriDE.Samples.ContentFinder.AgdAdapter
 {
-	public class ContentFinderButton : Button
+	public class ContentFinderButton : ShifterAddinButton
 	{
-		protected override IButtonPresenter CreatePresenter()
-		{
-		    return new ContentFinderButtonPresenter(this);
-		}
+		//public ContentFinderButton()
+		//{
+		//}
 	}
 }

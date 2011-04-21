@@ -41,8 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CheckedState.cs" />
+    <Compile Include="EnabledState.cs" />
+    <Compile Include="IToggleablePresenter.cs" />
+    <Compile Include="IToggleableForm.cs" />
+    <Compile Include="IShifterPresenter.cs" />
+    <Compile Include="IShifterView.cs" />
     <Compile Include="IPortal.cs" />
+    <Compile Include="IShifterModel.cs" />
+    <Compile Include="IToggleableView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShifterModel.cs" />
+    <Compile Include="ShifterState.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

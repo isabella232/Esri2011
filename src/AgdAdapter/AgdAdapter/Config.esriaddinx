@@ -1,0 +1,22 @@
+﻿<ESRI.Configuration xmlns="http://schemas.esri.com/Desktop/AddIns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>Eigene Inhalte</Name>
+	<AddInID>{288DE52A-7E39-4D4F-BC18-8E3AB07FB5BC}</AddInID>
+		<Description>Konfigurierbarer Schnellzugriff auf Karteninhalte.</Description>
+	<Version>1.0</Version>
+	<Image>Images\ContentLoader.png</Image>
+	<Author>ESRI Deutschland GmbH</Author>
+	<Company>ESRI Deutschland GmbH</Company>
+	<Date>26.04.2011</Date>
+	<Targets>
+		<Target name="Desktop" version="10.0" />
+	</Targets>
+	<AddIn language="CLR" library="EsriDE.Samples.ContentFinder.AgdAdapter.dll" namespace="EsriDE.Samples.ContentFinder.AgdAdapter">
+		<ArcMap>
+			<Commands>
+				<Button id="EsriDE_Samples_ContentFinder_AgdAdapter_ContentFinderButton" class="ContentFinderButton" message="Konfigurierbarer Schnellzugriff auf MXDs und Dienste." caption="Eigene Inhalte" tip="Konfigurierbarer Schnellzugriff auf MXDs und Dienste." category="ESRI Deutschland GmbH" image="Images\ContentLoaderStartButton.png">
+					<Help heading="Eigene Inhalte">Konfigurierbarer Schnellzugriff auf Karteninhalte."</Help>
+				</Button>
+			</Commands>
+		</ArcMap>
+	</AddIn>
+</ESRI.Configuration>
