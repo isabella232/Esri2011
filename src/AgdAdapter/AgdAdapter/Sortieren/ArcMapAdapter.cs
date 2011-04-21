@@ -20,11 +20,11 @@ namespace EsriDE.Samples.ContentFinder.AgdAdapter
 			get { return _application; }
 		}
 
-		public void Prozess(Content content)
+		public void Process(Content content)
 		{
 			if (IsResponsibleFor(content))
 			{
-				ProzessCore(content);
+				ProcessCore(content);
 			}
 		}
 
@@ -35,6 +35,6 @@ namespace EsriDE.Samples.ContentFinder.AgdAdapter
 			return result;
 		}
 
-		protected abstract void ProzessCore(Content content);
+		protected abstract void ProcessCore(Content content);
 	}
 }
