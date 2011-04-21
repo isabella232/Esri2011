@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArcGISOnlinePlugin", "ArcGISOnlinePlugin\ArcGISOnlinePlugin.csproj", "{BD09B7CB-011B-4342-BDBF-32D5E43CF3FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArcGISOnlinePlugin.Tests", "ArcGISOnlinePlugin.Tests\ArcGISOnlinePlugin.Tests.csproj", "{787FA305-0AD5-4D40-8A7A-DD5D6D826217}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BD09B7CB-011B-4342-BDBF-32D5E43CF3FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD09B7CB-011B-4342-BDBF-32D5E43CF3FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD09B7CB-011B-4342-BDBF-32D5E43CF3FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD09B7CB-011B-4342-BDBF-32D5E43CF3FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{787FA305-0AD5-4D40-8A7A-DD5D6D826217}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{787FA305-0AD5-4D40-8A7A-DD5D6D826217}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{787FA305-0AD5-4D40-8A7A-DD5D6D826217}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{787FA305-0AD5-4D40-8A7A-DD5D6D826217}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
