@@ -2,8 +2,9 @@
 {
 	public class ContentFinderButton : ShifterAddinButton
 	{
-		//public ContentFinderButton()
-		//{
-		//}
+		public ContentFinderButton()
+		{
+			new Builder(this);
+		}
 	}
 }

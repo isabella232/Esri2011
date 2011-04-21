@@ -6,11 +6,6 @@ namespace EsriDE.Samples.ContentFinder.AgdAdapter
 {
 	public abstract class ShifterAddinButton : Button, IShifterView
 	{
-		public ShifterAddinButton()
-		{
-			new Builder(this);
-		}
-
 		public virtual void SetShifterState(ShifterState state)
 		{
 			Checked = ShifterState.On == state;

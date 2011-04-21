@@ -73,7 +73,7 @@ namespace EsriDE.Samples.ContentFinder.AgdAdapter
 				Component.For<IToggleablePresenter>().ImplementedBy<ContentFormPresenter>().LifeStyle.Custom(
 					typeof (TrulyTransientLifestyleManager)));
 			_container.Register(
-				Component.For<IToggleableView>().ImplementedBy<ContentForm>().LifeStyle.Custom(typeof(TrulyTransientLifestyleManager)));
+				Component.For<IToggleableView, IToggleableForm>().ImplementedBy<ContentForm>().LifeStyle.Custom(typeof(TrulyTransientLifestyleManager)));
 			//_container.Register(
 			//    Component.For<IContentModel>().ImplementedBy<ContentModel>().LifeStyle.Custom(
 			//        typeof (TrulyTransientLifestyleManager)));

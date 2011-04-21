@@ -1,7 +1,5 @@
 using NUnit.Framework;
 
-//using NUnit.Framework.SyntaxHelpers;
-
 namespace EsriDE.Samples.ContentFinder.AgdAdapter.Tests
 {
 	// ReSharper disable InconsistentNaming
@@ -10,9 +8,18 @@ namespace EsriDE.Samples.ContentFinder.AgdAdapter.Tests
 	public class Fixture
 	{
 		[Test]
-		public void FIRST_TEST_NAME()
+		public void Creating_ContentFinderButton_Works()
 		{
-			
+			var sut = new ContentFinderButton();
+			Assert.That(sut, !Is.Null, "ContentFinderButton konnte nicht erzeugt werden.");
+		}
+
+		[Test]
+		public void Clicking_ContentFinderButton_TogglesForm()
+		{
+			var sut = new FakedContentFinderButton();
+
+			sut.EmulateClick();
 		}
 	}
 
