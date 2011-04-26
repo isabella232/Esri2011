@@ -7,12 +7,12 @@ using ESRI.ArcGIS.Framework;
 using ESRI.ArcGIS.GISClient;
 using EsriDE.Samples.ContentFinder.DomainModel;
 
-namespace EsriDE.Samples.ContentFinder.AgdAdapter
+namespace EsriDE.Samples.ContentFinder.AgdAdapter.Sortieren
 {
-	public class AgsArcMapAdapter : ArcMapAdapter
+	public class AgsContentProcessorAdapter : ContentProcessorAdapter
 	{
-		public AgsArcMapAdapter(IApplication application)
-			: base(typeof(AgsArcMapAdapter), application)
+		public AgsContentProcessorAdapter(IApplication application)
+			: base(typeof(AgsContentProcessorAdapter), application)
 		{
 		}
 

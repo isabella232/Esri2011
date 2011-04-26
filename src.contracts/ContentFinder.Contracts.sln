@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigurationAdapter.Contra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI.Contract", "UI.Contract\UI.Contract.csproj", "{1A6A62BA-5A31-4D65-AF38-65383B41A24C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationAdapter.Contract", "ApplicationAdapter.Contract\ApplicationAdapter.Contract.csproj", "{37F00600-97C7-48FF-BA67-BF0666E5CBF9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{1A6A62BA-5A31-4D65-AF38-65383B41A24C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A6A62BA-5A31-4D65-AF38-65383B41A24C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A6A62BA-5A31-4D65-AF38-65383B41A24C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37F00600-97C7-48FF-BA67-BF0666E5CBF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37F00600-97C7-48FF-BA67-BF0666E5CBF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37F00600-97C7-48FF-BA67-BF0666E5CBF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37F00600-97C7-48FF-BA67-BF0666E5CBF9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

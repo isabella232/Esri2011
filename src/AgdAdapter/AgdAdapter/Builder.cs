@@ -67,6 +67,7 @@ namespace EsriDE.Samples.ContentFinder.AgdAdapter
 			_container = new WindsorContainer();
 			_container.Register(Component.For<IShifterPresenter>().ImplementedBy<ShifterPresenter>());
 			_container.Register(Component.For<IShifterModel>().ImplementedBy<ToggleViewShifterModel>());
+			_container.Register(Component.For<IWindowInformation>().ImplementedBy<HostWindowInformation>());
 
 			_container.Kernel.ReleasePolicy = new TrulyTransientReleasePolicy();
 			_container.Register(

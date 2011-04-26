@@ -2,6 +2,7 @@ using System;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Diagnostics;
+using System.Linq;
 using System.Windows.Threading;
 using EsriDE.Samples.ContentFinder.DomainModel;
 
@@ -45,18 +46,22 @@ namespace EsriDE.Samples.ContentLoader.UI.Wpf
 			}
 		}
 
-		//public bool TryGetContentItem(Guid guid, out T contentItem)
-		//{
-		//    try
-		//    {
-		//        contentItem = this.Single(x => x.Id == guid);
-		//        return true;
-		//    }
-		//    catch (InvalidOperationException)
-		//    {
-		//        contentItem = default(T);
-		//        return false;
-		//    }
-		//}
+		public bool TryGetContentItem(Uri uri, out Content content)
+		{
+			try
+			{
+				//content = this.Single(x => x.Uri.ToString().Equals(uri.ToString()));
+				content = this.Single(x => 0 == Uri.Compare(x.Uri, uri,
+					UriComponents.AbsoluteUri, UriFormat.Unescaped, StringComparison.CurrentCultureIgnoreCase));
+				return true;
+			}
+			catch (InvalidOperationException)
+			{
+				content = default(Content);
+				return false;
+			}
+		}
+
+		
 	}
 }

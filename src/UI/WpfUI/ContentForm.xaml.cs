@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Windows.Controls;
+using System.Windows.Interop;
 using EsriDE.Samples.ContentFinder.UI.Contract;
 
 namespace EsriDE.Samples.ContentFinder.WpfUI
@@ -8,15 +10,24 @@ namespace EsriDE.Samples.ContentFinder.WpfUI
 	/// </summary>
 	public partial class ContentForm : IToggleableForm
 	{
-		public ContentForm()
+		private readonly IWindowInformation _windowInformation;
+		private bool _isClosing;
+
+		public ContentForm(IWindowInformation windowInformation, UserControl embeddedControl)
 		{
+			_windowInformation = windowInformation;
 			InitializeComponent();
+
+			SetParent();
+			this.HostingContainer.Children.Add(embeddedControl);
 		}
 
 		public void SetParent()
 		{
-			return;
-			throw new NotImplementedException();
+			new WindowInteropHelper(this)
+			{
+				Owner = (IntPtr)_windowInformation.WindowHandle
+			};
 		}
 
 		void IToggleableView.Show()
@@ -26,7 +37,12 @@ namespace EsriDE.Samples.ContentFinder.WpfUI
 
 		void IToggleableView.Hide()
 		{
-			Close();
+			// innerhalb des Closing-Event-Handlings darf Close, Show, u.ä. nicht aufgerufen werden
+			// deshalb verwenden wir den Boolean _isClosing als Marker
+			if (!_isClosing)
+			{
+				Close();
+			}
 			//Dispose(true);
 		}
 
@@ -39,9 +55,8 @@ namespace EsriDE.Samples.ContentFinder.WpfUI
 
 		private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
 		{
+			_isClosing = true;
 			_closing();
 		}
-
-
 	}
 }

@@ -1,18 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
+using System.Linq;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Windows.Threading;
 using EsriDE.Samples.ContentFinder.DomainModel;
+using EsriDE.Samples.ContentFinder.UI.Contract;
 using EsriDE.Samples.ContentLoader.UI.Wpf;
 
 namespace EsriDE.Samples.ContentFinder.WpfUI
@@ -25,17 +19,18 @@ namespace EsriDE.Samples.ContentFinder.WpfUI
 	/// <summary>
 	/// Interaction logic for ContentUserControl.xaml
 	/// </summary>
-	public partial class ContentUserControl
+	public partial class ContentUserControl : IPortal
 	{
 		private IContentProvider _provider;
 		private volatile ContentObservableCollection _contentObservableCollection;
 
-		public ContentUserControl()
+		public ContentUserControl(IContentProvider provider)
 		{
 			InitializeComponent();
 
 			_contentObservableCollection = (ContentObservableCollection)Resources["contentItems"];
 
+			SetProvider(provider);
 		}
 
 		public void SetProvider(IContentProvider provider)
@@ -119,8 +114,9 @@ namespace EsriDE.Samples.ContentFinder.WpfUI
 				var border = (Border)sender;
 				var grid = (Grid)border.Child;
 				var panel = (StackPanel)grid.Children[1];
-				var guid = (Guid)panel.Tag;
+				var uri = (Uri)panel.Tag;
 				//StartArcMapOperation(guid);
+				ProcessSelectedContent(uri);
 			}
 			finally
 			{
@@ -128,6 +124,29 @@ namespace EsriDE.Samples.ContentFinder.WpfUI
 			}
 		}
 
-		
+		private void ProcessSelectedContent(Uri uri)
+		{
+			Content content;
+			if (_contentObservableCollection.TryGetContentItem(uri, out content))
+			{
+				OnContentSelected(content);
+			}
+		}
+
+		protected virtual void OnContentSelected(Content content)
+		{
+			var contentSelected = _contentSelected;
+			if (null != contentSelected)
+			{
+				contentSelected(content);
+			}
+		}
+
+		private event Action<Content> _contentSelected;
+		public event Action<Content> ContentSelected
+		{
+			add { _contentSelected += value; }
+			remove { _contentSelected -= value; }
+		}
 	}
 }

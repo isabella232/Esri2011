@@ -5,14 +5,13 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{1A6A62BA-5A31-4D65-AF38-65383B41A24C}</ProjectGuid>
+    <ProjectGuid>{37F00600-97C7-48FF-BA67-BF0666E5CBF9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EsriDE.Samples.ContentFinder.UI.Contract</RootNamespace>
-    <AssemblyName>EsriDE.Samples.ContentFinder.UI.Contract</AssemblyName>
+    <RootNamespace>EsriDE.Samples.ContentFinder.ApplicationAdapter.Contract</RootNamespace>
+    <AssemblyName>EsriDE.Samples.ContentFinder.ApplicationAdapter.Contract</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -33,6 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ESRI.ArcGIS.Framework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=x86">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\lib\Esri.ArcGIS\ESRI.ArcGIS.Framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,19 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CheckedState.cs" />
-    <Compile Include="EnabledState.cs" />
-    <Compile Include="IToggleablePresenter.cs" />
-    <Compile Include="IToggleableForm.cs" />
-    <Compile Include="IShifterPresenter.cs" />
-    <Compile Include="IShifterView.cs" />
-    <Compile Include="IPortal.cs" />
-    <Compile Include="IShifterModel.cs" />
-    <Compile Include="IToggleableView.cs" />
-    <Compile Include="IWindowInformation.cs" />
+    <Compile Include="IApplicationAdapter.cs" />
+    <Compile Include="IContentProcessorAdapter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ShifterModel.cs" />
-    <Compile Include="ShifterState.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DomainModel\DomainModel.csproj">

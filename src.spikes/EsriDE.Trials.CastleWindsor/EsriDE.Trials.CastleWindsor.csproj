@@ -114,6 +114,16 @@
     <Compile Include="LifestyleBehaviour\Fixture.WorkingWithDestructors.cs">
       <DependentUpon>Fixture.cs</DependentUpon>
     </Compile>
+    <Compile Include="ResolvingCorComponents\Application.cs" />
+    <Compile Include="ResolvingCorComponents\Cor\AgdContentProcessor.cs" />
+    <Compile Include="ResolvingCorComponents\Cor\ArcMapAgsContentProcessor.cs" />
+    <Compile Include="ResolvingCorComponents\Cor\ArcMapMxdContentProcessor.cs" />
+    <Compile Include="ResolvingCorComponents\Cor\ContentProcessor.cs" />
+    <Compile Include="ResolvingCorComponents\Cor\EndProcessor.cs" />
+    <Compile Include="ResolvingCorComponents\Fixture.cs" />
+    <Compile Include="ResolvingCorComponents\IApplication.cs" />
+    <Compile Include="ResolvingCorComponents\IContentProcessor.cs" />
+    <Compile Include="ResolvingCorComponents\TestMasterContentProcessor.cs" />
     <Compile Include="ResolvingPrimitives\Implementations\A.cs" />
     <Compile Include="ResolvingPrimitives\Implementations\Abc.cs" />
     <Compile Include="ResolvingPrimitives\Implementations\AundB.cs" />
@@ -160,6 +170,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ComplexUI\Overview.cd" />
+    <None Include="ResolvingCorComponents\CastleWindsor.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -22,7 +22,7 @@
 								<Border Name="mask" BorderBrush="Black" BorderThickness="0.5" Background="#E8F5FE" CornerRadius="12" />
 
 								<!-- Main content container -->
-								<StackPanel Tag="{Binding Path=Id}" Background="Transparent">
+								<StackPanel Tag="{Binding Path=Uri}" Background="Transparent">
 									<!-- Use a VisualBrush of 'mask' as the opacity mask -->
 									<StackPanel.OpacityMask>
 										<VisualBrush Visual="{Binding ElementName=mask}" />
