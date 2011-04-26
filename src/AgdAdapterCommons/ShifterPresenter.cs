@@ -1,6 +1,6 @@
 using EsriDE.Samples.ContentFinder.UI.Contract;
 
-namespace EsriDE.Samples.ContentFinder.WpfUI
+namespace EsriDE.Samples.ContentFinder.AgdAdapterCommons
 {
 	public class ShifterPresenter : IShifterPresenter
 	{

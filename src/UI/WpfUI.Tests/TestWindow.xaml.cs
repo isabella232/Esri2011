@@ -14,7 +14,7 @@ namespace EsriDE.Samples.ContentFinder.WpfUI.Tests
 		{
 			InitializeComponent();
 
-			contentUserControl.SetProvider(this);
+			//contentUserControl.SetProvider(this);
 
 			Do();
 		}

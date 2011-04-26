@@ -1,8 +1,9 @@
 ﻿using System;
+using EsriDE.Samples.ContentFinder.UI.Contract;
 
-namespace EsriDE.Samples.ContentFinder.UI.Contract
+namespace EsriDE.Samples.ContentFinder.AgdAdapterCommons
 {
-	public abstract class ShifterModel : IShifterModel
+	public class ShifterModel : IShifterModel
 	{
 		private ShifterState _shifterState = ShifterState.Off;
 		private event Action<ShifterState> _shifterStateChanged;

@@ -118,15 +118,9 @@
     <Compile Include="ShifterAddinButton.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ShifterPresenter.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Sortieren\AgsContentProcessorAdapter.cs" />
     <Compile Include="Sortieren\ArcMapAddinAdapter.cs" />
     <Compile Include="Sortieren\MxdContentProcessorAdapter.cs" />
-    <Compile Include="ToggleViewShifterModel.cs">
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
   <!-- Esri Stuff -->
   <ItemGroup>
@@ -196,6 +190,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Sortieren\Old\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\AgdAdapterCommons\AgdAdapterCommons.csproj">
+      <Project>{462EC57F-EDE6-4704-A099-91AE1FBF0519}</Project>
+      <Name>AgdAdapterCommons</Name>
+    </ProjectReference>
   </ItemGroup>
   <!-- Esri Stuff -->
   <PropertyGroup>

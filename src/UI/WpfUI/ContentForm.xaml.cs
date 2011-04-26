@@ -13,14 +13,19 @@ namespace EsriDE.Samples.ContentFinder.WpfUI
 		private readonly IWindowInformation _windowInformation;
 		private bool _isClosing;
 
-		public ContentForm(IWindowInformation windowInformation, UserControl embeddedControl)
+		public ContentForm()
 		{
-			_windowInformation = windowInformation;
 			InitializeComponent();
-
-			SetParent();
-			this.HostingContainer.Children.Add(embeddedControl);
 		}
+
+		//public ContentForm(IWindowInformation windowInformation, UserControl embeddedControl)
+		//{
+		//    _windowInformation = windowInformation;
+		//    InitializeComponent();
+
+		//    SetParent();
+		//    this.HostingContainer.Children.Add(embeddedControl);
+		//}
 
 		public void SetParent()
 		{

@@ -3,15 +3,16 @@ using EsriDE.Samples.ContentFinder.DomainModel;
 
 namespace EsriDE.Samples.ContentFinder.AgdAdapter.Sortieren
 {
-	public class MxdContentProcessorAdapter : ContentProcessorAdapter
+	public class MxdContentProcessorAdapter : AgdContentProcessor
 	{
-		public MxdContentProcessorAdapter(IApplication application) : base(typeof(MxdContentProcessorAdapter), application)
+		public MxdContentProcessorAdapter(AgdContentProcessor nextProcessor, IApplication application)
+			: base(nextProcessor, typeof(MxdContentProcessorAdapter), application)
 		{
 		}
 
 		protected override void ProcessCore(Content content)
 		{
-			Application.OpenDocument(content.Uri.LocalPath);
+			//Application.OpenDocument(content.Uri.LocalPath);
 		}
 	}
 }

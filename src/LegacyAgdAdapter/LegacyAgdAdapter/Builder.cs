@@ -1,24 +1,27 @@
 using System;
-using Castle.MicroKernel.Registration;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Reflection;
 using Castle.Windsor;
-using EsriDE.Samples.ContentFinder.AgdAdapterCommons;
-using EsriDE.Samples.ContentFinder.SystemBuild;
 using EsriDE.Samples.ContentFinder.UI.Contract;
-using EsriDE.Samples.ContentFinder.WpfUI;
 
-namespace EsriDE.Samples.ContentFinder.AgdAdapter
+namespace EsriDE.Samples.ContentFinder.LegacyAgdAdapter
 {
 	public class Builder
 	{
 		private IWindsorContainer _container;
 		private IToggleablePresenter _toggleablePresenter;
 
-		public Builder(IShifterView view)
+		public Builder(IShifterView view, int parentWindowHandle)
 		{
 			ConfigureIocContainer();
 
 			ConnectShifterPresenterTo(view);
 			ConnectMeAsModelObserver();
+
+			var v = _container.Resolve<IWindowInformation>();
+			v.WindowHandle = parentWindowHandle;
 		}
 
 		~Builder()
@@ -65,34 +68,54 @@ namespace EsriDE.Samples.ContentFinder.AgdAdapter
 
 		private void ConfigureIocContainer()
 		{
-			_container = new WindsorContainer();
-			_container.Register(Component.For<IShifterPresenter>().ImplementedBy<ShifterPresenter>());
-			_container.Register(Component.For<IShifterModel>().ImplementedBy<ToggleViewShifterModel>());
-			_container.Register(Component.For<IWindowInformation>().ImplementedBy<HostWindowInformation>());
-
-			//_container.Register(Component.For<IWindowInformation>().ImplementedBy<HostWindowInformation>());
-			//_container.Register(Component.For<IWindowInformation>().ImplementedBy<HostWindowInformation>());
-
-
-			_container.Kernel.ReleasePolicy = new TrulyTransientReleasePolicy();
-			_container.Register(
-				Component.For<IToggleablePresenter>().ImplementedBy<ContentFormPresenter>().LifeStyle.Custom(
-					typeof (TrulyTransientLifestyleManager)));
-			_container.Register(
-				Component.For<IToggleableView, IToggleableForm>().ImplementedBy<ContentForm>().LifeStyle.Custom(typeof(TrulyTransientLifestyleManager)));
-			//_container.Register(
-			//    Component.For<IContentModel>().ImplementedBy<ContentModel>().LifeStyle.Custom(
-			//        typeof (TrulyTransientLifestyleManager)));
-			//_container.Register(
-			//    Component.For<IAgdAdapter>().ImplementedBy<AgdAdapter>().LifeStyle.Custom(typeof (TrulyTransientLifestyleManager)));
-
-
+			try
+			{
+				var filename = GetFullName("CastleWindsor.config");
+				_container = new WindsorContainer(filename);
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine(e);
+			}
 		}
 
 		private void ConnectShifterPresenterTo(IShifterView view)
 		{
 			var buttonPresenter = _container.Resolve<IShifterPresenter>();
 			buttonPresenter.ConnectView(view);
+		}
+
+		private string GetFullName(string filename)
+		{
+			//Assembly callingAssembly = AssemblyUtil.GetCallingAssembly();
+			//string assemlblyLocation = callingAssembly.Location;
+			Assembly executingAssembly = Assembly.GetExecutingAssembly();
+			string assemlblyLocation = executingAssembly.Location;
+			string assemlblyPath = (Directory.GetParent(assemlblyLocation)).FullName;
+			return Path.Combine(assemlblyPath, filename);
+		}
+	}
+
+	internal static class AssemblyUtil
+	{
+		internal static Assembly GetCallingAssembly()
+		{
+			var thisAssembly = Assembly.GetExecutingAssembly();
+
+			var stackTrace = new StackTrace(false);
+			var stackframes = stackTrace.GetFrames();
+			if (null == stackframes)
+			{
+				return null;
+			}
+
+			return (from stackFrame in stackTrace.GetFrames()
+			        select stackFrame.GetMethod()
+			        into methodBase
+			        where
+			        	null != methodBase &&
+			        	thisAssembly != methodBase.DeclaringType.Assembly
+			        select methodBase.DeclaringType.Assembly).FirstOrDefault();
 		}
 	}
 

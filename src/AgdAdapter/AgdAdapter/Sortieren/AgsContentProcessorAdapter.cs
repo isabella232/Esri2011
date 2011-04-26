@@ -9,10 +9,10 @@ using EsriDE.Samples.ContentFinder.DomainModel;
 
 namespace EsriDE.Samples.ContentFinder.AgdAdapter.Sortieren
 {
-	public class AgsContentProcessorAdapter : ContentProcessorAdapter
+	public class AgsContentProcessorAdapter : AgdContentProcessor
 	{
-		public AgsContentProcessorAdapter(IApplication application)
-			: base(typeof(AgsContentProcessorAdapter), application)
+		public AgsContentProcessorAdapter(AgdContentProcessor nextProcessor, IApplication application)
+			: base(nextProcessor, typeof(AgsContentProcessorAdapter), application)
 		{
 		}
 

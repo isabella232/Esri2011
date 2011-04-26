@@ -6,6 +6,8 @@
 		xmlns:WpfUI="clr-namespace:EsriDE.Samples.ContentFinder.WpfUI;assembly=EsriDE.Samples.ContentFinder.WpfUI" 
 		mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="300">
 	<Grid>
-		<WpfUI:ContentUserControl Name="contentUserControl"></WpfUI:ContentUserControl>
+		<WpfUI:ContentUserControl>
+			
+		</WpfUI:ContentUserControl>
 	</Grid>
 </Window>
