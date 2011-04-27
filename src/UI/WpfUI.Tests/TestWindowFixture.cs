@@ -1,5 +1,6 @@
 using System;
 using System.Drawing;
+using System.Windows.Threading;
 using EsriDE.Samples.ContentFinder.DomainModel;
 using NUnit.Framework;
 
@@ -24,6 +25,7 @@ namespace EsriDE.Samples.ContentFinder.WpfUI.Tests
 			//f.Do();
 
 			//while (true) ;
+			Dispatcher.CurrentDispatcher.InvokeShutdown();
 		}
 	}
 

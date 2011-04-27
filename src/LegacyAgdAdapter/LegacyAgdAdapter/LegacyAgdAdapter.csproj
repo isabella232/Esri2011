@@ -54,6 +54,9 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <HintPath>..\..\..\lib\Esri.ArcGIS\ESRI.ArcGIS.SystemUI.dll</HintPath>
     </Reference>
+    <Reference Include="EsriDE.Samples.ContentFinder.AgdAdapterCommons, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <HintPath>..\..\..\lib\EsriDE\EsriDE.Samples.ContentFinder.AgdAdapterCommons.dll</HintPath>
+    </Reference>
     <Reference Include="EsriDE.Samples.ContentFinder.UI.Contract">
       <HintPath>..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.UI.Contract.dll</HintPath>
     </Reference>
@@ -77,10 +80,17 @@
   <ItemGroup>
     <Content Include="CastleWindsor.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ContentFinderButton.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\lib\Castle.Windsor\Castle.Windsor.xsd">
+      <Link>Castle.Windsor.xsd</Link>
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\bin\</OutputPath>
+    <OutputPath>..\..\lib\EsriDE\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -32,7 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EsriDE.Samples.ContentFinder.UI.Contract, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86" />
+    <Reference Include="EsriDE.Samples.ContentFinder.UI.Contract">
+      <HintPath>..\..\bin.contracts\EsriDE.Samples.ContentFinder.UI.Contract.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />

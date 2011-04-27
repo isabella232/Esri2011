@@ -83,6 +83,8 @@
       <DependentUpon>WinFormsWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="WinInWinEmbeddingManager.cs" />
+    <Compile Include="Working\IEmbeddingHost.cs" />
+    <Compile Include="Working\WpfEmbeddingManager.cs" />
     <Compile Include="WpfWindow.xaml.cs">
       <DependentUpon>WpfWindow.xaml</DependentUpon>
     </Compile>

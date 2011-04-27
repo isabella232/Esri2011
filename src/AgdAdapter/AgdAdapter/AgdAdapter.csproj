@@ -78,6 +78,9 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <HintPath>..\..\..\lib\Esri.ArcGIS\ESRI.ArcGIS.System.dll</HintPath>
     </Reference>
+    <Reference Include="EsriDE.Samples.ContentFinder.AgdAdapterCommons, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <HintPath>..\..\..\lib\EsriDE\EsriDE.Samples.ContentFinder.AgdAdapterCommons.dll</HintPath>
+    </Reference>
     <Reference Include="EsriDE.Samples.ContentFinder.ApplicationAdapter.Contract">
       <HintPath>..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.ApplicationAdapter.Contract.dll</HintPath>
     </Reference>
@@ -190,12 +193,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Sortieren\Old\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\AgdAdapterCommons\AgdAdapterCommons.csproj">
-      <Project>{462EC57F-EDE6-4704-A099-91AE1FBF0519}</Project>
-      <Name>AgdAdapterCommons</Name>
-    </ProjectReference>
   </ItemGroup>
   <!-- Esri Stuff -->
   <PropertyGroup>

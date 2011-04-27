@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using Castle.MicroKernel.Resolvers.SpecializedResolvers;
 using Castle.Windsor;
 using EsriDE.Samples.ContentFinder.UI.Contract;
 
@@ -72,6 +73,7 @@ namespace EsriDE.Samples.ContentFinder.LegacyAgdAdapter
 			{
 				var filename = GetFullName("CastleWindsor.config");
 				_container = new WindsorContainer(filename);
+				_container.Kernel.Resolver.AddSubResolver(new CollectionResolver(_container.Kernel, true));
 			}
 			catch (Exception e)
 			{

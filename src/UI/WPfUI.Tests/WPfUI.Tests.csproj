@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EsriDE.Samples.ContentFinder.BL.Contract">
+      <HintPath>..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.BL.Contract.dll</HintPath>
+    </Reference>
     <Reference Include="EsriDE.Samples.ContentFinder.DomainModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86" />
     <Reference Include="EsriDE.Samples.ContentFinder.UI.Contract">
       <HintPath>..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.UI.Contract.dll</HintPath>

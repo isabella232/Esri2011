@@ -15,8 +15,6 @@ namespace EsriDE.Samples.ContentFinder.LegacyAgdAdapter
 	[ComVisible(true)]
 	public partial class ContentFinderButton : BaseCommand, IShifterView
 	{
-		private IMxApplication _mxApplication;
-
 		public ContentFinderButton()
 		{
 			Trace.WriteLine("ContentFinderButton.ctor()");

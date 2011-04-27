@@ -21,7 +21,16 @@ namespace EsriDE.Samples.ContentFinder.ContentAdapter
 			//Do nothing;
 		}
 
-		public event Action<Content> FoundContent;
-		public event Action FinishedSearch;
+		public event Action<Content> FoundContent
+		{
+			add { }
+			remove { }
+		}
+
+		public event Action FinishedSearch
+		{
+			add { }
+			remove { }
+		}
 	}
 }

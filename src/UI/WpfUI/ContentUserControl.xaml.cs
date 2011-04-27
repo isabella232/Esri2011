@@ -1,10 +1,12 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Linq;
 using System.Windows.Media;
 using System.Windows.Threading;
+using EsriDE.Samples.ContentFinder.BL.Contract;
 using EsriDE.Samples.ContentFinder.DomainModel;
 using EsriDE.Samples.ContentFinder.UI.Contract;
 using EsriDE.Samples.ContentLoader.UI.Wpf;
@@ -21,22 +23,35 @@ namespace EsriDE.Samples.ContentFinder.WpfUI
 	/// </summary>
 	public partial class ContentUserControl : IPortal
 	{
-		private IContentProvider _provider;
+		private IController _controller;
 		private volatile ContentObservableCollection _contentObservableCollection;
 
-		public ContentUserControl(IContentProvider provider)
+		public ContentUserControl()
 		{
 			InitializeComponent();
 
-			_contentObservableCollection = (ContentObservableCollection)Resources["contentItems"];
+			//if (!DesignerProperties.GetIsInDesignMode(this))
+			//{
+			//    throw new ApplicationException("Parameterless constructor only allowed for Designer.");
+			//}
 
-			SetProvider(provider);
+			_contentObservableCollection = (ContentObservableCollection)Resources["contentItems"];
 		}
 
-		public void SetProvider(IContentProvider provider)
+		public IController Controller
 		{
-			_provider = provider;
-			_provider.NewContent += ImportContent;
+			get { return _controller; }
+			set
+			{
+				if (null != _controller)
+				{
+					_controller.ContentFound -= ImportContent;
+				}
+
+				_controller = value;
+				_controller.ContentFound += ImportContent;
+				_controller.Start();
+			}
 		}
 
 		public void ImportContent(Content c)
@@ -47,6 +62,7 @@ namespace EsriDE.Samples.ContentFinder.WpfUI
 			{
 				Dispatcher.Invoke(DispatcherPriority.Background,
 								  new ItemDateImportThreadHelper(ImportContent), c);
+				//Dispatcher.Invoke(DispatcherPriority.Background, new Action<Content>(ImportContent), c);
 			}
 			else
 			{

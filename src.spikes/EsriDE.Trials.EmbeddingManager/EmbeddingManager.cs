@@ -4,7 +4,11 @@ using WpfWindow = System.Windows.Window;
 
 namespace EsriDE.Trials.EmbeddingManager
 {
-	public interface IEmbeddingManager<T>
+	public interface IEmbeddingManager
+	{
+		void EmbedControl();
+	}
+	public interface IEmbeddingManager<T> : IEmbeddingManager
 	{
 		void EmbedControl(Action<T> embedControl);
 	}
@@ -32,5 +36,9 @@ namespace EsriDE.Trials.EmbeddingManager
 		}
 
 		#endregion
+
+		public virtual void EmbedControl()
+		{
+		}
 	}
 }

@@ -34,6 +34,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ESRI.ArcGIS.ADF.Local, Version=10.0.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=x86">
+      <HintPath>..\..\..\lib\Esri.ArcGIS\ESRI.ArcGIS.ADF.Local.dll</HintPath>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.ArcMapUI, Version=10.0.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=x86">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\lib\Esri.ArcGIS\ESRI.ArcGIS.ArcMapUI.dll</HintPath>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Framework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=x86">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\ValueAdd-CD 2010\Content Loader\lib\Esri.ArcGIS\ESRI.ArcGIS.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.SystemUI, Version=10.0.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=x86">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\lib\Esri.ArcGIS\ESRI.ArcGIS.SystemUI.dll</HintPath>
+    </Reference>
+    <Reference Include="EsriDE.Samples.ContentFinder.AgdAdapterCommons">
+      <HintPath>..\..\..\lib\EsriDE\EsriDE.Samples.ContentFinder.AgdAdapterCommons.dll</HintPath>
+    </Reference>
     <Reference Include="EsriDE.Samples.ContentFinder.BL">
       <HintPath>..\..\..\bin\EsriDE.Samples.ContentFinder.BL.dll</HintPath>
     </Reference>
@@ -42,6 +60,9 @@
     </Reference>
     <Reference Include="EsriDE.Samples.ContentFinder.ConfigurationAdapter.Contract">
       <HintPath>..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.ConfigurationAdapter.Contract.dll</HintPath>
+    </Reference>
+    <Reference Include="EsriDE.Samples.ContentFinder.ContentAdapter">
+      <HintPath>..\..\..\bin\EsriDE.Samples.ContentFinder.ContentAdapter.dll</HintPath>
     </Reference>
     <Reference Include="EsriDE.Samples.ContentFinder.ContentAdapter.Contract">
       <HintPath>..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.ContentAdapter.Contract.dll</HintPath>
@@ -58,8 +79,14 @@
     <Reference Include="EsriDE.Samples.ContentFinder.XmlConfigurationAdapter">
       <HintPath>..\..\..\bin\EsriDE.Samples.ContentFinder.XmlConfigurationAdapter.dll</HintPath>
     </Reference>
+    <Reference Include="Moq">
+      <HintPath>..\..\..\lib\Moq\Moq.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\..\..\lib\NUnit\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Rhino.Mocks">
+      <HintPath>..\..\..\lib\RhinoMocks\Rhino.Mocks.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -67,15 +94,17 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IApplicationAndMxApplication.cs" />
+    <Compile Include="LegacyAgdAdapterFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SystemBuilderFixture.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SystemBuild\SystemBuild.csproj">
-      <Project>{1E2720D2-67BA-4FB4-99BE-6AFC9BE7D091}</Project>
-      <Name>SystemBuild</Name>
+    <ProjectReference Include="..\..\LegacyAgdAdapter\LegacyAgdAdapter\LegacyAgdAdapter.csproj">
+      <Project>{BD9D61CA-AA87-4454-8220-42BDB0A2EA13}</Project>
+      <Name>LegacyAgdAdapter</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

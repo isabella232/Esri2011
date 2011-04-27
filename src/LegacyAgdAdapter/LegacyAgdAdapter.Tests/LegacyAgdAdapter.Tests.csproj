@@ -46,14 +46,8 @@
     <Reference Include="ESRI.ArcGIS.SystemUI, Version=10.0.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=x86">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
-    <Reference Include="EsriDE.Samples.ContentFinder.AgdAdapterCommons">
-      <HintPath>..\..\..\bin\EsriDE.Samples.ContentFinder.AgdAdapterCommons.dll</HintPath>
-    </Reference>
     <Reference Include="EsriDE.Samples.ContentFinder.UI.Contract">
       <HintPath>..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.UI.Contract.dll</HintPath>
-    </Reference>
-    <Reference Include="EsriDE.Samples.ContentFinder.WpfUI">
-      <HintPath>..\..\..\bin\EsriDE.Samples.ContentFinder.WpfUI.dll</HintPath>
     </Reference>
     <Reference Include="Moq">
       <HintPath>..\..\..\lib\Moq\Moq.dll</HintPath>
@@ -73,7 +67,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ButtonFixture.cs" />
-    <Compile Include="IApplicationAndMxApplication.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
