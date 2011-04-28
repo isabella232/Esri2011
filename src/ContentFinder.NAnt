@@ -3,6 +3,8 @@
 	<property name="basename" value="EsriDE.Samples.ContentFinder"/>
 	<property name="configuration" value="debug" />
 	<property name="msbuild" value="${framework::get-framework-directory(framework::get-target-framework())}\MSBuild.exe" />
+	<property name="UserAddinDir" value="${environment::get-folder-path('USERPROFILE')}\Documents\ArcGIS\AddIns\Desktop10.0\{288DE52A-7E39-4D4F-BC18-8E3AB07FB5BC}" />
+	<property name="UserExtractedAddinDir" value="${environment::get-folder-path('LocalApplicationData')}\ESRI\Desktop10.0\AssemblyCache\{AFBE0B57-7391-D0A3-D63D-3F31CFB78FAE}" />
 	
 	<target name="rebuild_all" depends="rebuild, build_Tests" />
 	<target name="rebuild" depends="clean, build_Implementations" />
@@ -23,6 +25,9 @@
                 <delete dir="${foldername}" />
             </do>
         </foreach>
+		
+		<delete dir="${UserAddinDir}" />
+		<delete dir="${UserExtractedAddinDir}" />
 	</target>
 	
 	<!--
