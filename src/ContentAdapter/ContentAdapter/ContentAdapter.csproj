@@ -65,9 +65,6 @@
     <Compile Include="Ags\AgsContentLocator.cs" />
     <Compile Include="ContentLocatorCreatorFilter.cs" />
     <Compile Include="ContentLocatorResolver.cs" />
-    <Compile Include="CorBasedAgsContentLocatorFilter.cs" />
-    <Compile Include="CorBasedContentLocatorFilter.cs" />
-    <Compile Include="CorBasedMxdContentLocatorFilter.cs" />
     <Compile Include="FileUriAnalyzer.cs" />
     <Compile Include="MxdContentLocatorCreator.cs" />
     <Compile Include="Mxd\BitmapUtil.cs" />
