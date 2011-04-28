@@ -8,6 +8,7 @@
 			 d:DesignHeight="300" d:DesignWidth="300">
 	<UserControl.Resources>
 		<Wpf:ContentObservableCollection x:Key="contentItems" />
+        <Wpf:ImageConverter x:Key="MyImageConverter"/>
 
 		<Style TargetType="{x:Type ListBox}">
 			<Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"></Setter>
@@ -28,7 +29,8 @@
 										<VisualBrush Visual="{Binding ElementName=mask}" />
 									</StackPanel.OpacityMask>
 									<TextBlock Name="tblocktop" Text="{Binding Path=Title}" Foreground="Black" Height="20" Width="220" TextAlignment="Center" Margin="2,2,2,0" />
-									<Image Source="{Binding Path=Bitmap}" Stretch="Fill" Width="210" Height="140">
+                                    <Image Source="{Binding Path=Bitmap, Converter={StaticResource MyImageConverter}}" Stretch="Fill" Width="210" Height="140">
+                                        
 										<Image.OpacityMask>
 											<VisualBrush Visual="{Binding ElementName=mask}" />
 										</Image.OpacityMask>

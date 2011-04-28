@@ -57,24 +57,31 @@ namespace EsriDE.Samples.ContentFinder.WpfUI
 		public void ImportContent(Content c)
 		{
 			Console.WriteLine("Content received");
-
-			if (!Dispatcher.CheckAccess())
+			ImportAsMapDocumentItem(c);
+			try
 			{
-				Dispatcher.Invoke(DispatcherPriority.Background,
-								  new ItemDateImportThreadHelper(ImportContent), c);
-				//Dispatcher.Invoke(DispatcherPriority.Background, new Action<Content>(ImportContent), c);
+				if (!Dispatcher.CheckAccess())
+				{
+					Dispatcher.Invoke(DispatcherPriority.Background,
+					                  new ItemDateImportThreadHelper(ImportContent), c);
+					//Dispatcher.Invoke(DispatcherPriority.Background, new Action<Content>(ImportContent), c);
+				}
+				else
+				{
+					try
+					{
+						ImportAsMapDocumentItem(c);
+						RefreshMapDocumentListbox();
+					}
+					catch (Exception e)
+					{
+						Console.WriteLine(e);
+					}
+				}
 			}
-			else
+			catch (Exception e)
 			{
-				try
-				{
-					ImportAsMapDocumentItem(c);
-					RefreshMapDocumentListbox();
-				}
-				catch (Exception e)
-				{
-					Console.WriteLine(e);
-				}
+				Console.WriteLine(e);
 			}
 		}
 
