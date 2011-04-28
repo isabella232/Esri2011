@@ -1,4 +1,5 @@
 using System.Windows.Threading;
+using EsriDE.Samples.ContentFinder.ContentAdapter.Tests;
 using EsriDE.Samples.ContentFinder.LegacyAgdAdapter;
 using Moq;
 using NUnit.Framework;
@@ -12,8 +13,35 @@ namespace EsriDE.Samples.ContentFinder.SystemBuild.Tests
 	// ReSharper disable InconsistentNaming
 
 	[TestFixture]
-	public class LegacyAgdAdapterFixture
+	public class LegacyAgdAdapterFixture : FixtureBase
 	{
+		[Test]
+		[RequiresSTA]
+		public void SmokeTest2()
+		{
+			var mockRepository = new MockRepository();
+			var app = mockRepository.StrictMock<IApplicationAndMxApplication>();
+
+			With.Mocks(mockRepository)
+				.Expecting(delegate { SetupResult.For(app.hWnd).Return(0); })
+				.Verify(delegate
+				        	{
+				        		var v = new ContentFinderButton();
+				        		v.OnCreate(app);
+
+				        		Assert.That(v, !Is.Null);
+
+				        		v.OnClick();
+				        	});
+
+			//while (true)
+			//{
+				
+			//}
+
+			Dispatcher.CurrentDispatcher.InvokeShutdown();
+		}
+
 		[Test]
 		[Explicit]
 		public void MoqTest()
@@ -45,33 +73,6 @@ namespace EsriDE.Samples.ContentFinder.SystemBuild.Tests
 
 					v.OnClick();
 				});
-
-			Dispatcher.CurrentDispatcher.InvokeShutdown();
-		}
-
-		[Test]
-		[RequiresSTA]
-		public void SmokeTest2()
-		{
-			var mockRepository = new MockRepository();
-			var app = mockRepository.StrictMock<IApplicationAndMxApplication>();
-
-			With.Mocks(mockRepository)
-				.Expecting(delegate { SetupResult.For(app.hWnd).Return(0); })
-				.Verify(delegate
-				{
-					var v = new ContentFinderButton();
-					v.OnCreate(app);
-
-					Assert.That(v, !Is.Null);
-
-					v.OnClick();
-				});
-
-			while (true)
-			{
-				
-			}
 
 			Dispatcher.CurrentDispatcher.InvokeShutdown();
 		}

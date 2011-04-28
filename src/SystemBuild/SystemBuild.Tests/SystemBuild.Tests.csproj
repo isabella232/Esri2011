@@ -97,15 +97,26 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FakeConfigurationReader.cs" />
     <Compile Include="IApplicationAndMxApplication.cs" />
     <Compile Include="LegacyAgdAdapterFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\ContentAdapter\ContentAdapter.Tests\ContentAdapter.Tests.csproj">
+      <Project>{E63B5C46-C148-45E3-AEDF-10DD99F19AB2}</Project>
+      <Name>ContentAdapter.Tests</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\LegacyAgdAdapter\LegacyAgdAdapter\LegacyAgdAdapter.csproj">
       <Project>{BD9D61CA-AA87-4454-8220-42BDB0A2EA13}</Project>
       <Name>LegacyAgdAdapter</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\ConfigurationAdapter\XmlConfigurationAdapter\Locations.config">
+      <Link>Locations.config</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
