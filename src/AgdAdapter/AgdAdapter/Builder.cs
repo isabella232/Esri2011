@@ -1,8 +1,8 @@
 using System;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
+using EsriDE.Commons.CastleWindsor.Extension;
 using EsriDE.Samples.ContentFinder.AgdAdapterCommons;
-using EsriDE.Samples.ContentFinder.SystemBuild;
 using EsriDE.Samples.ContentFinder.UI.Contract;
 using EsriDE.Samples.ContentFinder.WpfUI;
 

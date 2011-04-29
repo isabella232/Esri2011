@@ -78,6 +78,9 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <HintPath>..\..\..\lib\Esri.ArcGIS\ESRI.ArcGIS.System.dll</HintPath>
     </Reference>
+    <Reference Include="EsriDE.Commons.CastleWindsor.Extension">
+      <HintPath>..\..\..\lib\EsriDE\EsriDE.Commons.CastleWindsor.Extension.dll</HintPath>
+    </Reference>
     <Reference Include="EsriDE.Samples.ContentFinder.AgdAdapterCommons, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
       <HintPath>..\..\..\lib\EsriDE\EsriDE.Samples.ContentFinder.AgdAdapterCommons.dll</HintPath>
     </Reference>

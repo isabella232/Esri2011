@@ -156,6 +156,13 @@
     <Compile Include="ComplexUI\Fixtures\WithEvents.cs">
       <DependentUpon>ButtonPresenterFixture.cs</DependentUpon>
     </Compile>
+    <Compile Include="ResolvingWithSetterInjection\Fixture.cs" />
+    <Compile Include="ResolvingWithSetterInjection\Foo.cs" />
+    <Compile Include="ResolvingWithSetterInjection\Foo2.cs" />
+    <Compile Include="ResolvingWithSetterInjection\IFoo.cs" />
+    <Compile Include="ResolvingWithSetterInjection\IFoo2.cs" />
+    <Compile Include="ResolvingWithSetterInjection\ISomething.cs" />
+    <Compile Include="ResolvingWithSetterInjection\Something.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="LifestyleBehaviour\Implementations\FormView.resx">

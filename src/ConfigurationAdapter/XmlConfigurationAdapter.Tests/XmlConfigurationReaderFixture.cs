@@ -39,54 +39,5 @@ namespace EsriDE.Samples.ContentFinder.XmlConfigurationAdapter.Tests
 				() => _sut.ReadConfiguration(_uri));
 
 		}
-
-		[Test]
-		public void Spike()
-		{
-			
-
-			foreach (var sourceBundle in r)
-			{
-				Console.WriteLine("Type=" + sourceBundle.Type);
-				foreach (var source in sourceBundle.Sources)
-				{
-					Console.WriteLine("Uri=" + source.Uri);
-				}
-			}
-
-			//Enum.Parse(typeof (RecursivityPolicy), "true");
-			//{
-			//    ID = Convert.ToInt32(c.Attribute("ID").Value),
-			//    Forename = c.Element("Forename").Value,
-			//    Surname = c.Element("Surname").Value,
-			//    DOB = c.Element("DOB").Value,
-			//    Location = c.Element("Location").Value
-
-			//}).FirstOrDefault();
-
-			//        XElement sourceBundles = new XElement("FilteringByCategory",
-			//from category in rss.Element("channel").Elements("item")
-			//where (string)category.Element("category") == "C Sharp"
-			//select new XElement("item",
-			//    category.Elements()
-			//    )
-			//);
-
-			//        var q = from c in xmlSource.contact
-			//                where c.contactId < 4
-			//                select c.firstName + " " + c.lastName;
-
-			//        XElement filterCategory =
-			//new XElement("FilteringByCategory",
-			//from category in rss.Element("channel").Elements("item")
-			//where (string)category.Element("category") == "C Sharp"
-			//select new XElement("item",
-			//    category.Elements()
-			//    )
-			//);
-
-			//        foreach (string name in q)
-			//            Console.WriteLine("Customer name = {0}", name);
-		}
 	}
 }

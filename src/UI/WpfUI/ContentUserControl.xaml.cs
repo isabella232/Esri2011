@@ -1,9 +1,8 @@
 ﻿using System;
-using System.ComponentModel;
+using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Linq;
 using System.Windows.Media;
 using System.Windows.Threading;
 using EsriDE.Samples.ContentFinder.BL.Contract;
@@ -13,9 +12,9 @@ using EsriDE.Samples.ContentLoader.UI.Wpf;
 
 namespace EsriDE.Samples.ContentFinder.WpfUI
 {
-	internal delegate void ItemDateImportThreadHelper(Content c);
+	//internal delegate void ItemDateImportThreadHelper(Content c);
 
-	public class ContentObservableCollection : ObservableCollectionEx<Content>
+	internal class ContentObservableCollection : ObservableCollectionEx<Content>
 	{ }
 
 	/// <summary>
@@ -29,11 +28,6 @@ namespace EsriDE.Samples.ContentFinder.WpfUI
 		public ContentUserControl()
 		{
 			InitializeComponent();
-
-			//if (!DesignerProperties.GetIsInDesignMode(this))
-			//{
-			//    throw new ApplicationException("Parameterless constructor only allowed for Designer.");
-			//}
 
 			_contentObservableCollection = (ContentObservableCollection)Resources["contentItems"];
 		}
@@ -54,24 +48,21 @@ namespace EsriDE.Samples.ContentFinder.WpfUI
 			}
 		}
 
+		//Todo: Wrap in AOP
 		public void ImportContent(Content c)
 		{
-			Console.WriteLine("Content received");
-			ImportAsMapDocumentItem(c);
 			try
 			{
 				if (!Dispatcher.CheckAccess())
 				{
-					Dispatcher.Invoke(DispatcherPriority.Background,
-					                  new ItemDateImportThreadHelper(ImportContent), c);
-					//Dispatcher.Invoke(DispatcherPriority.Background, new Action<Content>(ImportContent), c);
+					Dispatcher.Invoke(DispatcherPriority.Background, new Action<Content>(ImportContent), c);
 				}
 				else
 				{
 					try
 					{
-						ImportAsMapDocumentItem(c);
-						RefreshMapDocumentListbox();
+						AddContentToModel(c);
+						RefreshListbox();
 					}
 					catch (Exception e)
 					{
@@ -85,28 +76,25 @@ namespace EsriDE.Samples.ContentFinder.WpfUI
 			}
 		}
 
-		private void RefreshMapDocumentListbox()
+		private void RefreshListbox()
 		{
 			ContentListBox.Items.Refresh();
 		}
 
-		private void ImportAsMapDocumentItem(Content c)
+		private void AddContentToModel(Content c)
 		{
 			_contentObservableCollection.Add(c);
-			//_mapDocumentItemObservableCollection.Add(mapDocumentItem);
 		}
 
 		private void HandleBorderMouseEnter(object sender, MouseEventArgs e)
 		{
 			var border = (Border)sender;
 			border.BorderThickness = new Thickness(1);
-			//border.BorderBrush = new SolidColorBrush(Colors.Red);
 
 
 			border.BorderBrush = new SolidColorBrush(Color.FromRgb(30, 51, 120));
 			var grid = (Grid)border.Child;
 			var panel = (StackPanel)grid.Children[1];
-			//panel.Background = new SolidColorBrush(Colors.Gray);
 			panel.Background = new SolidColorBrush(Color.FromRgb(30, 51, 120));
 			var tblocktop = (TextBlock)panel.Children[0];
 			tblocktop.Foreground = new SolidColorBrush(Colors.White);
@@ -138,7 +126,6 @@ namespace EsriDE.Samples.ContentFinder.WpfUI
 				var grid = (Grid)border.Child;
 				var panel = (StackPanel)grid.Children[1];
 				var uri = (Uri)panel.Tag;
-				//StartArcMapOperation(guid);
 				ProcessSelectedContent(uri);
 			}
 			finally

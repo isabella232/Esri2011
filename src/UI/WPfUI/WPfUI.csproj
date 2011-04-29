@@ -36,7 +36,9 @@
     <Reference Include="ESRI.ArcGIS.Desktop.AddIns, Version=10.0.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=x86">
       <HintPath>..\..\..\lib\Esri.ArcGIS\ESRI.ArcGIS.Desktop.AddIns.dll</HintPath>
     </Reference>
-    <Reference Include="EsriDE.Samples.ContentFinder.BL.Contract, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86" />
+    <Reference Include="EsriDE.Samples.ContentFinder.BL.Contract, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <HintPath>..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.BL.Contract.dll</HintPath>
+    </Reference>
     <Reference Include="EsriDE.Samples.ContentFinder.DomainModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
       <HintPath>..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.DomainModel.dll</HintPath>
     </Reference>

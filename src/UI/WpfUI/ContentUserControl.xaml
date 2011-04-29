@@ -35,7 +35,7 @@
 											<VisualBrush Visual="{Binding ElementName=mask}" />
 										</Image.OpacityMask>
 									</Image>
-									<TextBlock Name="tblockbottom" Text="{Binding Path=Title}" Height="50" Width="220" Foreground="Black" FontSize="10" Margin="2,2,2,0" TextWrapping="Wrap" TextAlignment="Center">
+									<TextBlock Name="tblockbottom" Text="{Binding Path=Uri}" Height="50" Width="220" Foreground="Black" FontSize="10" Margin="2,2,2,0" TextWrapping="Wrap" TextAlignment="Center">
 										<TextBlock.ToolTip>
 											<TextBlock Text="{Binding Path=Title}" TextAlignment="Left" />
 										</TextBlock.ToolTip>

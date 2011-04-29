@@ -19,4 +19,19 @@ namespace EsriDE.Samples.ContentFinder.ContentAdapter
 		public string Type { get; private set; }
 		public IContentLocatorCreator ContentLocatorCreator { get; private set; }
 	}
+
+	public class MxdContentLocatorCreatorFilter : ContentLocatorCreatorFilter
+	{
+		public MxdContentLocatorCreatorFilter() : base("mxd", new MxdContentLocatorCreator())
+		{
+		}
+	}
+
+	public class AgsContentLocatorCreatorFilter : ContentLocatorCreatorFilter
+	{
+		public AgsContentLocatorCreatorFilter()
+			: base("ags", new AgsContentLocatorCreator())
+		{
+		}
+	}
 }
