@@ -74,6 +74,8 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Builder.cs" />
+    <Compile Include="LicenseUtil.cs" />
     <Compile Include="WinFormsForm.cs">
       <SubType>Form</SubType>
     </Compile>
