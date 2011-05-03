@@ -36,6 +36,9 @@
     <Reference Include="ESRI.ArcGIS.Desktop.AddIns, Version=10.0.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=x86">
       <HintPath>..\..\..\lib\Esri.ArcGIS\ESRI.ArcGIS.Desktop.AddIns.dll</HintPath>
     </Reference>
+    <Reference Include="EsriDE.Commons.Aop">
+      <HintPath>..\..\..\lib\EsriDE\EsriDE.Commons.Aop.dll</HintPath>
+    </Reference>
     <Reference Include="EsriDE.Samples.ContentFinder.BL.Contract, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
       <HintPath>..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.BL.Contract.dll</HintPath>
     </Reference>
@@ -44,6 +47,12 @@
     </Reference>
     <Reference Include="EsriDE.Samples.ContentFinder.UI.Contract">
       <HintPath>..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.UI.Contract.dll</HintPath>
+    </Reference>
+    <Reference Include="PostSharp, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b13fd38b8f9c99d7, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\PostSharp\PostSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PostSharp.Laos, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b13fd38b8f9c99d7, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\PostSharp\PostSharp.Laos.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -63,6 +72,7 @@
     <Compile Include="ContentFormPresenter.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ContentObservableCollection.xaml.cs" />
     <Compile Include="ImageConverter.cs" />
     <Compile Include="ObservableCollectionEx.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

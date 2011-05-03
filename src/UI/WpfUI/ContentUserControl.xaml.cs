@@ -1,22 +1,16 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
+using EsriDE.Commons.Aop;
 using EsriDE.Samples.ContentFinder.BL.Contract;
 using EsriDE.Samples.ContentFinder.DomainModel;
 using EsriDE.Samples.ContentFinder.UI.Contract;
-using EsriDE.Samples.ContentLoader.UI.Wpf;
 
 namespace EsriDE.Samples.ContentFinder.WpfUI
 {
-	//internal delegate void ItemDateImportThreadHelper(Content c);
-
-	internal class ContentObservableCollection : ObservableCollectionEx<Content>
-	{ }
-
 	/// <summary>
 	/// Interaction logic for ContentUserControl.xaml
 	/// </summary>
@@ -39,36 +33,55 @@ namespace EsriDE.Samples.ContentFinder.WpfUI
 			{
 				if (null != _controller)
 				{
-					_controller.ContentFound -= ImportContent;
+					_controller.ContentFound -= ImportContentIndirect;
 				}
 
 				_controller = value;
-				_controller.ContentFound += ImportContent;
+				_controller.ContentFound += ImportContentIndirect;
 				_controller.Start();
 			}
 		}
 
-		//Todo: Wrap in AOP
-		public void ImportContent(Content c)
+		////Todo: Wrap in AOP
+		//public void ImportContentClassical(Content c)
+		//{
+		//    try
+		//    {
+		//        if (!Dispatcher.CheckAccess())
+		//        {
+		//            Dispatcher.Invoke(DispatcherPriority.Background, new Action<Content>(ImportContentClassical), c);
+		//        }
+		//        else
+		//        {
+		//            try
+		//            {
+		//                AddContentToModel(c);
+		//                RefreshListbox();
+		//            }
+		//            catch (Exception e)
+		//            {
+		//                Console.WriteLine(e);
+		//            }
+		//        }
+		//    }
+		//    catch (Exception e)
+		//    {
+		//        Console.WriteLine(e);
+		//    }
+		//}
+
+		private void ImportContentIndirect(Content c)
+		{
+			ImportContent(c);
+		}
+
+		[GuiDispatchingAspect(Priority = DispatcherPriority.Background)]
+		private void ImportContent(Content c)
 		{
 			try
 			{
-				if (!Dispatcher.CheckAccess())
-				{
-					Dispatcher.Invoke(DispatcherPriority.Background, new Action<Content>(ImportContent), c);
-				}
-				else
-				{
-					try
-					{
-						AddContentToModel(c);
-						RefreshListbox();
-					}
-					catch (Exception e)
-					{
-						Console.WriteLine(e);
-					}
-				}
+				AddContentToModel(c);
+				RefreshListbox();
 			}
 			catch (Exception e)
 			{

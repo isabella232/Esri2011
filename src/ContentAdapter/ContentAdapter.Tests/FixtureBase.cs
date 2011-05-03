@@ -28,7 +28,6 @@ namespace EsriDE.Samples.ContentFinder.ContentAdapter.Tests
 			}
 		}
 
-
 		private static void InitializeEngineLicense()
 		{
 			AoInitialize aoi = new AoInitializeClass();

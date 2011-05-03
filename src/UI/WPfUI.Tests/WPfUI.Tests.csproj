@@ -43,6 +43,9 @@
     <Reference Include="nunit.framework">
       <HintPath>..\..\..\lib\NUnit\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="PostSharp, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b13fd38b8f9c99d7, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\PostSharp\PostSharp.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
