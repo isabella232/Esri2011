@@ -90,11 +90,13 @@
     <Reference Include="EsriDE.Samples.ContentFinder.DomainModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
       <HintPath>..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.DomainModel.dll</HintPath>
     </Reference>
-    <Reference Include="EsriDE.Samples.ContentFinder.SystemBuild, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86" />
     <Reference Include="EsriDE.Samples.ContentFinder.UI.Contract, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
       <HintPath>..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.UI.Contract.dll</HintPath>
     </Reference>
     <Reference Include="EsriDE.Samples.ContentFinder.WpfUI, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86" />
+    <Reference Include="PostSharp, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b13fd38b8f9c99d7, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\PostSharp\PostSharp.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
