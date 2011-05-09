@@ -41,5 +41,21 @@ namespace EsriDE.Samples.ContentFinder.ContentAdapter.Tests
 			yield return GetMapDocumentConfigItemsForSingleFolderNonRecursiv();
 			yield return GetMapDocumentConfigItemsForSingleFolderRecursiv();
 		}
+
+		internal static IEnumerable<Source> GetDemoSources(RecursivityPolicy policy)
+		{
+			yield return new Source(new Uri(@"http://vsdp1001.srvc.esri-de.com/ArcGIS/rest/services/"), policy);
+		}
+
+		internal static IEnumerable<Source> GetAgoSources(RecursivityPolicy policy)
+		{
+			yield return new Source(new Uri(@"http://server.arcgisonline.com/ArcGIS/rest/services"), policy);
+		}
+
+		internal static SourceBundle GetDemoSourceBundle(RecursivityPolicy policy)
+		{
+			var sourceBundle = new SourceBundle("ags", GetDemoSources(policy));
+			return sourceBundle;
+		}
 	}
 }

@@ -2,8 +2,8 @@
 {
 	public enum ServiceType
 	{
+		Unknown,
 		MapService,
-		ImageService,
-		ServiceDirectory
+		ImageService	
 	}
 }

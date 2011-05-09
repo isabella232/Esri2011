@@ -1,6 +1,7 @@
 using System;
 using System.Drawing;
-using EsriDE.Samples.AgsServicesJsonDeSerializer;
+using EsriDE.Commons.Ags;
+using EsriDE.Commons.Ags.Contracts;
 
 namespace EsriDE.Samples.ContentFinder.ContentAdapter.Ags
 {
@@ -53,8 +54,8 @@ namespace EsriDE.Samples.ContentFinder.ContentAdapter.Ags
 		protected override Bitmap GetBitmapCore(object serviceInfo)
 		{
 			var mapServiceInfo = (MapServiceInfo) serviceInfo;
-			Bitmap result = AgsMapServiceInfo.
-				GetSysDrawBitmap(mapServiceInfo.Service.RESTServiceUrl, mapServiceInfo.InitialExtent, @"400,266");
+			Bitmap result = MapServiceUtil.
+				GetSysDrawBitmap(mapServiceInfo.Uri, mapServiceInfo.InitialExtent, @"400,266");
 			return result;
 		}
 	}
@@ -69,7 +70,7 @@ namespace EsriDE.Samples.ContentFinder.ContentAdapter.Ags
 		protected override Bitmap GetBitmapCore(object serviceInfo)
 		{
 			var imageServiceInfo = (ImageServiceInfo) serviceInfo;
-			Bitmap result = AgsImageServiceInfo.
+			Bitmap result = ImageServiceUtil.
 				GetSysDrawBitmap(imageServiceInfo.Service.RESTServiceUrl, imageServiceInfo.Extent, @"400,266");
 
 			return result;

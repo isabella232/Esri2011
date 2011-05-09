@@ -30,11 +30,14 @@ namespace EsriDE.Samples.ContentFinder.ContentAdapter
 			}
 			foreach (DirectoryInfo folder in folders)
 			{
-				IEnumerable<Uri> folderUris = GetComponentUris(new Uri(folder.FullName), RecursivityPolicy.Recursiv);
-				foreach (Uri folderUri in folderUris)
-				{
-					yield return folderUri;
-				}
+				var s = folder.FullName;
+				var result = new Uri(s);
+				yield return result;
+				//IEnumerable<Uri> folderUris = GetComponentUris(new Uri(folder.FullName), RecursivityPolicy.Recursiv);
+				//foreach (Uri folderUri in folderUris)
+				//{
+				//    yield return folderUri;
+				//}
 			}
 
 			yield break;

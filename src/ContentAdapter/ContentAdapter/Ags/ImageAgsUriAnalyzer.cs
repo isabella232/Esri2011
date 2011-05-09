@@ -1,30 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
-using EsriDE.Samples.AgsServicesJsonDeSerializer;
+using EsriDE.Commons.Ags;
+using EsriDE.Commons.Ags.Contracts;
 
 namespace EsriDE.Samples.ContentFinder.ContentAdapter.Ags
 {
-	public class ImageAgsUriAnalyzer : UriAnalyzer
+	public class ImageAgsUriAnalyzer : AgsUriAnalyzer
 	{
-		protected override IEnumerable<Uri> GetCompositeUris(Uri currentUri)
-		{
-			var directory = new AgsServicesDirectory(currentUri);
-			//    private void ProcessImageServiceDirectory(AgsServicesDirectory directory, bool checkSubDirectory)
-			//{
-			foreach (Service service in directory.GetImageServices(true))
-			{
-				ImageServiceInfo imageServiceInfo = AgsImageServiceInfo.GetImageServiceInfo(directory,
-				                                                                            service.RESTServiceUrl);
-				//ProcessImageServiceInfo(imageServiceInfo);
-
-			}
-
-			throw new NotImplementedException();
-		}
-
 		protected override IEnumerable<Uri> GetLeafUris(Uri currentUri)
 		{
-			throw new NotImplementedException();
+			var leafs = base.GetLeafUris(currentUri);
+
+			foreach (var leaf in leafs)
+			{
+				ServiceType type = ServiceType.Unknown;
+				try
+				{
+					type = AgsUtil.GetServiceType(leaf);
+				}
+				catch (Exception ex)
+				{
+					Console.WriteLine(ex.Message);
+				}
+
+				if (ServiceType.ImageService == type)
+				{
+					yield return leaf;
+				}
+			}
 		}
 
 		private void ProcessImageServiceInfo(ImageServiceInfo imageServiceInfo)

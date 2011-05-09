@@ -42,11 +42,6 @@ namespace EsriDE.Samples.ContentFinder.ContentAdapter
 
 		protected SourceBundle SourceBundle { get; private set; }
 
-		protected virtual void ConfigureThread(Thread thread)
-		{
-			thread.SetApartmentState(ApartmentState.STA);
-			thread.Priority = ThreadPriority.BelowNormal;
-		}
 
 		protected abstract void Search();
 
@@ -75,6 +70,13 @@ namespace EsriDE.Samples.ContentFinder.ContentAdapter
 			ConfigureThread(thread);
 			return thread;
 		}
+
+		protected virtual void ConfigureThread(Thread thread)
+		{
+			thread.SetApartmentState(ApartmentState.STA);
+			thread.Priority = ThreadPriority.BelowNormal;
+		}
+
 	}
 
 	/*public abstract class ContentCreator

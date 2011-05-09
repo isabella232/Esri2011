@@ -12,7 +12,7 @@ namespace EsriDE.Samples.ContentFinder.ContentAdapter
 			{
 				IEnumerable<Uri> uris = GetComponentUris(source.Uri, source.RecursivityPolicy);
 
-				foreach (Uri uri in uris)
+				foreach (var uri in uris)
 				{
 					yield return uri;
 				}
@@ -33,7 +33,11 @@ namespace EsriDE.Samples.ContentFinder.ContentAdapter
 				var compositeUris = GetCompositeUris(currentUri);
 				foreach (var compositeUri in compositeUris)
 				{
-					yield return compositeUri;
+					var childs = GetComponentUris(compositeUri, policy);
+					foreach (var child in childs)
+					{
+						yield return child;
+					}
 				}
 			}
 		}

@@ -1,10 +1,11 @@
 using System;
 using System.Threading;
+using EsriDE.Commons.Ags;
 using EsriDE.Samples.ContentFinder.DomainModel;
 
 namespace EsriDE.Samples.ContentFinder.ContentAdapter.Ags
 {
-	public abstract class AgsContentLocator : ContentLocator
+	public class AgsContentLocator : ContentLocator
 	{
 		public AgsContentLocator(SourceBundle sourceBundle)
 			: base(sourceBundle)
@@ -29,21 +30,19 @@ namespace EsriDE.Samples.ContentFinder.ContentAdapter.Ags
 			OnFinishedSearch();
 		}
 
-		
-
 		protected override void ConfigureThread(Thread thread)
 		{
 			thread.Priority = ThreadPriority.Lowest;
 			//thread.SetApartmentState(ApartmentState.STA);
 		}
 
-		//private readonly Predicate<FileInfo> _predicate;
+		protected void Process(Uri uri)
+		{
+			var serviceType = AgsUtil.GetServiceType(uri);
+			var reader = AgsContentReader.CreateAgsContentReader(serviceType);
 
-		//protected FileContentLocator(SourceBundle sourceBundle, Predicate<FileInfo> predicate) : base(sourceBundle)
-		//{
-		//    _predicate = predicate;
-		//}
-
-		protected abstract void Process(Uri uri);
+			var agsContent = reader.ReadContent(uri);
+			OnFoundContent(agsContent);
+		}
 	}
 }

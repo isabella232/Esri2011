@@ -36,7 +36,7 @@ namespace EsriDE.Samples.ContentFinder.ContentAdapter.Tests
 
 		private void FoundContent(Content content)
 		{
-			Console.WriteLine(Thread.CurrentThread.ManagedThreadId);
+			Console.WriteLine("ThreadID=" + Thread.CurrentThread.ManagedThreadId);
 			_counter++;
 			_content = content;
 			if (content is MxdContent)
