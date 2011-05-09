@@ -29,7 +29,8 @@ namespace EsriDE.Samples.ContentFinder.ContentAdapter.Tests
 		[Test]
 		public void Spike()
 		{
-			var sourceBunde = TestDataUtils.GetDemoSourceBundle(RecursivityPolicy.NotRecursiv);
+			//var sourceBunde = TestDataUtils.GetDemoSourceBundle(RecursivityPolicy.NotRecursiv);
+			var sourceBunde = TestDataUtils.GetAgoSourceBundle(RecursivityPolicy.NotRecursiv);
 			var sut = new AgsContentLocator(sourceBunde);
 
 			sut.FoundContent += FoundContent;

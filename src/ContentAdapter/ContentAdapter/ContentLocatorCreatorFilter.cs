@@ -22,7 +22,8 @@ namespace EsriDE.Samples.ContentFinder.ContentAdapter
 
 	public class MxdContentLocatorCreatorFilter : ContentLocatorCreatorFilter
 	{
-		public MxdContentLocatorCreatorFilter() : base("mxd", new MxdContentLocatorCreator())
+		public MxdContentLocatorCreatorFilter() 
+			: base("mxd", new MxdContentLocatorCreator())
 		{
 		}
 	}

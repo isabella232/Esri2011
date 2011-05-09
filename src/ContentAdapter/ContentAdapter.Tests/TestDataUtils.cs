@@ -57,5 +57,11 @@ namespace EsriDE.Samples.ContentFinder.ContentAdapter.Tests
 			var sourceBundle = new SourceBundle("ags", GetDemoSources(policy));
 			return sourceBundle;
 		}
+
+		internal static SourceBundle GetAgoSourceBundle(RecursivityPolicy policy)
+		{
+			var sourceBundle = new SourceBundle("ags", GetAgoSources(policy));
+			return sourceBundle;
+		}
 	}
 }

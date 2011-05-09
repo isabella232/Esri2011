@@ -3,7 +3,7 @@ using System.IO;
 
 namespace EsriDE.Samples.ContentFinder.ContentAdapter
 {
-	public static class FileUtils
+	public static class IoUtils
 	{
 		public static IEnumerable<FileInfo> GetFileInfos(DirectoryInfo dirInfo)
 		{

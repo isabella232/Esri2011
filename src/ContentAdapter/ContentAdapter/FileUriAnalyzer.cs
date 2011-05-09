@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using EsriDE.Samples.ContentFinder.DomainModel;
 
 namespace EsriDE.Samples.ContentFinder.ContentAdapter
 {
@@ -19,6 +18,7 @@ namespace EsriDE.Samples.ContentFinder.ContentAdapter
 		{
 			DirectoryInfo dirInfo = GetDirInfo(currentUri);
 			DirectoryInfo[] folders;
+
 			try
 			{
 				folders = dirInfo.GetDirectories();
@@ -28,16 +28,12 @@ namespace EsriDE.Samples.ContentFinder.ContentAdapter
 				Console.WriteLine(e);
 				yield break;
 			}
+
 			foreach (DirectoryInfo folder in folders)
 			{
 				var s = folder.FullName;
 				var result = new Uri(s);
 				yield return result;
-				//IEnumerable<Uri> folderUris = GetComponentUris(new Uri(folder.FullName), RecursivityPolicy.Recursiv);
-				//foreach (Uri folderUri in folderUris)
-				//{
-				//    yield return folderUri;
-				//}
 			}
 
 			yield break;
@@ -58,7 +54,7 @@ namespace EsriDE.Samples.ContentFinder.ContentAdapter
 		private static IEnumerable<FileInfo> GetFileInfos(Uri currentUri)
 		{
 			DirectoryInfo dirInfo = GetDirInfo(currentUri);
-			return FileUtils.GetFileInfos(dirInfo);
+			return IoUtils.GetFileInfos(dirInfo);
 		}
 
 		private static DirectoryInfo GetDirInfo(Uri currentUri)

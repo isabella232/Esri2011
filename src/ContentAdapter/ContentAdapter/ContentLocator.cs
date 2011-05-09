@@ -47,6 +47,8 @@ namespace EsriDE.Samples.ContentFinder.ContentAdapter
 
 		protected virtual void OnFoundContent(Content content)
 		{
+			Console.WriteLine("Content gefunden: " + content.Uri);
+
 			var action = FoundContent;
 			if (null != action)
 			{

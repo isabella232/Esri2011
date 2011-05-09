@@ -77,7 +77,7 @@
     <Compile Include="Mxd\BitmapUtil.cs" />
     <Compile Include="ContentLocator.cs" />
     <Compile Include="FileContentLocator.cs" />
-    <Compile Include="FileUtils.cs" />
+    <Compile Include="IoUtils.cs" />
     <Compile Include="Mxd\MxdContent.cs" />
     <Compile Include="Mxd\MxdContentLocator.cs" />
     <Compile Include="NullContentLocator.cs" />
