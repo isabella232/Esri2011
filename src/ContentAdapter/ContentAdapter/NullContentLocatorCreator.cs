@@ -16,33 +16,3 @@ namespace EsriDE.Samples.ContentFinder.ContentAdapter
 		}
 	}
 }
-//internal class ContentLocatorResolverOld : IContentLocatorResolver
-//{
-//    private readonly IEnumerable<IContentLocatorCreator> _contentLocatorCreators;
-
-//    public ContentLocatorResolverOld(IEnumerable<IContentLocatorCreator> contentLocatorCreators)
-//    {
-//        _contentLocatorCreators = contentLocatorCreators;
-//    }
-
-//    public IContentLocator ResolveContentLocator(SourceBundle sourceBundle)
-//    {
-//        var contentLocatorCreator = GetContentLocatorCreator(sourceBundle);
-//        var contentLocator = contentLocatorCreator.CreateContentLocator(sourceBundle);
-//        return contentLocator;
-//    }
-
-//    protected virtual IContentLocatorCreator GetContentLocatorCreator(SourceBundle sourceBundle)
-//    {
-//        //foreach (var creator in _contentLocatorCreators)
-//        //{
-//        //    if (creator.IsResponsibleFor(sourceBundle))
-//        //    {
-//        //        return creator;
-//        //    }
-//        //}
-
-//        return new NullContentLocatorCreator();
-//    }
-//}
-
