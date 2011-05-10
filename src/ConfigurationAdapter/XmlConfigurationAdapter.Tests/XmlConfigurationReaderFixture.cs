@@ -1,12 +1,11 @@
 using System;
-using System.Linq;
-using System.Xml.Linq;
-using EsriDE.Samples.ContentFinder.DomainModel;
 using NUnit.Framework;
 
 //http://www.codeproject.com/KB/linq/LINQtoXML.aspx
 namespace EsriDE.Samples.ContentFinder.XmlConfigurationAdapter.Tests
 {
+	// ReSharper disable InconsistentNaming
+
 	[TestFixture]
 	public class XmlConfigurationReaderFixture
 	{
@@ -20,24 +19,24 @@ namespace EsriDE.Samples.ContentFinder.XmlConfigurationAdapter.Tests
 		}
 
 		[Test]
-		public void ReadingConfiguration_WithMeaningfulUri_ThrowsException()
+		public void ReadingConfiguration_WithMeaningfulUri_ThrowsApplicationException()
 		{
-			//var ex = Assert.Throws<Exception>(() => _sut.ReadConfiguration(_uri));
-			//Assert.That(ex.Message,
-			//    Is.EqualTo("Lesen mit individueller _uri ist noch nicht implementiert."));
+			// entweder
+			var ex = Assert.Throws<ApplicationException>(() => _sut.ReadConfiguration(_uri));
+			Assert.That(ex.Message,
+				Is.EqualTo("Lesen mit individueller Uri ist noch nicht implementiert."));
 
-			//Assert.Throws<NotImplementedException>(_sut.ReadConfiguration(_uri));
-
+			// oder
 			Assert.That(() => _sut.ReadConfiguration(_uri),
-				Throws.TypeOf<NotImplementedException>().With.Property("Message").EqualTo("Lesen mit individueller _uri ist noch nicht implementiert."));
+				Throws.TypeOf<ApplicationException>().With.Property("Message").EqualTo("Lesen mit individueller Uri ist noch nicht implementiert."));
 		}
 
 		[Test]
 		public void ReadingConfiguration_WithNullUri_DoesNotThrowException()
 		{
-			Assert.DoesNotThrow(
-				() => _sut.ReadConfiguration(_uri));
-
+			Assert.DoesNotThrow(() => _sut.ReadConfiguration(null));
 		}
 	}
+
+	// ReSharper restore InconsistentNaming
 }
