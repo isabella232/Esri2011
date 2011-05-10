@@ -16,7 +16,7 @@ namespace AgdBLAdapter.Tests
 		public void Do()
 		{
 			var container = new WindsorContainer();
-			container.Register(Component.For<ICorHandler<Content>>().ImplementedBy())
+			//container.Register(Component.For<ICorHandler<Content>>().ImplementedBy())
 		}
 	}
 

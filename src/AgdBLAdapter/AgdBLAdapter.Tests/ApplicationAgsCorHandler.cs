@@ -3,8 +3,8 @@ using System.Diagnostics;
 using ESRI.ArcGIS.ArcMapUI;
 using ESRI.ArcGIS.Carto;
 using ESRI.ArcGIS.esriSystem;
-using ESRI.ArcGIS.Framework;
 using ESRI.ArcGIS.GISClient;
+using EsriDE.Commons.Ags;
 using EsriDE.Samples.ContentFinder.ApplicationAdapter.Contract;
 using EsriDE.Samples.ContentFinder.ContentAdapter.Ags;
 using EsriDE.Samples.ContentFinder.DomainModel;
@@ -28,28 +28,28 @@ namespace AgdBLAdapter.Tests
 		{
 			var application = ApplicationAdapter.Application;
 
-			var serviceUri = GetServiceUri(data.Uri);
-			var serviceName = GetServiceName(data.Uri);
+			var serviceType = AgsUtil.GetServiceType(data.Uri);
+			var serviceName = AgsUtil.GetServiceName(data.Uri.AbsoluteUri);
 
-			string[] segments = serviceUri.Segments;
-			string serverType = segments[segments.Length - 1].ToLower();
-			serverType = serverType.Replace("/", string.Empty);
-
-			var mxDocument = (IMxDocument)application.Document;
-			IMap focusMap = mxDocument.FocusMap;
 			ILayer layer = null;
-
-			if (serverType == "mapserver")
+			switch (serviceType)
 			{
-				layer = GetLayerfromMapService(serviceUri, serviceName);
-			}
-			if (serverType == "imageserver")
-			{
-				layer = GetLayerfromImageService(serviceUri);
+				case ServiceType.MapService:
+					layer = GetLayerFromMapService(data.Uri, serviceName);
+					break;
+				case ServiceType.ImageService:
+					layer = GetLayerFromImageService(data.Uri);
+					break;
+				case ServiceType.Unknown:
+					break;
+				default:
+					throw new ArgumentOutOfRangeException();
 			}
 
 			if (layer != null)
 			{
+				var mxDocument = (IMxDocument)application.Document;
+				IMap focusMap = mxDocument.FocusMap;
 				focusMap.AddLayer(layer);
 			}
 		}
@@ -80,7 +80,7 @@ namespace AgdBLAdapter.Tests
 			return strings;
 		}
 
-		public ILayer GetLayerfromImageService(Uri uri)
+		public ILayer GetLayerFromImageService(Uri uri)
 		{
 			ImageServerLayer imLayer;
 			try
@@ -96,7 +96,7 @@ namespace AgdBLAdapter.Tests
 		}
 
 
-		public ILayer GetLayerfromMapService(Uri uri, string serviceName)
+		public ILayer GetLayerFromMapService(Uri uri, string serviceName)
 		{
 			try
 			{
@@ -110,7 +110,8 @@ namespace AgdBLAdapter.Tests
 				//connectionProps.SetProperty("USER", "<USER>");
 				//connectionProps.SetProperty("PASSWORD", "<PASS>");
 				//open the server connection, pass in the property set, get a connection object back
-				IAGSServerConnection gisServer = connectionFactory.Open(connectionProps, _application.hWnd);
+				var handle = ApplicationAdapter.Application.hWnd;
+				IAGSServerConnection gisServer = connectionFactory.Open(connectionProps, handle);
 
 				//get an enum of all server object names from the server (GIS services, i.e.)
 				IAGSEnumServerObjectName soNames = gisServer.ServerObjectNames;
