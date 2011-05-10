@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AgsUtilFixture.cs" />
+    <Compile Include="AgsUtilSpike.cs" />
     <Compile Include="MapServiceUtilFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceDirectoryUtilFixture.cs" />
