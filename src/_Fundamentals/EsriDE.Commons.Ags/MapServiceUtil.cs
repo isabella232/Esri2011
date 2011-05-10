@@ -19,34 +19,6 @@ namespace EsriDE.Commons.Ags
 			return result;
 		}
 
-		//public static MapServiceInfo GetMapServiceInfo(AgsServicesDirectory directory, Uri url)
-		//{
-		//    try
-		//    {
-		//        Service service = null;
-
-		//        foreach (Service serv in directory.GetMapServices(true))
-		//        {
-		//            if (serv.RESTServiceUrl.AbsoluteUri.ToLower().Contains(url.AbsoluteUri.ToLower().ToLower()))
-		//            {
-		//                service = serv;
-		//                break;
-		//            }
-		//        }
-
-		//        var json = JsonUtil.GetHttpJsonRequestResult(url.AbsoluteUri);
-		//        var info = JsonUtil.Deserialize<MapServiceInfo>(json);
-
-		//        info.Uri = url;
-
-		//        return info;
-		//    }
-		//    catch
-		//    {
-		//        return null;
-		//    }
-		//}
-
 		public static ImageInfo GetImageInfo(Uri url, Extent extent, string size)
 		{
 			try
