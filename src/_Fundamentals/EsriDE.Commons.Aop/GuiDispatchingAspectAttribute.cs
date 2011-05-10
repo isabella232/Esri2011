@@ -9,11 +9,9 @@ namespace EsriDE.Commons.Aop
 	{
 		public DispatcherPriority Priority { get; set; }
 
-		public override void OnInvoke(
-			MethodInterceptionArgs eventArgs)
+		public override void OnInvoke(MethodInterceptionArgs eventArgs)
 		{
-			DispatcherObject dispatcherObject =
-				(DispatcherObject)eventArgs.Instance;
+			var dispatcherObject = (DispatcherObject) eventArgs.Instance;
 
 			if (dispatcherObject.CheckAccess())
 			{
@@ -23,7 +21,7 @@ namespace EsriDE.Commons.Aop
 			else
 			{
 				// Invoke the target method synchronously.  
-				dispatcherObject.Dispatcher.Invoke(this.Priority, new Action(eventArgs.Proceed));
+				dispatcherObject.Dispatcher.Invoke(Priority, new Action(eventArgs.Proceed));
 			}
 		}
 	}
