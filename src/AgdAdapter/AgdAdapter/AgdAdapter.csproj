@@ -199,9 +199,7 @@
       <Link>Install\EsriDE.Samples.ContentFinder.ContentAdapter.dll</Link>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Sortieren\Old\" />
-  </ItemGroup>
+  <ItemGroup />
   <!-- Esri Stuff -->
   <PropertyGroup>
     <ZipFileExtension>esriAddIn</ZipFileExtension>
