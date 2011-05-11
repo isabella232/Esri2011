@@ -58,8 +58,8 @@ namespace EsriDE.Samples.ContentFinder.AgdAdapter
 		private void DestroySystem()
 		{
 			Console.WriteLine("Destroy system");
-			//_toggleablePresenter.UnsetModel();
-			//_container.Release(_toggleablePresenter);
+			////_toggleablePresenter.UnsetModel();
+			////_container.Release(_toggleablePresenter);
 			_toggleablePresenter = null;
 		}
 
@@ -70,23 +70,18 @@ namespace EsriDE.Samples.ContentFinder.AgdAdapter
 			_container.Register(Component.For<IShifterModel>().ImplementedBy<ToggleViewShifterModel>());
 			_container.Register(Component.For<IWindowInformation>().ImplementedBy<HostWindowInformation>());
 
-			//_container.Register(Component.For<IWindowInformation>().ImplementedBy<HostWindowInformation>());
-			//_container.Register(Component.For<IWindowInformation>().ImplementedBy<HostWindowInformation>());
-
+			////_container.Register(Component.For<IWindowInformation>().ImplementedBy<HostWindowInformation>());
+			////_container.Register(Component.For<IWindowInformation>().ImplementedBy<HostWindowInformation>());
 
 			_container.Kernel.ReleasePolicy = new TrulyTransientReleasePolicy();
-			_container.Register(
-				Component.For<IToggleablePresenter>().ImplementedBy<ContentFormPresenter>().LifeStyle.Custom(
-					typeof (TrulyTransientLifestyleManager)));
-			_container.Register(
-				Component.For<IToggleableView, IToggleableForm>().ImplementedBy<ContentForm>().LifeStyle.Custom(typeof(TrulyTransientLifestyleManager)));
-			//_container.Register(
-			//    Component.For<IContentModel>().ImplementedBy<ContentModel>().LifeStyle.Custom(
-			//        typeof (TrulyTransientLifestyleManager)));
-			//_container.Register(
-			//    Component.For<IAgdAdapter>().ImplementedBy<AgdAdapter>().LifeStyle.Custom(typeof (TrulyTransientLifestyleManager)));
+			_container.Register(Component.For<IToggleablePresenter>().ImplementedBy<ContentFormPresenter>().LifeStyle.Custom(typeof(TrulyTransientLifestyleManager)));
+			_container.Register(Component.For<IToggleableView, IToggleableForm>().ImplementedBy<ContentForm>().LifeStyle.Custom(typeof(TrulyTransientLifestyleManager)));
 
-
+			////_container.Register(
+			////    Component.For<IContentModel>().ImplementedBy<ContentModel>().LifeStyle.Custom(
+			////        typeof (TrulyTransientLifestyleManager)));
+			////_container.Register(
+			////    Component.For<IAgdAdapter>().ImplementedBy<AgdAdapter>().LifeStyle.Custom(typeof (TrulyTransientLifestyleManager)));
 		}
 
 		private void ConnectShifterPresenterTo(IShifterView view)

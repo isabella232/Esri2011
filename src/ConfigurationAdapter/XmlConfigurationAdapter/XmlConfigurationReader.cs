@@ -25,8 +25,7 @@ namespace EsriDE.Samples.ContentFinder.XmlConfigurationAdapter
 										 select new Source(new Uri(d.Attribute("Uri").Value),
 														   (Convert.ToBoolean(d.Attribute("IsRecursive").Value)
 																? RecursivityPolicy.Recursiv
-																: RecursivityPolicy.NotRecursiv)
-											));
+																: RecursivityPolicy.NotRecursiv)));
 
 			return r;
 		}

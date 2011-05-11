@@ -17,6 +17,7 @@ namespace EsriDE.Samples.ContentFinder.AgdAdapter
 		}
 
 		private event Action _clicked;
+
 		public event Action Clicked
 		{
 			add { _clicked += value;  }

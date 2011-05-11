@@ -29,6 +29,7 @@ namespace EsriDE.Samples.ContentFinder.AgdAdapter
 		}
 
 		protected abstract bool IsResponsibleFor(Content content);
+
 		protected abstract void ProcessCore(Content content);
 	}
 }

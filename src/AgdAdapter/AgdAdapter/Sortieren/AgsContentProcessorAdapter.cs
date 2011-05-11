@@ -23,8 +23,8 @@ namespace EsriDE.Samples.ContentFinder.AgdAdapter.Sortieren
 			string serverType = segments[segments.Length - 1].ToLower();
 			serverType = serverType.Replace("/", string.Empty);
 
-			var mxDocument = (IMxDocument)Application.Document;
-			IMap focusMap = mxDocument.FocusMap;
+			var document = (IMxDocument)Application.Document;
+			IMap focusMap = document.FocusMap;
 			ILayer layer = null;
 
 			if (serverType == "mapserver")
@@ -50,19 +50,18 @@ namespace EsriDE.Samples.ContentFinder.AgdAdapter.Sortieren
 
 		public ILayer GetLayerfromImageService(Uri uri)
 		{
-			ImageServerLayer imLayer;
+			ImageServerLayer layer;
 			try
 			{
-				imLayer = new ImageServerLayerClass();
-				imLayer.Initialize(uri.AbsoluteUri);
-				return imLayer;
+				layer = new ImageServerLayerClass();
+				layer.Initialize(uri.AbsoluteUri);
+				return layer;
 			}
 			catch
 			{
 				return null;
 			}
 		}
-
 
 		public ILayer GetLayerfromMapService(Uri uri, string serviceName)
 		{
@@ -81,26 +80,28 @@ namespace EsriDE.Samples.ContentFinder.AgdAdapter.Sortieren
 				IAGSServerConnection gisServer = connectionFactory.Open(connectionProps, Application.hWnd);
 
 				//get an enum of all server object names from the server (GIS services, i.e.)
-				IAGSEnumServerObjectName soNames = gisServer.ServerObjectNames;
+				IAGSEnumServerObjectName agsEnumServerObjectName = gisServer.ServerObjectNames;
 				//loop thru all services, find a map service called "I3_Imagery_Prime_World_2D" (high res imagery for the world)
-				var soName = (IAGSServerObjectName3)soNames.Next();
+				var agsServerObjectName3 = (IAGSServerObjectName3)agsEnumServerObjectName.Next();
 				do
 				{
-					if ((soName.Type == "MapServer") && (soName.Name == serviceName))
+					if ((agsServerObjectName3.Type == "MapServer") && (agsServerObjectName3.Name == serviceName))
 					{
 						break; //found it
 					}
 					//keep searching the services ...
-					soName = (IAGSServerObjectName3)soNames.Next();
-				} while (soName != null);
+					agsServerObjectName3 = (IAGSServerObjectName3)agsEnumServerObjectName.Next();
+				}
+				while (agsServerObjectName3 != null);
+				
 				//if the desired service was found ...
-				if (soName != null)
+				if (agsServerObjectName3 != null)
 				{
 					//create a layer factory to make a new MapServerLayer from the server object name
-					ILayerFactory msLayerFactory = new MapServerLayerFactory();
+					ILayerFactory layerFactory = new MapServerLayerFactory();
 
 					//create an enum of layers using the name object (will contain only a single layer)
-					IEnumLayer enumLyrs = msLayerFactory.Create(soName);
+					IEnumLayer enumLyrs = layerFactory.Create(agsServerObjectName3);
 					//get the layer from the enum, store it in a MapServerLayer variable
 					var mapServerLayer = (IMapServerLayer)enumLyrs.Next();
 					//make sure the layer is not empty (Nothing), then add it to the map
