@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FxCopProject Version="1.36" Name="EsriDE.SfgPraxair">
+	<ProjectOptions>
+		<SharedProject>True</SharedProject>
+		<Stylesheet Apply="False">..\tools\fxcop\Xml\FxCopReport.xsl</Stylesheet>
+		<SaveMessages>
+			<Project Status="Active, Excluded" NewOnly="False" />
+			<Report Status="Active" NewOnly="False" />
+		</SaveMessages>
+		<ProjectFile Compress="True" DefaultTargetCheck="True" DefaultRuleCheck="True" SaveByRuleGroup="" Deterministic="True" />
+		<EnableMultithreadedLoad>True</EnableMultithreadedLoad>
+		<EnableMultithreadedAnalysis>True</EnableMultithreadedAnalysis>
+		<SourceLookup>True</SourceLookup>
+		<AnalysisExceptionsThreshold>10</AnalysisExceptionsThreshold>
+		<RuleExceptionsThreshold>1</RuleExceptionsThreshold>
+		<Spelling Locale="de-DE" />
+		<OverrideRuleVisibilities>False</OverrideRuleVisibilities>
+		<CustomDictionaries SearchFxCopDir="True" SearchUserProfile="True" SearchProjectDir="True">
+			<CustomDictionary Path="FxCop.CustomDictionary.xml" />
+		</CustomDictionaries>
+		<SearchGlobalAssemblyCache>False</SearchGlobalAssemblyCache>
+		<DeadlockDetectionTimeout>120</DeadlockDetectionTimeout>
+		<IgnoreGeneratedCode>True</IgnoreGeneratedCode>
+	</ProjectOptions>
+	<Targets />
+	<Rules>
+		<RuleFiles>
+			<RuleFile Name="$(FxCopDir)\Rules\DesignRules.dll" Enabled="True" AllRulesEnabled="False">
+				<Rule Name="DoNotDeclareStaticMembersOnGenericTypes" Enabled="true" /><!--CA1000-->
+				<Rule Name="TypesThatOwnDisposableFieldsShouldBeDisposable" Enabled="True" /><!--CA1001-->
+				<Rule Name="DoNotExposeGenericLists" Enabled="True" /><!--CA1002-->
+				<Rule Name="UseGenericEventHandlerInstances" Enabled="True" /><!--CA1003-->
+				<Rule Name="GenericMethodsShouldProvideTypeParameter" Enabled="True" /><!--CA1004-->
+				<Rule Name="AvoidExcessiveParametersOnGenericTypes" Enabled="True" /><!--CA1005-->
+				<Rule Name="DoNotNestGenericTypesInMemberSignatures" Enabled="True" /><!--CA1006-->
+				<Rule Name="UseGenericsWhereAppropriate" Enabled="True" /><!--CA1007-->
+				<Rule Name="EnumsShouldHaveZeroValue" Enabled="True" /><!--CA1008-->
+				<Rule Name="DeclareEventHandlersCorrectly" Enabled="True" /><!--CA1009-->
+				<Rule Name="CollectionsShouldImplementGenericInterface" Enabled="True" /><!--CA1010-->
+				<Rule Name="ConsiderPassingBaseTypesAsParameters" Enabled="True" /><!--CA1011-->
+				<Rule Name="AbstractTypesShouldNotHaveConstructors" Enabled="True" /><!--CA1012-->
+				<Rule Name="OverloadOperatorEqualsOnOverloadingAddAndSubtract" Enabled="True" /><!--CA1013-->
+					<Rule Name="MarkAssembliesWithClsCompliant" Enabled="False" /><!--CA1014-->
+				<Rule Name="MarkAssembliesWithAssemblyVersion" Enabled="True" /><!--CA1016-->
+				<Rule Name="MarkAssembliesWithComVisible" Enabled="True" /><!--CA1017-->
+				<Rule Name="MarkAttributesWithAttributeUsage" Enabled="True" /><!--CA10CA1018-->
+				<Rule Name="DefineAccessorsForAttributeArguments" Enabled="True" /><!--CA1019-->
+				<Rule Name="AvoidNamespacesWithFewTypes" Enabled="True" /><!--CA1020-->
+				<Rule Name="AvoidOutParameters" Enabled="True" /><!--CA1021-->
+				<Rule Name="IndexersShouldNotBeMultidimensional" Enabled="True" /><!--CA1023-->
+				<Rule Name="UsePropertiesWhereAppropriate" Enabled="True" /><!--CA1024-->
+				<Rule Name="ReplaceRepetitiveArgumentsWithParamsArray" Enabled="True" /><!--CA1025-->
+				<Rule Name="DefaultParametersShouldNotBeUsed" Enabled="True" /><!--CA1026-->
+				<Rule Name="MarkEnumsWithFlags" Enabled="True" /><!--CA1027-->
+				<Rule Name="EnumStorageShouldBeInt32" Enabled="True" /><!--CA1028-->
+				<Rule Name="UseEventsWhereAppropriate" Enabled="True" /><!--CA1030-->
+				<Rule Name="DoNotCatchGeneralExceptionTypes" Enabled="True" /><!--CA1031-->
+				<Rule Name="ImplementStandardExceptionConstructors" Enabled="True" /><!--CA1032-->
+				<Rule Name="InterfaceMethodsShouldBeCallableByChildTypes" Enabled="True" /><!--CA1033-->
+				<Rule Name="NestedTypesShouldNotBeVisible" Enabled="True" /><!--CA1034-->
+				<Rule Name="ICollectionImplementationsHaveStronglyTypedMembers" Enabled="True" /><!--CA1035-->
+				<Rule Name="OverrideMethodsOnComparableTypes" Enabled="True" /><!--CA1036-->
+				<Rule Name="EnumeratorsShouldBeStronglyTyped" Enabled="True" /><!--CA1038-->
+				<Rule Name="ListsAreStronglyTyped" Enabled="True" /><!--CA1039-->
+				<Rule Name="AvoidEmptyInterfaces" Enabled="True" /><!--CA1040-->
+				<Rule Name="ProvideObsoleteAttributeMessage" Enabled="True" /><!--CA1041-->
+				<Rule Name="UseIntegralOrStringArgumentForIndexers" Enabled="True" /><!--CA1043-->
+				<Rule Name="PropertiesShouldNotBeWriteOnly" Enabled="True" /><!--CA1044-->
+				<Rule Name="DoNotPassTypesByReference" Enabled="True" /><!--CA1045-->
+				<Rule Name="DoNotOverloadOperatorEqualsOnReferenceTypes" Enabled="True" /><!--CA1046-->
+				<Rule Name="DoNotDeclareProtectedMembersInSealedTypes" Enabled="True" /><!--CA1047-->
+				<Rule Name="DoNotDeclareVirtualMembersInSealedTypes" Enabled="True" /><!--CA1048-->
+				<Rule Name="TypesThatOwnNativeResourcesShouldBeDisposable" Enabled="True" /><!--CA1049-->
+				<Rule Name="DeclareTypesInNamespaces" Enabled="True" /><!--CA1050-->
+				<Rule Name="DoNotDeclareVisibleInstanceFields" Enabled="True" /><!--CA1051-->
+				<Rule Name="StaticHolderTypesShouldBeSealed" Enabled="True" /><!--CA1052-->
+				<Rule Name="StaticHolderTypesShouldNotHaveConstructors" Enabled="True" /><!--CA1053-->
+				<Rule Name="UriParametersShouldNotBeStrings" Enabled="True" /><!--CA1054-->
+				<Rule Name="UriReturnValuesShouldNotBeStrings" Enabled="True" /><!--CA1055-->
+				<Rule Name="UriPropertiesShouldNotBeStrings" Enabled="True" /><!--CA1056-->
+				<Rule Name="StringUriOverloadsCallSystemUriOverloads" Enabled="True" /><!--CA1057-->
+				<Rule Name="TypesShouldNotExtendCertainBaseTypes" Enabled="True" /><!--CA1058-->
+				<Rule Name="MembersShouldNotExposeCertainConcreteTypes" Enabled="True" /><!--CA1059-->
+				<Rule Name="MovePInvokesToNativeMethodsClass" Enabled="True" /><!--CA1060-->
+				<Rule Name="DoNotHideBaseClassMethods" Enabled="True" /><!--CA1061-->
+				<Rule Name="ValidateArgumentsOfPublicMethods" Enabled="True" /><!--CA1062-->
+				<Rule Name="ImplementIDisposableCorrectly" Enabled="True" /><!--CA1063-->
+				<Rule Name="ExceptionsShouldBePublic" Enabled="True" /><!--CA1064-->
+				<Rule Name="DoNotRaiseExceptionsInUnexpectedLocations" Enabled="True" /><!--CA1065-->
+					<Rule Name="AssembliesShouldHaveValidStrongNames" Enabled="False" /><!--CA2210-->
+			</RuleFile>
+			<RuleFile Name="$(FxCopDir)\Rules\GlobalizationRules.dll" Enabled="False" AllRulesEnabled="False" />
+			<RuleFile Name="$(FxCopDir)\Rules\InteroperabilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+			<RuleFile Name="$(FxCopDir)\Rules\MobilityRules.dll" Enabled="False" AllRulesEnabled="False" />
+			<RuleFile Name="$(FxCopDir)\Rules\NamingRules.dll" Enabled="True" AllRulesEnabled="False">
+				<Rule Name="ParameterNamesShouldMatchBaseDeclaration" Enabled="False" />
+				<Rule Name="CompoundWordsShouldBeCasedCorrectly" Enabled="True" />
+				<Rule Name="DoNotNameEnumValuesReserved" Enabled="True" />
+				<Rule Name="DoNotPrefixEnumValuesWithTypeName" Enabled="True" />
+				<Rule Name="EventsShouldNotHaveBeforeOrAfterPrefix" Enabled="True" />
+				<Rule Name="FlagsEnumsShouldHavePluralNames" Enabled="True" />
+				<Rule Name="IdentifiersShouldBeCasedCorrectly" Enabled="True" />
+				<Rule Name="IdentifiersShouldBeSpelledCorrectly" Enabled="True" />
+				<Rule Name="IdentifiersShouldDifferByMoreThanCase" Enabled="True" />
+				<Rule Name="IdentifiersShouldHaveCorrectPrefix" Enabled="True" />
+				<Rule Name="IdentifiersShouldHaveCorrectSuffix" Enabled="True" />
+				<Rule Name="IdentifiersShouldNotContainTypeNames" Enabled="True" />
+				<Rule Name="IdentifiersShouldNotContainUnderscores" Enabled="True" />
+				<Rule Name="IdentifiersShouldNotHaveIncorrectPrefix" Enabled="True" />
+				<Rule Name="IdentifiersShouldNotHaveIncorrectSuffix" Enabled="True" />
+				<Rule Name="IdentifiersShouldNotMatchKeywords" Enabled="True" />
+				<Rule Name="OnlyFlagsEnumsShouldHavePluralNames" Enabled="True" />
+				<Rule Name="ParameterNamesShouldNotMatchMemberNames" Enabled="True" />
+				<Rule Name="PropertyNamesShouldNotMatchGetMethods" Enabled="True" />
+				<Rule Name="ResourceStringCompoundWordsShouldBeCasedCorrectly" Enabled="True" />
+				<Rule Name="ResourceStringsShouldBeSpelledCorrectly" Enabled="True" />
+				<Rule Name="TypeNamesShouldNotMatchNamespaces" Enabled="True" />
+				<Rule Name="UsePreferredTerms" Enabled="True" />
+			</RuleFile>
+			<RuleFile Name="$(FxCopDir)\Rules\PerformanceRules.dll" Enabled="True" AllRulesEnabled="True" />
+			<RuleFile Name="$(FxCopDir)\Rules\PortabilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+			<RuleFile Name="$(FxCopDir)\Rules\SecurityRules.dll" Enabled="True" AllRulesEnabled="True" />
+			<RuleFile Name="$(FxCopDir)\Rules\UsageRules.dll" Enabled="True" AllRulesEnabled="False">
+				<Rule Name="ReviewUnusedParameters" Enabled="True" /><!--CA1801-->
+				<Rule Name="DoNotIgnoreMethodResults" Enabled="True" /><!--CA1806-->
+				<Rule Name="CallGCSuppressFinalizeCorrectly" Enabled="True" /><!--CA1816-->
+				<Rule Name="RethrowToPreserveStackDetails" Enabled="True" /><!--CA2200-->
+					<Rule Name="DoNotRaiseReservedExceptionTypes" Enabled="False" /><!--CA2201-->
+				<Rule Name="DoNotDisposeObjectsMultipleTimes" Enabled="True" /><!--CA2202-->
+				<Rule Name="LiteralsShouldBeSpelledCorrectly" Enabled="True" /><!--CA2204-->
+				<Rule Name="UseManagedEquivalentsOfWin32Api" Enabled="True" /><!--CA2205-->
+				<Rule Name="InitializeValueTypeStaticFieldsInline" Enabled="True" /><!--CA2207-->
+				<Rule Name="InstantiateArgumentExceptionsCorrectly" Enabled="True" /><!--CA2208-->
+				<Rule Name="NonConstantFieldsShouldNotBeVisible" Enabled="True" /><!--CA2211-->
+				<Rule Name="DoNotMarkServicedComponentsWithWebMethod" Enabled="True" /><!--CA2212-->
+				<Rule Name="DisposableFieldsShouldBeDisposed" Enabled="True" /><!--CA2213-->
+				<Rule Name="DoNotCallOverridableMethodsInConstructors" Enabled="True" /><!--CA2214-->
+				<Rule Name="DisposeMethodsShouldCallBaseClassDispose" Enabled="True" /><!--CA2215-->
+				<Rule Name="DisposableTypesShouldDeclareFinalizer" Enabled="True" /><!--CA2216-->
+				<Rule Name="DoNotMarkEnumsWithFlags" Enabled="True" /><!--CA2217-->
+				<Rule Name="OverrideGetHashCodeOnOverridingEquals" Enabled="True" /><!--CA2218-->
+				<Rule Name="DoNotRaiseExceptionsInExceptionClauses" Enabled="True" /><!--CA2219-->
+				<Rule Name="FinalizersShouldCallBaseClassFinalizer" Enabled="True" /><!--CA2220-->
+				<Rule Name="FinalizersShouldBeProtected" Enabled="True" /><!--CA2221-->
+				<Rule Name="DoNotDecreaseInheritedMemberVisibility" Enabled="True" /><!--CA2222-->
+				<Rule Name="MembersShouldDifferByMoreThanReturnType" Enabled="True" /><!--CA2223-->
+				<Rule Name="OverrideEqualsOnOverloadingOperatorEquals" Enabled="True" /><!--CA2224-->
+				<Rule Name="OperatorOverloadsHaveNamedAlternates" Enabled="True" /><!--CA2225-->
+				<Rule Name="OperatorsShouldHaveSymmetricalOverloads" Enabled="True" /><!--CA2226-->
+				<Rule Name="CollectionPropertiesShouldBeReadOnly" Enabled="True" /><!--CA2227-->
+				<Rule Name="DoNotShipUnreleasedResourceFormats" Enabled="True" /><!--CA2228-->
+				<Rule Name="ImplementSerializationConstructors" Enabled="True" /><!--CA2229-->
+				<Rule Name="UseParamsForVariableArguments" Enabled="True" /><!--CA2230-->
+				<Rule Name="OverloadOperatorEqualsOnOverridingValueTypeEquals" Enabled="True" /><!--CA2231-->
+				<Rule Name="MarkWindowsFormsEntryPointsWithStaThread" Enabled="True" /><!--CA2232-->
+				<Rule Name="OperationsShouldNotOverflow" Enabled="True" /><!--CA2233-->
+				<Rule Name="PassSystemUriObjectsInsteadOfStrings" Enabled="True" /><!--CA2234-->
+				<Rule Name="MarkAllNonSerializableFields" Enabled="True" /><!--CA2235-->
+				<Rule Name="CallBaseClassMethodsOnISerializableTypes" Enabled="True" /><!--CA2236-->
+				<Rule Name="MarkISerializableTypesWithSerializable" Enabled="True" /><!--CA2237-->
+				<Rule Name="ImplementSerializationMethodsCorrectly" Enabled="True" /><!--CA2238-->
+				<Rule Name="ProvideDeserializationMethodsForOptionalFields" Enabled="True" /><!--CA2239-->
+				<Rule Name="ImplementISerializableCorrectly" Enabled="True" /><!--CA2240-->
+				<Rule Name="ProvideCorrectArgumentsToFormattingMethods" Enabled="True" /><!--CA2241-->
+				<Rule Name="TestForNaNCorrectly" Enabled="True" /><!--CA2242-->
+				<Rule Name="AttributeStringLiteralsShouldParseCorrectly" Enabled="True" /><!--CA2243-->
+				
+			</RuleFile>
+		</RuleFiles>
+		<Groups />
+		<Settings />
+	</Rules>
+	<FxCopReport Version="1.36" />
+</FxCopProject>
