@@ -26,8 +26,8 @@
 	<Rules>
 		<RuleFiles>
 			<RuleFile Name="$(FxCopDir)\Rules\DesignRules.dll" Enabled="True" AllRulesEnabled="False">
-				<Rule Name="DoNotDeclareStaticMembersOnGenericTypes" Enabled="true" /><!--CA1000-->
-				<Rule Name="TypesThatOwnDisposableFieldsShouldBeDisposable" Enabled="True" /><!--CA1001-->
+				<Rule Name="DoNotDeclareStaticMembersOnGenericTypes" Enabled="True" /><!--CA1000-->
+				  <Rule Name="TypesThatOwnDisposableFieldsShouldBeDisposable" Enabled="FALSE" /><!--CA1001-->
 				<Rule Name="DoNotExposeGenericLists" Enabled="True" /><!--CA1002-->
 				<Rule Name="UseGenericEventHandlerInstances" Enabled="True" /><!--CA1003-->
 				<Rule Name="GenericMethodsShouldProvideTypeParameter" Enabled="True" /><!--CA1004-->
@@ -40,7 +40,7 @@
 				<Rule Name="ConsiderPassingBaseTypesAsParameters" Enabled="True" /><!--CA1011-->
 				<Rule Name="AbstractTypesShouldNotHaveConstructors" Enabled="True" /><!--CA1012-->
 				<Rule Name="OverloadOperatorEqualsOnOverloadingAddAndSubtract" Enabled="True" /><!--CA1013-->
-					<Rule Name="MarkAssembliesWithClsCompliant" Enabled="False" /><!--CA1014-->
+					<Rule Name="MarkAssembliesWithClsCompliant" Enabled="FALSE" /><!--CA1014-->
 				<Rule Name="MarkAssembliesWithAssemblyVersion" Enabled="True" /><!--CA1016-->
 				<Rule Name="MarkAssembliesWithComVisible" Enabled="True" /><!--CA1017-->
 				<Rule Name="MarkAttributesWithAttributeUsage" Enabled="True" /><!--CA10CA1018-->
@@ -86,8 +86,8 @@
 				<Rule Name="ValidateArgumentsOfPublicMethods" Enabled="True" /><!--CA1062-->
 				<Rule Name="ImplementIDisposableCorrectly" Enabled="True" /><!--CA1063-->
 				<Rule Name="ExceptionsShouldBePublic" Enabled="True" /><!--CA1064-->
-				<Rule Name="DoNotRaiseExceptionsInUnexpectedLocations" Enabled="True" /><!--CA1065-->
-					<Rule Name="AssembliesShouldHaveValidStrongNames" Enabled="False" /><!--CA2210-->
+				  <Rule Name="DoNotRaiseExceptionsInUnexpectedLocations" Enabled="FALSE" /><!--CA1065-->
+					<Rule Name="AssembliesShouldHaveValidStrongNames" Enabled="FALSE" /><!--CA2210-->
 			</RuleFile>
 			<RuleFile Name="$(FxCopDir)\Rules\GlobalizationRules.dll" Enabled="False" AllRulesEnabled="False" />
 			<RuleFile Name="$(FxCopDir)\Rules\InteroperabilityRules.dll" Enabled="True" AllRulesEnabled="True" />
@@ -117,7 +117,25 @@
 				<Rule Name="TypeNamesShouldNotMatchNamespaces" Enabled="True" />
 				<Rule Name="UsePreferredTerms" Enabled="True" />
 			</RuleFile>
-			<RuleFile Name="$(FxCopDir)\Rules\PerformanceRules.dll" Enabled="True" AllRulesEnabled="True" />
+      <RuleFile Name="$(FxCopDir)\Rules\PerformanceRules.dll" Enabled="True" AllRulesEnabled="False">
+        <Rule Name="DoNotCastUnnecessarily" Enabled="True" /><!--CA1800-->
+        <Rule Name="UseLiteralsWhereAppropriate" Enabled="True" /><!--CA1802-->
+        <Rule Name="RemoveUnusedLocals" Enabled="True" /><!--CA1804-->
+        <Rule Name="AvoidUnnecessaryStringCreation" Enabled="True" /><!--CA1807-->
+        <Rule Name="AvoidExcessiveLocals" Enabled="True" /><!--CA1809-->
+        <Rule Name="InitializeReferenceTypeStaticFieldsInline" Enabled="True" /><!--CA1810-->
+        <Rule Name="AvoidUncalledPrivateCode" Enabled="True" /><!--CA1811-->
+        <Rule Name="AvoidUninstantiatedInternalClasses" Enabled="True" /><!--CA1812-->
+        <Rule Name="AvoidUnsealedAttributes" Enabled="True" /><!--CA1813-->
+        <Rule Name="PreferJaggedArraysOverMultidimensional" Enabled="True" /><!--CA1814-->
+        <Rule Name="OverrideEqualsAndOperatorEqualsOnValueTypes" Enabled="True" /><!--CA1815-->
+        <Rule Name="PropertiesShouldNotReturnArrays" Enabled="True" /><!--CA1819-->
+        <Rule Name="TestForEmptyStringsUsingStringLength" Enabled="True" /><!--CA1820-->
+        <Rule Name="RemoveEmptyFinalizers" Enabled="True" /><!--CA1821-->
+        <Rule Name="MarkMembersAsStatic" Enabled="True" /><!--CA1822-->
+        <Rule Name="AvoidUnusedPrivateFields" Enabled="True" /><!--CA1823-->
+          <Rule Name="MarkAssembliesWithNeutralResourcesLanguage" Enabled="FALSE" /><!--CA1824-->
+      </RuleFile>
 			<RuleFile Name="$(FxCopDir)\Rules\PortabilityRules.dll" Enabled="True" AllRulesEnabled="True" />
 			<RuleFile Name="$(FxCopDir)\Rules\SecurityRules.dll" Enabled="True" AllRulesEnabled="True" />
 			<RuleFile Name="$(FxCopDir)\Rules\UsageRules.dll" Enabled="True" AllRulesEnabled="False">
