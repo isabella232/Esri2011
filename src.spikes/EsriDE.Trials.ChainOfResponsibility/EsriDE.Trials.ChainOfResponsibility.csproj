@@ -51,7 +51,7 @@
     <Compile Include="DemoData.cs" />
     <Compile Include="DemoHandler.cs" />
     <Compile Include="CorHandler.cs" />
-    <Compile Include="Fixture.cs" />
+    <Compile Include="ProcessingOrderSpike.cs" />
     <Compile Include="ICorHandler.cs" />
     <Compile Include="IData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
