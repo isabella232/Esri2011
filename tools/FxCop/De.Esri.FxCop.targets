@@ -1,0 +1,13 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<BuildDependsOn>$(BuildDependsOn);FxCop</BuildDependsOn>
+		<RebuildDependsOn>$(RebuildDependsOn);FxCop</RebuildDependsOn>
+	</PropertyGroup>
+
+	<Target Name="FxCop">
+		<Exec
+				Command="&quot;$(ProjectDir)..\..\..\tools\FxCop\FxCopCmd.exe&quot; /file:&quot;$(TargetPath)&quot; /project:&quot;$(ProjectDir)..\..\ContentFinder.BuildOnly.FxCop&quot; /directory:&quot;$(ProjectDir)..\..\..\lib\Esri.ArcGIS&quot; /directory:&quot;$(ProjectDir)..\..\..\lib\Microsoft&quot; /dictionary:&quot;$(ProjectDir)..\..\FxCop.CustomDictionary.xml&quot; /out:&quot;$(OutDir)$(ProjectName).FxCopReport.xml&quot; /console /forceoutput /ignoregeneratedcode">
+		</Exec>
+		<Message Text="FxCop finished." />
+	</Target>
+</Project>
