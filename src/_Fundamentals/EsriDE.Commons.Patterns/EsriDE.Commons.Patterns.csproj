@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{9648B430-1F1E-4993-8892-7C1FD1C1F6EB}</ProjectGuid>
+    <ProjectGuid>{9DDADD7C-6D1D-4AE0-BA65-95B2103C05E1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EsriDE.Trials.ChainOfResponsibility</RootNamespace>
-    <AssemblyName>EsriDE.Trials.ChainOfResponsibility</AssemblyName>
+    <RootNamespace>EsriDE.Commons.Patterns</RootNamespace>
+    <AssemblyName>EsriDE.Commons.Patterns</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -17,10 +17,11 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\..\..\lib\EsriDE\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -31,15 +32,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Castle.Core">
-      <HintPath>..\..\lib\Castle.Windsor\Castle.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Castle.Windsor">
-      <HintPath>..\..\lib\Castle.Windsor\Castle.Windsor.dll</HintPath>
-    </Reference>
-    <Reference Include="nunit.framework">
-      <HintPath>..\..\lib\NUnit\nunit.framework.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -48,12 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DemoData.cs" />
-    <Compile Include="DemoHandler.cs" />
-    <Compile Include="CorHandler.cs" />
-    <Compile Include="IocProcessingOrderSpike.cs" />
-    <Compile Include="ICorHandler.cs" />
-    <Compile Include="IData.cs" />
+    <Compile Include="ChainOfResponsibilityHandler.cs" />
+    <Compile Include="IChainOfResponsibilityHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

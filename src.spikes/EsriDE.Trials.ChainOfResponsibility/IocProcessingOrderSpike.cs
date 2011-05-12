@@ -8,7 +8,7 @@ namespace EsriDE.Trials.ChainOfResponsibility
 	// ReSharper disable InconsistentNaming
 
 	[TestFixture]
-	public class ProcessingOrderSpike
+	public class IocProcessingOrderSpike
 	{
 		[Test]
 		public void Processing_AscendingOrderWithoutResolvingKey_ReturnsTwoProcessings()
