@@ -81,11 +81,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsriDE.Commons.Ags", "_Fund
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsriDE.Commons.Ags.Tests", "_Fundamentals\EsriDE.Commons.Ags.Tests\EsriDE.Commons.Ags.Tests.csproj", "{CCAB366F-C1E1-4C45-86BA-25ADEC26C346}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Solution Items", "_Solution Items", "{FFCD9BED-2697-47B8-8079-122A68382888}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "__Solution Items", "__Solution Items", "{FFCD9BED-2697-47B8-8079-122A68382888}"
 	ProjectSection(SolutionItems) = preProject
 		ContentFinder.BuildOnly.FxCop = ContentFinder.BuildOnly.FxCop
 		..\tools\FxCop\De.Esri.FxCop.targets = ..\tools\FxCop\De.Esri.FxCop.targets
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsriDE.Commons.Patterns", "_Fundamentals\EsriDE.Commons.Patterns\EsriDE.Commons.Patterns.csproj", "{9DDADD7C-6D1D-4AE0-BA65-95B2103C05E1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -337,6 +339,16 @@ Global
 		{CCAB366F-C1E1-4C45-86BA-25ADEC26C346}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{CCAB366F-C1E1-4C45-86BA-25ADEC26C346}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{CCAB366F-C1E1-4C45-86BA-25ADEC26C346}.Release|x86.ActiveCfg = Release|Any CPU
+		{9DDADD7C-6D1D-4AE0-BA65-95B2103C05E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DDADD7C-6D1D-4AE0-BA65-95B2103C05E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DDADD7C-6D1D-4AE0-BA65-95B2103C05E1}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{9DDADD7C-6D1D-4AE0-BA65-95B2103C05E1}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{9DDADD7C-6D1D-4AE0-BA65-95B2103C05E1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9DDADD7C-6D1D-4AE0-BA65-95B2103C05E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DDADD7C-6D1D-4AE0-BA65-95B2103C05E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DDADD7C-6D1D-4AE0-BA65-95B2103C05E1}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{9DDADD7C-6D1D-4AE0-BA65-95B2103C05E1}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{9DDADD7C-6D1D-4AE0-BA65-95B2103C05E1}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -366,5 +378,6 @@ Global
 		{462EC57F-EDE6-4704-A099-91AE1FBF0519} = {EDB8A385-21E9-4A98-9AF4-05A5F1A71358}
 		{756A5E8E-CB68-4AE8-9D2A-436F7C673E7C} = {EDB8A385-21E9-4A98-9AF4-05A5F1A71358}
 		{CCAB366F-C1E1-4C45-86BA-25ADEC26C346} = {EDB8A385-21E9-4A98-9AF4-05A5F1A71358}
+		{9DDADD7C-6D1D-4AE0-BA65-95B2103C05E1} = {EDB8A385-21E9-4A98-9AF4-05A5F1A71358}
 	EndGlobalSection
 EndGlobal

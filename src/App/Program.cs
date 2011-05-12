@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Diagnostics;
 using App;
+using EsriDE.Samples.ContentFinder.DomainModel;
 using Application = System.Windows.Forms.Application;
 
 namespace EsriDE.Samples.ContentFinder.App
@@ -35,10 +37,19 @@ namespace EsriDE.Samples.ContentFinder.App
 			Application.SetCompatibleTextRenderingDefault(false);
 
 			var builder = new Builder();
+
+			var portal = builder.GetPortal();
+				portal.ContentSelected += HandleSelectedContent;
 			var uc = builder.GetPortalControl();
 
 			var form = new WinFormsForm(uc);
 			Application.Run(form);
+		}
+
+		private static void HandleSelectedContent(Content content)
+		{
+			Debug.WriteLine(content);
+			Console.WriteLine(content);
 		}
 	}
 }

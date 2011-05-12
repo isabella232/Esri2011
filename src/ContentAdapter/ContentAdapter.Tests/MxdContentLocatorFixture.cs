@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Threading;
 using EsriDE.Samples.ContentFinder.ContentAdapter.Mxd;
 using EsriDE.Samples.ContentFinder.DomainModel;
@@ -10,6 +9,7 @@ using NUnit.Framework;
 
 namespace EsriDE.Samples.ContentFinder.ContentAdapter.Tests
 {
+	// ReSharper disable InconsistentNaming
 	[TestFixture]
 	public class MxdContentLocatorFixture : FixtureBase
 	{
@@ -73,21 +73,24 @@ namespace EsriDE.Samples.ContentFinder.ContentAdapter.Tests
 
 		[Test]
 		[STAThread]
-		public void ReadingTestMxd_SingleFolderRecursiv_Runs()
+		public void ReadingTestMxd_SingleFolderRecursive_Runs()
 		{
-			var s = TestDataUtils.GetMapDocumentConfigItemsForSingleFolderRecursiv();
-			var sut = new MxdContentLocator(s);
+			// Arrange
+			var sourceBundle = TestDataUtils.GetMapDocumentConfigItemsForSingleFolderRecursiv();
+			var sut = new MxdContentLocator(sourceBundle);
 			sut.FoundContent += FoundContent;
 			sut.FinishedSearch += FinishedSearch;
 
+			// Act
 			sut.StartSearch();
 			while (!_finished)
 			{
 			}
 
+			// Assert
 			Assert.That(_mxdContents.Count, Is.EqualTo(7));
 
-			IEnumerable<string> topTexts = _mxdContents.Select(_ => _.Title);
+			var topTexts = _mxdContents.Select(_ => _.Title);
 			Assert.True(topTexts.Contains("Title of MapDocument1"));
 			Assert.True(topTexts.Contains("Title of MapDocumentA1"));
 			Assert.True(topTexts.Contains("Title of MapDocumentAA1"));
@@ -96,7 +99,7 @@ namespace EsriDE.Samples.ContentFinder.ContentAdapter.Tests
 			Assert.True(topTexts.Contains("Title of MapDocumentAB2"));
 			Assert.True(topTexts.Contains("Title of MapDocumentB1"));
 
-			IEnumerable<string> bottomTexts = _mxdContents.Select(_ => _.Subject);
+			var bottomTexts = _mxdContents.Select(_ => _.Subject);
 			Assert.True(bottomTexts.Contains("Summary of MapDocument1"));
 			Assert.True(bottomTexts.Contains("Summary of MapDocumentA1"));
 			Assert.True(bottomTexts.Contains("Summary of MapDocumentAA1"));
@@ -105,7 +108,7 @@ namespace EsriDE.Samples.ContentFinder.ContentAdapter.Tests
 			Assert.True(bottomTexts.Contains("Summary of MapDocumentAB2"));
 			Assert.True(bottomTexts.Contains("Summary of MapDocumentB1"));
 
-			IEnumerable<string> tooltipTexts = _mxdContents.Select(_ => _.Comments);
+			var tooltipTexts = _mxdContents.Select(_ => _.Comments);
 			Assert.True(tooltipTexts.Contains("Description of MapDocument1"));
 			Assert.True(tooltipTexts.Contains("Description of MapDocumentA1"));
 			Assert.True(tooltipTexts.Contains("Description of MapDocumentAA1"));
@@ -120,22 +123,6 @@ namespace EsriDE.Samples.ContentFinder.ContentAdapter.Tests
 				Assert.That(mxdContent.Bitmap.Size.Height, Is.GreaterThan(0));
 			}
 		}
-
-		[Test]
-		[STAThread]
-		[Explicit]
-		public void SmokeTest()
-		{
-			//var sut = new MapDocumentReaderAdapter();
-			//sut.DataReaded += HandleDataReaded;
-			//sut.ImageReaded += HandleImageReaded;
-			//sut.ReadingCompleted += HandleReadingCompleted;
-
-			//IEnumerable<MapDocumentConfigItem> uris = ConfigReaderUtil.GetMapDocumentUris(null);
-			//sut.Read(uris);
-			//while (!_finished)
-			//{
-			//}
-		}
 	}
+	// ReSharper restore InconsistentNaming
 }

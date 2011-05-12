@@ -7,8 +7,6 @@ namespace EsriDE.Samples.ContentFinder.ContentAdapter
 {
 	public abstract class ContentLocator : IContentLocator
 	{
-		//protected readonly ContentCreator _contentCreator;
-
 		protected enum RunningState
 		{
 			Stopped,
@@ -17,9 +15,8 @@ namespace EsriDE.Samples.ContentFinder.ContentAdapter
 
 		protected RunningState ActualRunningState { get; private set; }
 
-		protected ContentLocator(SourceBundle sourceBundle/*, ContentCreator contentCreator*/)
+		protected ContentLocator(SourceBundle sourceBundle)
 		{
-			//_contentCreator = contentCreator;
 			SourceBundle = sourceBundle;
 			ActualRunningState = RunningState.Stopped;
 		}
@@ -65,7 +62,7 @@ namespace EsriDE.Samples.ContentFinder.ContentAdapter
 			}
 		}
 
-		//Template Method
+		// Template Method Pattern: 
 		private Thread CreateThread()
 		{
 			var thread = new Thread(Search);
@@ -80,9 +77,4 @@ namespace EsriDE.Samples.ContentFinder.ContentAdapter
 		}
 
 	}
-
-	/*public abstract class ContentCreator
-	{
-		protected abstract Content CreateContent();
-	}*/
 }

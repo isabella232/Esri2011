@@ -89,8 +89,6 @@ namespace EsriDE.Samples.ContentFinder.LegacyAgdAdapter
 
 		private string GetFullName(string filename)
 		{
-			//Assembly callingAssembly = AssemblyUtil.GetCallingAssembly();
-			//string assemlblyLocation = callingAssembly.Location;
 			Assembly executingAssembly = Assembly.GetExecutingAssembly();
 			string assemlblyLocation = executingAssembly.Location;
 			string assemlblyPath = (Directory.GetParent(assemlblyLocation)).FullName;
@@ -120,18 +118,4 @@ namespace EsriDE.Samples.ContentFinder.LegacyAgdAdapter
 			        select methodBase.DeclaringType.Assembly).FirstOrDefault();
 		}
 	}
-
-	//public class Activator : IComponentActivator
-	//{
-	//    public object Create(CreationContext context)
-	//    {
-	//        context.
-	//        throw new NotImplementedException();
-	//    }
-
-	//    public void Destroy(object instance)
-	//    {
-	//        throw new NotImplementedException();
-	//    }
-	//}
 }

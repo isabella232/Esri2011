@@ -26,6 +26,12 @@ namespace EsriDE.Samples.ContentFinder.App
 			_container = GetConfiguredIocContainer();
 		}
 
+		public IPortal GetPortal()
+		{
+			var portal = _container.Resolve<IPortal>();
+			return portal;
+		}
+
 		public Control GetPortalControl()
 		{
 			var uc = (UIElement)_container.Resolve<IPortal>();
