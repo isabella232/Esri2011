@@ -10,15 +10,17 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AgdBLAdapter.Tests</RootNamespace>
     <AssemblyName>AgdBLAdapter.Tests</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;SkipPostSharp</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <PlatformTarget>x86</PlatformTarget>
@@ -32,52 +34,33 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Castle.Core">
+    <Reference Include="Castle.Core, Version=2.5.1.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>..\..\..\lib\Castle.Windsor\Castle.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Castle.Windsor">
+    <Reference Include="Castle.Windsor, Version=2.5.1.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>..\..\..\lib\Castle.Windsor\Castle.Windsor.dll</HintPath>
-    </Reference>
-    <Reference Include="ESRI.ArcGIS.ArcMapUI, Version=10.0.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=x86">
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-      <HintPath>..\..\..\lib\Esri.ArcGIS\ESRI.ArcGIS.ArcMapUI.dll</HintPath>
-    </Reference>
-    <Reference Include="ESRI.ArcGIS.Carto, Version=10.0.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=x86">
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-      <HintPath>..\..\..\lib\Esri.ArcGIS\ESRI.ArcGIS.Carto.dll</HintPath>
-    </Reference>
-    <Reference Include="ESRI.ArcGIS.DataSourcesRaster, Version=10.0.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=x86">
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-      <HintPath>..\..\..\lib\Esri.ArcGIS\ESRI.ArcGIS.DataSourcesRaster.dll</HintPath>
-    </Reference>
-    <Reference Include="ESRI.ArcGIS.Display, Version=10.0.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=x86">
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-      <HintPath>..\..\..\lib\Esri.ArcGIS\ESRI.ArcGIS.Display.dll</HintPath>
     </Reference>
     <Reference Include="ESRI.ArcGIS.Framework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=x86">
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <HintPath>..\..\..\lib\Esri.ArcGIS\ESRI.ArcGIS.Framework.dll</HintPath>
     </Reference>
-    <Reference Include="ESRI.ArcGIS.Geodatabase, Version=10.0.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=x86">
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-      <HintPath>..\..\..\lib\Esri.ArcGIS\ESRI.ArcGIS.Geodatabase.dll</HintPath>
+    <Reference Include="EsriDE.Commons.Patterns">
+      <HintPath>..\..\..\lib\EsriDE\EsriDE.Commons.Patterns.dll</HintPath>
     </Reference>
-    <Reference Include="ESRI.ArcGIS.GISClient, Version=10.0.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=x86">
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-      <HintPath>..\..\..\lib\Esri.ArcGIS\ESRI.ArcGIS.GISClient.dll</HintPath>
-    </Reference>
-    <Reference Include="ESRI.ArcGIS.System, Version=10.0.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=x86">
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-      <HintPath>..\..\..\lib\Esri.ArcGIS\ESRI.ArcGIS.System.dll</HintPath>
-    </Reference>
-    <Reference Include="EsriDE.Samples.ContentFinder.ApplicationAdapter.Contract">
+    <Reference Include="EsriDE.Samples.ContentFinder.ApplicationAdapter.Contract, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
       <HintPath>..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.ApplicationAdapter.Contract.dll</HintPath>
     </Reference>
-    <Reference Include="EsriDE.Samples.ContentFinder.DomainModel">
+    <Reference Include="EsriDE.Samples.ContentFinder.ContentAdapter.Contract, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <HintPath>..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.ContentAdapter.Contract.dll</HintPath>
+    </Reference>
+    <Reference Include="EsriDE.Samples.ContentFinder.DomainModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
       <HintPath>..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.DomainModel.dll</HintPath>
     </Reference>
-    <Reference Include="nunit.framework">
+    <Reference Include="nunit.framework, Version=2.5.2.9222, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
       <HintPath>..\..\..\lib\NUnit\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Rhino.Mocks">
+      <HintPath>..\..\..\lib\RhinoMocks\Rhino.Mocks.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -85,29 +68,17 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="TypeMock, Version=6.0.9.0, Culture=neutral, PublicKeyToken=3dae460033b8d8e2, processorArchitecture=MSIL" />
+    <Reference Include="Typemock.ArrangeActAssert, Version=6.0.9.0, Culture=neutral, PublicKeyToken=3dae460033b8d8e2, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationAgsCorHandler.cs" />
-    <Compile Include="ApplicationMxdCorHandler.cs" />
-    <Compile Include="ContentProcessorAdapter.cs" />
-    <Compile Include="CorHandler.cs" />
     <Compile Include="Fixture.cs" />
-    <Compile Include="ICorHandler.cs" />
-    <Compile Include="ApplicationCorHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\AgdAdapter\AgdAdapter\AgdAdapter.csproj">
-      <Project>{17A3595E-A5BE-4273-AB91-8323C08FD1E0}</Project>
-      <Name>AgdAdapter %28AgdAdapter\AgdAdapter%29</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\ContentAdapter\ContentAdapter\ContentAdapter.csproj">
-      <Project>{9DF6ABE9-5538-4F59-9C3F-8625142C32AE}</Project>
-      <Name>ContentAdapter %28ContentAdapter\ContentAdapter%29</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\_Fundamentals\EsriDE.Commons.Ags\EsriDE.Commons.Ags.csproj">
-      <Project>{756A5E8E-CB68-4AE8-9D2A-436F7C673E7C}</Project>
-      <Name>EsriDE.Commons.Ags</Name>
+    <ProjectReference Include="..\AgdBLAdapter\AgdBLAdapter.csproj">
+      <Project>{02F4C403-0487-42F2-AF4A-711609A45DD1}</Project>
+      <Name>AgdBLAdapter %28AgdBLAdapter\AgdBLAdapter%29</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
