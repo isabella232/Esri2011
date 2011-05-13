@@ -6,7 +6,7 @@
 
 	<Target Name="FxCop">
 		<Exec
-				Command="&quot;$(ProjectDir)..\..\..\tools\FxCop\FxCopCmd.exe&quot; /file:&quot;$(TargetPath)&quot; /project:&quot;$(ProjectDir)..\..\ContentFinder.BuildOnly.FxCop&quot; /directory:&quot;$(ProjectDir)..\..\..\lib\Esri.ArcGIS&quot; /directory:&quot;$(ProjectDir)..\..\..\lib\Microsoft&quot; /dictionary:&quot;$(ProjectDir)..\..\FxCop.CustomDictionary.xml&quot; /out:&quot;\bin\$(ProjectName).FxCopReport.xml&quot; /console /forceoutput /ignoregeneratedcode">
+				Command="&quot;$(ProjectDir)..\..\..\tools\FxCop\FxCopCmd.exe&quot; /file:&quot;$(TargetPath)&quot; /project:&quot;$(ProjectDir)..\..\ContentFinder.BuildOnly.FxCop&quot; /directory:&quot;$(ProjectDir)..\..\..\lib\Esri.ArcGIS&quot; /directory:&quot;$(ProjectDir)..\..\..\lib\Microsoft&quot; /dictionary:&quot;$(ProjectDir)..\..\FxCop.CustomDictionary.xml&quot; /out:&quot;$(ProjectDir)..\..\..\bin\$(ProjectName).FxCopReport.xml&quot; /console /forceoutput /ignoregeneratedcode">
 		</Exec>
 		<Message Text="FxCop finished." />
 	</Target>
