@@ -97,11 +97,11 @@
   <Import Project="..\..\..\tools\FxCop\De.Esri.FxCop.targets" />
   
     <Target Name="BeforeClean">
-    <Exec WorkingDirectory="$(SolutionDir)\.." Command="tools\Esri\esriRegasm.exe &quot;$(TargetPath)&quot; /p:Desktop /u /s /e" Condition="Exists('$(TargetPath)')" />
+    <Exec WorkingDirectory="$(SolutionDir)\.." Command="tools\Esri\esriRegasm.exe &quot;$(TargetPath)&quot; /p:Desktop /u /s" Condition="Exists('$(TargetPath)')" />
   </Target>
   
     <Target Name="AfterBuild">
-    <Exec WorkingDirectory="$(SolutionDir)\.." Command="tools\Esri\esriRegasm.exe &quot;$(TargetPath)&quot; /p:Desktop /s /e" />
+    <Exec WorkingDirectory="$(SolutionDir)\.." Command="tools\Esri\esriRegasm.exe &quot;$(TargetPath)&quot; /p:Desktop /s" />
   </Target>
   <!--
   <Target Name="BeforeClean">
