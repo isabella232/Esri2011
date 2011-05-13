@@ -210,7 +210,9 @@
   <Import Project="..\..\..\tools\StyleCop\Microsoft.StyleCop.Targets" />
   <Import Project="..\..\..\tools\FxCop\De.Esri.FxCop.targets" />
   <!-- Esri Stuff -->
+  <!--
   <Import Project="$(MSBuildExtensionsPath)\ESRI\ESRI.ArcGIS.AddIns.targets" Condition="Exists('$(MSBuildExtensionsPath)\ESRI\ESRI.ArcGIS.AddIns.targets')" />
+  -->
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
@@ -219,7 +221,9 @@
   <Target Name="AfterBuild">
     <!-- Esri Stuff -->
     <!-- Gives build warning when add-in targets file is not found. -->
+    <!--
     <Warning Text="Unable to create .esriAddin; missing ESRI ArcGIS Add-in SDK component(s)." Condition="!Exists('$(MSBuildExtensionsPath)\ESRI\ESRI.ArcGIS.AddIns.targets')" />
+    -->
   </Target>
   <!-- Esri Stuff -->
   <ProjectExtensions>
