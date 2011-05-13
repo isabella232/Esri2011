@@ -209,6 +209,14 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\..\..\tools\StyleCop\Microsoft.StyleCop.Targets" />
   <Import Project="..\..\..\tools\FxCop\De.Esri.FxCop.targets" />
+  
+      <Target Name="BeforeClean">
+    <Exec WorkingDirectory="$(SolutionDir)\.." Command="tools\Esri\esriRegasm.exe &quot;$(TargetPath)&quot; /p:Desktop /u /s /e" Condition="Exists('$(TargetPath)')" />
+  </Target>
+  
+    <Target Name="AfterBuild">
+    <Exec WorkingDirectory="$(SolutionDir)\.." Command="tools\Esri\esriRegasm.exe &quot;$(TargetPath)&quot; /p:Desktop /s /e" />
+  </Target>
   <!-- Esri Stuff -->
   <!--
   <Import Project="$(MSBuildExtensionsPath)\ESRI\ESRI.ArcGIS.AddIns.targets" Condition="Exists('$(MSBuildExtensionsPath)\ESRI\ESRI.ArcGIS.AddIns.targets')" />
