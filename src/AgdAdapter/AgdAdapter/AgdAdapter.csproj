@@ -147,11 +147,9 @@
   <ItemGroup>
     <AddInContent Include="..\..\..\lib\Castle.Windsor\Castle.Core.dll">
       <Link>Install\Castle.Core.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AddInContent>
     <AddInContent Include="..\..\..\lib\Castle.Windsor\Castle.Windsor.dll">
       <Link>Install\Castle.Windsor.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AddInContent>
     <!--
     <Content Include="Data\EigeneInhalte.esriaddin.config.xml">
@@ -171,139 +169,103 @@
   <ItemGroup>
     <AddInContent Include="..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.BL.Contract.dll">
       <Link>Install\EsriDE.Samples.ContentFinder.BL.Contract.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AddInContent>
     <AddInContent Include="..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.BL.Contract.pdb">
       <Link>Install\EsriDE.Samples.ContentFinder.BL.Contract.pdb</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AddInContent>
     <AddInContent Include="..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.ConfigurationAdapter.Contract.dll">
       <Link>Install\EsriDE.Samples.ContentFinder.ConfigurationAdapter.Contract.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AddInContent>
     <AddInContent Include="..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.ConfigurationAdapter.Contract.pdb">
       <Link>Install\EsriDE.Samples.ContentFinder.ConfigurationAdapter.Contract.pdb</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AddInContent>
     <AddInContent Include="..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.ContentAdapter.Contract.dll">
       <Link>Install\EsriDE.Samples.ContentFinder.ContentAdapter.Contract.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AddInContent>
     <AddInContent Include="..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.ContentAdapter.Contract.pdb">
       <Link>Install\EsriDE.Samples.ContentFinder.ContentAdapter.Contract.pdb</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AddInContent>
     <AddInContent Include="..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.DomainModel.dll">
       <Link>Install\EsriDE.Samples.ContentFinder.DomainModel.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AddInContent>
     <AddInContent Include="..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.DomainModel.pdb">
       <Link>Install\EsriDE.Samples.ContentFinder.DomainModel.pdb</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AddInContent>
     <AddInContent Include="..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.UI.Contract.dll">
       <Link>Install\EsriDE.Samples.ContentFinder.UI.Contract.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AddInContent>
     <AddInContent Include="..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.UI.Contract.pdb">
       <Link>Install\EsriDE.Samples.ContentFinder.UI.Contract.pdb</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AddInContent>
   </ItemGroup>
   <ItemGroup>
     <AddInContent Include="..\..\..\bin\ContentFinder.exe">
       <Link>Install\ContentFinder.exe</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AddInContent>
     <AddInContent Include="..\..\..\bin\ContentFinder.pdb">
       <Link>Install\ContentFinder.pdb</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </AddInContent>
-    <AddInContent Include="..\..\..\bin\EsriDE.Samples.AgsServicesJsonDeSerializer.dll">
-      <Link>Install\EsriDE.Samples.AgsServicesJsonDeSerializer.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AddInContent>
     <AddInContent Include="..\..\..\bin\EsriDE.Samples.ContentFinder.BL.dll">
       <Link>Install\EsriDE.Samples.ContentFinder.BL.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AddInContent>
     <AddInContent Include="..\..\..\bin\EsriDE.Samples.ContentFinder.ContentAdapter.dll">
       <Link>Install\EsriDE.Samples.ContentFinder.ContentAdapter.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AddInContent>
     <AddInContent Include="..\..\..\bin\PostSharp.Laos.dll">
       <Link>Install\PostSharp.Laos.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AddInContent>
     <AddInContent Include="..\..\..\lib\EsriDE\EsriDE.ArcGIS.Commons.Logging.dll">
       <Link>Install\EsriDE.ArcGIS.Commons.Logging.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AddInContent>
     <AddInContent Include="..\..\..\lib\EsriDE\EsriDE.Commons.Ags.dll">
       <Link>Install\EsriDE.Commons.Ags.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AddInContent>
     <AddInContent Include="..\..\..\lib\EsriDE\EsriDE.Commons.Ags.pdb">
       <Link>Install\EsriDE.Commons.Ags.pdb</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AddInContent>
     <AddInContent Include="..\..\..\lib\EsriDE\EsriDE.Commons.Aop.dll">
       <Link>Install\EsriDE.Commons.Aop.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AddInContent>
     <AddInContent Include="..\..\..\lib\EsriDE\EsriDE.Commons.Aop.pdb">
       <Link>Install\EsriDE.Commons.Aop.pdb</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AddInContent>
     <AddInContent Include="..\..\..\lib\EsriDE\EsriDE.Commons.CastleWindsor.Extension.dll">
       <Link>Install\EsriDE.Commons.CastleWindsor.Extension.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AddInContent>
     <AddInContent Include="..\..\..\lib\EsriDE\EsriDE.Commons.CastleWindsor.Extension.pdb">
       <Link>Install\EsriDE.Commons.CastleWindsor.Extension.pdb</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AddInContent>
     <AddInContent Include="..\..\..\lib\EsriDE\EsriDE.Commons.Patterns.dll">
       <Link>Install\EsriDE.Commons.Patterns.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AddInContent>
     <AddInContent Include="..\..\..\lib\EsriDE\EsriDE.Commons.Patterns.pdb">
       <Link>Install\EsriDE.Commons.Patterns.pdb</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AddInContent>
     <AddInContent Include="..\..\..\lib\EsriDE\EsriDE.Samples.ContentFinder.AgdAdapterCommons.dll">
       <Link>Install\EsriDE.Samples.ContentFinder.AgdAdapterCommons.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AddInContent>
     <AddInContent Include="..\..\..\lib\EsriDE\EsriDE.Samples.ContentFinder.AgdAdapterCommons.pdb">
       <Link>Install\EsriDE.Samples.ContentFinder.AgdAdapterCommons.pdb</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AddInContent>
     <AddInContent Include="..\..\..\lib\EsriDE\log4net.dll">
       <Link>Install\log4net.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AddInContent>
   </ItemGroup>
   <ItemGroup>
-    <AddInContent Include="..\..\..\bin\CastleWindsor.config">
-      <Link>Install\CastleWindsor.config</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </AddInContent>
     <AddInContent Include="..\..\..\bin\Locations.config">
       <Link>Install\Locations.config</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AddInContent>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.ApplicationAdapter.Contract.dll">
+    <AddInContent Include="..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.ApplicationAdapter.Contract.dll">
       <Link>Install\EsriDE.Samples.ContentFinder.ApplicationAdapter.Contract.dll</Link>
-    </Content>
-    <Content Include="..\..\..\bin\EsriDE.Samples.ContentFinder.AgdBLAdapter.dll">
+    </AddInContent>
+    <AddInContent Include="..\..\..\bin\EsriDE.Samples.ContentFinder.AgdBLAdapter.dll">
       <Link>Install\EsriDE.Samples.ContentFinder.AgdBLAdapter.dll</Link>
-    </Content>
-    <Content Include="..\..\..\bin\EsriDE.Samples.ContentFinder.AgdBLAdapter.pdb">
+    </AddInContent>
+    <AddInContent Include="..\..\..\bin\EsriDE.Samples.ContentFinder.AgdBLAdapter.pdb">
       <Link>Install\EsriDE.Samples.ContentFinder.AgdBLAdapter.pdb</Link>
-    </Content>
+    </AddInContent>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Sortieren\" />
