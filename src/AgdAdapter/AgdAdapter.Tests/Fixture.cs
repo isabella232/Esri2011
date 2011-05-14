@@ -1,3 +1,4 @@
+using System.Windows.Threading;
 using NUnit.Framework;
 
 namespace EsriDE.Samples.ContentFinder.AgdAdapter.Tests
@@ -15,11 +16,14 @@ namespace EsriDE.Samples.ContentFinder.AgdAdapter.Tests
 		}
 
 		[Test]
+		[RequiresSTA]
 		public void Clicking_ContentFinderButton_TogglesForm()
 		{
 			var sut = new FakedContentFinderButton();
 
 			sut.EmulateClick();
+
+			Dispatcher.CurrentDispatcher.InvokeShutdown();
 		}
 	}
 

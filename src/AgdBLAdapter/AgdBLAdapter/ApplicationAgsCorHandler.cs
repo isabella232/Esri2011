@@ -54,7 +54,7 @@ namespace EsriDE.Samples.ContentFinder.AgdBLAdapter
 			}
 		}
 
-		public ILayer GetLayerFromImageService(Uri uri)
+		internal ILayer GetLayerFromImageService(Uri uri)
 		{
 			ImageServerLayer imLayer;
 			try
@@ -70,7 +70,7 @@ namespace EsriDE.Samples.ContentFinder.AgdBLAdapter
 		}
 
 
-		public ILayer GetLayerFromMapService(Uri uri, string serviceName)
+		internal ILayer GetLayerFromMapService(Uri uri, string serviceName)
 		{
 			try
 			{
@@ -85,7 +85,7 @@ namespace EsriDE.Samples.ContentFinder.AgdBLAdapter
 				//connectionProps.SetProperty("PASSWORD", "<PASS>");
 				//open the server connection, pass in the property set, get a connection object back
 				var handle = ApplicationAdapter.Application.hWnd;
-				IAGSServerConnection gisServer = connectionFactory.Open(connectionProps, handle);
+				IAGSServerConnection gisServer = connectionFactory.Open(connectionProps, 0);
 
 				//get an enum of all server object names from the server (GIS services, i.e.)
 				IAGSEnumServerObjectName soNames = gisServer.ServerObjectNames;

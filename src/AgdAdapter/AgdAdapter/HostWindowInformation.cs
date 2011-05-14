@@ -1,3 +1,5 @@
+using System;
+using System.Diagnostics;
 using EsriDE.Samples.ContentFinder.UI.Contract;
 
 namespace EsriDE.Samples.ContentFinder.AgdAdapter
@@ -8,7 +10,15 @@ namespace EsriDE.Samples.ContentFinder.AgdAdapter
 
 		public HostWindowInformation()
 		{
-			WindowHandle = ArcMap.Application.hWnd;
+			try
+			{
+				WindowHandle = ArcMap.Application.hWnd;
+			}
+			catch (NullReferenceException e)
+			{
+				// Wenn Unit-Test läuft & kein Addin als SUT-Treiber diente
+				Debug.WriteLine(e);
+			}
 		}
 	}
 }

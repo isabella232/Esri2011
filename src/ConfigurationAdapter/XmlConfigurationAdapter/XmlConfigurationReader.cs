@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Xml.Linq;
 using EsriDE.Samples.ContentFinder.ConfigurationAdapter.Contract;
 using EsriDE.Samples.ContentFinder.DomainModel;
@@ -9,6 +11,8 @@ namespace EsriDE.Samples.ContentFinder.XmlConfigurationAdapter
 {
 	public class XmlConfigurationReader : IConfigurationReader
 	{
+		private const string configFilename = @"Locations.config";
+
 		public IEnumerable<SourceBundle> ReadConfiguration(Uri uri)
 		{
 			if (null != uri)
@@ -16,7 +20,8 @@ namespace EsriDE.Samples.ContentFinder.XmlConfigurationAdapter
 				throw new ApplicationException("Lesen mit individueller Uri ist noch nicht implementiert.");
 			}
 
-			XDocument locationsConfig = XDocument.Load(@"Locations.config");
+			var fullConfigFilename = GetFullConfigFilename();
+			XDocument locationsConfig = XDocument.Load(fullConfigFilename);
 
 			var r = from c in locationsConfig.Descendants("ContentToSearch")
 					select
@@ -28,6 +33,14 @@ namespace EsriDE.Samples.ContentFinder.XmlConfigurationAdapter
 																: RecursivityPolicy.NotRecursiv)));
 
 			return r;
+		}
+
+		internal string GetFullConfigFilename()
+		{
+			var location = Assembly.GetExecutingAssembly().Location;
+			var path = Path.GetDirectoryName(location);
+			var result = Path.Combine(path, configFilename);
+			return result;
 		}
 	}
 }

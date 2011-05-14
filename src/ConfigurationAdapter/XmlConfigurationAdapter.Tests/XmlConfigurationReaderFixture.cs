@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using NUnit.Framework;
 
 //http://www.codeproject.com/KB/linq/LINQtoXML.aspx
@@ -35,6 +36,14 @@ namespace EsriDE.Samples.ContentFinder.XmlConfigurationAdapter.Tests
 		public void ReadingConfiguration_WithNullUri_DoesNotThrowException()
 		{
 			Assert.DoesNotThrow(() => _sut.ReadConfiguration(null));
+		}
+
+		[Test]
+		public void Evaluating_ConfigFileLocation_Works()
+		{
+			var filename = _sut.GetFullConfigFilename();
+			Assert.That(filename.EndsWith(@"\Locations.config"));
+			Assert.That(File.Exists(filename));
 		}
 	}
 

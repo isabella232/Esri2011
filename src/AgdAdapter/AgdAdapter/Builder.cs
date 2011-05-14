@@ -1,17 +1,33 @@
 using System;
+using System.Diagnostics;
+using System.IO;
+using System.Reflection;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 using EsriDE.Commons.CastleWindsor.Extension;
+using EsriDE.Commons.Patterns;
 using EsriDE.Samples.ContentFinder.AgdAdapterCommons;
+using EsriDE.Samples.ContentFinder.AgdBLAdapter;
+using EsriDE.Samples.ContentFinder.ApplicationAdapter.Contract;
+using EsriDE.Samples.ContentFinder.BL;
+using EsriDE.Samples.ContentFinder.BL.Contract;
+using EsriDE.Samples.ContentFinder.ConfigurationAdapter.Contract;
+using EsriDE.Samples.ContentFinder.ContentAdapter;
+using EsriDE.Samples.ContentFinder.ContentAdapter.Contract;
+using EsriDE.Samples.ContentFinder.DomainModel;
 using EsriDE.Samples.ContentFinder.UI.Contract;
 using EsriDE.Samples.ContentFinder.WpfUI;
+using EsriDE.Samples.ContentFinder.XmlConfigurationAdapter;
 
 namespace EsriDE.Samples.ContentFinder.AgdAdapter
 {
 	public class Builder
 	{
 		private IWindsorContainer _container;
+
 		private IToggleablePresenter _toggleablePresenter;
+		private IContentProcessorAdapter _contentProcessorAdapter;
+		private IPortal _portal;
 
 		public Builder(IShifterView view)
 		{
@@ -50,7 +66,18 @@ namespace EsriDE.Samples.ContentFinder.AgdAdapter
 		private void ConstructSystem()
 		{
 			Console.WriteLine("Construct system");
-			_toggleablePresenter = _container.Resolve<IToggleablePresenter>();
+			try
+			{
+				_toggleablePresenter = _container.Resolve<IToggleablePresenter>();
+
+				_contentProcessorAdapter = _container.Resolve<IContentProcessorAdapter>();
+				_portal = _container.Resolve<IPortal>();
+				_portal.ContentSelected += _contentProcessorAdapter.Process;
+			}
+			catch (Exception e)
+			{
+				Trace.WriteLine(e);
+			}			
 			//var formVisibilityModel = _container.Resolve<IToggleModel>();
 			//_toggleablePresenter.SetModel(formVisibilityModel);
 		}
@@ -60,6 +87,11 @@ namespace EsriDE.Samples.ContentFinder.AgdAdapter
 			Console.WriteLine("Destroy system");
 			////_toggleablePresenter.UnsetModel();
 			////_container.Release(_toggleablePresenter);
+
+			_portal.ContentSelected -= _contentProcessorAdapter.Process;
+			_portal = null;
+			_contentProcessorAdapter = null;
+
 			_toggleablePresenter = null;
 		}
 
@@ -71,10 +103,11 @@ namespace EsriDE.Samples.ContentFinder.AgdAdapter
 			_container.Register(Component.For<IWindowInformation>().ImplementedBy<HostWindowInformation>());
 
 			////_container.Register(Component.For<IWindowInformation>().ImplementedBy<HostWindowInformation>());
-			////_container.Register(Component.For<IWindowInformation>().ImplementedBy<HostWindowInformation>());
 
 			_container.Kernel.ReleasePolicy = new TrulyTransientReleasePolicy();
 			_container.Register(Component.For<IToggleablePresenter>().ImplementedBy<ContentFormPresenter>().LifeStyle.Custom(typeof(TrulyTransientLifestyleManager)));
+			
+			/*
 			_container.Register(Component.For<IToggleableView, IToggleableForm>().ImplementedBy<ContentForm>().LifeStyle.Custom(typeof(TrulyTransientLifestyleManager)));
 
 			////_container.Register(
@@ -82,6 +115,55 @@ namespace EsriDE.Samples.ContentFinder.AgdAdapter
 			////        typeof (TrulyTransientLifestyleManager)));
 			////_container.Register(
 			////    Component.For<IAgdAdapter>().ImplementedBy<AgdAdapter>().LifeStyle.Custom(typeof (TrulyTransientLifestyleManager)));
+			*/
+
+			_container.Register(
+				Component
+					.For<IPortal>()
+					.ImplementedBy<ContentUserControl>()
+					.DynamicParameters((k, d) =>
+					                   	{
+					                   		d["Controller"] =
+					                   			k.Resolve<IController>();
+					                   	}));
+				//Todo: .LifeStyle.Custom(typeof(TrulyTransientLifestyleManager)));
+				//IPortal wird 2mal angefordert -> 2mal instantiert;
+
+			_container.Register(
+				Component.For<IController>().ImplementedBy<Controller>().LifeStyle.Custom(typeof(TrulyTransientLifestyleManager)));
+			_container.Register(
+				Component.For<IConfigurationReader>().ImplementedBy<XmlConfigurationReader>()
+				.LifeStyle.Custom(typeof(TrulyTransientLifestyleManager)));
+
+			_container.Register(
+				Component.For<IToggleableView, IToggleableForm>().ImplementedBy<ContentForm>()
+				.LifeStyle.Custom(typeof(TrulyTransientLifestyleManager)));
+
+			var assemlblyLocation = Assembly.GetExecutingAssembly().Location;
+			string assemblyPath = (Directory.GetParent(assemlblyLocation)).FullName;
+
+			_container.Register(AllTypes.FromAssemblyInDirectory(new AssemblyFilter(assemblyPath)).BasedOn
+									<IContentLocatorCreatorFilter>()
+									.WithService.FromInterface()
+									.Configure(c => c.LifeStyle.Custom(typeof(TrulyTransientLifestyleManager))));
+
+			_container.Register(Component
+									.For<IContentLocatorResolver>()
+									.ImplementedBy<ContentLocatorResolver>()
+									.DynamicParameters((k, d) =>
+									{
+										d["contentLocatorCreatorFilters"] =
+											k.ResolveAll<IContentLocatorCreatorFilter>();
+									})
+									.LifeStyle.Custom(typeof(TrulyTransientLifestyleManager)));
+
+			_container.Register(Component.For<IApplicationAdapter>().ImplementedBy<ArcMapAddinAdapter>());
+
+			_container.Register(Component.For<IChainOfResponsibilityHandler<Content>>().ImplementedBy<ApplicationMxdCorHandler>().Named("mxd").Parameters(Parameter.ForKey("successor").Eq("${ags}")));
+			_container.Register(Component.For<IChainOfResponsibilityHandler<Content>>().ImplementedBy<ApplicationAgsCorHandler>().Named("ags").Parameters(Parameter.ForKey("successor").Eq("${Ende}")));
+			_container.Register(Component.For<IChainOfResponsibilityHandler<Content>>().ImplementedBy<EndApplicationCorHandler>().Named("Ende"));
+
+			_container.Register(Component.For<IContentProcessorAdapter>().ImplementedBy<ContentProcessorAdapter>());
 		}
 
 		private void ConnectShifterPresenterTo(IShifterView view)
@@ -90,18 +172,4 @@ namespace EsriDE.Samples.ContentFinder.AgdAdapter
 			buttonPresenter.ConnectView(view);
 		}
 	}
-
-	//public class Activator : IComponentActivator
-	//{
-	//    public object Create(CreationContext context)
-	//    {
-	//        context.
-	//        throw new NotImplementedException();
-	//    }
-
-	//    public void Destroy(object instance)
-	//    {
-	//        throw new NotImplementedException();
-	//    }
-	//}
 }

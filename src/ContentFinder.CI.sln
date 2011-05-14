@@ -62,6 +62,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "__Solution Items", "__Solution Items", "{FFCD9BED-2697-47B8-8079-122A68382888}"
 	ProjectSection(SolutionItems) = preProject
 		ContentFinder.BuildOnly.FxCop = ContentFinder.BuildOnly.FxCop
+		ContentFinder.NAnt = ContentFinder.NAnt
 		..\tools\FxCop\De.Esri.FxCop.targets = ..\tools\FxCop\De.Esri.FxCop.targets
 	EndProjectSection
 EndProject
