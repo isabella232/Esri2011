@@ -199,12 +199,6 @@
     </AddInContent>
   </ItemGroup>
   <ItemGroup>
-    <AddInContent Include="..\..\..\bin\ContentFinder.exe">
-      <Link>Install\ContentFinder.exe</Link>
-    </AddInContent>
-    <AddInContent Include="..\..\..\bin\ContentFinder.pdb">
-      <Link>Install\ContentFinder.pdb</Link>
-    </AddInContent>
     <AddInContent Include="..\..\..\bin\EsriDE.Samples.ContentFinder.BL.dll">
       <Link>Install\EsriDE.Samples.ContentFinder.BL.dll</Link>
     </AddInContent>
@@ -216,12 +210,6 @@
     </AddInContent>
     <AddInContent Include="..\..\..\lib\EsriDE\EsriDE.ArcGIS.Commons.Logging.dll">
       <Link>Install\EsriDE.ArcGIS.Commons.Logging.dll</Link>
-    </AddInContent>
-    <AddInContent Include="..\..\..\lib\EsriDE\EsriDE.Commons.Ags.dll">
-      <Link>Install\EsriDE.Commons.Ags.dll</Link>
-    </AddInContent>
-    <AddInContent Include="..\..\..\lib\EsriDE\EsriDE.Commons.Ags.pdb">
-      <Link>Install\EsriDE.Commons.Ags.pdb</Link>
     </AddInContent>
     <AddInContent Include="..\..\..\lib\EsriDE\EsriDE.Commons.Aop.dll">
       <Link>Install\EsriDE.Commons.Aop.dll</Link>
@@ -269,6 +257,14 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Sortieren\" />
+  </ItemGroup>
+  <ItemGroup>
+    <AddInContent Include="..\..\..\lib\EsriDE\EsriDE.Commons.Ags.dll">
+      <Link>Install\EsriDE.Commons.Ags.dll</Link>
+    </AddInContent>
+    <AddInContent Include="..\..\..\lib\EsriDE\EsriDE.Commons.Ags.pdb">
+      <Link>Install\EsriDE.Commons.Ags.pdb</Link>
+    </AddInContent>
   </ItemGroup>
   <!-- Esri Stuff -->
   <PropertyGroup>
