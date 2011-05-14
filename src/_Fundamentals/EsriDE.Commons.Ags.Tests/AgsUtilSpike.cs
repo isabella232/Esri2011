@@ -24,6 +24,7 @@ namespace EsriDE.Commons.Ags.Tests
 		}
 
 		[Test]
+		[Explicit]
 		public void FindenVonServices()
 		{
 			var count = 0;

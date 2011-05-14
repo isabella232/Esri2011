@@ -36,6 +36,7 @@ namespace EsriDE.Commons.Ags.Tests
 		}
 
 		[Test]
+		[Explicit]
 		public void GetImageServices_Works()
 		{
 			var uri = new Uri(_testAgs2MosaikeFolder);
