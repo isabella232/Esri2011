@@ -44,6 +44,9 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="EsriDE.Commons.Patterns, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86" />
+    <Reference Include="EsriDE.Commons.Testing">
+      <HintPath>..\..\..\lib\EsriDE\EsriDE.Commons.Testing.dll</HintPath>
+    </Reference>
     <Reference Include="EsriDE.Samples.ContentFinder.ApplicationAdapter.Contract, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86" />
     <Reference Include="EsriDE.Samples.ContentFinder.UI.Contract">
       <HintPath>..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.UI.Contract.dll</HintPath>

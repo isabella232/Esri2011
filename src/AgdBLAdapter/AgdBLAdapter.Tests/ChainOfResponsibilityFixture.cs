@@ -13,7 +13,7 @@ namespace AgdBLAdapter.Tests
 	// ReSharper disable InconsistentNaming
 
 	[TestFixture]
-	public class Fixture
+	public class ChainOfResponsibilityFixture
 	{
 		[Test]
 		public void BuildChainOfResponsibility_Works()

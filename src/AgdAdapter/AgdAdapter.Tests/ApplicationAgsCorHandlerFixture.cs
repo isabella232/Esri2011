@@ -1,26 +1,23 @@
 using ESRI.ArcGIS.esriSystem;
 using ESRI.ArcGIS.GISClient;
-using EsriDE.Samples.ContentFinder.AgdBLAdapter;
+using EsriDE.Commons.Testing;
 using NUnit.Framework;
-
-//using NUnit.Framework.SyntaxHelpers;
 
 namespace EsriDE.Samples.ContentFinder.AgdAdapter.Tests
 {
 	// ReSharper disable InconsistentNaming
 
 	[TestFixture]
-	public class ApplicationAgsCorHandlerFixture
+	public class ApplicationAgsCorHandlerFixture : FixtureBase
 	{
-		private const string uri = @"http://server.arcgisonline.com/ArcGIS/rest/services/CSP_Imagery_World_2D";
+		private const string address = @"http://server.arcgisonline.com/ArcGIS/services";
 
 		[Test]
-		public void Do()
+		public void AgsConnect_Works()
 		{
-			var connectionFactory =
-				(IAGSServerConnectionFactory2) new AGSServerConnectionFactory();
+			var connectionFactory = (IAGSServerConnectionFactory2) new AGSServerConnectionFactory();
 			IPropertySet connectionProps = new PropertySet();
-			connectionProps.SetProperty("URL", uri);
+			connectionProps.SetProperty("URL", address);
 
 			IAGSServerConnection gisServer = connectionFactory.Open(connectionProps, 0);
 			Assert.That(gisServer, Is.Not.Null);

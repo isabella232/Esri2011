@@ -69,51 +69,24 @@ namespace EsriDE.Samples.ContentFinder.AgdBLAdapter
 			}
 		}
 
-
-		internal ILayer GetLayerFromMapService(Uri uri, string serviceName)
+		internal static ILayer GetLayerFromMapService(Uri uri, string serviceName)
 		{
 			try
 			{
-				var connectionFactory =
-					(IAGSServerConnectionFactory2)new AGSServerConnectionFactory();
-				//create a property set to hold connection properties
-				IPropertySet connectionProps = new PropertySet();
-				//specify the URL for the server
-				connectionProps.SetProperty("URL", uri.AbsoluteUri);
-				//define username and password for the connection
-				//connectionProps.SetProperty("USER", "<USER>");
-				//connectionProps.SetProperty("PASSWORD", "<PASS>");
-				//open the server connection, pass in the property set, get a connection object back
-				var handle = ApplicationAdapter.Application.hWnd;
-				IAGSServerConnection gisServer = connectionFactory.Open(connectionProps, 0);
+				IAGSServerConnection gisServerConnection = GetGisServerConnection(uri);
 
-				//get an enum of all server object names from the server (GIS services, i.e.)
-				IAGSEnumServerObjectName soNames = gisServer.ServerObjectNames;
-				//loop thru all services, find a map service called "I3_Imagery_Prime_World_2D" (high res imagery for the world)
-				var soName = (IAGSServerObjectName3)soNames.Next();
-				do
-				{
-					if ((soName.Type == "MapServer") && (soName.Name == serviceName))
-					{
-						break; //found it
-					}
-					//keep searching the services ...
-					soName = (IAGSServerObjectName3)soNames.Next();
-				} while (soName != null);
-				//if the desired service was found ...
-				if (soName != null)
-				{
-					//create a layer factory to make a new MapServerLayer from the server object name
-					ILayerFactory msLayerFactory = new MapServerLayerFactory();
+				IAGSEnumServerObjectName serverObjectNames = gisServerConnection.ServerObjectNames;
 
-					//create an enum of layers using the name object (will contain only a single layer)
-					IEnumLayer enumLyrs = msLayerFactory.Create(soName);
-					//get the layer from the enum, store it in a MapServerLayer variable
-					var mapServerLayer = (IMapServerLayer)enumLyrs.Next();
-					//make sure the layer is not empty (Nothing), then add it to the map
-					if (mapServerLayer != null)
+				IAGSServerObjectName3 objectName;
+				while (null != (objectName = (IAGSServerObjectName3) serverObjectNames.Next()))
+				{
+					var correctType = 0 == string.Compare("MapServer", objectName.Type, StringComparison.InvariantCultureIgnoreCase);
+					var correctName = 0 == string.Compare(serviceName, objectName.Name, StringComparison.InvariantCultureIgnoreCase);
+
+					if (correctType && correctName)
 					{
-						return (ILayer)mapServerLayer;
+						var layer = GetLayer(objectName);
+						return layer;
 					}
 				}
 			}
@@ -121,7 +94,31 @@ namespace EsriDE.Samples.ContentFinder.AgdBLAdapter
 			{
 				Debug.WriteLine(ex.Message);
 			}
+
 			return null;
+		}
+
+		private static ILayer GetLayer(IAGSServerObjectName3 objectName)
+		{
+			ILayerFactory msLayerFactory = new MapServerLayerFactory();
+			IEnumLayer enumLyrs = msLayerFactory.Create(objectName);
+			var mapServerLayer = (IMapServerLayer)enumLyrs.Next();
+			if (mapServerLayer != null)
+			{
+				return (ILayer)mapServerLayer;
+			}
+			return null;
+		}
+
+		private static IAGSServerConnection GetGisServerConnection(Uri uri)
+		{
+			var soapUri = AgsUtil.GetSoapRepresentation(uri);
+
+			var connectionFactory = (IAGSServerConnectionFactory2) new AGSServerConnectionFactory();
+			IPropertySet connectionProps = new PropertySet();
+			connectionProps.SetProperty("URL", soapUri.AbsoluteUri);
+
+			return connectionFactory.Open(connectionProps, 0);
 		}
 	}
 }

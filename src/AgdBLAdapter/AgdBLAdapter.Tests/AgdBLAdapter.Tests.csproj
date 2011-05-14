@@ -8,8 +8,8 @@
     <ProjectGuid>{93133AF6-B7B5-4B1A-9B79-5B6FD735BC4D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AgdBLAdapter.Tests</RootNamespace>
-    <AssemblyName>AgdBLAdapter.Tests</AssemblyName>
+    <RootNamespace>EsriDE.Samples.ContentFinder.AgdBLAdapter.Tests</RootNamespace>
+    <AssemblyName>EsriDE.Samples.ContentFinder.AgdBLAdapter.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile>
@@ -40,12 +40,22 @@
     <Reference Include="Castle.Windsor, Version=2.5.1.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>..\..\..\lib\Castle.Windsor\Castle.Windsor.dll</HintPath>
     </Reference>
+    <Reference Include="ESRI.ArcGIS.Carto, Version=10.0.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=x86">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\lib\Esri.ArcGIS\ESRI.ArcGIS.Carto.dll</HintPath>
+    </Reference>
     <Reference Include="ESRI.ArcGIS.Framework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=x86">
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <HintPath>..\..\..\lib\Esri.ArcGIS\ESRI.ArcGIS.Framework.dll</HintPath>
     </Reference>
+    <Reference Include="EsriDE.Commons.Ags, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <HintPath>..\..\..\lib\EsriDE\EsriDE.Commons.Ags.dll</HintPath>
+    </Reference>
     <Reference Include="EsriDE.Commons.Patterns">
       <HintPath>..\..\..\lib\EsriDE\EsriDE.Commons.Patterns.dll</HintPath>
+    </Reference>
+    <Reference Include="EsriDE.Commons.Testing">
+      <HintPath>..\..\..\lib\EsriDE\EsriDE.Commons.Testing.dll</HintPath>
     </Reference>
     <Reference Include="EsriDE.Samples.ContentFinder.ApplicationAdapter.Contract, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
       <HintPath>..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.ApplicationAdapter.Contract.dll</HintPath>
@@ -72,7 +82,8 @@
     <Reference Include="Typemock.ArrangeActAssert, Version=6.0.9.0, Culture=neutral, PublicKeyToken=3dae460033b8d8e2, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Fixture.cs" />
+    <Compile Include="AgsConnectionFixture.cs" />
+    <Compile Include="ChainOfResponsibilityFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

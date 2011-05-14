@@ -77,24 +77,34 @@ namespace EsriDE.Commons.Ags
 			}
 		}
 
-		private static ServiceDirectory GetServiceDirectory(string path)
+		public static string GetServiceName(string fullpath)
 		{
-			var address = JsonUtil.GetHttpJsonRequestResult(path);
-			var rootdirectory = JsonUtil.Deserialize<ServiceDirectory>(address);
-			return rootdirectory;
+			var path = TrimServiceType(fullpath);
+
+			var occurence = path.LastIndexOf('/');
+			var length = path.Length - occurence - 1;
+			var result = path.Substring(occurence + 1, length);
+
+			return result;
 		}
 
-		private static string TrimLeadingDirectory(string serviceName)
+		public static string TrimEndingSlash(string s)
 		{
-			if (serviceName.Contains(@"/"))
+			if (s.EndsWith("/"))
 			{
-				var occurence = serviceName.IndexOf(@"/");
-				var lenght = serviceName.Length - occurence - 1;
-				var result = serviceName.Substring(occurence + 1, lenght);
+				var result = s.TrimEnd('/');
 				return result;
 			}
 
-			return serviceName;
+			return s;
+		}
+
+		// ServerType (MapServer, ImageServer, ..) entfernen
+		public static string TrimServiceType(string s)
+		{
+			var occurence = s.LastIndexOf('/');
+			var result = s.Substring(0, occurence);
+			return result;
 		}
 
 		public static ServiceType GetServiceType(Uri uri)
@@ -119,6 +129,32 @@ namespace EsriDE.Commons.Ags
 			return ServiceType.Unknown;
 		}
 
+		public static string GetParentDirectoryName(string fullpath)
+		{
+			var path = TrimServiceType(fullpath);
+
+			var occurence = path.LastIndexOf('/');
+			var result = path.Substring(0, occurence);
+
+			return result;
+		}
+
+		internal static Uri TrimRestFragment(Uri directory)
+		{
+			var dir = directory.AbsoluteUri;
+			var resultDir = dir.Replace(@"/rest/", @"/");
+
+			return new Uri(resultDir);
+		}
+
+		public static Uri GetSoapRepresentation(Uri directory)
+		{
+			var trimmedUri = TrimRestFragment(directory);
+			var resultPath = GetParentDirectoryName(trimmedUri.AbsoluteUri);
+
+			return new Uri(resultPath);
+		}
+
 		private static ServiceType GetServiceType(string type)
 		{
 			if (string.Equals("mapserver", type, StringComparison.InvariantCultureIgnoreCase))
@@ -134,45 +170,24 @@ namespace EsriDE.Commons.Ags
 			return ServiceType.Unknown;
 		}
 
-
-		public static string GetServiceName(string fullpath)
+		internal static ServiceDirectory GetServiceDirectory(string path)
 		{
-			var path = TrimServiceType(fullpath);
-
-			var occurence = path.LastIndexOf('/');
-			var length = path.Length - occurence - 1;
-			var result = path.Substring(occurence + 1, length);
-
-			return result;
+			var address = JsonUtil.GetHttpJsonRequestResult(path);
+			var rootdirectory = JsonUtil.Deserialize<ServiceDirectory>(address);
+			return rootdirectory;
 		}
 
-		public static string GetParentDirectoryName(string fullpath)
+		internal static string TrimLeadingDirectory(string serviceName)
 		{
-			var path = TrimServiceType(fullpath);
-
-			var occurence = path.LastIndexOf('/');
-			var result = path.Substring(0, occurence);
-
-			return result;
-		}
-
-		public static string TrimEndingSlash(string s)
-		{
-			if (s.EndsWith("/"))
+			if (serviceName.Contains(@"/"))
 			{
-				var result = s.TrimEnd('/');
+				var occurence = serviceName.IndexOf(@"/");
+				var lenght = serviceName.Length - occurence - 1;
+				var result = serviceName.Substring(occurence + 1, lenght);
 				return result;
 			}
 
-			return s;
-		}
-
-		// ServerType (MapServer, ImageServer, ..) entfernen
-		public static string TrimServiceType(string s)
-		{
-			var occurence = s.LastIndexOf('/');
-			var result = s.Substring(0, occurence);
-			return result;
+			return serviceName;
 		}
 	}
 }

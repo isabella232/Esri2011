@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading;
+using EsriDE.Commons.Testing;
 using EsriDE.Samples.ContentFinder.ContentAdapter.Ags;
 using EsriDE.Samples.ContentFinder.DomainModel;
 using NUnit.Framework;

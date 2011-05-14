@@ -43,6 +43,12 @@
     <Reference Include="ESRI.ArcGIS.Version, Version=10.0.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=x86">
       <HintPath>..\..\..\lib\Esri.ArcGIS\ESRI.ArcGIS.Version.dll</HintPath>
     </Reference>
+    <Reference Include="EsriDE.Commons.Ags, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <HintPath>..\..\..\lib\EsriDE\EsriDE.Commons.Ags.dll</HintPath>
+    </Reference>
+    <Reference Include="EsriDE.Commons.Testing">
+      <HintPath>..\..\..\lib\EsriDE\EsriDE.Commons.Testing.dll</HintPath>
+    </Reference>
     <Reference Include="EsriDE.Samples.ContentFinder.ConfigurationAdapter.Contract">
       <HintPath>..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.ConfigurationAdapter.Contract.dll</HintPath>
     </Reference>
@@ -69,7 +75,6 @@
     <Compile Include="AgsUriAnalyzerFixture.cs" />
     <Compile Include="ContentLocatorFixture.cs" />
     <Compile Include="ContentLocatorResolverFixture.cs" />
-    <Compile Include="FixtureBase.cs" />
     <Compile Include="MxdContentLocatorFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SampleConfigurationReader.cs" />
@@ -120,10 +125,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\_Fundamentals\EsriDE.Commons.Ags\EsriDE.Commons.Ags.csproj">
-      <Project>{756A5E8E-CB68-4AE8-9D2A-436F7C673E7C}</Project>
-      <Name>EsriDE.Commons.Ags</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ContentAdapter\ContentAdapter.csproj">
       <Project>{9DF6ABE9-5538-4F59-9C3F-8625142C32AE}</Project>
       <Name>ContentAdapter %28ContentAdapter\ContentAdapter%29</Name>

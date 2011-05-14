@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
+using EsriDE.Commons.Testing;
 using EsriDE.Samples.ContentFinder.ContentAdapter.Mxd;
 using EsriDE.Samples.ContentFinder.DomainModel;
 using NUnit.Framework;
