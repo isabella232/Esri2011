@@ -64,6 +64,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "__Solution Items", "__Solut
 		ContentFinder.BuildOnly.FxCop = ContentFinder.BuildOnly.FxCop
 		ContentFinder.NAnt = ContentFinder.NAnt
 		..\tools\FxCop\De.Esri.FxCop.targets = ..\tools\FxCop\De.Esri.FxCop.targets
+		..\tools\Esri\ESRI.ArcGIS.AddIns.targets = ..\tools\Esri\ESRI.ArcGIS.AddIns.targets
 	EndProjectSection
 EndProject
 Global

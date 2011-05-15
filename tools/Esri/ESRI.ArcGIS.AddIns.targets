@@ -119,7 +119,7 @@
     <!-- Deploying add-in for debugging and testing -->
     <Warning Text="Skipping add-in registration with esriRegAddin.exe, 'Dont_EsriRegAddin.txt' exists." Condition="Exists('Dont_EsriRegAddin.txt')" />
     
-    <Exec IgnoreExitCode="true" Condition="!Exists('Dont_EsriRegAddin.txt') And Exists('$(AddInFileToBeDeployed)')" WorkingDirectory="$(CommonProgramFiles)\ArcGIS\bin" Command="esriRegAddin.exe &quot;$(AddInFileToBeDeployed)&quot; /s">
+    <Exec IgnoreExitCode="true" Condition="!Exists('Dont_EsriRegAddin.txt') And Exists('$(AddInFileToBeDeployed)')" WorkingDirectory="$(SolutionDir)\.." Command="esriRegAddin.exe &quot;$(AddInFileToBeDeployed)&quot; /s">
       <Output TaskParameter="ExitCode" PropertyName="ESRIRegAddinExitCode" />
     </Exec>
     <Error Condition="'$(ESRIRegAddinExitCode)' == '-1'" Text="$(AddInDeployFailed)" />
