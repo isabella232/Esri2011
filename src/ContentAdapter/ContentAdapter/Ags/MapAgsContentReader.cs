@@ -30,8 +30,8 @@ namespace EsriDE.Samples.ContentFinder.ContentAdapter.Ags
 
 		private static Bitmap GetImageFromServiceInfo(MapServiceInfo info)
 		{
-				var	bitmap = MapServiceUtil.
-						GetSysDrawBitmap(info.Uri, info.InitialExtent, @"400,266");
+			var bitmap = MapServiceUtil.
+				GetSysDrawBitmap(info.Uri, info.InitialExtent, @"400,266");
 			return bitmap;
 		}
 
@@ -60,7 +60,8 @@ namespace EsriDE.Samples.ContentFinder.ContentAdapter.Ags
 			try
 			{
 				var stringBuilder = new StringBuilder();
-				stringBuilder.Append(string.Format("Service Name: {0}{1}", GetServiceNameFromMapServiceInfo(mapServiceInfo), Environment.NewLine));
+				stringBuilder.Append(string.Format("Service Name: {0}{1}", GetServiceNameFromMapServiceInfo(mapServiceInfo),
+				                                   Environment.NewLine));
 				stringBuilder.Append(string.Format("Server: {0}{1}", mapServiceInfo.Uri.Host, Environment.NewLine));
 				stringBuilder.Append(string.Format("Service Type: {0}{1}", "mapService", Environment.NewLine));
 				if (null != mapServiceInfo.DocumentInfo)
