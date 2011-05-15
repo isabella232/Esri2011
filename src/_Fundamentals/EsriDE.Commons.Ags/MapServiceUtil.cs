@@ -23,7 +23,7 @@ namespace EsriDE.Commons.Ags
 		{
 			try
 			{
-				string imageInfoUrl = url.AbsoluteUri + @"export?bbox=" +
+				string imageInfoUrl = url.AbsoluteUri + @"/export?bbox=" +
 									  extent.XMin.ToString(CultureInfo.InvariantCulture) + "," +
 									  extent.YMin.ToString(CultureInfo.InvariantCulture) + "," +
 									  extent.XMax.ToString(CultureInfo.InvariantCulture) + "," +
@@ -43,7 +43,7 @@ namespace EsriDE.Commons.Ags
 		{
 			try
 			{
-				string imageInfoUrl = url.AbsoluteUri + @"export?bbox=" +
+				string imageInfoUrl = url.AbsoluteUri + @"/export?bbox=" +
 									  extent.XMin.ToString(CultureInfo.InvariantCulture) + "," +
 									  extent.YMin.ToString(CultureInfo.InvariantCulture) + "," +
 									  extent.XMax.ToString(CultureInfo.InvariantCulture) + "," +
