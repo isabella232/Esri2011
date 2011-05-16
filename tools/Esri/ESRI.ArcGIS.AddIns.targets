@@ -1,157 +1,194 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
-  <!-- Define additional BuildAction option -->
-  <ItemGroup>
-    <AvailableItemName Include="AddInContent" />
-  </ItemGroup>
+	<!-- Define additional BuildAction option -->
+	<ItemGroup>
+		<AvailableItemName Include="AddInContent" />
+	</ItemGroup>
 
-  <!-- Custom MSBuild tasks -->
-  <UsingTask AssemblyName="ESRI.ArcGIS.AddIns.SDK, Version=10.0.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86" TaskName="PackageAddIn" />
-  <UsingTask AssemblyName="ESRI.ArcGIS.AddIns.SDK, Version=10.0.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86" TaskName="ValidateAddInXMLTask" />
-  <UsingTask AssemblyName="ESRI.ArcGIS.AddIns.SDK, Version=10.0.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86" TaskName="ConvertToRelativePath" />
-  <UsingTask AssemblyName="ESRI.ArcGIS.AddIns.SDK, Version=10.0.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86" TaskName="ResolveAddInReference" />
-  <!-- Set up default zip properties -->
-  <PropertyGroup>
-    <ZipFileExtension Condition="'$(ZipFileExtension)' == ''">ecfg</ZipFileExtension>
-    <ZipIntermediatePath Condition="'$(ZipIntermediatePath)' == ''">$(IntermediateOutputPath)$(ZipFileExtension)\</ZipIntermediatePath>
-  </PropertyGroup>
+	<!-- Custom MSBuild tasks -->
+	<UsingTask AssemblyName="ESRI.ArcGIS.AddIns.SDK, Version=10.0.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86" TaskName="PackageAddIn" />
+	<UsingTask AssemblyName="ESRI.ArcGIS.AddIns.SDK, Version=10.0.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86" TaskName="ValidateAddInXMLTask" />
+	<UsingTask AssemblyName="ESRI.ArcGIS.AddIns.SDK, Version=10.0.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86" TaskName="ConvertToRelativePath" />
+	<UsingTask AssemblyName="ESRI.ArcGIS.AddIns.SDK, Version=10.0.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86" TaskName="ResolveAddInReference" />
+	<!-- Set up default zip properties -->
+	<PropertyGroup>
+		<ZipFileExtension Condition="'$(ZipFileExtension)' == ''">ecfg</ZipFileExtension>
+		<ZipIntermediatePath Condition="'$(ZipIntermediatePath)' == ''">$(IntermediateOutputPath)$(ZipFileExtension)\</ZipIntermediatePath>
+	</PropertyGroup>
 
-  <PropertyGroup>
-  
-    <BuildDependsOn>
-      PrePackageArcGISAddIn;
-      $(BuildDependsOn);
-      PackageArcGISAddInContents;
-      RunArcGISPostPackageEvent
-    </BuildDependsOn>
+	<PropertyGroup>
 
-    <CleanDependsOn>
-      $(CleanDependsOn);
-      CleanArcGISAddin
-    </CleanDependsOn>
-  </PropertyGroup>
+		<BuildDependsOn>
+			PrePackageArcGISAddIn;
+			$(BuildDependsOn);
+			PackageArcGISAddInContents;
+			RunArcGISPostPackageEvent
+		</BuildDependsOn>
 
-  <Target Name="PrePackageArcGISAddIn">
+		<CleanDependsOn>
+			$(CleanDependsOn);
+			CleanArcGISAddin
+		</CleanDependsOn>
+	</PropertyGroup>
 
-    <ValidateAddInXMLTask ContentFiles="@(AddInContent)" BuildProjectPath="$(ProjectPath)" AssemblyName="$(TargetFileName)" TargetFrameworkVersion="$(TargetFrameworkVersion)" />  
-  </Target>
+	<Target Name="PrePackageArcGISAddIn">
 
-  <Target Name="ArcGISAddInInstallOutput">
+		<ValidateAddInXMLTask ContentFiles="@(AddInContent)" BuildProjectPath="$(ProjectPath)" AssemblyName="$(TargetFileName)" TargetFrameworkVersion="$(TargetFrameworkVersion)" />
+	</Target>
 
-    <!-- Get a list of project outputs from the cache file and FileWritesXXX item, 
+	<Target Name="ArcGISAddInInstallOutput">
+
+		<!-- Get a list of project outputs from the cache file and FileWritesXXX item, 
          excluding those in intermediate output directory  -->
 
-    <!-- Note clean file may miss listing CopyLocal reference -->
-    <ReadLinesFromFile File="$(IntermediateOutputPath)$(CleanFile)">
-      <Output TaskParameter="Lines" ItemName="CacheOutputFiles" />
-    </ReadLinesFromFile>
-    <FindUnderPath Files="@(CacheOutputFiles)" Path="$(OutDir)">
-      <Output TaskParameter="InPath" ItemName="AddInOutputFiles" />
-    </FindUnderPath>
-    <FindUnderPath Files="@(FileWrites-&gt;'%(FullPath)')" Path="$(OutDir)">
-      <Output TaskParameter="InPath" ItemName="AddInOutputFiles" />
-    </FindUnderPath>
-    <FindUnderPath Files="@(FileWritesShareable-&gt;'%(FullPath)')" Path="$(OutDir)">
-      <Output TaskParameter="InPath" ItemName="AddInOutputFiles" />
-    </FindUnderPath>
+		<!-- Note clean file may miss listing CopyLocal reference -->
+		<ReadLinesFromFile File="$(IntermediateOutputPath)$(CleanFile)">
+			<Output TaskParameter="Lines" ItemName="CacheOutputFiles" />
+		</ReadLinesFromFile>
+		<FindUnderPath Files="@(CacheOutputFiles)" Path="$(OutDir)">
+			<Output TaskParameter="InPath" ItemName="AddInOutputFiles" />
+		</FindUnderPath>
+		<FindUnderPath Files="@(FileWrites-&gt;'%(FullPath)')" Path="$(OutDir)">
+			<Output TaskParameter="InPath" ItemName="AddInOutputFiles" />
+		</FindUnderPath>
+		<FindUnderPath Files="@(FileWritesShareable-&gt;'%(FullPath)')" Path="$(OutDir)">
+			<Output TaskParameter="InPath" ItemName="AddInOutputFiles" />
+		</FindUnderPath>
 
-    <RemoveDuplicates Inputs="@(AddInOutputFiles)">
-      <Output TaskParameter="Filtered" ItemName="FilteredAddInOutputFiles" />
-    </RemoveDuplicates>
+		<RemoveDuplicates Inputs="@(AddInOutputFiles)">
+			<Output TaskParameter="Filtered" ItemName="FilteredAddInOutputFiles" />
+		</RemoveDuplicates>
 
-    <ConvertToRelativePath Paths="@(FilteredAddInOutputFiles)" RelativeTo="$(TargetDir)">
-      <Output TaskParameter="RelativePaths" ItemName="AddInBinaries" />
-    </ConvertToRelativePath>
-  </Target>
+		<ConvertToRelativePath Paths="@(FilteredAddInOutputFiles)" RelativeTo="$(TargetDir)">
+			<Output TaskParameter="RelativePaths" ItemName="AddInBinaries" />
+		</ConvertToRelativePath>
+	</Target>
 
-  <Target Name="RunArcGISPostPackageEvent" Condition="Exists('$(ProjectName).PostPackageEvent.bat')">
-    <!-- PostPackageEvent script is run if the batch file is INCLUDED in the project -->
-    <ItemGroup>
-      <PostPackageEventItem Include="@(None)" />
-      <PostPackageEventItem Include="@(Content)" />
-    </ItemGroup>
+	<Target Name="RunArcGISPostPackageEvent" Condition="Exists('$(ProjectName).PostPackageEvent.bat')">
+		<!-- PostPackageEvent script is run if the batch file is INCLUDED in the project -->
+		<ItemGroup>
+			<PostPackageEventItem Include="@(None)" />
+			<PostPackageEventItem Include="@(Content)" />
+		</ItemGroup>
 
-    <FindInList List="@(PostPackageEventItem)" ItemSpecToFind="$(ProjectName).PostPackageEvent.bat" CaseSensitive="false">
-      <Output TaskParameter="ItemFound" ItemName="PostPackageEventInclude" />
-    </FindInList>
+		<FindInList List="@(PostPackageEventItem)" ItemSpecToFind="$(ProjectName).PostPackageEvent.bat" CaseSensitive="false">
+			<Output TaskParameter="ItemFound" ItemName="PostPackageEventInclude" />
+		</FindInList>
 
-    <ReadLinesFromFile File="%(PostPackageEventInclude.FullPath)" Condition="Exists('%(PostPackageEventInclude.FullPath)')">
-      <Output TaskParameter="Lines" ItemName="_PostPackageLines" />
-    </ReadLinesFromFile>
+		<ReadLinesFromFile File="%(PostPackageEventInclude.FullPath)" Condition="Exists('%(PostPackageEventInclude.FullPath)')">
+			<Output TaskParameter="Lines" ItemName="_PostPackageLines" />
+		</ReadLinesFromFile>
 
-    <!-- Construct a helper msbuild project to run the PostPackageEvent cmd lines, inheriting 
+		<!-- Construct a helper msbuild project to run the PostPackageEvent cmd lines, inheriting 
          "Macros" from the current project so we can expand basic MSBuild properties-->
-    <PropertyGroup>
-      <PostPackageScriptFile>$(ProjectName).PostPackageEvent.proj</PostPackageScriptFile>
-    </PropertyGroup>
-    <WriteLinesToFile File="$(ZipIntermediatePath)$(PostPackageScriptFile)" Overwrite="true" Lines="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&lt;Project xmlns=&quot;http://schemas.microsoft.com/developer/msbuild/2003&quot; ToolsVersion=&quot;3.5&quot;&gt;&lt;PropertyGroup&gt;&lt;PostPackageEvent&gt;" />
-    <WriteLinesToFile File="$(ZipIntermediatePath)$(PostPackageScriptFile)" Overwrite="false" Lines="@(_PostPackageLines)" />
-    <WriteLinesToFile File="$(ZipIntermediatePath)$(PostPackageScriptFile)" Overwrite="false" Lines="&lt;/PostPackageEvent&gt;&lt;/PropertyGroup&gt;                   &lt;Target Name=&quot;PostPackageEvent&quot; Condition=&quot;'%24(PostPackageEvent)' != ''&quot;&gt;                   &lt;Exec WorkingDirectory=&quot;%24(TargetDir)&quot; Command=&quot;%24(PostPackageEvent)&quot; /&gt;                   &lt;/Target&gt;                   &lt;/Project&gt;" />
+		<PropertyGroup>
+			<PostPackageScriptFile>$(ProjectName).PostPackageEvent.proj</PostPackageScriptFile>
+		</PropertyGroup>
+		<WriteLinesToFile File="$(ZipIntermediatePath)$(PostPackageScriptFile)" Overwrite="true" Lines="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&lt;Project xmlns=&quot;http://schemas.microsoft.com/developer/msbuild/2003&quot; ToolsVersion=&quot;3.5&quot;&gt;&lt;PropertyGroup&gt;&lt;PostPackageEvent&gt;" />
+		<WriteLinesToFile File="$(ZipIntermediatePath)$(PostPackageScriptFile)" Overwrite="false" Lines="@(_PostPackageLines)" />
+		<WriteLinesToFile File="$(ZipIntermediatePath)$(PostPackageScriptFile)" Overwrite="false" Lines="&lt;/PostPackageEvent&gt;&lt;/PropertyGroup&gt;                   &lt;Target Name=&quot;PostPackageEvent&quot; Condition=&quot;'%24(PostPackageEvent)' != ''&quot;&gt;                   &lt;Exec WorkingDirectory=&quot;%24(TargetDir)&quot; Command=&quot;%24(PostPackageEvent)&quot; /&gt;                   &lt;/Target&gt;                   &lt;/Project&gt;" />
 
-    <MSBuild ToolsVersion="3.5" Properties="OutDir=$(OutDir);ConfigurationName=$(ConfigurationName);ProjectName=$(ProjectName);TargetName=$(TargetName);TargetPath=$(TargetPath);ProjectPath=$(ProjectPath);ProjectFileName=$(ProjectFileName);TargetExt=$(TargetExt);TargetFileName=$(TargetFileName);TargetDir=$(TargetDir);ProjectDir=$(ProjectDir);SolutionFileName=$(SolutionFileName);SolutionPath=$(SolutionPath);SolutionDir=$(SolutionDir);SolutionName=$(SolutionName);PlatformName=$(PlatformName);ProjectExt=$(ProjectExt);SolutionExt=$(SolutionExt)" Projects="$(ZipIntermediatePath)$(PostPackageScriptFile)" UnloadProjectsOnCompletion="true" />
-    <Delete Files="$(ZipIntermediatePath)$(PostPackageScriptFile)" />
-  </Target>
+		<MSBuild ToolsVersion="3.5" Properties="OutDir=$(OutDir);ConfigurationName=$(ConfigurationName);ProjectName=$(ProjectName);TargetName=$(TargetName);TargetPath=$(TargetPath);ProjectPath=$(ProjectPath);ProjectFileName=$(ProjectFileName);TargetExt=$(TargetExt);TargetFileName=$(TargetFileName);TargetDir=$(TargetDir);ProjectDir=$(ProjectDir);SolutionFileName=$(SolutionFileName);SolutionPath=$(SolutionPath);SolutionDir=$(SolutionDir);SolutionName=$(SolutionName);PlatformName=$(PlatformName);ProjectExt=$(ProjectExt);SolutionExt=$(SolutionExt)" Projects="$(ZipIntermediatePath)$(PostPackageScriptFile)" UnloadProjectsOnCompletion="true" />
+		<Delete Files="$(ZipIntermediatePath)$(PostPackageScriptFile)" />
+	</Target>
 
-  <Target Name="PackageArcGISAddInContents" DependsOnTargets="ArcGISAddInInstallOutput">
+	<Target Name="PackageArcGISAddInContents" DependsOnTargets="ArcGISAddInInstallOutput">
 
-    <RemoveDir Condition="Exists('$(ZipIntermediatePath)')" Directories="$(ZipIntermediatePath)" />
+		<RemoveDir Condition="Exists('$(ZipIntermediatePath)')" Directories="$(ZipIntermediatePath)" />
 
-    <!-- Copy project output files, preserving folder structure -->
-    <Copy SourceFiles="@(AddInBinaries-&gt;'$(OutDir)%(Identity)')" ContinueOnError="true" DestinationFolder="$(ZipIntermediatePath)Install\%(RelativeDir)" />
+		<!-- Copy project output files, preserving folder structure -->
+		<Copy SourceFiles="@(AddInBinaries-&gt;'$(OutDir)%(Identity)')" ContinueOnError="true" DestinationFolder="$(ZipIntermediatePath)Install\%(RelativeDir)" />
 
-    <!-- TODO Honor CopyToOutput flag for AddInContent items -->
+		<!-- TODO Honor CopyToOutput flag for AddInContent items -->
 
-    <!-- Copy items marked with AddInContent as BuildAction, preserving folder structure & handling linked items -->
-    <Copy SourceFiles="@(AddInContent)" Condition="'%(AddInContent.Link)' == ''" DestinationFolder="$(ZipIntermediatePath)%(RelativeDir)" ContinueOnError="true" />
-    <Copy SourceFiles="@(AddInContent)" Condition="'%(AddInContent.Link)' != ''" DestinationFiles="$(ZipIntermediatePath)%(AddInContent.Link)" ContinueOnError="true" />
+		<!-- Copy items marked with AddInContent as BuildAction, preserving folder structure & handling linked items -->
+		<Copy SourceFiles="@(AddInContent)" Condition="'%(AddInContent.Link)' == ''" DestinationFolder="$(ZipIntermediatePath)%(RelativeDir)" ContinueOnError="true" />
+		<Copy SourceFiles="@(AddInContent)" Condition="'%(AddInContent.Link)' != ''" DestinationFiles="$(ZipIntermediatePath)%(AddInContent.Link)" ContinueOnError="true" />
 
-    <!-- Zipping up add-in resources -->
-    <PackageAddIn WorkingFolder="$(ZipIntermediatePath)" Name="$(AssemblyName)" AddInExtension=".$(ZipFileExtension)" TargetFolder="$(OutDir)">
-      <Output TaskParameter="AddInOutputPath" PropertyName="AddInFileToBeDeployed" />
-      <Output TaskParameter="ESRIRegAddInDeployFailed" PropertyName="AddInDeployFailed" />
-      <Output TaskParameter="ESRIRegAddInDeploySuccessful" PropertyName="AddInDeploySucceeded" />
-      <Output TaskParameter="AddInUnregisterID" PropertyName="AddInDeployID" />
-    </PackageAddIn>
+		<!-- Zipping up add-in resources -->
+		<PackageAddIn WorkingFolder="$(ZipIntermediatePath)" Name="$(AssemblyName)" AddInExtension=".$(ZipFileExtension)" TargetFolder="$(OutDir)">
+			<Output TaskParameter="AddInOutputPath" PropertyName="AddInFileToBeDeployed" />
+			<Output TaskParameter="ESRIRegAddInDeployFailed" PropertyName="AddInDeployFailed" />
+			<Output TaskParameter="ESRIRegAddInDeploySuccessful" PropertyName="AddInDeploySucceeded" />
+			<Output TaskParameter="AddInUnregisterID" PropertyName="AddInDeployID" />
+		</PackageAddIn>
 
-    <!-- Record .esriAddin to FileListAbsolute.txt to be cleaned by MSBuild -->
-    <WriteLinesToFile File="$(IntermediateOutputPath)$(CleanFile)" Lines="$(AddInFileToBeDeployed)" Condition="Exists('$(AddInFileToBeDeployed)')" />
+		<!-- Record .esriAddin to FileListAbsolute.txt to be cleaned by MSBuild -->
+		<WriteLinesToFile File="$(IntermediateOutputPath)$(CleanFile)" Lines="$(AddInFileToBeDeployed)" Condition="Exists('$(AddInFileToBeDeployed)')" />
 
-    <!-- Deploying add-in for debugging and testing -->
-    <Warning Text="Skipping add-in registration with esriRegAddin.exe, 'Dont_EsriRegAddin.txt' exists." Condition="Exists('Dont_EsriRegAddin.txt')" />
-    
-    <Exec IgnoreExitCode="true" Condition="!Exists('Dont_EsriRegAddin.txt') And Exists('$(AddInFileToBeDeployed)')" WorkingDirectory="$(SolutionDir)\.." Command="esriRegAddin.exe &quot;$(AddInFileToBeDeployed)&quot; /s">
-      <Output TaskParameter="ExitCode" PropertyName="ESRIRegAddinExitCode" />
-    </Exec>
-    <Error Condition="'$(ESRIRegAddinExitCode)' == '-1'" Text="$(AddInDeployFailed)" />
+		<!-- Deploying add-in for debugging and testing -->
+		<Warning Text="Skipping add-in registration with esriRegAddin.exe, 'Dont_EsriRegAddin.txt' exists." Condition="Exists('Dont_EsriRegAddin.txt')" />
 
-    <!-- Cache add-in ID for unregistration during clean -->
-    <RemoveDir Directories="$(ZipIntermediatePath)" />
-    <MakeDir Directories="$(ZipIntermediatePath)" />
-    <WriteLinesToFile Condition="'$(ESRIRegAddinExitCode)' != '-1'" File="$(ZipIntermediatePath)AddInID.txt" Lines="$(AddInDeployID)" />
-  </Target>
+		<!-- ORIGINAL ESRI -->
+		<!--
+		<Exec 
+			IgnoreExitCode="true"
+			Condition="!Exists('Dont_EsriRegAddin.txt') And Exists('$(AddInFileToBeDeployed)')"
+			WorkingDirectory="$(CommonProgramFiles)\ArcGIS\bin"
+			Command="esriRegAddin.exe &quot;$(AddInFileToBeDeployed)&quot; /s">
+			<Output TaskParameter="ExitCode" PropertyName="ESRIRegAddinExitCode" />
+		</Exec>
+		-->
+		
+		<!-- MARKO -->
+		<Exec 
+			IgnoreExitCode="true"
+			Condition="!Exists('Dont_EsriRegAddin.txt') And Exists('$(AddInFileToBeDeployed)')"
+			WorkingDirectory="$(ProjectDir)\..\..\..\tools\Esri"
+			Command="esriRegAddin.exe &quot;$(AddInFileToBeDeployed)&quot; /s">
+			<Output TaskParameter="ExitCode" PropertyName="ESRIRegAddinExitCode" />
+		</Exec>
+		
+		
+		<Error Condition="'$(ESRIRegAddinExitCode)' == '-1'" Text="$(AddInDeployFailed)" />
 
-  <Target Name="CleanArcGISAddin" Condition="Exists('$(ZipIntermediatePath)AddInID.txt')">
+		<!-- Cache add-in ID for unregistration during clean -->
+		<RemoveDir Directories="$(ZipIntermediatePath)" />
+		<MakeDir Directories="$(ZipIntermediatePath)" />
+		<WriteLinesToFile Condition="'$(ESRIRegAddinExitCode)' != '-1'" File="$(ZipIntermediatePath)AddInID.txt" Lines="$(AddInDeployID)" />
+	</Target>
 
-    <!-- get addin id and run ESRIRegAddin /u -->
-    <ReadLinesFromFile File="$(ZipIntermediatePath)AddInID.txt">
-      <Output TaskParameter="Lines" PropertyName="AddInCleanID" />
-    </ReadLinesFromFile>
+	<!-- ORIGINAL ESRI -->
+	<!--
+	<Target Name="CleanArcGISAddin" Condition="Exists('$(ZipIntermediatePath)AddInID.txt')">
 
-    <Exec IgnoreExitCode="true" WorkingDirectory="$(CommonProgramFiles)\ArcGIS\bin" Command="esriRegAddin.exe &quot;$(AddInCleanID)&quot; /u /s" />
-    <Delete Files="$(ZipIntermediatePath)AddInID.txt" />
-  </Target>
+		<!- get addin id and run ESRIRegAddin /u ->
+		<ReadLinesFromFile File="$(ZipIntermediatePath)AddInID.txt">
+			<Output TaskParameter="Lines" PropertyName="AddInCleanID" />
+		</ReadLinesFromFile>
 
-  <Target Name="AfterResolveReferences">
+		<Exec IgnoreExitCode="true" WorkingDirectory="$(CommonProgramFiles)\ArcGIS\bin" Command="esriRegAddin.exe &quot;$(AddInCleanID)&quot; /u /s" />
+		<Delete Files="$(ZipIntermediatePath)AddInID.txt" />
+	</Target>
+	-->
+	
+	<!-- MARKO -->
+	<Target Name="CleanArcGISAddin" Condition="Exists('$(ZipIntermediatePath)AddInID.txt')">
 
-    <ResolveAddInReference References="@(ReferencePath)" TargetFrameworkVersion="$(TargetFrameworkVersion)" IsBuilding="$(BuildingProject)" ConfigXMLs="Config.esriaddinx;Config.xml" SearchPaths="$(AssemblySearchPaths)">
-      <Output TaskParameter="OutReferences" ItemName="AddInResolvedOut" />
-      <Output TaskParameter="InReferences" ItemName="AddInResolvedIn" />
-    </ResolveAddInReference>
+		<!-- get addin id and run ESRIRegAddin /u -->
+		<ReadLinesFromFile File="$(ZipIntermediatePath)AddInID.txt">
+			<Output TaskParameter="Lines" PropertyName="AddInCleanID" />
+		</ReadLinesFromFile>
+
+		<Exec 
+			IgnoreExitCode="true"
+			WorkingDirectory="$(ProjectDir)\..\..\..\tools\Esri"
+			Command="esriRegAddin.exe &quot;$(AddInCleanID)&quot; /u /s" />
+		<Delete Files="$(ZipIntermediatePath)AddInID.txt" />
+	</Target>
+
+	<Target Name="AfterResolveReferences">
+
+		<ResolveAddInReference References="@(ReferencePath)" TargetFrameworkVersion="$(TargetFrameworkVersion)" IsBuilding="$(BuildingProject)" ConfigXMLs="Config.esriaddinx;Config.xml" SearchPaths="$(AssemblySearchPaths)">
+			<Output TaskParameter="OutReferences" ItemName="AddInResolvedOut" />
+			<Output TaskParameter="InReferences" ItemName="AddInResolvedIn" />
+		</ResolveAddInReference>
 
 
-    <ItemGroup>
-      <ReferencePath Remove="@(AddInResolvedOut)" />
-      <ReferencePath Include="@(AddInResolvedIn)" />
-    </ItemGroup>
-  </Target>
+		<ItemGroup>
+			<ReferencePath Remove="@(AddInResolvedOut)" />
+			<ReferencePath Include="@(AddInResolvedIn)" />
+		</ItemGroup>
+	</Target>
 </Project>
