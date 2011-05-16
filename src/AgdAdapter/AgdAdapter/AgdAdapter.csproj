@@ -283,30 +283,34 @@
     <Exec WorkingDirectory="$(SolutionDir)\.." Command="$(SolutionDir)\..\tools\Esri\esriRegasm.exe &quot;$(TargetPath)&quot; /p:Desktop /s" />
   </Target>
   -->
-  <!-- Esri Stuff -->
-  <!--
-  <Import Project="$(MSBuildExtensionsPath)\ESRI\ESRI.ArcGIS.AddIns.targets" Condition="Exists('$(MSBuildExtensionsPath)\ESRI\ESRI.ArcGIS.AddIns.targets')" />
-  -->
-  <Import 
-	  Project="$(ProjectDir)\..\..\..\tools\Esri\ESRI.ArcGIS.AddIns.targets"
-	  Condition="Exists('$(ProjectDir)\..\..\..\tools\Esri\ESRI.ArcGIS.AddIns.targets')" />
+	
+	<!-- ORIGINAL ESRI -->
+	<!--
+	<Import Project="$(MSBuildExtensionsPath)\ESRI\ESRI.ArcGIS.AddIns.targets" Condition="Exists('$(MSBuildExtensionsPath)\ESRI\ESRI.ArcGIS.AddIns.targets')" />
+	-->
+	<!-- MARKO -->
+	<Import
+		Project="$(ProjectDir)\..\..\..\tools\Esri\ESRI.ArcGIS.AddIns.targets"
+		Condition="Exists('$(ProjectDir)\..\..\..\tools\Esri\ESRI.ArcGIS.AddIns.targets')" />
 
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+	<!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
   -->
-  <Target Name="AfterBuild">
-    <!-- Esri Stuff -->
-    <!-- Gives build warning when add-in targets file is not found. -->
-    <!--
-    <Warning Text="Unable to create .esriAddin; missing ESRI ArcGIS Add-in SDK component(s)." Condition="!Exists('$(MSBuildExtensionsPath)\ESRI\ESRI.ArcGIS.AddIns.targets')" />
-    -->
-    <Warning
-		Text="Unable to create .esriAddin; missing ESRI ArcGIS Add-in SDK component(s)." 
-		Condition="!Exists('$(ProjectDir)\..\..\..\tools\Esri\ESRI.ArcGIS.AddIns.targets')" />
+	<Target Name="AfterBuild">
+		<!-- ORIGINAL ESRI -->
+		<!-- Gives build warning when add-in targets file is not found. -->
+		<!--
+		<Warning Text="Unable to create .esriAddin; missing ESRI ArcGIS Add-in SDK component(s)." Condition="!Exists('$(MSBuildExtensionsPath)\ESRI\ESRI.ArcGIS.AddIns.targets')" />
+		-->
 
-  </Target>
+		<!-- MARKO -->
+		<Warning
+			Text="Unable to create .esriAddin; missing ESRI ArcGIS Add-in SDK component(s)."
+			Condition="!Exists('$(ProjectDir)\..\..\..\tools\Esri\ESRI.ArcGIS.AddIns.targets')" />
+
+	</Target>
   <!-- Esri Stuff -->
   <ProjectExtensions>
     <!-- Default ESRI add-in properties -->
