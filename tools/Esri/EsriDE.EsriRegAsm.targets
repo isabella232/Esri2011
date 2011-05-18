@@ -6,7 +6,8 @@
 
 	<Target Name="ESRIRegAsm">
 		<Exec
-				Command="&quot;$(ProjectDir)..\..\..\tools\Esri\ESRIRegAsm.exe&quot; &quot;$(TargetPath)&quot; /p:Desktop /e /s>
+			ContinueOnError="true"
+			Command="&quot;$(ProjectDir)..\..\..\tools\Esri\ESRIRegAsm.exe&quot; &quot;$(TargetPath)&quot; /p:Desktop /e /s>
 		</Exec>
 		<Message Text="ESRIRegAsm finished." />
 	</Target>
