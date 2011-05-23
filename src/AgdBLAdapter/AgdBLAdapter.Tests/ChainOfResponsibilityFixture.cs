@@ -2,6 +2,7 @@ using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 using EsriDE.Commons.Patterns;
 using EsriDE.Samples.ContentFinder.ApplicationAdapter.Contract;
+using EsriDE.Samples.ContentFinder.BL.Contract;
 using EsriDE.Samples.ContentFinder.DomainModel;
 using NUnit.Framework;
 using Rhino.Mocks;
