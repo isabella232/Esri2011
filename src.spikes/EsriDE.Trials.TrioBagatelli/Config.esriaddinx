@@ -1,0 +1,30 @@
+﻿<ESRI.Configuration xmlns="http://schemas.esri.com/Desktop/AddIns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>EsriDE.Trials.TrioBagatelli</Name>
+  <AddInID>{9c22fd59-f3fd-41b4-a665-8e9594f1d06f}</AddInID>
+  <Description>Trio Bagatelli -Demo für Dreifaltigkeit Button, DockableWin und Extension</Description>
+  <Version>1.0</Version>
+  <Image>Images\EsriDE.Trials.TrioBagatelli.png</Image>
+  <Author>jm/apf</Author>
+  <Company>Esri Deutschland GmbH</Company>
+  <Date>5/24/2011</Date>
+  <Targets>
+    <Target name="Desktop" version="10.0" />
+  </Targets>
+  <AddIn language="CLR" library="EsriDE.Trials.TrioBagatelli.dll" namespace="EsriDE.Trials.TrioBagatelli">
+    <ArcMap>
+      <Commands>
+        <Button id="Esri_Deutschland_GmbH_EsriDE.Trials.TrioBagatelli_ButtonTrioBagatelli" class="ButtonTrioBagatelli" message="VS - Show DockableWin aus TrioBagatelli" caption="Show DockableWin" tip="Show DockableWin aus TrioBagatelli" category="Esri Deutschland GmbH" image="Images\ButtonTrioBagatelli.png" />
+      </Commands>
+      <Extensions>
+        <Extension id="Esri_Deutschland_GmbH_EsriDE.Trials.TrioBagatelli_ExtensionTrioBagatelli" class="ExtensionTrioBagatelli" productName="TrioBagatelli" showInExtensionDialog="true">
+          <Description>Extension aus TrioBagatelli</Description>
+        </Extension>
+      </Extensions>
+      <DockableWindows>
+        <DockableWindow id="Esri_Deutschland_GmbH_EsriDE.Trials.TrioBagatelli_DockableWindowTrioBagatelli" class="DockableWindowTrioBagatelli+AddinImpl" caption="TrioBagatelli" image="Images\DockableWindowTrioBagatelli.png">
+          <InitialPlacement height="300" width="300" state="pinned" position="top" />
+        </DockableWindow>
+      </DockableWindows>
+    </ArcMap>
+  </AddIn>
+</ESRI.Configuration>
