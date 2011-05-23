@@ -51,7 +51,16 @@ namespace EsriDE.Commons.Ags
 		public static IEnumerable<Uri> GetServiceUris(Uri uri)
 		{
 			var path = TrimEndingSlash(uri.AbsoluteUri);
-			var rootdirectory = GetServiceDirectory(path);
+
+			ServiceDirectory rootdirectory;
+			try
+			{
+				rootdirectory = GetServiceDirectory(path);
+			}
+			catch (Exception e)
+			{
+				yield break;
+			}
 
 			foreach (Service service in rootdirectory.Services)
 			{
@@ -66,7 +75,16 @@ namespace EsriDE.Commons.Ags
 		public static IEnumerable<Uri> GetFolderUris(Uri uri)
 		{
 			var path = TrimEndingSlash(uri.AbsoluteUri);
-			var rootdirectory = GetServiceDirectory(path);
+
+			ServiceDirectory rootdirectory;
+			try
+			{
+				rootdirectory = GetServiceDirectory(path);
+			}
+			catch (Exception e)
+			{
+				yield break;
+			}
 
 			foreach (string folder in rootdirectory.Folders)
 			{
