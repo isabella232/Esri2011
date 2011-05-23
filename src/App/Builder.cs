@@ -54,17 +54,21 @@ namespace EsriDE.Samples.ContentFinder.App
 				{
 					d["Controller"] =
 						k.Resolve<IController>();
-				}));
+					d["ContentProcessorAdapter"] =
+						k.Resolve<IContentProcessorAdapter>();
+				})
+				.LifeStyle.Custom(typeof(TrulyTransientLifestyleManager)));
 
 			container.Register(
-				Component.For<IController>().ImplementedBy<Controller>().LifeStyle.Custom(typeof(TrulyTransientLifestyleManager)));
+				Component.For<IController>().ImplementedBy<Controller>()
+				.LifeStyle.Custom(typeof(TrulyTransientLifestyleManager)));
 			container.Register(
-				Component.For<IConfigurationReader>().ImplementedBy<XmlConfigurationReader>().LifeStyle.Custom(
-					typeof(TrulyTransientLifestyleManager)));
+				Component.For<IConfigurationReader>().ImplementedBy<XmlConfigurationReader>()
+				.LifeStyle.Custom(typeof(TrulyTransientLifestyleManager)));
 
 			container.Register(
-				Component.For<IToggleableView, IToggleableForm>().ImplementedBy<ContentForm>().LifeStyle.Custom(
-					typeof(TrulyTransientLifestyleManager)));
+				Component.For<IToggleableView, IToggleableForm>().ImplementedBy<ContentForm>()
+				.LifeStyle.Custom(typeof(TrulyTransientLifestyleManager)));
 
 			var assemlblyLocation = Assembly.GetExecutingAssembly().Location;
 			string assemblyPath = (Directory.GetParent(assemlblyLocation)).FullName;
@@ -81,7 +85,10 @@ namespace EsriDE.Samples.ContentFinder.App
 									{
 										d["contentLocatorCreatorFilters"] =
 											k.ResolveAll<IContentLocatorCreatorFilter>();
-									}));
+									})
+									.LifeStyle.Custom(typeof(TrulyTransientLifestyleManager)));
+
+			container.Register(Component.For<IContentProcessorAdapter>().ImplementedBy<SimpleWriterContentProcessorAdapter>());
 
 			return container;
 		}

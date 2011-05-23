@@ -76,6 +76,7 @@
   <ItemGroup>
     <Compile Include="Builder.cs" />
     <Compile Include="LicenseUtil.cs" />
+    <Compile Include="SimpleWriterContentProcessorAdapter.cs" />
     <Compile Include="WinFormsForm.cs">
       <SubType>Form</SubType>
     </Compile>

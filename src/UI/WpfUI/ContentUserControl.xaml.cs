@@ -42,6 +42,22 @@ namespace EsriDE.Samples.ContentFinder.WpfUI
 			}
 		}
 
+		private IContentProcessorAdapter _contentProcessorAdapter;
+		public IContentProcessorAdapter ContentProcessorAdapter
+		{
+			get { return _contentProcessorAdapter; }
+			set
+			{
+				if (null != _contentProcessorAdapter)
+				{
+					this.ContentSelected -= _contentProcessorAdapter.Process;
+				}
+
+				_contentProcessorAdapter = value;
+				this.ContentSelected += _contentProcessorAdapter.Process;
+			}
+		}
+
 		////Todo: Wrap in AOP
 		//public void ImportContentClassical(Content c)
 		//{

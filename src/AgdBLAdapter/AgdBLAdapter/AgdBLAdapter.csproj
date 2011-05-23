@@ -76,6 +76,9 @@
     <Reference Include="EsriDE.Samples.ContentFinder.ApplicationAdapter.Contract, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
       <HintPath>..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.ApplicationAdapter.Contract.dll</HintPath>
     </Reference>
+    <Reference Include="EsriDE.Samples.ContentFinder.BL.Contract, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <HintPath>..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.BL.Contract.dll</HintPath>
+    </Reference>
     <Reference Include="EsriDE.Samples.ContentFinder.ContentAdapter, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86" />
     <Reference Include="EsriDE.Samples.ContentFinder.ContentAdapter.Contract, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
       <HintPath>..\..\..\bin.contracts\EsriDE.Samples.ContentFinder.ContentAdapter.Contract.dll</HintPath>

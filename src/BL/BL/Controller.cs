@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using EsriDE.Samples.ContentFinder.BL.Contract;
 using EsriDE.Samples.ContentFinder.ConfigurationAdapter.Contract;
 using EsriDE.Samples.ContentFinder.ContentAdapter.Contract;
@@ -62,6 +63,7 @@ namespace EsriDE.Samples.ContentFinder.BL
 
 		private void HandleFoundContent(Content obj)
 		{
+			Trace.WriteLine("HandleFoundContent");
 			ContentFound(obj);
 		}
 
