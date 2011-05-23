@@ -35,7 +35,7 @@ namespace EsriDE.Samples.ContentFinder.XmlConfigurationAdapter
 			return r;
 		}
 
-		internal string GetFullConfigFilename()
+		internal static string GetFullConfigFilename()
 		{
 			var location = Assembly.GetExecutingAssembly().Location;
 			var path = Path.GetDirectoryName(location);

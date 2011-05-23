@@ -41,7 +41,7 @@ namespace EsriDE.Samples.ContentFinder.XmlConfigurationAdapter.Tests
 		[Test]
 		public void Evaluating_ConfigFileLocation_Works()
 		{
-			var filename = _sut.GetFullConfigFilename();
+			var filename = XmlConfigurationReader.GetFullConfigFilename();
 			Assert.That(filename.EndsWith(@"\Locations.config"));
 			Assert.That(File.Exists(filename));
 		}
