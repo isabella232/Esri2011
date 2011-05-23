@@ -1,0 +1,30 @@
+<Configuration>
+  <SharedSolutionTemplateManager>
+    <LiveTemplates>
+      <Template uid="3196ae3b-fdd4-4035-997f-13f3c3c0dcf1" shortcut="conreg" description="Register Stuff" text="$container$.Register(Component.For&lt;$Interface$&gt;().ImplementedBy&lt;$Class$&gt;());" reformat="True" shortenQualifiedReferences="True">
+        <Context>
+          <CSharpContext context="Statement" minimumLanguageVersion="2.0" />
+        </Context>
+        <Categories />
+        <Variables>
+          <Variable name="container" expression="" initialRange="0" />
+          <Variable name="Interface" expression="" initialRange="0" />
+          <Variable name="Class" expression="" initialRange="0" />
+        </Variables>
+        <CustomProperties />
+      </Template>
+      <Template uid="d0a1789e-f925-43af-810b-ff27eca013db" shortcut="mock" description="Get a dynamic mock" text="var $variable$ = $mockRepository$.DynamicMock&lt;$Interface$&gt;();" reformat="True" shortenQualifiedReferences="True">
+        <Context>
+          <CSharpContext context="Statement" minimumLanguageVersion="2.0" />
+        </Context>
+        <Categories />
+        <Variables>
+          <Variable name="variable" expression="" initialRange="0" />
+          <Variable name="mockRepository" expression="" initialRange="0" />
+          <Variable name="Interface" expression="" initialRange="0" />
+        </Variables>
+        <CustomProperties />
+      </Template>
+    </LiveTemplates>
+  </SharedSolutionTemplateManager>
+</Configuration>

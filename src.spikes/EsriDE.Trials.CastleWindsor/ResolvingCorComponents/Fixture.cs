@@ -3,6 +3,7 @@ using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 using EsriDE.Trials.CastleWindsor.ResolvingCorComponents.Cor;
 using NUnit.Framework;
+using Rhino.Mocks;
 
 namespace EsriDE.Trials.CastleWindsor.ResolvingCorComponents
 {
@@ -55,7 +56,17 @@ namespace EsriDE.Trials.CastleWindsor.ResolvingCorComponents
 			processor.Process("ArcMapMxdContentProcessor");
 
 			Console.WriteLine("Run with ArcMapAgsContentProcessor");
-			processor.Process("ArcMapAgsContentProcessor");		}
+			processor.Process("ArcMapAgsContentProcessor");
+		}
+
+		[Test]
+		public void Foo()
+		{
+			var container = new WindsorContainer();
+			container.Register(Component.For<IContentProcessor>().ImplementedBy<TestMasterContentProcessor>());
+
+
+		}
 	}
 
 	// ReSharper restore InconsistentNaming
