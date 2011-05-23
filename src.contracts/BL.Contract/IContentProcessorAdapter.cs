@@ -1,6 +1,6 @@
 using EsriDE.Samples.ContentFinder.DomainModel;
 
-namespace EsriDE.Samples.ContentFinder.ApplicationAdapter.Contract
+namespace EsriDE.Samples.ContentFinder.BL.Contract
 {
 	public interface IContentProcessorAdapter
 	{
