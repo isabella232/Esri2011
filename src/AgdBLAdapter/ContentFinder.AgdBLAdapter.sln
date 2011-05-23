@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgdBLAdapter", "AgdBLAdapter\AgdBLAdapter.csproj", "{02F4C403-0487-42F2-AF4A-711609A45DD1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgdBLAdapter.Tests", "AgdBLAdapter.Tests\AgdBLAdapter.Tests.csproj", "{93133AF6-B7B5-4B1A-9B79-5B6FD735BC4D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{02F4C403-0487-42F2-AF4A-711609A45DD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02F4C403-0487-42F2-AF4A-711609A45DD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02F4C403-0487-42F2-AF4A-711609A45DD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02F4C403-0487-42F2-AF4A-711609A45DD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93133AF6-B7B5-4B1A-9B79-5B6FD735BC4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93133AF6-B7B5-4B1A-9B79-5B6FD735BC4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93133AF6-B7B5-4B1A-9B79-5B6FD735BC4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93133AF6-B7B5-4B1A-9B79-5B6FD735BC4D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
