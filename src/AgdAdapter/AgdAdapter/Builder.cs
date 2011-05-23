@@ -25,9 +25,9 @@ namespace EsriDE.Samples.ContentFinder.AgdAdapter
 	{
 		private IWindsorContainer _container;
 
-		private IToggleablePresenter _toggleablePresenter;
 		private IContentProcessorAdapter _contentProcessorAdapter;
 		private IPortal _portal;
+		private IToggleablePresenter _toggleablePresenter;
 
 		public Builder(IShifterView view)
 		{
@@ -39,7 +39,7 @@ namespace EsriDE.Samples.ContentFinder.AgdAdapter
 
 		~Builder()
 		{
-			Console.WriteLine("Builder.~");
+			Trace.WriteLine("Builder.~");
 		}
 
 		private void ConnectMeAsModelObserver()
@@ -65,7 +65,7 @@ namespace EsriDE.Samples.ContentFinder.AgdAdapter
 
 		private void ConstructSystem()
 		{
-			Console.WriteLine("Construct system");
+			Trace.WriteLine("Construct system");
 			try
 			{
 				_toggleablePresenter = _container.Resolve<IToggleablePresenter>();
@@ -77,14 +77,14 @@ namespace EsriDE.Samples.ContentFinder.AgdAdapter
 			catch (Exception e)
 			{
 				Trace.WriteLine(e);
-			}			
+			}
 			//var formVisibilityModel = _container.Resolve<IToggleModel>();
 			//_toggleablePresenter.SetModel(formVisibilityModel);
 		}
 
 		private void DestroySystem()
 		{
-			Console.WriteLine("Destroy system");
+			Trace.WriteLine("Destroy system");
 			////_toggleablePresenter.UnsetModel();
 			////_container.Release(_toggleablePresenter);
 
@@ -102,20 +102,10 @@ namespace EsriDE.Samples.ContentFinder.AgdAdapter
 			_container.Register(Component.For<IShifterModel>().ImplementedBy<ToggleViewShifterModel>());
 			_container.Register(Component.For<IWindowInformation>().ImplementedBy<HostWindowInformation>());
 
-			////_container.Register(Component.For<IWindowInformation>().ImplementedBy<HostWindowInformation>());
-
 			_container.Kernel.ReleasePolicy = new TrulyTransientReleasePolicy();
-			_container.Register(Component.For<IToggleablePresenter>().ImplementedBy<ContentFormPresenter>().LifeStyle.Custom(typeof(TrulyTransientLifestyleManager)));
-			
-			/*
-			_container.Register(Component.For<IToggleableView, IToggleableForm>().ImplementedBy<ContentForm>().LifeStyle.Custom(typeof(TrulyTransientLifestyleManager)));
-
-			////_container.Register(
-			////    Component.For<IContentModel>().ImplementedBy<ContentModel>().LifeStyle.Custom(
-			////        typeof (TrulyTransientLifestyleManager)));
-			////_container.Register(
-			////    Component.For<IAgdAdapter>().ImplementedBy<AgdAdapter>().LifeStyle.Custom(typeof (TrulyTransientLifestyleManager)));
-			*/
+			_container.Register(
+				Component.For<IToggleablePresenter>().ImplementedBy<ContentFormPresenter>().LifeStyle.Custom(
+					typeof (TrulyTransientLifestyleManager)));
 
 			_container.Register(
 				Component
@@ -125,43 +115,53 @@ namespace EsriDE.Samples.ContentFinder.AgdAdapter
 					                   	{
 					                   		d["Controller"] =
 					                   			k.Resolve<IController>();
-					                   	}));
-				//Todo: .LifeStyle.Custom(typeof(TrulyTransientLifestyleManager)));
-				//IPortal wird 2mal angefordert -> 2mal instantiert;
+					                   		d["ContentProcessorAdapter"] =
+					                   			k.Resolve<IContentProcessorAdapter>();
+					                   	})
+					.LifeStyle.Custom(typeof(TrulyTransientLifestyleManager)));
+			//Todo: .LifeStyle.Custom(typeof(TrulyTransientLifestyleManager)));
+			//IPortal wird 2mal angefordert -> 2mal instantiert;
 
 			_container.Register(
-				Component.For<IController>().ImplementedBy<Controller>().LifeStyle.Custom(typeof(TrulyTransientLifestyleManager)));
+				Component.For<IController>().ImplementedBy<Controller>().LifeStyle.Custom(typeof (TrulyTransientLifestyleManager)));
 			_container.Register(
 				Component.For<IConfigurationReader>().ImplementedBy<XmlConfigurationReader>()
-				.LifeStyle.Custom(typeof(TrulyTransientLifestyleManager)));
+					.LifeStyle.Custom(typeof (TrulyTransientLifestyleManager)));
 
 			_container.Register(
 				Component.For<IToggleableView, IToggleableForm>().ImplementedBy<ContentForm>()
-				.LifeStyle.Custom(typeof(TrulyTransientLifestyleManager)));
+					.LifeStyle.Custom(typeof (TrulyTransientLifestyleManager)));
 
 			var assemlblyLocation = Assembly.GetExecutingAssembly().Location;
-			string assemblyPath = (Directory.GetParent(assemlblyLocation)).FullName;
+			string assemblyPath = Directory.GetParent(assemlblyLocation).FullName;
 
-			_container.Register(AllTypes.FromAssemblyInDirectory(new AssemblyFilter(assemblyPath)).BasedOn
-									<IContentLocatorCreatorFilter>()
-									.WithService.FromInterface()
-									.Configure(c => c.LifeStyle.Custom(typeof(TrulyTransientLifestyleManager))));
+			_container.Register(AllTypes.FromAssemblyInDirectory(new AssemblyFilter(assemblyPath))
+			                    	.BasedOn<IContentLocatorCreatorFilter>()
+			                    	.WithService.FromInterface()
+			                    	.Configure(c => c.LifeStyle.Custom(typeof (TrulyTransientLifestyleManager))));
 
 			_container.Register(Component
-									.For<IContentLocatorResolver>()
-									.ImplementedBy<ContentLocatorResolver>()
-									.DynamicParameters((k, d) =>
-									{
-										d["contentLocatorCreatorFilters"] =
-											k.ResolveAll<IContentLocatorCreatorFilter>();
-									})
-									.LifeStyle.Custom(typeof(TrulyTransientLifestyleManager)));
+			                    	.For<IContentLocatorResolver>()
+			                    	.ImplementedBy<ContentLocatorResolver>()
+			                    	.DynamicParameters((k, d) =>
+			                    	                   	{
+			                    	                   		d["contentLocatorCreatorFilters"] =
+			                    	                   			k.ResolveAll<IContentLocatorCreatorFilter>();
+			                    	                   	})
+			                    	.LifeStyle.Custom(typeof (TrulyTransientLifestyleManager)));
 
-			_container.Register(Component.For<IApplicationAdapter>().ImplementedBy<ArcMapAddinAdapter>());
+			_container.Register(Component.For<IApplicationAdapter>().ImplementedBy<ArcMapAddinAdapter>()
+			                    	.LifeStyle.Custom(typeof (TrulyTransientLifestyleManager)));
 
-			_container.Register(Component.For<IChainOfResponsibilityHandler<Content>>().ImplementedBy<ApplicationMxdCorHandler>().Named("mxd").Parameters(Parameter.ForKey("successor").Eq("${ags}")));
-			_container.Register(Component.For<IChainOfResponsibilityHandler<Content>>().ImplementedBy<ApplicationAgsCorHandler>().Named("ags").Parameters(Parameter.ForKey("successor").Eq("${Ende}")));
-			_container.Register(Component.For<IChainOfResponsibilityHandler<Content>>().ImplementedBy<EndApplicationCorHandler>().Named("Ende"));
+			_container.Register(Component.For<IChainOfResponsibilityHandler<Content>>().ImplementedBy<ApplicationMxdCorHandler>()
+			                    	.Named("mxd").Parameters(Parameter.ForKey("successor").Eq("${ags}"))
+			                    	.LifeStyle.Custom(typeof (TrulyTransientLifestyleManager)));
+			_container.Register(Component.For<IChainOfResponsibilityHandler<Content>>().ImplementedBy<ApplicationAgsCorHandler>()
+			                    	.Named("ags").Parameters(Parameter.ForKey("successor").Eq("${Ende}"))
+			                    	.LifeStyle.Custom(typeof (TrulyTransientLifestyleManager)));
+			_container.Register(Component.For<IChainOfResponsibilityHandler<Content>>().ImplementedBy<EndApplicationCorHandler>()
+			                    	.LifeStyle.Custom(typeof (TrulyTransientLifestyleManager))
+			                    	.Named("Ende"));
 
 			_container.Register(Component.For<IContentProcessorAdapter>().ImplementedBy<ContentProcessorAdapter>());
 		}
@@ -173,3 +173,15 @@ namespace EsriDE.Samples.ContentFinder.AgdAdapter
 		}
 	}
 }
+
+#region Oldcode
+/*
+			_container.Register(Component.For<IToggleableView, IToggleableForm>().ImplementedBy<ContentForm>().LifeStyle.Custom(typeof(TrulyTransientLifestyleManager)));
+
+			////_container.Register(
+			////    Component.For<IContentModel>().ImplementedBy<ContentModel>().LifeStyle.Custom(
+			////        typeof (TrulyTransientLifestyleManager)));
+			////_container.Register(
+			////    Component.For<IAgdAdapter>().ImplementedBy<AgdAdapter>().LifeStyle.Custom(typeof (TrulyTransientLifestyleManager)));
+			*/
+#endregion
