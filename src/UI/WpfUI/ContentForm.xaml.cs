@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows.Controls;
 using System.Windows.Interop;
 using EsriDE.Samples.ContentFinder.UI.Contract;
@@ -62,6 +63,12 @@ namespace EsriDE.Samples.ContentFinder.WpfUI
 		{
 			_isClosing = true;
 			_closing();
+		}
+
+		private void Window_SizeChanged(object sender, System.Windows.SizeChangedEventArgs e)
+		{
+			Debug.WriteLine("New: " + e.NewSize);
+			Debug.WriteLine("Old: " + e.PreviousSize);
 		}
 	}
 }
