@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.Windows.Threading;
 using PostSharp.Aspects;
 
@@ -16,11 +17,13 @@ namespace EsriDE.Commons.Aop
 			if (dispatcherObject.CheckAccess())
 			{
 				// We are already in the GUI thread. Proceed.
+				Debug.WriteLine("Must not dispatch.");
 				eventArgs.Proceed();
 			}
 			else
 			{
-				// Invoke the target method synchronously.  
+				// Invoke the target method synchronously. 
+ 				Debug.WriteLine("Must dispatch.");
 				dispatcherObject.Dispatcher.Invoke(Priority, new Action(eventArgs.Proceed));
 			}
 		}
