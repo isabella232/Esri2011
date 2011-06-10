@@ -76,6 +76,17 @@
     <Compile Include="ComplexUI\Contracts\DomainModel\EnabledState.cs" />
     <Compile Include="ComplexUI\Implementations\Forms\FormView.cs" />
     <Compile Include="ComplexUI\AA\IBuilder.cs" />
+    <Compile Include="DI\ContractA.cs" />
+    <Compile Include="DI\ContractB.cs" />
+    <Compile Include="DI\ContractC.cs" />
+    <Compile Include="DI\ContractD.cs" />
+    <Compile Include="DI\ContractE.cs" />
+    <Compile Include="DI\Fixture.cs" />
+    <Compile Include="DI\ImplementationA.cs" />
+    <Compile Include="DI\ImplementationB.cs" />
+    <Compile Include="DI\ImplementationC.cs" />
+    <Compile Include="DI\ImplementationD.cs" />
+    <Compile Include="DI\ImplementationE.cs" />
     <Compile Include="LifestyleBehaviour\Fixture.WorkingWithForms.cs">
       <DependentUpon>Fixture.cs</DependentUpon>
     </Compile>
@@ -177,6 +188,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ComplexUI\Overview.cd" />
+    <None Include="DI\ClassDiagram.cd" />
     <None Include="ResolvingCorComponents\CastleWindsor.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

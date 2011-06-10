@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="EsriDE.Trials.CastleWindsor.DI.ContractE" Collapsed="true">
+    <Position X="7.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DI\ContractE.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EsriDE.Trials.CastleWindsor.DI.ContractC" Collapsed="true">
+    <Position X="6.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DI\ContractC.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EsriDE.Trials.CastleWindsor.DI.ImplementationA" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4.75" Y="1.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DI\ImplementationA.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.223" Collapsed="true" />
+  </Class>
+  <Class Name="EsriDE.Trials.CastleWindsor.DI.ImplementationE" Collapsed="true">
+    <Position X="7.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DI\ImplementationE.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EsriDE.Trials.CastleWindsor.DI.ImplementationB" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="3.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DI\ImplementationB.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="EsriDE.Trials.CastleWindsor.DI.ImplementationC" Collapsed="true">
+    <Position X="6.25" Y="4" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DI\ImplementationC.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EsriDE.Trials.CastleWindsor.DI.ImplementationD" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DI\ImplementationD.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="EsriDE.Trials.CastleWindsor.DI.ContractA" Collapsed="true">
+    <Position X="4.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DI\ContractA.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="EsriDE.Trials.CastleWindsor.DI.ContractB" Collapsed="true">
+    <Position X="3.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DI\ContractB.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="EsriDE.Trials.CastleWindsor.DI.ContractD" Collapsed="true">
+    <Position X="4.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DI\ContractD.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
