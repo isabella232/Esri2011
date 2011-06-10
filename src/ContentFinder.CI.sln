@@ -243,4 +243,7 @@ Global
 		{02F4C403-0487-42F2-AF4A-711609A45DD1} = {EF0E2424-C8AF-4140-AF63-168803F95DCD}
 		{93133AF6-B7B5-4B1A-9B79-5B6FD735BC4D} = {EF0E2424-C8AF-4140-AF63-168803F95DCD}
 	EndGlobalSection
+	GlobalSection(NDepend) = preSolution
+		Project = ".\ContentFinder.CI.ndproj"
+	EndGlobalSection
 EndGlobal
