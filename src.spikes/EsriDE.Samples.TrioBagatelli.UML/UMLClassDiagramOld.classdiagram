@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner" dslVersion="1.0.0.0" Id="c26d434b-09ba-45e9-a5ee-aa4315f0fed8" name="Bad Layering" linkedPackageId="9c76591f-07cc-421d-812e-cf38efee0057" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="154a2d5d-4a98-46a8-a877-29bbb4407697" name="UI" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="4188466f-1c01-4b0e-863f-31287cde4879" />
+        <suppliersInternal>
+          <dependency Id="c797a2e9-2016-40a9-8aee-1c45ea8a99a0">
+            <classMoniker Id="c9c9c9a3-acaa-4542-a96a-1b0a7b41646f" LastKnownName="BL" />
+            <elementDefinition Id="8c83345f-8886-4e65-abea-f09ae99863e9" />
+          </dependency>
+        </suppliersInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="c9c9c9a3-acaa-4542-a96a-1b0a7b41646f" name="BL" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="43e65898-0e82-45c7-a5a1-74a72442ddfc" />
+        <suppliersInternal>
+          <dependency Id="58e0504a-6a30-48d4-b44b-4ca5beb375ee">
+            <classMoniker Id="38c93cc9-ace8-4dcb-b7ce-2e4b9fe8049c" LastKnownName="DA" />
+            <elementDefinition Id="a51b2210-eb3d-47e5-b512-b1f3b1e9f532" />
+          </dependency>
+        </suppliersInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="38c93cc9-ace8-4dcb-b7ce-2e4b9fe8049c" name="DA" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="5f6582a8-2c33-48b0-aff5-4b7775f4175c" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="9c76591f-07cc-421d-812e-cf38efee0057" name="EsriDE.Samples.TrioBagatelli.UML">
+    <elementDefinition Id="97e797f4-5c25-4992-abcd-733875ee78a5" />
+    <profileInstances>
+      <packageHasProfileInstances Id="c426b31c-bcee-4746-b67e-2af1fcc9b8f4">
+        <profileInstance Id="7bb58218-730e-4718-9de9-37fcd6c1b934" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="a88432f1-ad68-42a9-8a0a-e82ae2edac3f">
+        <profileInstance Id="c237c98d-558e-4391-a8ea-f27d1781ac23" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</logicalClassDesignerModel>

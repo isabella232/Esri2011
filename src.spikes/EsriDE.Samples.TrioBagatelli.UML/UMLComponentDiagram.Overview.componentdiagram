@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<componentModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" dslVersion="1.0.0.0" Id="2011e2b6-b0be-4e40-9733-8a9b50531848" name="UMLComponentDiagram.Overview" linkedPackageId="6ea4b117-559b-41d0-a607-16d4468f66c9" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="7cd567b7-c710-4213-8f38-03d259b7f35e">
+      <profileInstance Id="df76ce3c-4061-404d-8a48-539426c54604" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="b986526f-24d4-479b-a77f-51c41f31bc00">
+      <profileInstance Id="d93f51b2-f574-47a5-b567-8e8bc1382868" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <componentModelHasComponents>
+      <component Id="8c5a7aa5-9701-4721-ba87-9e6967960f80" name="DatenProvider" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="ac4b4474-10d3-4ce1-ab62-43623497d180" />
+        <suppliersInternal>
+          <dependency Id="20897056-ed9c-41d6-a165-4ecd6cd042c7">
+            <componentMoniker Id="15b725fd-1b4c-4caa-ba98-c534c35f095e" LastKnownName="Component2" />
+            <elementDefinition Id="91807021-1ae3-4ad5-845d-7522a2354134" />
+          </dependency>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <providedInterface Id="848cb8da-8d4e-4186-9f42-1f4cf31e7181" name="Port1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isService="false" isBehavior="false">
+            <elementDefinition Id="ee0a2cbf-dac3-4976-b267-04cf1273db76" />
+            <type_NamedElement>
+              <interfaceMoniker Id="d78e0c37-2015-4fcb-9697-9a108a9af8ab" LastKnownName="Customers" />
+            </type_NamedElement>
+          </providedInterface>
+        </ownedAttributesInternal>
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="15b725fd-1b4c-4caa-ba98-c534c35f095e" name="Component2" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="b439b5ec-640d-4fb0-bc66-f40dc39ab7be" />
+        <ownedAttributesInternal>
+          <requiredInterface Id="a9ca6362-a91c-494b-92b8-5977149999a8" name="Port1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isService="false" isBehavior="false">
+            <elementDefinition Id="161dad25-a74a-4267-8625-2f2e72224b3f" />
+            <type_NamedElement>
+              <interfaceMoniker Id="73ffe7cd-7f90-46d1-a120-a8c0d9a23096" LastKnownName="Customer Sorting" />
+            </type_NamedElement>
+          </requiredInterface>
+        </ownedAttributesInternal>
+      </component>
+    </componentModelHasComponents>
+    <modelContainsNamedElements>
+      <Interface Id="d78e0c37-2015-4fcb-9697-9a108a9af8ab" name="Customers" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="3d9f6e9b-8244-45d0-ac9c-7099fabfdf08" />
+      </Interface>
+    </modelContainsNamedElements>
+    <modelContainsNamedElements>
+      <Interface Id="73ffe7cd-7f90-46d1-a120-a8c0d9a23096" name="Customer Sorting" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="2904f055-f28d-48ed-a600-543e023fb5ec" />
+      </Interface>
+    </modelContainsNamedElements>
+    <componentModelHasComponents>
+      <component Id="e06096fe-d5f1-43c4-8b3c-3f9c86f18b9f" name="Component1" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="0d9e700f-5871-48cb-9a8e-6713f5c1f49f" />
+        <suppliersInternal>
+          <dependency Id="1e6527f0-e7cf-4206-9c5b-c344857f01f6">
+            <componentMoniker Id="8c5a7aa5-9701-4721-ba87-9e6967960f80" LastKnownName="DatenProvider" />
+            <elementDefinition Id="368e7744-2961-4b6a-89f0-aef535837610" />
+          </dependency>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <providedInterface Id="258f4a83-7015-4c43-8a7e-20996a043e35" name="Port1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isService="false" isBehavior="false">
+            <elementDefinition Id="05136562-023d-418c-8bba-2c37e0795367" />
+            <type_NamedElement>
+              <interfaceMoniker Id="693b5de6-3f5b-405d-9442-ceaeaec007c2" LastKnownName="Customer Sorting" />
+            </type_NamedElement>
+          </providedInterface>
+        </ownedAttributesInternal>
+      </component>
+    </componentModelHasComponents>
+    <modelContainsNamedElements>
+      <Interface Id="693b5de6-3f5b-405d-9442-ceaeaec007c2" name="Customer Sorting" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="2904f055-f28d-48ed-a600-543e023fb5ec" />
+      </Interface>
+    </modelContainsNamedElements>
+  </packagedElements>
+  <package Id="6ea4b117-559b-41d0-a607-16d4468f66c9" name="EsriDE.Samples.TrioBagatelli.UML">
+    <elementDefinition Id="97e797f4-5c25-4992-abcd-733875ee78a5" />
+  </package>
+</componentModel>

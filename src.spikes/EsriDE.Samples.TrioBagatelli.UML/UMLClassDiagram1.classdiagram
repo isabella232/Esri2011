@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner" dslVersion="1.0.0.0" Id="abd41af6-e8e6-4ac4-b82d-b5416dc5a8cd" name="Good Layering" linkedPackageId="9ce693ed-d5d6-499d-b1b5-b961befdd0bd" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <packagedElements>
+    <logicalClassDesignerModelHasPackages>
+      <package Id="ba7ce413-a3f7-40c8-b131-f0adc840de13" name="Mensch-Maschine-Interaktion">
+        <elementDefinition Id="a36c3be3-a9c8-4dae-8ed1-0e84ad5ab623" />
+        <packagedElements>
+          <packageHasNamedElement>
+            <class Id="72344af0-bbc7-40ad-83b1-4bbb85e156e4" name="UI-Layer" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="50814026-70f7-4bf9-bd8c-c5abc8e3c0ee" />
+              <suppliersInternal>
+                <dependency Id="d7442218-5fed-4831-880b-c05a3ecd3c93">
+                  <interfaceMoniker Id="000a1223-5ffd-4c0b-9801-b6878c5a979a" LastKnownName="UI-Service" />
+                  <elementDefinition Id="30a3568f-a6b2-43c4-b1a0-3441b15d0677" />
+                </dependency>
+              </suppliersInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <Interface Id="000a1223-5ffd-4c0b-9801-b6878c5a979a" name="UI-Service" isAbstract="false" isLeaf="false">
+              <elementDefinition Id="cc262a75-5262-4b87-b1ea-32bcc46950f9" />
+            </Interface>
+          </packageHasNamedElement>
+        </packagedElements>
+      </package>
+    </logicalClassDesignerModelHasPackages>
+    <logicalClassDesignerModelHasPackages>
+      <package Id="c930c90c-b59e-40c3-98b1-9b9a1f71bd20" name="Geschäftsregeln">
+        <elementDefinition Id="ab1f6178-0258-4cb0-bd31-262cabf12352" />
+        <packagedElements>
+          <packageHasNamedElement>
+            <class Id="7d28e330-7787-41a3-8141-2cd2c81f023a" name="BL-Layer" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="849ad0d4-ce5d-4d5b-a728-4e6f49023751" />
+              <suppliersInternal>
+                <interfaceRealization Id="12a7787f-45d5-4b4a-9a00-298a9fbfbc61">
+                  <interfaceMoniker Id="000a1223-5ffd-4c0b-9801-b6878c5a979a" LastKnownName="UI-Service" />
+                  <elementDefinition Id="ee7fbeb4-92e0-4fef-9a78-02268686684d" />
+                </interfaceRealization>
+                <dependency Id="bd0feb44-64bd-4030-a310-cd49f22a62f2">
+                  <interfaceMoniker Id="dd13e033-4044-45dd-9f3c-52640333c600" LastKnownName="BL-Service" />
+                  <elementDefinition Id="f356fbf9-1500-4494-a671-8c01d59987b6" />
+                </dependency>
+              </suppliersInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <Interface Id="dd13e033-4044-45dd-9f3c-52640333c600" name="BL-Service" isAbstract="false" isLeaf="false">
+              <elementDefinition Id="8b57f3dd-4683-45f5-9d32-1ec42a343f9d" />
+            </Interface>
+          </packageHasNamedElement>
+        </packagedElements>
+      </package>
+    </logicalClassDesignerModelHasPackages>
+    <logicalClassDesignerModelHasPackages>
+      <package Id="8be330cc-6ca0-4d8d-9263-5f05c8d1dc33" name="Datenbank">
+        <elementDefinition Id="c8eef4f2-4125-4c26-b841-5e155b2e2a12" />
+        <packagedElements>
+          <packageHasNamedElement>
+            <class Id="6a9e1a0d-963b-4629-b669-fb4a86fbf527" name="DA-Layer" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="ab8c787f-b4d5-4afc-b8e4-19abdcfd0d47" />
+              <suppliersInternal>
+                <interfaceRealization Id="c683cf4c-65f4-4b0b-9aee-e9a0e63f81d1">
+                  <interfaceMoniker Id="dd13e033-4044-45dd-9f3c-52640333c600" LastKnownName="BL-Service" />
+                  <elementDefinition Id="a9192b7c-fc88-4da9-96d1-fe58e7b0e7c6" />
+                </interfaceRealization>
+              </suppliersInternal>
+            </class>
+          </packageHasNamedElement>
+        </packagedElements>
+      </package>
+    </logicalClassDesignerModelHasPackages>
+  </packagedElements>
+  <package Id="9ce693ed-d5d6-499d-b1b5-b961befdd0bd" name="EsriDE.Samples.TrioBagatelli.UML">
+    <elementDefinition Id="97e797f4-5c25-4992-abcd-733875ee78a5" />
+    <profileInstances>
+      <packageHasProfileInstances Id="e9d59177-3880-4293-9148-afa96abb1789">
+        <profileInstance Id="6166a78b-c3f7-4aa5-9203-ab952bea7401" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="cddb8907-1535-4fb3-b83c-1a054535f406">
+        <profileInstance Id="6443860b-092a-428d-b611-1aab605491da" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</logicalClassDesignerModel>

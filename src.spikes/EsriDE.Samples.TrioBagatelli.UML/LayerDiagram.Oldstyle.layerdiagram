@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="295d7493-39b1-4105-8b8e-ab375b04615c" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
+  <layers>
+    <layer Id="7c00029a-32e9-4dff-9c96-36ff1475d8f4" name="DA" />
+    <layer Id="49cd026d-5919-45cc-a92e-e772b1869b1d" name="BL">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="2c0ad4fc-70c1-4337-be50-88b658e6c4b7" direction="Forward">
+          <layerMoniker Id="7c00029a-32e9-4dff-9c96-36ff1475d8f4" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+    </layer>
+    <layer Id="dbb1598d-d088-4127-ab56-5e2df3f84adc" name="UI">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="4c296690-3466-47bb-96f1-7c796811341b" direction="Forward">
+          <layerMoniker Id="49cd026d-5919-45cc-a92e-e772b1869b1d" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+    </layer>
+    <layer Id="6060a051-417a-4cc9-8479-2d524ebc0607" name="UI2&#xD;&#xA;" />
+  </layers>
+</layerModel>

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="ab1f6178-0258-4cb0-bd31-262cabf12352"
+  name="Geschäftsregeln" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="849ad0d4-ce5d-4d5b-a728-4e6f49023751"
+        name="BL-Layer"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="ee7fbeb4-92e0-4fef-9a78-02268686684d">
+            <interfaceMoniker
+              Id="cc262a75-5262-4b87-b1ea-32bcc46950f9"
+              LastKnownName="UI-Service"
+              LastKnownLocation="Package_1817.uml" />
+          </interfaceRealization>
+          <dependency
+            Id="f356fbf9-1500-4494-a671-8c01d59987b6">
+            <interfaceMoniker
+              Id="8b57f3dd-4683-45f5-9d32-1ec42a343f9d"
+              LastKnownName="BL-Service"
+              LastKnownLocation="Package_1818.uml" />
+          </dependency>
+        </suppliersInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="8b57f3dd-4683-45f5-9d32-1ec42a343f9d"
+        name="BL-Service"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

@@ -1,7 +1,25 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsriDE.Trials.TrioBagatelli", "EsriDE.Trials.TrioBagatelli\EsriDE.Trials.TrioBagatelli.csproj", "{CC8E6547-84AE-4E9D-9A8E-6641E3FCB801}"
+EndProject
+Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "EsriDE.Samples.TrioBagatelli.UML", "EsriDE.Samples.TrioBagatelli.UML\EsriDE.Samples.TrioBagatelli.UML.modelproj", "{C82B6DE8-AE62-4A03-87D3-0E16CB570BBE}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CC8E6547-84AE-4E9D-9A8E-6641E3FCB801}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC8E6547-84AE-4E9D-9A8E-6641E3FCB801}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC8E6547-84AE-4E9D-9A8E-6641E3FCB801}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC8E6547-84AE-4E9D-9A8E-6641E3FCB801}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C82B6DE8-AE62-4A03-87D3-0E16CB570BBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C82B6DE8-AE62-4A03-87D3-0E16CB570BBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C82B6DE8-AE62-4A03-87D3-0E16CB570BBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C82B6DE8-AE62-4A03-87D3-0E16CB570BBE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection

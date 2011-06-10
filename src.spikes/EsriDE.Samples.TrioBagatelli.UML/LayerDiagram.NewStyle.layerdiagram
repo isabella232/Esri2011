@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="1840a6e8-9815-43e6-8017-da24558c76f4" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
+  <comments>
+    <comment Id="0d954ade-34f1-4b3e-9d3c-b167d560d622" name="Comment1">
+      <body>Source: Microsoft Application Architecture Guide, 2nd Edition. 
+Refer to "Chapter 22: Designing Rich Client Applications" for more information.
+URL: http://msdn.microsoft.com/en-us/library/ee658087.aspx.
+</body>
+    </comment>
+  </comments>
+  <layers>
+    <layer Id="1ce097c1-c0bd-483e-a132-3435c9ae9306" name="UI">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="da44546c-c2ce-4781-912d-5dd5a8d4931d" direction="Forward">
+          <layerMoniker Id="04050adf-7a05-4581-aaa9-1c9620d71dfa" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <references>
+        <reference Id="ad94ca63-413d-4f2c-9730-a7aafdc945b4" name="ButtonTrioBagatelli.cs">
+          <ArtifactNode Label="ButtonTrioBagatelli.cs" Category="CodeSchema_ProjectItem" Id="(Assembly=../esride.trials.triobagatelli/buttontriobagatelli.cs)">
+            <Category Ref="CodeSchema_SourceFile" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=EsriDE.Trials.TrioBagatelli Namespace=EsriDE.Trials.TrioBagatelli Type=ButtonTrioBagatelli)" Label="ButtonTrioBagatelli" Category="CodeSchema_Class">
+            <LinkCategory Ref="Contains" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+        <reference Id="9c788b48-f685-40ba-9a87-b3704878a9a4" name="DockableWindowTrioBagatelli.cs">
+          <ArtifactNode Label="DockableWindowTrioBagatelli.cs" Category="CodeSchema_ProjectItem" Id="(Assembly=../EsriDE.Trials.TrioBagatelli/DockableWindowTrioBagatelli.cs)">
+            <Category Ref="CodeSchema_SourceFile" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=EsriDE.Trials.TrioBagatelli Namespace=EsriDE.Trials.TrioBagatelli Type=(Name=AddinImpl ParentType=DockableWindowTrioBagatelli))" Label="DockableWindowTrioBagatelli.AddinImpl" Category="CodeSchema_Class">
+            <LinkCategory Ref="Contains" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=EsriDE.Trials.TrioBagatelli Namespace=EsriDE.Trials.TrioBagatelli Type=DockableWindowTrioBagatelli)" Label="DockableWindowTrioBagatelli" Category="CodeSchema_Class">
+            <LinkCategory Ref="Contains" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+        <reference Id="8831de83-bd55-4914-9d71-9f51b0315935" name="DockableWindowTrioBagatelli.Designer.cs">
+          <ArtifactNode Label="DockableWindowTrioBagatelli.Designer.cs" Category="CodeSchema_ProjectItem" Id="(Assembly=../esride.trials.triobagatelli/dockablewindowtriobagatelli.designer.cs)">
+            <Category Ref="CodeSchema_SourceFile" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=EsriDE.Trials.TrioBagatelli Namespace=EsriDE.Trials.TrioBagatelli Type=DockableWindowTrioBagatelli)" Label="DockableWindowTrioBagatelli" Category="CodeSchema_Class">
+            <LinkCategory Ref="Contains" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="04050adf-7a05-4581-aaa9-1c9620d71dfa" name="Layer1">
+      <childLayers>
+        <layer Id="30d0b950-a080-485c-a567-baf3799f5531" name="Layer2">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="123295f1-e0d2-4d9e-bae5-d293d0c82e47" direction="Forward">
+              <layerMoniker Id="ed70e27f-9f88-48d6-be85-09a24a36a739" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+        </layer>
+        <layer Id="a59c99af-aca8-481d-985b-d9f22aff6a73" name="Layer21">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="4c335f94-c1ee-4313-bf01-714f6e2e5785" direction="Forward">
+              <layerMoniker Id="5a6607b4-a1c1-4d46-adc7-d5dee78e45cf" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+        </layer>
+      </childLayers>
+      <references>
+        <reference Id="3419da35-897f-4ff6-a9dc-5c458a2eb7ad" name="ExtensionTrioBagatelli.cs">
+          <ArtifactNode Label="ExtensionTrioBagatelli.cs" Category="CodeSchema_ProjectItem" Id="(Assembly=../esride.trials.triobagatelli/extensiontriobagatelli.cs)">
+            <Category Ref="CodeSchema_SourceFile" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=EsriDE.Trials.TrioBagatelli Namespace=EsriDE.Trials.TrioBagatelli Type=ExtensionTrioBagatelli)" Label="ExtensionTrioBagatelli" Category="CodeSchema_Class">
+            <LinkCategory Ref="Contains" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="ed70e27f-9f88-48d6-be85-09a24a36a739" name="Layer2">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="90968ce4-5157-4cfc-a04d-813c55da1bce" direction="Bidirectional">
+          <layerMoniker Id="5a6607b4-a1c1-4d46-adc7-d5dee78e45cf" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+    </layer>
+    <layer Id="5a6607b4-a1c1-4d46-adc7-d5dee78e45cf" name="Layer3" />
+    <layer Id="961851f6-5faa-4112-b5c3-a01657d29aa3" name="Presentation Layer">
+      <childLayers>
+        <layer Id="ec213dca-4777-4911-84e5-a4f3d3a31b7b" name="UI Components" />
+        <layer Id="036531f3-0fcf-444e-bce8-cab1d43f67a1" name="UI Process Components" />
+      </childLayers>
+    </layer>
+    <layer Id="c202bed0-287f-4c7c-a68f-e05df9aee19d" name="Business Layer">
+      <childLayers>
+        <layer Id="f1cdf528-a088-4f07-aa9c-12de9b83f06d" name="Application Facade" />
+        <layer Id="a720413c-2885-49d2-a2d1-fa5c12fddd26" name="Business Workflow" />
+        <layer Id="ff6e5bf8-2329-4f30-bd38-01698d2a5ea4" name="Business Components" />
+        <layer Id="d4d03d3b-e8a2-48b9-a660-0ef3b7698b03" name="Business Entities" />
+      </childLayers>
+    </layer>
+    <layer Id="b374c592-8fd2-4bca-a5c8-947d9e9c5db4" name="Data Layer">
+      <childLayers>
+        <layer Id="bfdaa1b5-114a-4279-85ae-3f2b7601bf5b" name="Data Access Components" />
+        <layer Id="cc6811f7-3b00-4d9b-9000-0a3c6d53d98f" name="Data Helpers/ Utilities" />
+        <layer Id="b8fcfcc5-3cc2-49de-acac-0b93c70a446c" name="Service Agents" />
+      </childLayers>
+    </layer>
+    <layer Id="7f843e09-e6c5-46da-857f-1e91735a4db0" name="Cross Cutting">
+      <childLayers>
+        <layer Id="42e78e4d-0ec3-4fee-9e93-c987f20fc431" name="Security" />
+        <layer Id="30d2d8ab-f559-481f-9a98-296f7336e793" name="Communication" />
+        <layer Id="e53e8244-4e0f-49e1-b3f1-f9b7f4bb8135" name="Operational Management" />
+      </childLayers>
+    </layer>
+  </layers>
+</layerModel>

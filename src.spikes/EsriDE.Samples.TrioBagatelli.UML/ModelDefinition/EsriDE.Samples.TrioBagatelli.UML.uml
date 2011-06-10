@@ -1,0 +1,1150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="97e797f4-5c25-4992-abcd-733875ee78a5"
+  name="EsriDE.Samples.TrioBagatelli.UML" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="003e3ef1-31c8-4aed-a6fb-d6a0cddeb82a"
+        LastKnownName="UI"
+        LastKnownLocation="Something.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="fe758a7f-62ca-4ea0-a8e9-101d25e96098"
+        name="Subsystem1"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="c03e787f-6440-41fd-8060-bf69bf8da83c"
+        LastKnownName="BL"
+        LastKnownLocation="Something2.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <interaction
+        Id="4d013e84-34d1-49a9-8a8d-a8d8bbf046e8"
+        name="Sequence1"
+        collapseFragmentsFlag="false"
+        isActiveClass="false"
+        isAbstract="false"
+        isLeaf="false"
+        isReentrant="false">
+        <fragments>
+          <behaviorExecutionSpecification
+            Id="348777ed-0a6a-41ea-9639-12959bceba4a"
+            name="BehaviorExecutionSpecification1">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="5d49a360-1ec4-4667-a738-0ef862eaa598"
+                LastKnownName="docWin : DocWin"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="a7bed8fd-5d97-4fd5-8e51-3756c51aea20"
+                LastKnownName="ExecutionOccurrenceSpecification2"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="c03e80d4-6dae-4efc-beda-82f24eaf1343"
+                LastKnownName="ExecutionOccurrenceSpecification1"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="bfad41af-5d8b-4a1f-839e-68f207df022a"
+                LastKnownName="MessageOccurrenceSpecification2"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="4b4e8e77-a9bd-43ca-aee8-a8d6ac89a80e"
+                LastKnownName="MessageOccurrenceSpecification9"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="97a38b43-01c5-401a-b6f7-349d8e9b0dcf"
+                LastKnownName="MessageOccurrenceSpecification12"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="eb84cb52-1372-42a6-b53c-db960026e71a"
+                LastKnownName="MessageOccurrenceSpecification3"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="c03e80d4-6dae-4efc-beda-82f24eaf1343"
+            name="ExecutionOccurrenceSpecification1">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="13037fa1-2fb3-4463-93f4-a338baa5a2e9"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="5d49a360-1ec4-4667-a738-0ef862eaa598"
+                LastKnownName="docWin : DocWin"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="bfad41af-5d8b-4a1f-839e-68f207df022a"
+            name="MessageOccurrenceSpecification2">
+            <covered>
+              <lifelineMoniker
+                Id="5d49a360-1ec4-4667-a738-0ef862eaa598"
+                LastKnownName="docWin : DocWin"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="9812f496-91e6-45ba-a45b-39fe63307761"
+            name="MessageOccurrenceSpecification1">
+            <covered>
+              <lifelineMoniker
+                Id="8259e1eb-5f4c-4a28-b922-671fe3809c6b"
+                LastKnownName="testButton : TestButton"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="4fe3368d-1469-4bfe-b317-91efbf5d923a"
+            name="BehaviorExecutionSpecification3">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="245c9c86-bd81-4741-8260-6d0d75b3cdb0"
+                LastKnownName="contentList : ContentList"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="1f93bd48-6b31-4dfb-b285-36f8303ff6c1"
+                LastKnownName="ExecutionOccurrenceSpecification6"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="8086fe4f-1805-48d5-9287-bb1cb83e2733"
+                LastKnownName="ExecutionOccurrenceSpecification5"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="521c96d0-2a89-4250-94a8-01fffe176e37"
+                LastKnownName="MessageOccurrenceSpecification10"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="f95fa3c9-42b0-4cf5-8c4f-287ba6d6ad5e"
+                LastKnownName="MessageOccurrenceSpecification13"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="a3ccff2d-b527-4cc5-8e54-ae206febdd86"
+                LastKnownName="ExecutionOccurrenceSpecification9"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="497291ee-d792-4754-bd66-38dfb1b4674d"
+                LastKnownName="ExecutionOccurrenceSpecification10"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="4848fdbd-601b-4dd2-a52b-c7dcdca9a7de"
+                LastKnownName="MessageOccurrenceSpecification11"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="8086fe4f-1805-48d5-9287-bb1cb83e2733"
+            name="ExecutionOccurrenceSpecification5">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="7d2b01d9-d883-46b3-b571-604fb1a3801e"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="245c9c86-bd81-4741-8260-6d0d75b3cdb0"
+                LastKnownName="contentList : ContentList"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="521c96d0-2a89-4250-94a8-01fffe176e37"
+            name="MessageOccurrenceSpecification10">
+            <covered>
+              <lifelineMoniker
+                Id="245c9c86-bd81-4741-8260-6d0d75b3cdb0"
+                LastKnownName="contentList : ContentList"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="4b4e8e77-a9bd-43ca-aee8-a8d6ac89a80e"
+            name="MessageOccurrenceSpecification9">
+            <covered>
+              <lifelineMoniker
+                Id="5d49a360-1ec4-4667-a738-0ef862eaa598"
+                LastKnownName="docWin : DocWin"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="df67d700-140e-4c3b-8d42-7c547a78020f"
+            name="BehaviorExecutionSpecification4">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="28b9b16c-986b-41b2-b360-eb3624d9cc43"
+                LastKnownName="Lifeline1"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="c0d3b144-4512-4a0c-8ab8-c8e5df406c76"
+                LastKnownName="ExecutionOccurrenceSpecification8"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="419f4124-e71f-4107-8c2f-d132f880d8bf"
+                LastKnownName="ExecutionOccurrenceSpecification7"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="6308d967-68fa-42e9-81ea-1ee2d22f6302"
+                LastKnownName="MessageOccurrenceSpecification14"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="8acbd6b7-04a2-4362-86f1-9bdc60b81868"
+                LastKnownName="MessageOccurrenceSpecification15"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="419f4124-e71f-4107-8c2f-d132f880d8bf"
+            name="ExecutionOccurrenceSpecification7">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="8102d2ce-daf3-4b3f-9c48-1453942cef92"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="28b9b16c-986b-41b2-b360-eb3624d9cc43"
+                LastKnownName="Lifeline1"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="6308d967-68fa-42e9-81ea-1ee2d22f6302"
+            name="MessageOccurrenceSpecification14">
+            <covered>
+              <lifelineMoniker
+                Id="28b9b16c-986b-41b2-b360-eb3624d9cc43"
+                LastKnownName="Lifeline1"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="f95fa3c9-42b0-4cf5-8c4f-287ba6d6ad5e"
+            name="MessageOccurrenceSpecification13">
+            <covered>
+              <lifelineMoniker
+                Id="245c9c86-bd81-4741-8260-6d0d75b3cdb0"
+                LastKnownName="contentList : ContentList"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="f3b2554a-a603-4225-a373-380ccdaf27b4"
+            name="BehaviorExecutionSpecification5">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="245c9c86-bd81-4741-8260-6d0d75b3cdb0"
+                LastKnownName="contentList : ContentList"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="497291ee-d792-4754-bd66-38dfb1b4674d"
+                LastKnownName="ExecutionOccurrenceSpecification10"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="a3ccff2d-b527-4cc5-8e54-ae206febdd86"
+                LastKnownName="ExecutionOccurrenceSpecification9"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="0ed93d79-79d7-4b82-beb1-aea81735d840"
+                LastKnownName="MessageOccurrenceSpecification16"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="a3ccff2d-b527-4cc5-8e54-ae206febdd86"
+            name="ExecutionOccurrenceSpecification9">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="f1f501ce-fa4d-4629-a717-c65dc357e920"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="245c9c86-bd81-4741-8260-6d0d75b3cdb0"
+                LastKnownName="contentList : ContentList"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="0ed93d79-79d7-4b82-beb1-aea81735d840"
+            name="MessageOccurrenceSpecification16">
+            <covered>
+              <lifelineMoniker
+                Id="245c9c86-bd81-4741-8260-6d0d75b3cdb0"
+                LastKnownName="contentList : ContentList"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="8acbd6b7-04a2-4362-86f1-9bdc60b81868"
+            name="MessageOccurrenceSpecification15">
+            <covered>
+              <lifelineMoniker
+                Id="28b9b16c-986b-41b2-b360-eb3624d9cc43"
+                LastKnownName="Lifeline1"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="c0d3b144-4512-4a0c-8ab8-c8e5df406c76"
+            name="ExecutionOccurrenceSpecification8">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="ad3fa0b0-d03b-4ef8-bcaf-a1e5f1c6ea06"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="28b9b16c-986b-41b2-b360-eb3624d9cc43"
+                LastKnownName="Lifeline1"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="497291ee-d792-4754-bd66-38dfb1b4674d"
+            name="ExecutionOccurrenceSpecification10">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="d552478f-108c-420a-9af2-f80c464bf2d8"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="245c9c86-bd81-4741-8260-6d0d75b3cdb0"
+                LastKnownName="contentList : ContentList"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="4848fdbd-601b-4dd2-a52b-c7dcdca9a7de"
+            name="MessageOccurrenceSpecification11">
+            <covered>
+              <lifelineMoniker
+                Id="245c9c86-bd81-4741-8260-6d0d75b3cdb0"
+                LastKnownName="contentList : ContentList"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="97a38b43-01c5-401a-b6f7-349d8e9b0dcf"
+            name="MessageOccurrenceSpecification12">
+            <covered>
+              <lifelineMoniker
+                Id="5d49a360-1ec4-4667-a738-0ef862eaa598"
+                LastKnownName="docWin : DocWin"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="1f93bd48-6b31-4dfb-b285-36f8303ff6c1"
+            name="ExecutionOccurrenceSpecification6">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="28864815-40d2-443a-b7e5-1ee83c63d3f5"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="245c9c86-bd81-4741-8260-6d0d75b3cdb0"
+                LastKnownName="contentList : ContentList"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="51a57557-4365-4b0e-9189-39c27af1ccc9"
+            name="MessageOccurrenceSpecification4">
+            <covered>
+              <lifelineMoniker
+                Id="8259e1eb-5f4c-4a28-b922-671fe3809c6b"
+                LastKnownName="testButton : TestButton"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="eb84cb52-1372-42a6-b53c-db960026e71a"
+            name="MessageOccurrenceSpecification3">
+            <covered>
+              <lifelineMoniker
+                Id="5d49a360-1ec4-4667-a738-0ef862eaa598"
+                LastKnownName="docWin : DocWin"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="a7bed8fd-5d97-4fd5-8e51-3756c51aea20"
+            name="ExecutionOccurrenceSpecification2">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="ab3e0cf9-bfa3-474c-b60c-1f5edb5e1c65"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="5d49a360-1ec4-4667-a738-0ef862eaa598"
+                LastKnownName="docWin : DocWin"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="42219765-9da6-4056-a3c7-564a1945e435"
+            name="BehaviorExecutionSpecification2">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="5d49a360-1ec4-4667-a738-0ef862eaa598"
+                LastKnownName="docWin : DocWin"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="cdcdd74a-ad63-4242-a7ce-fa6691e7de21"
+                LastKnownName="ExecutionOccurrenceSpecification4"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="c7786d49-598f-4b15-b33f-c4ff6c000a9b"
+                LastKnownName="ExecutionOccurrenceSpecification3"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="c6a285d0-bc5e-4f08-bc8f-1215078f1417"
+                LastKnownName="MessageOccurrenceSpecification6"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="34b45403-9ff7-42c1-b387-f4a3420d69a8"
+                LastKnownName="MessageOccurrenceSpecification7"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="c7786d49-598f-4b15-b33f-c4ff6c000a9b"
+            name="ExecutionOccurrenceSpecification3">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="f240f6e6-e8fa-44d7-a423-d6085d4c588e"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="5d49a360-1ec4-4667-a738-0ef862eaa598"
+                LastKnownName="docWin : DocWin"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="c6a285d0-bc5e-4f08-bc8f-1215078f1417"
+            name="MessageOccurrenceSpecification6">
+            <covered>
+              <lifelineMoniker
+                Id="5d49a360-1ec4-4667-a738-0ef862eaa598"
+                LastKnownName="docWin : DocWin"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="ce8d1446-e462-499b-a25c-c7a3cea66ac2"
+            name="MessageOccurrenceSpecification5">
+            <covered>
+              <lifelineMoniker
+                Id="8259e1eb-5f4c-4a28-b922-671fe3809c6b"
+                LastKnownName="testButton : TestButton"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="34b45403-9ff7-42c1-b387-f4a3420d69a8"
+            name="MessageOccurrenceSpecification7">
+            <covered>
+              <lifelineMoniker
+                Id="5d49a360-1ec4-4667-a738-0ef862eaa598"
+                LastKnownName="docWin : DocWin"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="7d1717d1-132d-4de9-b2f2-2be15569b918"
+            name="MessageOccurrenceSpecification8">
+            <covered>
+              <lifelineMoniker
+                Id="8259e1eb-5f4c-4a28-b922-671fe3809c6b"
+                LastKnownName="testButton : TestButton"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="cdcdd74a-ad63-4242-a7ce-fa6691e7de21"
+            name="ExecutionOccurrenceSpecification4">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="85f4397d-bdda-4a60-8e83-f478e91f38eb"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="5d49a360-1ec4-4667-a738-0ef862eaa598"
+                LastKnownName="docWin : DocWin"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+        </fragments>
+        <lifelines>
+          <lifeline
+            Id="8259e1eb-5f4c-4a28-b922-671fe3809c6b"
+            name="testButton : TestButton"
+            isActor="false"
+            lifelineDisplayName="testButton : TestButton">
+            <represents>
+              <propertyMoniker
+                Id="3334ef84-a67a-4b0a-9b28-def11f534545"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </represents>
+            <topLevelOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="9812f496-91e6-45ba-a45b-39fe63307761"
+                LastKnownName="MessageOccurrenceSpecification1"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="51a57557-4365-4b0e-9189-39c27af1ccc9"
+                LastKnownName="MessageOccurrenceSpecification4"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="ce8d1446-e462-499b-a25c-c7a3cea66ac2"
+                LastKnownName="MessageOccurrenceSpecification5"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="7d1717d1-132d-4de9-b2f2-2be15569b918"
+                LastKnownName="MessageOccurrenceSpecification8"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline
+            Id="5d49a360-1ec4-4667-a738-0ef862eaa598"
+            name="docWin : DocWin"
+            isActor="false"
+            lifelineDisplayName="docWin : DocWin">
+            <represents>
+              <propertyMoniker
+                Id="e975b8b5-6a37-43e4-8352-cafdca1b14a8"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </represents>
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker
+                Id="c03e80d4-6dae-4efc-beda-82f24eaf1343"
+                LastKnownName="ExecutionOccurrenceSpecification1"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="a7bed8fd-5d97-4fd5-8e51-3756c51aea20"
+                LastKnownName="ExecutionOccurrenceSpecification2"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="c7786d49-598f-4b15-b33f-c4ff6c000a9b"
+                LastKnownName="ExecutionOccurrenceSpecification3"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="cdcdd74a-ad63-4242-a7ce-fa6691e7de21"
+                LastKnownName="ExecutionOccurrenceSpecification4"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline
+            Id="245c9c86-bd81-4741-8260-6d0d75b3cdb0"
+            name="contentList : ContentList"
+            isActor="false"
+            lifelineDisplayName="contentList : ContentList">
+            <represents>
+              <propertyMoniker
+                Id="e61591ba-8b5d-43a7-8277-b9efc3930c0e"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </represents>
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker
+                Id="8086fe4f-1805-48d5-9287-bb1cb83e2733"
+                LastKnownName="ExecutionOccurrenceSpecification5"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="1f93bd48-6b31-4dfb-b285-36f8303ff6c1"
+                LastKnownName="ExecutionOccurrenceSpecification6"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline
+            Id="28b9b16c-986b-41b2-b360-eb3624d9cc43"
+            name="Lifeline1"
+            isActor="false"
+            lifelineDisplayName="Lifeline1">
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker
+                Id="419f4124-e71f-4107-8c2f-d132f880d8bf"
+                LastKnownName="ExecutionOccurrenceSpecification7"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="c0d3b144-4512-4a0c-8ab8-c8e5df406c76"
+                LastKnownName="ExecutionOccurrenceSpecification8"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+        </lifelines>
+        <messages>
+          <message
+            Id="ef2342f4-8144-40d4-b9b5-6f3c574f4289"
+            name="&lt;&lt;create&gt;&gt;"
+            messageKind="Complete"
+            messageSort="CreateMessage"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="9812f496-91e6-45ba-a45b-39fe63307761"
+                LastKnownName="MessageOccurrenceSpecification1"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="bfad41af-5d8b-4a1f-839e-68f207df022a"
+                LastKnownName="MessageOccurrenceSpecification2"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="f75a2853-51e3-4003-aecd-52acd82f07bc"
+            name="Message1"
+            messageKind="Complete"
+            messageSort="SynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="4b4e8e77-a9bd-43ca-aee8-a8d6ac89a80e"
+                LastKnownName="MessageOccurrenceSpecification9"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="521c96d0-2a89-4250-94a8-01fffe176e37"
+                LastKnownName="MessageOccurrenceSpecification10"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="ca1a2611-9170-4378-b56f-041314ca0c0e"
+            name="Message2"
+            messageKind="Complete"
+            messageSort="AsynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="f95fa3c9-42b0-4cf5-8c4f-287ba6d6ad5e"
+                LastKnownName="MessageOccurrenceSpecification13"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="6308d967-68fa-42e9-81ea-1ee2d22f6302"
+                LastKnownName="MessageOccurrenceSpecification14"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="8bdf423f-ba2c-471b-8843-d2e6b1a9f8ad"
+            name="Message3"
+            messageKind="Complete"
+            messageSort="AsynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="8acbd6b7-04a2-4362-86f1-9bdc60b81868"
+                LastKnownName="MessageOccurrenceSpecification15"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="0ed93d79-79d7-4b82-beb1-aea81735d840"
+                LastKnownName="MessageOccurrenceSpecification16"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="c85bcd42-5bff-4395-b613-96f0ad4f3b46"
+            name="&lt;&lt;return&gt;&gt;"
+            messageKind="Complete"
+            messageSort="Reply"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="4848fdbd-601b-4dd2-a52b-c7dcdca9a7de"
+                LastKnownName="MessageOccurrenceSpecification11"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="97a38b43-01c5-401a-b6f7-349d8e9b0dcf"
+                LastKnownName="MessageOccurrenceSpecification12"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="faec412f-0c98-4fbb-b381-675131eba8b0"
+            name="&lt;&lt;return&gt;&gt;"
+            messageKind="Complete"
+            messageSort="Reply"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="eb84cb52-1372-42a6-b53c-db960026e71a"
+                LastKnownName="MessageOccurrenceSpecification3"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="51a57557-4365-4b0e-9189-39c27af1ccc9"
+                LastKnownName="MessageOccurrenceSpecification4"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="2517dabf-6cd0-4b77-85bc-d005f9883f2e"
+            name="Open"
+            messageKind="Complete"
+            messageSort="SynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="ce8d1446-e462-499b-a25c-c7a3cea66ac2"
+                LastKnownName="MessageOccurrenceSpecification5"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="c6a285d0-bc5e-4f08-bc8f-1215078f1417"
+                LastKnownName="MessageOccurrenceSpecification6"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="bfa9ace2-2607-41cb-b7fa-7fe726bd0be8"
+            name="&lt;&lt;return&gt;&gt;"
+            messageKind="Complete"
+            messageSort="Reply"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="34b45403-9ff7-42c1-b387-f4a3420d69a8"
+                LastKnownName="MessageOccurrenceSpecification7"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="7d1717d1-132d-4de9-b2f2-2be15569b918"
+                LastKnownName="MessageOccurrenceSpecification8"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </receiveEvent>
+          </message>
+        </messages>
+        <ownedAttributesInternal>
+          <property
+            Id="e975b8b5-6a37-43e4-8352-cafdca1b14a8"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="4c5cb91b-5cd7-417e-8fde-7e7f59989883"
+                LastKnownName="DocWin"
+                LastKnownLocation="Something.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="2e2590b6-bfb1-4138-b606-9761b3e83225"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="4c5cb91b-5cd7-417e-8fde-7e7f59989883"
+                LastKnownName="DocWin"
+                LastKnownLocation="Something.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="3334ef84-a67a-4b0a-9b28-def11f534545"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="07ddb8f6-eb6f-4f7b-a520-abc9fe5b0337"
+                LastKnownName="TestButton"
+                LastKnownLocation="Something.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="e61591ba-8b5d-43a7-8277-b9efc3930c0e"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="3984f60c-2a52-4054-b863-910f204bd74a"
+                LastKnownName="ContentList"
+                LastKnownLocation="Something.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </interaction>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="13037fa1-2fb3-4463-93f4-a338baa5a2e9"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="ab3e0cf9-bfa3-474c-b60c-1f5edb5e1c65"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="f240f6e6-e8fa-44d7-a423-d6085d4c588e"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="85f4397d-bdda-4a60-8e83-f478e91f38eb"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="7d2b01d9-d883-46b3-b571-604fb1a3801e"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="28864815-40d2-443a-b7e5-1ee83c63d3f5"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="8102d2ce-daf3-4b3f-9c48-1453942cef92"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="ad3fa0b0-d03b-4ef8-bcaf-a1e5f1c6ea06"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="f1f501ce-fa4d-4629-a717-c65dc357e920"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="d552478f-108c-420a-9af2-f80c464bf2d8"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="65967229-a1a8-4bc1-ba1e-816fc96e08b0"
+        name="Foo"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedOperationsInternal>
+          <operation
+            Id="6df7ac89-9bb1-4a65-97b9-f4a5a9f00316"
+            name="CreateFoo"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <component
+        Id="ac4b4474-10d3-4ce1-ab62-43623497d180"
+        name="DatenProvider"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="91807021-1ae3-4ad5-845d-7522a2354134">
+            <componentMoniker
+              Id="b439b5ec-640d-4fb0-bc66-f40dc39ab7be"
+              LastKnownName="Component2"
+              LastKnownLocation="Package_1817.uml" />
+          </dependency>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <providedInterface
+            Id="ee0a2cbf-dac3-4976-b267-04cf1273db76"
+            name="Port1"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false"
+            isService="false"
+            isBehavior="false">
+            <type_NamedElement>
+              <interfaceMoniker
+                Id="3d9f6e9b-8244-45d0-ac9c-7099fabfdf08"
+                LastKnownName="Customers"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </type_NamedElement>
+          </providedInterface>
+        </ownedAttributesInternal>
+      </component>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="a36c3be3-a9c8-4dae-8ed1-0e84ad5ab623"
+        LastKnownName="Mensch-Maschine-Interaktion"
+        LastKnownLocation="Package_1817.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="ab1f6178-0258-4cb0-bd31-262cabf12352"
+        LastKnownName="Geschäftsregeln"
+        LastKnownLocation="Package_1818.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="c8eef4f2-4125-4c26-b841-5e155b2e2a12"
+        LastKnownName="Datenbank"
+        LastKnownLocation="Package_1821.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="24f79618-e049-4231-af64-8bf16d74cf13"
+        LastKnownName="Package1"
+        LastKnownLocation="Package_1824.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="a29a09f7-8b20-4fcc-b628-966bd6e47482"
+        LastKnownName="Package2"
+        LastKnownLocation="Package1_1824.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <enumeration
+        Id="30cdc31d-b68c-42b7-bc7c-6ec0b2e819b0"
+        name="Enumeration1"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="3d9f6e9b-8244-45d0-ac9c-7099fabfdf08"
+        name="Customers"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="2904f055-f28d-48ed-a600-543e023fb5ec"
+        name="Customer Sorting"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <component
+        Id="0d9e700f-5871-48cb-9a8e-6713f5c1f49f"
+        name="Component1"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="368e7744-2961-4b6a-89f0-aef535837610">
+            <componentMoniker
+              Id="ac4b4474-10d3-4ce1-ab62-43623497d180"
+              LastKnownName="DatenProvider"
+              LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+          </dependency>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <providedInterface
+            Id="05136562-023d-418c-8bba-2c37e0795367"
+            name="Port1"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false"
+            isService="false"
+            isBehavior="false">
+            <type_NamedElement>
+              <interfaceMoniker
+                Id="2904f055-f28d-48ed-a600-543e023fb5ec"
+                LastKnownName="Customer Sorting"
+                LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+            </type_NamedElement>
+          </providedInterface>
+        </ownedAttributesInternal>
+      </component>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="4188466f-1c01-4b0e-863f-31287cde4879"
+        name="UI"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="8c83345f-8886-4e65-abea-f09ae99863e9">
+            <classMoniker
+              Id="43e65898-0e82-45c7-a5a1-74a72442ddfc"
+              LastKnownName="BL"
+              LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+          </dependency>
+        </suppliersInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="43e65898-0e82-45c7-a5a1-74a72442ddfc"
+        name="BL"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="a51b2210-eb3d-47e5-b512-b1f3b1e9f532">
+            <classMoniker
+              Id="5f6582a8-2c33-48b0-aff5-4b7775f4175c"
+              LastKnownName="DA"
+              LastKnownLocation="EsriDE.Samples.TrioBagatelli.UML.uml" />
+          </dependency>
+        </suppliersInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="5f6582a8-2c33-48b0-aff5-4b7775f4175c"
+        name="DA"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>
