@@ -20,7 +20,8 @@ namespace EsriDE.Samples.ContentFinder.ContentAdapter
 			}
 		}
 
-		// Composite Pattern (http://en.wikipedia.org/wiki/Composite_pattern)
+		// similar to Composite Pattern (http://en.wikipedia.org/wiki/Composite_pattern)
+		// Template Method (http://en.wikipedia.org/wiki/Template_method_pattern)
 		protected IEnumerable<Uri> GetComponentUris(Uri currentUri, RecursivityPolicy policy)
 		{
 			var leafUris = GetLeafUris(currentUri);
